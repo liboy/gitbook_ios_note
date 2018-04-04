@@ -234,7 +234,7 @@ objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isR
 ```
 ### 属性类型编码
 
-property_getAttributes 函数将返回属性（Property）的名字，@encode 编码，以及其它特征（Attribute）。
+property_getAttributes 函数将返回属性（Property）的名字，[@encode 编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1)，以及其它特征（Attribute）。
 
 property_getAttributes 返回的字符串以字母 T 开始，接着是@encode 编码和逗号。
 
