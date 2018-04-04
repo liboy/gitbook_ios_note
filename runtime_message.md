@@ -7,8 +7,9 @@ messages aren’t bound to method implementations until Runtime。
 ## objc_msgSend函数
 
 当某个对象使用语法[receiver message]来调用某个方法时，其实[receiver message]被编译器转化为：
-
+```c
 id objc_msgSend ( id self, SEL op, ... );
+```
 现在让我们看一下objc_msgSend它具体是如何发送消息：
 
 首先根据receiver对象的isa指针获取它对应的class；
