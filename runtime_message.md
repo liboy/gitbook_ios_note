@@ -18,4 +18,6 @@ id objc_msgSend ( id self, SEL op, ... );
 - 如果没有在class找到，再到super_class查找，一直找到 NSObject 类为止
 - 一旦找到message这个方法，就执行它实现的IMP，如果还找不到，就进入**动态方法解析**了，后面会提到。
 
-在消息的传递中，编译器会根据情况在 `objc_msgSend` ， `objc_msgSend_stret` ， `objc_msgSendSuper` ， `objc_msgSendSuper_stret` 这四个方法中选择一个调用。如果消息是传递给父类，那么会调用名字带有 Super 的函数，如果消息返回值是数据结构而不是简单值时，会调用名字带有 stret 的函数。
+在消息的传递中，编译器会根据情况在 `objc_msgSend` ， `objc_msgSend_stret` ， `objc_msgSendSuper` ， `objc_msgSendSuper_stret` 这四个方法中选择一个调用。
+- 消息是传递给父类，调用名字带有 Super 的函数，
+- 消息返回值是数据结构而不是简单值时，会调用名字带有 stret 的函数。
