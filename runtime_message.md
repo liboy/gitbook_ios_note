@@ -36,7 +36,7 @@ id objc_msgSend ( id self, SEL op, ... );
 因为在源代码方法的定义中，我们并没有发现这两个参数的声明。它们时在代码被编译时被插入方法实现中的。尽管这些参数没有被明确声明，在源代码中我们仍然可以引用它们。
 
 ### self与super
-这时我们可能会想到另一个关键字 super ，实际上 super 关键字接收到消息时，编译器会创建一个 objc_super 结构体：
+实际上 super 关键字接收到消息时，编译器会创建一个 objc_super 结构体：
 
 struct objc_super { id receiver; Class class; };
 这个结构体指明了消息应该被传递给特定的父类。 receiver 仍然是 self 本身，当我们想通过 [super class] 获取父类时，编译器其实是将指向 self 的 id 指针和 class 的 SEL 传递给了 objc_msgSendSuper 函数。只有在 NSObject 类中才能找到 class 方法，然后 class 方法底层被转换为 object_getClass()， 接着底层编译器将代码转换为 objc_msgSend(objc_super->receiver, @selector(class))，传入的第一个参数是指向 self 的 id 指针，与调用 [self class] 相同，所以我们得到的永远都是 self 的类型。因此你会发现：
