@@ -86,7 +86,8 @@ Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和
 ### name
 表示类名
 
-ivars表示多个成员变量，它指向objc_ivar_list结构体。在runtime.h可以看到它的定义：
+### ivars
+表示多个成员变量，它指向objc_ivar_list结构体。在runtime.h可以看到它的定义：
 ```c
 struct objc_ivar_list {
   int ivar_count                                           OBJC2_UNAVAILABLE;
