@@ -46,7 +46,7 @@ NSLog(@"%@", NSStringFromClass([super class]));
 ```
 id objc_msgSend(id self, SEL op, ...)
 ```
-这时会从当前Son类的方法列表中查找，如果没有，就到Father类查找，还是没有，最后在NSObject类查找到。我们可以从NSObject.mm文件中看到- (Class)class的实现：
+这时会从当前Son类的方法列表中查找，如果没有，就到父类查找，还是没有，最后在NSObject类查找到。我们可以从NSObject.mm文件中看到- (Class)class的实现：
 ```c
 - (Class)class {
     return object_getClass(self);
