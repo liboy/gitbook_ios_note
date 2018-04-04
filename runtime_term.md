@@ -115,7 +115,7 @@ struct objc_method_list {
 ## Method
 
 Method表示类中的某个方法，在runtime.h文件中找到它的定义：
-
+```c
 /// An opaque type that represents a method in a class definition.
 typedef struct objc_method *Method;
 struct objc_method {
@@ -123,6 +123,7 @@ struct objc_method {
     char *method_types                                       OBJC2_UNAVAILABLE;
     IMP method_imp                                           OBJC2_UNAVAILABLE;
 }
+```
 其实Method就是一个指向objc_method结构体指针，它存储了方法名(method_name)、方法类型(method_types)和方法实现(method_imp)等信息。而method_imp的数据类型是IMP，它是一个函数指针，后面会重点提及。
 
 ## Ivar
