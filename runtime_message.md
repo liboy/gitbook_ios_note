@@ -11,6 +11,7 @@ messages aren’t bound to method implementations until Runtime。
 id objc_msgSend ( id self, SEL op, ... );
 ```
 现在让我们看一下objc_msgSend它具体是如何发送消息：
+
 ![](/assets/2.gif)
 
 1. 首先根据receiver对象的isa指针获取它对应的class
