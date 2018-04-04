@@ -148,7 +148,7 @@ struct objc_ivar {
 ```
 Ivar其实就是一个指向objc_ivar结构体指针，它包含了变量名(ivar_name)、变量类型(ivar_type)等信息。
 
-### IMP
+## IMP
 
 在上面讲Method时就说过，IMP本质上就是一个函数指针，指向方法的实现，在objc.h找到它的定义：
 ```c
