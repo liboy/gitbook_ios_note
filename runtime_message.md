@@ -69,7 +69,7 @@ objc_msgSend(objc_super->receiver, @selector(class))
 
 ### methodForSelector
 
-NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP ，举个例子：
+NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP
 ```c
 void (*setter)(id, SEL, BOOL);
 int i;
@@ -78,8 +78,5 @@ setter = (void (*)(id, SEL, BOOL))[target methodForSelector:@selector(setFilled:
 for ( i = 0 ; i < 1000 ; i++ )
     setter(targetList[i], @selector(setFilled:), YES);
 ```
-当方法被当做函数调用时，两个隐藏参数也必须明确给出，上面的例子调用了1000次函数，你也可以尝试给 target 发送1000次 setFilled: 消息会花多久。
-
-虽然可以更高效的调用方法，但是这种做法很少用，除非时需要持续大量重复调用某个方法的情况，才会选择使用以免消息发送泛滥。
 
 >注意：methodForSelector:方法是由 Runtime 系统提供的，而不是 Objc 自身的特性
