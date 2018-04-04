@@ -80,9 +80,9 @@ Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和
 3. Root class(meta)的superclass指向Root class(class)，也就是NSObject，形成一个回路。
 4. 每个Meta class的isa指针都指向Root class (meta)。
 
-- super_class表示实例对象对应的父类；
+- **super_class**表示实例对象对应的父类；
 
-- name表示类名
+- **name**表示类名
 
 - **ivars**表示多个成员变量，它指向objc_ivar_list结构体。在runtime.h可以看到它的定义：
 ```c
