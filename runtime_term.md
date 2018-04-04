@@ -163,7 +163,7 @@ typedef id (*IMP)(id, SEL, ...);
 
 ### Cache
 
-顾名思义，Cache主要用来缓存，那它缓存什么呢？我们先在runtime.h文件看看它的定义：
+在runtime.h文件看看它的定义：
 ```c
 typedef struct objc_cache *Cache                             OBJC2_UNAVAILABLE;
 
