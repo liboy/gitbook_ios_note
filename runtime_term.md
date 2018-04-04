@@ -219,7 +219,7 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
 ```
 打印结果如下：
 ```
-2014-11-10 11:27:28.473 test[2321:451525] 3
+test[2321:451525] 3
 test[2321:451525] name--------T@"NSString",&,N,V_name
 2014-11-10 11:27:28.473 test[2321:451525] age--------Ti,N,V_age
 2014-11-10 11:27:28.474 test[2321:451525] weight--------Td,N,V_weight
