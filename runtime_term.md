@@ -64,7 +64,8 @@ struct objc_ivar_list {
     struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
 }                                                            OBJC2_UNAVAILABLE;
 ```
-// 方法列表
+- 方法列表
+```c
 struct objc_method_list {
     struct objc_method_list *obsolete                        OBJC2_UNAVAILABLE;
 
@@ -75,6 +76,7 @@ struct objc_method_list {
     /* variable length structure */
     struct objc_method method_list[1]                        OBJC2_UNAVAILABLE;
 }
+```
 由此可见，我们可以动态修改 *methodList 的值来添加成员方法，这也是 Category 实现的原理，同样解释了 Category 不能添加属性的原因。这里可以参考下美团技术团队的文章：深入理解 Objective-C: Category。
 
 objc_ivar_list 结构体用来存储成员变量的列表，而 objc_ivar 则是存储了单个成员变量的信息；同理，objc_method_list 结构体存储着方法数组的列表，而单个方法的信息则由 objc_method 结构体存储。
