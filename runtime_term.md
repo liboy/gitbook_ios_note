@@ -201,8 +201,9 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
 @property (assign, nonatomic) double weight;
 
 @end
-以上是一个 Person 类，有3个属性。让我们用上述方法获取类的运行时属性。
 
+以上是一个 Person 类，有3个属性。让我们用上述方法获取类的运行时属性。
+```
     unsigned int outCount = 0;
 
     objc_property_t *properties = class_copyPropertyList([Person class], &outCount);
@@ -214,6 +215,7 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
         NSString *attributes = @(property_getAttributes(properties[i]));
         NSLog(@"%@--------%@", name, attributes);
     }
+```
 打印结果如下：
 
 2014-11-10 11:27:28.473 test[2321:451525] 3
