@@ -151,13 +151,14 @@ Ivar其实就是一个指向objc_ivar结构体指针，它包含了变量名(iva
 ### IMP
 
 在上面讲Method时就说过，IMP本质上就是一个函数指针，指向方法的实现，在objc.h找到它的定义：
-
+```c
 /// A pointer to the function of a method implementation. 
 #if !OBJC_OLD_DISPATCH_PROTOTYPES
 typedef void (*IMP)(void /* id, SEL, ... */ ); 
 #else
 typedef id (*IMP)(id, SEL, ...); 
 #endif
+```
 当你向某个对象发送一条信息，可以由这个函数指针来指定方法的实现，它最终就会执行那段代码，这样可以绕开消息传递阶段而去执行另一个方法实现。
 
 Cache
