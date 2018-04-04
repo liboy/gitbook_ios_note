@@ -72,10 +72,10 @@ struct objc_class : objc_object {
  - 类方法就是类对象的实例方法，每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。
 Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和super_class指针，关系如下：
 ![](/assets/1.png)
-1. Root class (class)其实就是NSObject，NSObject是没有超类的，所以Root class(class)的superclass指向nil。
-2. 每个Class都有一个isa指针指向唯一的Meta class
-3. Root class(meta)的superclass指向Root class(class)，也就是NSObject，形成一个回路。
-4. 每个Meta class的isa指针都指向Root class (meta)。
+ 1. Root class (class)其实就是NSObject，NSObject是没有超类的，所以Root class(class)的superclass指向nil。
+ 2. 每个Class都有一个isa指针指向唯一的Meta class
+ 3. Root class(meta)的superclass指向Root class(class)，也就是NSObject，形成一个回路。
+ 4. 每个Meta class的isa指针都指向Root class (meta)。
 
 - **super_class**表示实例对象对应的父类；
 
