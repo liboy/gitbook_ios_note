@@ -76,14 +76,7 @@ struct objc_super {
 ```
 结构体包含两个成员，第一个是receiver，表示某个类的实例。第二个是super_class表示当前类的父类。
 
-这时首先会构造出objc_super结构体，这个结构体第一个成员是self，第二个成员是(id)class_getSuperclass(objc_getClass("Son"))，实际上该函数会输出Father。然后在Father类查找class方法，查找不到，最后在NSObject查到。此时，内部使用objc_msgSend(objc_super->receiver, @selector(class))去调用，与[self class]调用相同，所以结果还是Son。
-
-实际上 super 关键字接收到消息时，编
-
- receiver 仍然是 self 本身，当我们想通过 [super class] 获取父类时，编译器其实是将指向 self 的 id 指针和 class 的 SEL 传递给了 objc_msgSendSuper 函数。只有在 NSObject 类中才能找到 class 方法，然后 class 方法底层被转换为 object_getClass()， 接着底层编译器将代码转换为 objc_msgSend(objc_super->receiver, @selector(class))，传入的第一个参数是指向 self 的 id 指针，与调用 [self class] 相同，所以我们得到的永远都是 self 的类型。因此你会发现：
-
-// 这句话并不能获取父类的类型，只能获取当前类的类型名
-NSLog(@"%@", NSStringFromClass([super class]));
+这时首先会构造出objc_super结构体，这个结构体第一个成员是self，第二个成员是(id)class_getSuperclass(objc_getClass("Son"))，实际上该函数会输出Father。然后在Father类查找class方法，查找不到，最后在NSObject查到。此时，内部使用objc_msgSend(objc_super->receiver, @selector(class))去调用，与[self class]调用相同。
 
 ### 获取方法地址methodForSelector
 
