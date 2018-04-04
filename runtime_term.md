@@ -226,7 +226,8 @@ test[2321:451525] weight--------Td,N,V_weight
 ```
 - property_getName 用来查找属性的名称，返回 c 字符串。
 - property_getAttributes函数可以获得属性的名字和@encode编码。
-关于类型编码参考[类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1) ，关于[属性的类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW6)。
+
+>关于类型编码参考[类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1) 、[属性的类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW6)。
 
 class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
 ```c
