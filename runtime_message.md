@@ -47,8 +47,9 @@ id objc_msgSend(id self, SEL op, ...)
 所以NSLog(@"%@", NSStringFromClass([self class]));会输出Son。
 
 当调用[super class]方法时，会转化为objc_msgSendSuper，这个函数定义如下：
-
+```c
 id objc_msgSendSuper(struct objc_super *super, SEL op, ...)
+```
 objc_msgSendSuper函数第一个参数super的数据类型是一个指向objc_super的结构体，从message.h文件中查看它的定义：
 ```c
 /// Specifies the superclass of an instance. 
