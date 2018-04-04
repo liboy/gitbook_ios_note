@@ -174,3 +174,53 @@ struct objc_cache {
 };
 ```
 Cache其实就是一个存储Method的链表，主要是为了优化方法调用的性能。当对象receiver调用方法message时，首先根据对象receiver的isa指针查找到它对应的类，然后在类的methodLists中搜索方法，如果没有找到，就使用super_class指针到父类中的methodLists查找，一旦找到就调用方法。如果没有找到，有可能消息转发，也可能忽略它。但这样查找方式效率太低，因为往往一个类大概只有20%的方法经常被调用，占总调用次数的80%。所以使用Cache来缓存经常调用的方法，当调用方法时，优先在Cache查找，如果没有找到，再到methodLists查找。
+
+Property
+
+typedef struct objc_property *Property;
+typedef struct objc_property *objc_property_t;//这个更常用
+可以通过class_copyPropertyList 和 protocol_copyPropertyList 方法获取类和协议中的属性：
+
+objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
+objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCount)
+注意：
+返回的是属性列表，列表中每个元素都是一个 objc_property_t 指针
+
+#import <Foundation/Foundation.h>
+
+@interface Person : NSObject
+
+/** 姓名 */
+@property (strong, nonatomic) NSString *name;
+
+/** age */
+@property (assign, nonatomic) int age;
+
+/** weight */
+@property (assign, nonatomic) double weight;
+
+@end
+以上是一个 Person 类，有3个属性。让我们用上述方法获取类的运行时属性。
+
+    unsigned int outCount = 0;
+
+    objc_property_t *properties = class_copyPropertyList([Person class], &outCount);
+
+    NSLog(@"%d", outCount);
+
+    for (NSInteger i = 0; i < outCount; i++) {
+        NSString *name = @(property_getName(properties[i]));
+        NSString *attributes = @(property_getAttributes(properties[i]));
+        NSLog(@"%@--------%@", name, attributes);
+    }
+打印结果如下：
+
+2014-11-10 11:27:28.473 test[2321:451525] 3
+2014-11-10 11:27:28.473 test[2321:451525] name--------T@"NSString",&,N,V_name
+2014-11-10 11:27:28.473 test[2321:451525] age--------Ti,N,V_age
+2014-11-10 11:27:28.474 test[2321:451525] weight--------Td,N,V_weight
+property_getName 用来查找属性的名称，返回 c 字符串。property_getAttributes 函数挖掘属性的真实名称和 @encode 类型，返回 c 字符串。
+
+objc_property_t class_getProperty(Class cls, const char *name)
+objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
+class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
