@@ -1,6 +1,7 @@
 # 运行时(Runtime)机制
 
 ## 简介
+Objective-C是基于C语言加入了面向对象特性和消息转发机制的动态语言，这意味着它不仅需要一个编译器，还需要Runtime系统来动态创建类和对象，进行消息发送和转发。下面通过分析Apple开源的Runtime代码（我使用的版本是objc4-646.tar）来深入理解Objective-C的Runtime机制。
 
 ### OC
 * OC 是一个全动态语言，OC 的一切都是基于 Runtime 实现的
