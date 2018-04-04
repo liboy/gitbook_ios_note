@@ -38,7 +38,6 @@ id objc_msgSend ( id self, SEL op, ... );
 ### self与super
 
 ```
-
 NSLog(@"%@", NSStringFromClass([self class]));
 // 这句话并不能获取父类的类型，只能获取当前类的类型名
 NSLog(@"%@", NSStringFromClass([super class]));
