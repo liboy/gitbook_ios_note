@@ -74,8 +74,7 @@ NSObject 类中有一个实例方法：methodForSelector，你可以用它来获
 void (*setter)(id, SEL, BOOL);
 int i;
 
-setter = (void (*)(id, SEL, BOOL))[target
-    methodForSelector:@selector(setFilled:)];
+setter = (void (*)(id, SEL, BOOL))[target methodForSelector:@selector(setFilled:)];
 for ( i = 0 ; i < 1000 ; i++ )
     setter(targetList[i], @selector(setFilled:), YES);
 ```
@@ -83,4 +82,4 @@ for ( i = 0 ; i < 1000 ; i++ )
 
 虽然可以更高效的调用方法，但是这种做法很少用，除非时需要持续大量重复调用某个方法的情况，才会选择使用以免消息发送泛滥。
 
-注意：methodForSelector:方法是由 Runtime 系统提供的，而不是 Objc 自身的特性
+>注意：methodForSelector:方法是由 Runtime 系统提供的，而不是 Objc 自身的特性
