@@ -119,19 +119,4 @@ struct objc_method_list {
 cache用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
 protocols表示类遵循哪些协议。
 其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表
-
-- 成员变量列表
-
-- 方法列表
-```c
-struct objc_method_list {
-    struct objc_method_list *obsolete                        OBJC2_UNAVAILABLE;
-
-    int method_count                                         OBJC2_UNAVAILABLE;
-#ifdef __LP64__
-    int space                                                OBJC2_UNAVAILABLE;
-#endif
-    /* variable length structure */
-    struct objc_method method_list[1]                        OBJC2_UNAVAILABLE;
-}
 ```
