@@ -10,8 +10,8 @@ messages aren’t bound to method implementations until Runtime。
 ```c
 id objc_msgSend ( id self, SEL op, ... );
 ```
-![](/assets/2.gif)
 现在让我们看一下objc_msgSend它具体是如何发送消息：
+![](/assets/2.gif)
 
 1. 首先根据receiver对象的isa指针获取它对应的class
 - 检测这个 selector 的 target 是不是 nil，Objc 允许我们对一个 nil 对象执行任何方法不会 Crash，因为运行时会被忽略掉。
