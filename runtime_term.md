@@ -112,7 +112,7 @@ struct objc_method_list {
 - **cache**用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
 - **protocols**表示类遵循哪些协议。
 
-Method
+## Method
 
 Method表示类中的某个方法，在runtime.h文件中找到它的定义：
 
