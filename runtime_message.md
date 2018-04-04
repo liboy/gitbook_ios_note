@@ -36,6 +36,8 @@ id objc_msgSend ( id self, SEL op, ... );
 因为在源代码方法的定义中，我们并没有发现这两个参数的声明。它们时在代码被编译时被插入方法实现中的。尽管这些参数没有被明确声明，在源代码中我们仍然可以引用它们。
 
 ### self与super
+
+
 实际上 super 关键字接收到消息时，编译器会创建一个 objc_super 结构体：
 
 struct objc_super { id receiver; Class class; };
