@@ -84,7 +84,7 @@ struct objc_super { id receiver; Class class; };
 // 这句话并不能获取父类的类型，只能获取当前类的类型名
 NSLog(@"%@", NSStringFromClass([super class]));
 
-获取方法地址
+### 获取方法地址
 
 NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP ，举个例子：
 
