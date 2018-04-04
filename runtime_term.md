@@ -130,7 +130,7 @@ struct objc_method {
 ## Ivar
 
 Ivar表示类中的实例变量，在runtime.h文件中找到它的定义：
-
+```c
 /// An opaque type that represents an instance variable.
 typedef struct objc_ivar *Ivar;
 
@@ -142,6 +142,7 @@ struct objc_ivar {
     int space                                                OBJC2_UNAVAILABLE;
 #endif
 }
+```
 Ivar其实就是一个指向objc_ivar结构体指针，它包含了变量名(ivar_name)、变量类型(ivar_type)等信息。
 
 IMP
