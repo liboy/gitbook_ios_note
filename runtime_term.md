@@ -50,6 +50,8 @@ struct objc_class {
 
 } OBJC2_UNAVAILABLE;
 ```
+>注意：OBJC2_UNAVAILABLE是一个Apple对Objc系统运行版本进行约束的宏定义，主要为了兼容非Objective-C 2.0的遗留版本，但我们仍能从中获取一些有用信息。
+
 从 objc_class 可以看到，一个运行时类中关联了它的父类指针、类名、成员变量、方法、缓存以及附属的协议。
 
 其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表：
