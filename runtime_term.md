@@ -236,11 +236,11 @@ objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isR
 
 property_getAttributes 函数将返回属性（Property）的名字，[@encode 编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1)，以及其它特征（Attribute）。
 
-property_getAttributes 返回的字符串以字母 T 开始，接着是@encode 编码和逗号。
+- property_getAttributes 返回的字符串以字母 T 开始，接着是@encode 编码和逗号。
 
-如果属性有 readonly 修饰，则字符串中含有 R 和逗号。
+- 如果属性有 readonly 修饰，则字符串中含有 R 和逗号。
 
-如果属性有 copy 或者 retain 修饰，则字符串分别含有 C 或者&，然后是逗号。
+- 如果属性有 copy 或者 retain 修饰，则字符串分别含有 C 或者&，然后是逗号。
 
 如果属性定义有定制的 getter 和 setter 方法，则字符串中有 G 或者 S 跟着相应的方法名以及逗号 （例如，GcustomGetter，ScustomSetter:,，）。
 
