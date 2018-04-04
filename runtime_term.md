@@ -53,7 +53,8 @@ struct objc_class {
 
 其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表：
 
-// 成员变量列表
+- 成员变量列表
+```c
 struct objc_ivar_list {
     int ivar_count                                           OBJC2_UNAVAILABLE;
 #ifdef __LP64__
@@ -62,7 +63,7 @@ struct objc_ivar_list {
     /* variable length structure */
     struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
 }                                                            OBJC2_UNAVAILABLE;
-
+```
 // 方法列表
 struct objc_method_list {
     struct objc_method_list *obsolete                        OBJC2_UNAVAILABLE;
