@@ -181,9 +181,10 @@ typedef struct objc_property *Property;
 typedef struct objc_property *objc_property_t;//这个更常用
 ```
 可以通过class_copyPropertyList 和 protocol_copyPropertyList 方法获取类和协议中的属性：
-
+```c
 objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
 objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCount)
+```
 注意：
 返回的是属性列表，列表中每个元素都是一个 objc_property_t 指针
 
