@@ -91,7 +91,7 @@ Objective-C是基于C语言加入了面向对象特性和消息转发机制的�
 
 ### 利用关联对象实现性能优化
 
-```objc
+```objectivec
 ///  关联对象键值
 const char* propertiesKey = "propertiesKey";
 
