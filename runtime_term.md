@@ -57,6 +57,10 @@ struct objc_class {
 
 其实Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和super_class指针，关系如下：
 ![](/assets/1.png)
+Root class (class)其实就是NSObject，NSObject是没有超类的，所以Root class(class)的superclass指向nil。
+每个Class都有一个isa指针指向唯一的Meta class
+Root class(meta)的superclass指向Root class(class)，也就是NSObject，形成一个回路。
+每个Meta class的isa指针都指向Root class (meta)。
 
 从 objc_class 可以看到，一个运行时类中关联了它的父类指针、类名、成员变量、方法、缓存以及附属的协议。
 
