@@ -232,4 +232,25 @@ class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议�
 objc_property_t class_getProperty(Class cls, const char *name)
 objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
 ```
+### 属性类型编码
+
+property_getAttributes 函数将返回属性（Property）的名字，@encode 编码，以及其它特征（Attribute）。
+
+property_getAttributes 返回的字符串以字母 T 开始，接着是@encode 编码和逗号。
+
+如果属性有 readonly 修饰，则字符串中含有 R 和逗号。
+
+如果属性有 copy 或者 retain 修饰，则字符串分别含有 C 或者&，然后是逗号。
+
+如果属性定义有定制的 getter 和 setter 方法，则字符串中有 G 或者 S 跟着相应的方法名以及逗号 （例如，GcustomGetter，ScustomSetter:,，）。
+
+如果属性是只读的，且有定制的 get 访问方法，则描述到此为止。
+
+字符串以 V 然后是属性的名字结束。
+
+范例请参考
+
+“属性特征的描述范例”
+
+一节。
 
