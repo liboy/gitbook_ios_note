@@ -30,7 +30,7 @@ isa 指针在代码运行时并不总指向实例对象所属的类型，所以�
 ```c
 typedef struct objc_class *Class;
 ```
-Class 其实是指向 objc_class 结构体的指针。打开runtime.h文件objc_class 的数据结构如下：
+Class 其实是指向 objc_class 结构体的指针。打开`runtime.h`文件objc_class 的数据结构如下：
 ```c
 struct objc_class {
     Class _Nonnull isa  OBJC_ISA_AVAILABILITY;
