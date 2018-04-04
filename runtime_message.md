@@ -4,7 +4,7 @@
 messages aren’t bound to method implementations until Runtime。
 消息直到运行时才会与方法实现进行绑定。
 
-objc_msgSend函数
+## objc_msgSend函数
 
 在前面已经提过，当某个对象使用语法[receiver message]来调用某个方法时，其实[receiver message]被编译器转化为：
 
