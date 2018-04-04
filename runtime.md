@@ -68,7 +68,7 @@ Objective-C是基于C语言加入了面向对象特性和消息转发机制的�
 
 #### 第3步－生成属性数组
 
-```objc
+```objectivec
 + (NSArray *)properties {
 
     unsigned int count = 0;
