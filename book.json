@@ -1,6 +1,6 @@
 {
-    "title": "算法笔记",
-    "description": "对数据结构和算法的学习记录",
+    "title": "学习笔记",
+    "description": "对知识点总体整理",
     "language": "zh-hans",
     "plugins": [
         "-lunr",
