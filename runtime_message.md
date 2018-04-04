@@ -57,25 +57,7 @@ id objc_msgSend(id self, SEL op, ...)
 id objc_msgSendSuper(struct objc_super *super, SEL op, ...)
 ```
 objc_msgSendSuper函数第一个参数super的数据类型是一个指向objc_super的结构体，从message.h文件中查看它的定义：
-```c
-/// Specifies the superclass of an instance. 
-struct objc_super {
-    /// Specifies an instance of a class.
-    __unsafe_unretained id receiver;
-
-    /// Specifies the particular superclass of the instance to message. 
-#if !defined(__cplusplus)  &&  !__OBJC2__
-    /* For compatibility with old objc-runtime.h header */
-    __unsafe_unretained Class class;
-#else
-    __unsafe_unretained Class super_class;
-#endif
-    /* super_class is the first class to search */
-};
-#endif
-```
-构造出objc_super结构体
-    结构体包含两个成员，
+objc_super结构体含两个成员，
     - receiver = self 表示某个类的实例。
     - super_class = (id)class_getSuperclass(objc_getClass("self.name"))
  表示当前类的父类。
