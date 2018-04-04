@@ -62,7 +62,7 @@ objc_super结构体含两个成员，
     - super_class = (id)class_getSuperclass(objc_getClass("self.name"))
  表示当前类的父类。
 
-此时内部使用
+底层编译器将代码转换为
 ```c
 objc_msgSend(objc_super->receiver, @selector(class))
 ```
