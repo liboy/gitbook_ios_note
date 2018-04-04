@@ -75,6 +75,7 @@ struct objc_super {
 #endif
 ```
 结构体包含两个成员，第一个是receiver，表示某个类的实例。第二个是super_class表示当前类的父类。
+
 这时首先会构造出objc_super结构体，这个结构体第一个成员是self，第二个成员是(id)class_getSuperclass(objc_getClass("Son"))，实际上该函数会输出Father。然后在Father类查找class方法，查找不到，最后在NSObject查到。此时，内部使用objc_msgSend(objc_super->receiver, @selector(class))去调用，与[self class]调用相同，所以结果还是Son。
 
 实际上 super 关键字接收到消息时，编
