@@ -118,5 +118,3 @@ struct objc_method_list {
 
 cache用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
 protocols表示类遵循哪些协议。
-其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表
-```
