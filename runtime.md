@@ -25,7 +25,7 @@ Objective-C是基于C语言加入了面向对象特性和消息转发机制的�
 
 * 导入头文件
 
-```objc
+```objectivec
 #import <objc/runtime.h>
 ```
 
