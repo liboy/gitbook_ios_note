@@ -47,6 +47,7 @@ struct objc_class {
 #endif
 
 } OBJC2_UNAVAILABLE;
+```
 从 objc_class 可以看到，一个运行时类中关联了它的父类指针、类名、成员变量、方法、缓存以及附属的协议。
 
 其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表：
