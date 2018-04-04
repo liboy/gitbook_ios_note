@@ -23,3 +23,5 @@ id objc_msgSend ( id self, SEL op, ... );
 - 如果 cache 找不到就找类的方法列表中是否有对应的方法。
 - 如果类的方法列表中找不到就到父类的方法列表中查找，一直找到 NSObject 类为止。
 - 如果还找不到，就要开始进入**动态方法解析**了，后面会提到。
+
+在消息的传递中，编译器会根据情况在 objc_msgSend ， objc_msgSend_stret ， objc_msgSendSuper ， objc_msgSendSuper_stret 这四个方法中选择一个调用。如果消息是传递给父类，那么会调用名字带有 Super 的函数，如果消息返回值是数据结构而不是简单值时，会调用名字带有 stret 的函数。
