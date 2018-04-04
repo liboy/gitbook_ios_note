@@ -82,9 +82,37 @@ Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和
 
 ### super_class
 表示实例对象对应的父类；
+
 ### name
-表示类名；
-其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表：
+表示类名
+
+ivars表示多个成员变量，它指向objc_ivar_list结构体。在runtime.h可以看到它的定义：
+struct objc_ivar_list {
+  int ivar_count                                           OBJC2_UNAVAILABLE;
+#ifdef __LP64__
+  int space                                                OBJC2_UNAVAILABLE;
+#endif
+  /* variable length structure */
+  struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
+}
+objc_ivar_list其实就是一个链表，存储多个objc_ivar，而objc_ivar结构体存储类的单个成员变量信息。
+
+methodLists表示方法列表，它指向objc_method_list结构体的二级指针，可以动态修改*methodLists的值来添加成员方法，也是Category实现原理，同样也解释Category不能添加属性的原因。在runtime.h可以看到它的定义：
+struct objc_method_list {
+  struct objc_method_list *obsolete                        OBJC2_UNAVAILABLE;
+
+  int method_count                                         OBJC2_UNAVAILABLE;
+#ifdef __LP64__
+  int space                                                OBJC2_UNAVAILABLE;
+#endif
+  /* variable length structure */
+  struct objc_method method_list[1]                        OBJC2_UNAVAILABLE;
+}
+同理，objc_method_list也是一个链表，存储多个objc_method，而objc_method结构体存储类的某个方法的信息。
+
+cache用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
+protocols表示类遵循哪些协议。
+其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表
 
 - 成员变量列表
 ```c
