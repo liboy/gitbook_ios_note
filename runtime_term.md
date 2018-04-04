@@ -125,7 +125,10 @@ struct objc_method {
     IMP method_imp                                           OBJC2_UNAVAILABLE;
 }
 ```
-其实Method就是一个指向objc_method结构体指针，它存储了方法名(method_name)、方法类型(method_types)和方法实现(method_imp)等信息。而method_imp的数据类型是IMP，它是一个函数指针，后面会重点提及。
+其实Method就是一个指向objc_method结构体指针，它存储了方法名(method_name)、
+方法类型(method_types)和
+方法实现(method_imp)
+method_imp的数据类型是IMP，它是一个函数指针
 
 ## Ivar
 
