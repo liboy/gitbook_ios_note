@@ -205,17 +205,17 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
 ```
 以上是一个 Person 类，有3个属性。让我们用上述方法获取类的运行时属性。
 ```objectivec
-    unsigned int outCount = 0;
+unsigned int outCount = 0;
 
-    objc_property_t *properties = class_copyPropertyList([Person class], &outCount);
+objc_property_t *properties = class_copyPropertyList([Person class], &outCount);
 
-    NSLog(@"%d", outCount);
+NSLog(@"%d", outCount);
 
-    for (NSInteger i = 0; i < outCount; i++) {
-        NSString *name = @(property_getName(properties[i]));
-        NSString *attributes = @(property_getAttributes(properties[i]));
-        NSLog(@"%@--------%@", name, attributes);
-    }
+for (NSInteger i = 0; i < outCount; i++) {
+    NSString *name = @(property_getName(properties[i]));
+    NSString *attributes = @(property_getAttributes(properties[i]));
+    NSLog(@"%@--------%@", name, attributes);
+}
 ```
 打印结果如下：
 ```
