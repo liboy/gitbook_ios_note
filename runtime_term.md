@@ -52,6 +52,18 @@ struct objc_class {
 ```
 >注意：OBJC2_UNAVAILABLE是一个Apple对Objc系统运行版本进行约束的宏定义，主要为了兼容非Objective-C 2.0的遗留版本，但我们仍能从中获取一些有用信息。
 
+###isa
+表示一个Class对象的Class，也就是Meta Class。在面向对象设计中，一切都是对象，Class在设计中本身也是一个对象。我们会在objc-runtime-new.h文件找到证据，发现objc_class有以下定义：
+```c
+struct objc_class : objc_object {
+  // Class ISA;
+  Class superclass;
+  cache_t cache;             // formerly cache pointer and vtable
+  class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags
+
+  ......
+}
+```
 由此可见，结构体objc_class也是继承objc_object，说明Class在设计中本身也是一个对象。为了处理类和对象的关系，Runtime 库创建了一种叫做 Meta Class(元类) 的东西，类对象所属的类就叫做元类。Meta Class 表述了类对象本身所具备的元数据。
 我们所熟悉的类方法，就源自于 Meta Class。我们可以理解为类方法就是类对象的实例方法。每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。
 
@@ -90,16 +102,3 @@ struct objc_method_list {
     struct objc_method method_list[1]                        OBJC2_UNAVAILABLE;
 }
 ```
-由此可见，我们可以动态修改 *methodList 的值来添加成员方法，这也是 Category 实现的原理，同样解释了 Category 不能添加属性的原因。这里可以参考下美团技术团队的文章：[深入理解 Objective-C: Category](https://tech.meituan.com/DiveIntoCategory.html)。
-
-objc_ivar_list 结构体用来存储成员变量的列表，而 objc_ivar 则是存储了单个成员变量的信息；同理，objc_method_list 结构体存储着方法数组的列表，而单个方法的信息则由 objc_method 结构体存储。
-
-当你发出一个类似 [NSObject alloc](类方法) 的消息时，实际上，这个消息被发送给了一个类对象(Class Object)，这个类对象必须是一个元类的实例，而这个元类同时也是一个根元类(Root Meta Class)的实例。所有元类的 isa 指针最终都指向根元类。
-
-所以当 [NSObject alloc] 这条消息发送给类对象的时候，运行时代码 objc_msgSend() 会去它元类中查找能够响应消息的方法实现，如果找到了，就会对这个类对象执行方法调用。
-
-
- 
-上图实现是 super_class 指针，虚线时 isa 指针。而根元类的父类是 NSObject，isa指向了自己。而 NSObject 没有父类。
-
-最后 objc_class 中还有一个 objc_cache ，缓存，它的作用很重要，后面会提到。
