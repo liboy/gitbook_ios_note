@@ -59,8 +59,7 @@ id objc_msgSendSuper(struct objc_super *super, SEL op, ...)
 objc_msgSendSuper函数第一个参数super的数据类型
 objc_super结构体含两个成员，可在`message.h`文件中查看
     - receiver = self 的 id 指针。
-    - super_class = (id)class_getSuperclass(objc_getClass("self.name"))
- 表示当前类的父类。
+    - super_class = 当前类的父类。
 
 底层编译器将代码转换为:
 ```c
