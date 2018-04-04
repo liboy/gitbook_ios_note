@@ -62,7 +62,7 @@ struct objc_ivar_list {
 #endif
     /* variable length structure */
     struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
-}                                                            OBJC2_UNAVAILABLE;
+}                                                
 ```
 - 方法列表
 ```c
