@@ -36,10 +36,9 @@ id objc_msgSend ( id self, SEL op, ... );
 因为在源代码方法的定义中，我们并没有发现这两个参数的声明。它们时在代码被编译时被插入方法实现中的。尽管这些参数没有被明确声明，在源代码中我们仍然可以引用它们。
 
 ### self与super
-
+>证明：只能获取当前类的类型名
 ```
 NSLog(@"%@", NSStringFromClass([self class]));
-// 这句话并不能获取父类的类型，只能获取当前类的类型名
 NSLog(@"%@", NSStringFromClass([super class]));
 ```
 当调用[self class]方法时，会转化为objc_msgSend函数，这个函数定义如下：
