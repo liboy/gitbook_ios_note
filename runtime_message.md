@@ -74,11 +74,12 @@ struct objc_super {
 };
 #endif
 ```
-1. 构造出objc_super结构体
+构造出objc_super结构体
     结构体包含两个成员，
     - receiver = self 表示某个类的实例。
     - super_class = (id)class_getSuperclass(objc_getClass("self.name"))
  表示当前类的父类。
+
 此时内部使用
 ```c
 objc_msgSend(objc_super->receiver, @selector(class))
