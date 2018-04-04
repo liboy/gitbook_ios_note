@@ -52,7 +52,9 @@ struct objc_class {
 ```
 >注意：OBJC2_UNAVAILABLE是一个Apple对Objc系统运行版本进行约束的宏定义，主要为了兼容非Objective-C 2.0的遗留版本，但我们仍能从中获取一些有用信息。
 
-由此可见，结构体objc_class也是继承objc_object，说明Class在设计中本身也是一个对象。
+由此可见，结构体objc_class也是继承objc_object，说明Class在设计中本身也是一个对象。为了处理类和对象的关系，Runtime 库创建了一种叫做 Meta Class(元类) 的东西，类对象所属的类就叫做元类。Meta Class 表述了类对象本身所具备的元数据。
+
+
 
 其实Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和super_class指针，关系如下：
 
