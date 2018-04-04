@@ -27,10 +27,11 @@ isa 指针在代码运行时并不总指向实例对象所属的类型，所以�
 >PS:KVO 的实现机理就是将被观察对象的 isa 指针指向一个中间类而不是真实类型。
 
 ## Class
+Class 其实是指向 objc_class 结构体的指针。
+
 ```c
 typedef struct objc_class *Class;
 ```
-Class 其实是指向 objc_class 结构体的指针。
 打开`runtime.h`文件objc_class 的数据结构如下：
 ```c
 struct objc_class {
