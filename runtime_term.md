@@ -115,16 +115,7 @@ protocols表示类遵循哪些协议。
 其中 objc_ivar_list 和 objc_method_list 分别是成员变量列表和方法列表
 
 - 成员变量列表
-```c
-struct objc_ivar_list {
-    int ivar_count                                           OBJC2_UNAVAILABLE;
-#ifdef __LP64__
-    int space                                                OBJC2_UNAVAILABLE;
-#endif
-    /* variable length structure */
-    struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
-}                                                
-```
+
 - 方法列表
 ```c
 struct objc_method_list {
