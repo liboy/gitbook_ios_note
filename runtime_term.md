@@ -186,7 +186,7 @@ objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
 objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCount)
 ```
 >注意：返回的是属性列表，列表中每个元素都是一个 objc_property_t 指针
-
+```objectivec
 #import <Foundation/Foundation.h>
 
 @interface Person : NSObject
