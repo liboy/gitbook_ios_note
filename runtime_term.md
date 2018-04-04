@@ -223,7 +223,8 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
 2014-11-10 11:27:28.473 test[2321:451525] age--------Ti,N,V_age
 2014-11-10 11:27:28.474 test[2321:451525] weight--------Td,N,V_weight
 ```
-- property_getName 用来查找属性的名称，返回 c 字符串。- -- property_getAttributes 函数挖掘属性的真实名称和 @encode 类型，返回 c 字符串。
+- property_getName 用来查找属性的名称，返回 c 字符串。
+- property_getAttributes 函数挖掘属性的真实名称和 @encode 类型，返回 c 字符串。
 
 objc_property_t class_getProperty(Class cls, const char *name)
 objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
