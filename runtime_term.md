@@ -65,7 +65,8 @@ struct objc_class : objc_object {
 }
 ```
 由此可见，结构体objc_class也是继承objc_object，说明Class在设计中本身也是一个对象。
-为了处理类和对象的关系，Runtime 库创建了一种叫做 Meta Class(元类) 的东西，类对象所属的类就叫做元类。Meta Class 表述了类对象本身所具备的元数据。
+为了处理类和对象的关系，Runtime 库创建了一种叫做 Meta Class(元类) 的东西，类对象所属的类就叫做元类。
+- Meta Class 表述了类对象本身所具备的元数据。
 - 我们所熟悉类方法，就源自于 Meta Class。
 - 类方法就是类对象的实例方法，每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。
 
