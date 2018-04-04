@@ -35,8 +35,7 @@ id objc_msgSend ( id self, SEL op, ... );
 
 因为在源代码方法的定义中，我们并没有发现这两个参数的声明。它们时在代码被编译时被插入方法实现中的。尽管这些参数没有被明确声明，在源代码中我们仍然可以引用它们。
 
-这两个参数中， self更实用。它是在方法实现中访问消息接收者对象的实例变量的途径。
-
+### self与super
 这时我们可能会想到另一个关键字 super ，实际上 super 关键字接收到消息时，编译器会创建一个 objc_super 结构体：
 
 struct objc_super { id receiver; Class class; };
@@ -44,6 +43,7 @@ struct objc_super { id receiver; Class class; };
 
 // 这句话并不能获取父类的类型，只能获取当前类的类型名
 NSLog(@"%@", NSStringFromClass([super class]));
+
 获取方法地址
 
 NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP ，举个例子：
