@@ -225,8 +225,10 @@ objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCou
 ```
 - property_getName 用来查找属性的名称，返回 c 字符串。
 - property_getAttributes 函数挖掘属性的真实名称和 @encode 类型，返回 c 字符串。
+
+class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
 ```c
 objc_property_t class_getProperty(Class cls, const char *name)
 objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
 ```
-class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
+
