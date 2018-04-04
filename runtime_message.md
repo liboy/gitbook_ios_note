@@ -14,7 +14,8 @@ id objc_msgSend ( id self, SEL op, ... );
 
 1. 首先根据receiver对象的isa指针获取它对应的class
 - 检测这个 selector 的 target 是不是 nil，Objc 允许我们对一个 nil 对象执行任何方法不会 Crash，因为运行时会被忽略掉。
-- 优先在class的cache查找message方法
+- 优先在class的cache查找message方法，找不到就找类的方法列表(methodLists)中是否有对应的方法。
+
 - 如果没有在class找到，再到super_class查找；
 - 旦找到message这个方法，就执行它实现的IMP。
 - 如果 cache 找不到就找类的方法列表(methodLists)中是否有对应的方法。
