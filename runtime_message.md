@@ -79,8 +79,11 @@ struct objc_super {
     - receiver = self 表示某个类的实例。
     - super_class = (id)class_getSuperclass(objc_getClass("self.name"))
  表示当前类的父类。
-2. 父类查找class方法，查找不到。
-3. 在NSObject查到。此时，内部使用objc_msgSend(objc_super->receiver, @selector(class))去调用，与[self class]调用相同。
+3. 在NSObject查到。此时，内部使用
+```c
+objc_msgSend(objc_super->receiver, @selector(class))
+```
+去调用，与[self class]调用相同。
 
 ### 获取方法地址methodForSelector
 
