@@ -111,3 +111,58 @@ struct objc_method_list {
 
 - **cache**用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
 - **protocols**表示类遵循哪些协议。
+
+Method
+
+Method表示类中的某个方法，在runtime.h文件中找到它的定义：
+
+/// An opaque type that represents a method in a class definition.
+typedef struct objc_method *Method;
+struct objc_method {
+    SEL method_name                                          OBJC2_UNAVAILABLE;
+    char *method_types                                       OBJC2_UNAVAILABLE;
+    IMP method_imp                                           OBJC2_UNAVAILABLE;
+}
+其实Method就是一个指向objc_method结构体指针，它存储了方法名(method_name)、方法类型(method_types)和方法实现(method_imp)等信息。而method_imp的数据类型是IMP，它是一个函数指针，后面会重点提及。
+
+Ivar
+
+Ivar表示类中的实例变量，在runtime.h文件中找到它的定义：
+
+/// An opaque type that represents an instance variable.
+typedef struct objc_ivar *Ivar;
+
+struct objc_ivar {
+    char *ivar_name                                          OBJC2_UNAVAILABLE;
+    char *ivar_type                                          OBJC2_UNAVAILABLE;
+    int ivar_offset                                          OBJC2_UNAVAILABLE;
+#ifdef __LP64__
+    int space                                                OBJC2_UNAVAILABLE;
+#endif
+}
+Ivar其实就是一个指向objc_ivar结构体指针，它包含了变量名(ivar_name)、变量类型(ivar_type)等信息。
+
+IMP
+
+在上面讲Method时就说过，IMP本质上就是一个函数指针，指向方法的实现，在objc.h找到它的定义：
+
+/// A pointer to the function of a method implementation. 
+#if !OBJC_OLD_DISPATCH_PROTOTYPES
+typedef void (*IMP)(void /* id, SEL, ... */ ); 
+#else
+typedef id (*IMP)(id, SEL, ...); 
+#endif
+当你向某个对象发送一条信息，可以由这个函数指针来指定方法的实现，它最终就会执行那段代码，这样可以绕开消息传递阶段而去执行另一个方法实现。
+
+Cache
+
+顾名思义，Cache主要用来缓存，那它缓存什么呢？我们先在runtime.h文件看看它的定义：
+
+typedef struct objc_cache *Cache                             OBJC2_UNAVAILABLE;
+
+struct objc_cache {
+    unsigned int mask /* total = mask + 1 */                 OBJC2_UNAVAILABLE;
+    unsigned int occupied                                    OBJC2_UNAVAILABLE;
+    Method buckets[1]                                        OBJC2_UNAVAILABLE;
+};
+Cache其实就是一个存储Method的链表，主要是为了优化方法调用的性能。当对象receiver调用方法message时，首先根据对象receiver的isa指针查找到它对应的类，然后在类的methodLists中搜索方法，如果没有找到，就使用super_class指针到父类中的methodLists查找，一旦找到就调用方法。如果没有找到，有可能消息转发，也可能忽略它。但这样查找方式效率太低，因为往往一个类大概只有20%的方法经常被调用，占总调用次数的80%。所以使用Cache来缓存经常调用的方法，当调用方法时，优先在Cache查找，如果没有找到，再到methodLists查找。
