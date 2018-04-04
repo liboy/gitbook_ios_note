@@ -87,7 +87,7 @@ NSLog(@"%@", NSStringFromClass([super class]));
 ### 获取方法地址methodForSelector
 
 NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP ，举个例子：
-```
+```c
 void (*setter)(id, SEL, BOOL);
 int i;
 
