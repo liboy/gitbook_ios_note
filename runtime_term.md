@@ -126,7 +126,7 @@ struct objc_method {
 }
 ```
 其实Method就是一个指向objc_method结构体指针，它存储了
-- 方法名(method_name)、
+- 方法名(method_name)
 - 方法类型(method_types)和
 - 方法实现(method_imp)
 method_imp的数据类型是IMP，它是一个函数指针
