@@ -33,7 +33,7 @@ Objective-C是基于C语言加入了面向对象特性和消息转发机制的�
 
 #### 第1步－获取对象属性数量
 
-```objc
+```objectivec
 + (NSArray *)properties {
 
     unsigned int count = 0;
