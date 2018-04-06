@@ -57,4 +57,3 @@ method resolution way : send message = send message
 注意到上面代码有这样一个字符串"v@*，它表示方法的参数和返回值，详情请参考Type Encodings。
 
 如果resolveInstanceMethod方法返回NO，运行时就跳转到下一步：消息转发(Message Forwarding)
->注意：动态方法解析会在消息转发机制侵入前执行，动态方法解析器将会首先给予提供该方法选择器对应的 IMP 的机会。如果你想让该方法选择器被传送到转发机制，就让 resolveInstanceMethod: 方法返回 NO。
