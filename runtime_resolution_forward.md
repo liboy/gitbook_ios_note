@@ -7,3 +7,5 @@
 - 转发（Normal Forwarding）
 
 ![](/assets/3.jpg)
+
+## 方法解析（Method Resolution）
