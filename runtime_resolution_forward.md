@@ -57,7 +57,7 @@ resolveInstanceMethod方法返回NO，就跳转到消息转发(Message Forwardin
 
 ### Fast Forwarding
 
-如果目标对象实现- forwardingTargetForSelector:方法，系统就会在运行时调用这个方法，只要这个方法返回的不是nil或self，也会重启消息发送的过程，把这消息转发给其他对象来处理。否则，就会继续Normal Fowarding。
+如果目标对象实现`- forwardingTargetForSelector:`方法，系统就会在运行时调用这个方法，只要这个方法返回的不是nil或self，也会重启消息发送的过程，把这消息转发给其他对象来处理。否则，就会继续Normal Fowarding。
 
 继续上面例子，将sendMessage和resolveInstanceMethod方法注释掉，然后添加forwardingTargetForSelector方法的实现：
 ```objectc
