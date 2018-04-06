@@ -70,7 +70,7 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
     return nil;
 }
 ```
-此时还缺一个转发消息的类MessageForwarding，这个类的设计与实现如下：
+转发消息的类MessageForwarding实现如下：
 ```objectc
 @interface MessageForwarding : NSObject
 - (void)sendMessage:(NSString *)word;
@@ -81,10 +81,6 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
     NSLog(@"fast forwarding way : send message = %@", word);
 }
 @end
-```
-此时，控制台会打印以下信息：
-```
-fast forwarding way : send message = send message
 ```
 这里叫Fast，是因为这一步不会创建NSInvocation对象，但Normal Forwarding会创建它，所以相对于更快点。
 
