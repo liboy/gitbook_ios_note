@@ -1,6 +1,6 @@
 # 方法解析与消息转发
 
-[receiver message]调用方法时，如果在message方法在receiver对象的类继承体系中没有找到方法，一般情况下，程序在运行时就会Crash掉，抛出`unrecognized selector sent to…`类似这样的异常信息。但在抛出异常之前，还有三次机会按以下顺序让你拯救程序。
+抛出异常之前，还有三次机会按以下顺序让你拯救程序。
 
 1. 方法解析（Method Resolution）
 - 重定向（Fast Forwarding）
@@ -11,7 +11,7 @@
 ## 1. 方法解析
 首先Objective-C在运行时调用+ resolveInstanceMethod:或+ resolveClassMethod:方法，让你添加方法的实现。如果你添加方法并返回YES，那系统在运行时就会重新启动一次消息发送的过程。
 
-举一个简单例子，定义一个类Message，它主要定义一个方法sendMessage，下面就是它的设计与实现：
+定义一个类Message：
 ``` objectc
 @interface Message : NSObject
 - (void)sendMessage:(NSString *)word;
@@ -51,7 +51,7 @@ method resolution way : send message = send message
 ```
 注意上面代码字符串"v@*，它表示方法的参数和返回值，详情请参考[Type Encodings](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)。
 
-resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Message Forwarding)
+resolveInstanceMethod方法返回NO，就跳转到消息转发(Message Forwarding)
 
 ## 2.消息转发
 
