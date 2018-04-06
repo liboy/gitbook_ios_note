@@ -34,6 +34,7 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
 控制台会打印以下信息：
 ```
 normal way : send message = send message
+
 ```
 但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
 ```objectc
@@ -51,7 +52,8 @@ normal way : send message = send message
 ```
 控制台就会打印以下信息：
 
-method resolution way : send message = Sam Lau
+method resolution way : send message = send message
+
 注意到上面代码有这样一个字符串"v@*，它表示方法的参数和返回值，详情请参考Type Encodings。
 
 如果resolveInstanceMethod方法返回NO，运行时就跳转到下一步：消息转发(Message Forwarding)
