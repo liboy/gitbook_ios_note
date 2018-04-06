@@ -85,7 +85,7 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
 fast forwarding way : send message = Sam Lau
 这里叫Fast，是因为这一步不会创建NSInvocation对象，但Normal Forwarding会创建它，所以相对于更快点。
 
-Normal Forwarding
+### Normal Forwarding
 
 如果没有使用Fast Forwarding来消息转发，最后只有使用Normal Forwarding来进行消息转发。它首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出unrecognized selector sent to instance异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
 
