@@ -30,7 +30,7 @@
     Message *message = [Message new];
     [message sendMessage:@"Sam Lau"];
 }
-``
+```
 控制台会打印以下信息：
 ```
 normal way : send message = Sam Lau
