@@ -31,7 +31,7 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
     [message sendMessage:@"send message"];
 }
 ```
-但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
+但现在我将原来sendMessage方法实现给注释掉，需要覆盖resolveInstanceMethod方法：
 ```objectc
 #pragma mark - Method Resolution
 /// override resolveInstanceMethod or resolveClassMethod for changing sendMessage method implementation
@@ -50,3 +50,4 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
 resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Message Forwarding)
 
 ## 2.消息转发
+
