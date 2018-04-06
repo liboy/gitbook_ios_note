@@ -9,6 +9,7 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
 ![](/assets/3.jpg)
 
 ## 1. 方法解析
+动态方法解析会在消息转发机制侵入前执行，动态方法解析器将会首先给予提供该方法选择器对应的 IMP 的机会。如果你想让该方法选择器被传送到转发机制，就让 resolveInstanceMethod: 方法返回 NO
 首先Objective-C在运行时调用+ resolveInstanceMethod:或+ resolveClassMethod:方法，让你添加方法的实现。如果你添加方法并返回YES，那系统在运行时就会重新启动一次消息发送的过程。
 
 举一个简单例子，定义一个类Message，它主要定义一个方法sendMessage，下面就是它的设计与实现：
