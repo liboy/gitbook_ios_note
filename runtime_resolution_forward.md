@@ -56,4 +56,4 @@ method resolution way : send message = send message
 ```
 注意到上面代码有这样一个字符串"v@*，它表示方法的参数和返回值，详情请参考Type Encodings。
 
-如果resolveInstanceMethod方法返回NO，运行时就跳转到下一步：消息转发(Message Forwarding)
+resolveInstanceMethod方法返回NO，运行时就跳转到下一步：消息转发(Message Forwarding)
