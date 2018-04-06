@@ -82,7 +82,6 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
 }
 @end
 ```
-这里叫Fast，是因为这一步不会创建NSInvocation对象，但Normal Forwarding会创建它，所以相对于更快点。
 
 ### Normal Forwarding
 
