@@ -85,9 +85,9 @@ resolveInstanceMethod方法返回NO，就跳转到消息转发(Message Forwardin
 
 ### Normal Forwarding
 
-使用Normal Forwarding来进行消息转发，首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出`unrecognized selector sent to instance`异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
+使用Normal Forwarding进行消息转发，首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出`unrecognized selector sent to instance`异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
 
-继续前面的例子，将forwardingTargetForSelector方法注释掉，添加methodSignatureForSelector和forwardInvocation方法的实现：
+添加methodSignatureForSelector和forwardInvocation方法的实现：
 ```objectc
 #pragma mark - Normal Forwarding
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
