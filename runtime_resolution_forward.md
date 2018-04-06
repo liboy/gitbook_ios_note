@@ -8,4 +8,4 @@
 
 ![](/assets/3.jpg)
 
-## 方法解析（Method Resolution）
+## 方法解析
