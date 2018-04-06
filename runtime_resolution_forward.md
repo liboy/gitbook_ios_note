@@ -55,6 +55,56 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
 
 ## 2.消息转发
 
-### 
+### Fast Forwarding
 
+如果目标对象实现- forwardingTargetForSelector:方法，系统就会在运行时调用这个方法，只要这个方法返回的不是nil或self，也会重启消息发送的过程，把这消息转发给其他对象来处理。否则，就会继续Normal Fowarding。
+
+继续上面Message类的例子，将sendMessage和resolveInstanceMethod方法注释掉，然后添加forwardingTargetForSelector方法的实现：
+
+#pragma mark - Fast Forwarding
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    if (aSelector == @selector(sendMessage:)) {
+        return [MessageForwarding new];
+    }
+    return nil;
+}
+此时还缺一个转发消息的类MessageForwarding，这个类的设计与实现如下：
+
+@interface MessageForwarding : NSObject
+- (void)sendMessage:(NSString *)word;
+@end
+@implementation MessageForwarding
+- (void)sendMessage:(NSString *)word
+{
+    NSLog(@"fast forwarding way : send message = %@", word);
+}
+@end
+此时，控制台会打印以下信息：
+
+fast forwarding way : send message = Sam Lau
+这里叫Fast，是因为这一步不会创建NSInvocation对象，但Normal Forwarding会创建它，所以相对于更快点。
+
+Normal Forwarding
+
+如果没有使用Fast Forwarding来消息转发，最后只有使用Normal Forwarding来进行消息转发。它首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出unrecognized selector sent to instance异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
+
+继续前面的例子，将forwardingTargetForSelector方法注释掉，添加methodSignatureForSelector和forwardInvocation方法的实现：
+
+#pragma mark - Normal Forwarding
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+{
+    NSMethodSignature *methodSignature = [super methodSignatureForSelector:aSelector];
+    if (!methodSignature) {
+        methodSignature = [NSMethodSignature signatureWithObjCTypes:"v@:*"];
+    }
+    return methodSignature;
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    MessageForwarding *messageForwarding = [MessageForwarding new];
+    if ([messageForwarding respondsToSelector:anInvocation.selector]) {
+        [anInvocation invokeWithTarget:messageForwarding];
+    }
+}
 
