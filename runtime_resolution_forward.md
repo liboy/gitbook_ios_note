@@ -23,7 +23,7 @@
 }
 @end
 ```
-如果我在viewDidLoad方法中创建Message对象并调用sendMessage方法：
+在viewDidLoad方法调用sendMessage：
 ```objectc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,8 +32,9 @@
 }
 ``
 控制台会打印以下信息：
-
+```
 normal way : send message = Sam Lau
+```
 但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
 ```objectc
 #pragma mark - Method Resolution
