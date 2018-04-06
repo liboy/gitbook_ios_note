@@ -70,7 +70,7 @@ resolveInstanceMethod方法返回NO，就跳转到消息转发(Message Forwardin
     return nil;
 }
 ```
-转发消息的类MessageForwarding实现如下：
+类MessageForwarding实现如下：
 ```objectc
 @interface MessageForwarding : NSObject
 - (void)sendMessage:(NSString *)word;
