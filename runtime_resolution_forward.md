@@ -60,7 +60,7 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
 如果目标对象实现- forwardingTargetForSelector:方法，系统就会在运行时调用这个方法，只要这个方法返回的不是nil或self，也会重启消息发送的过程，把这消息转发给其他对象来处理。否则，就会继续Normal Fowarding。
 
 继续上面Message类的例子，将sendMessage和resolveInstanceMethod方法注释掉，然后添加forwardingTargetForSelector方法的实现：
-
+```objectc
 #pragma mark - Fast Forwarding
 - (id)forwardingTargetForSelector:(SEL)aSelector
 {
@@ -69,6 +69,7 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
     }
     return nil;
 }
+```
 此时还缺一个转发消息的类MessageForwarding，这个类的设计与实现如下：
 ```objectc
 @interface MessageForwarding : NSObject
