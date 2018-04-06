@@ -33,7 +33,7 @@
 ```
 控制台会打印以下信息：
 ```
-normal way : send message = Sam Lau
+normal way : send message = send message
 ```
 但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
 ```objectc
