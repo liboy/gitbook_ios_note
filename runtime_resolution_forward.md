@@ -105,9 +105,10 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
         [anInvocation invokeWithTarget:messageForwarding];
     }
 }
+```
 
 forwardInvocation: 方法就是一个不能识别消息的分发中心，将这些不能识别的消息转发给不同的接收对象，或者转发给同一个对象，再或者将消息翻译成另外的消息，亦或者简单的“吃掉”某些消息，因此没有响应也不会报错。这一切都取决于方法的具体实现。
-```
+
 ## 三种方法的选择
 
 Runtime提供三种方式来将原来的方法实现代替掉，那该怎样选择它们呢？
