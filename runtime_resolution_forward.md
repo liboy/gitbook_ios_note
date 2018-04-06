@@ -4,4 +4,4 @@
 
 - 方法解析（Method Resolution）
 - 重定向（Fast Forwarding）
-- Normal Forwarding
+- 转发（Normal Forwarding）
