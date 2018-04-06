@@ -115,6 +115,6 @@ fast forwarding way : send message = send message
 
 Runtime提供三种方式来将原来的方法实现代替掉，那该怎样选择它们呢？
 
-Method Resolution：由于Method Resolution不能像消息转发那样可以交给其他对象来处理，所以只适用于在原来的类中代替掉。
-Fast Forwarding：它可以将消息处理转发给其他对象，使用范围更广，不只是限于原来的对象。
-Normal Forwarding：它跟Fast Forwarding一样可以消息转发，但它能通过NSInvocation对象获取更多消息发送的信息，例如：target、selector、arguments和返回值等信息。
+- Method Resolution：由于Method Resolution不能像消息转发那样可以交给其他对象来处理，所以只适用于在原来的类中代替掉。
+- Fast Forwarding：它可以将消息处理转发给其他对象，使用范围更广，不只是限于原来的对象。
+- Normal Forwarding：它跟Fast Forwarding一样可以消息转发，但它能通过NSInvocation对象获取更多消息发送的信息，例如：target、selector、arguments和返回值等信息。
