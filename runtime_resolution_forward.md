@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Message *message = [Message new];
-    [message sendMessage:@"Sam Lau"];
+    [message sendMessage:@"send message"];
 }
 ```
 控制台会打印以下信息：
