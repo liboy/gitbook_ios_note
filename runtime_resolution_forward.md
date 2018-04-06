@@ -45,6 +45,10 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
     return YES;
 }
 ```
+控制台就会打印以下信息：
+```
+method resolution way : send message = Sam Lau
+```
 注意上面代码字符串"v@*，它表示方法的参数和返回值，详情请参考[Type Encodings](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)。
 
 resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Message Forwarding)
