@@ -34,7 +34,7 @@
 
 normal way : send message = Sam Lau
 但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
-
+```objectc
 #pragma mark - Method Resolution
 /// override resolveInstanceMethod or resolveClassMethod for changing sendMessage method implementation
 + (BOOL)resolveInstanceMethod:(SEL)sel
@@ -46,6 +46,7 @@ normal way : send message = Sam Lau
     }
     return YES;
 }
+```
 控制台就会打印以下信息：
 
 method resolution way : send message = Sam Lau
