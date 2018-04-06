@@ -1,4 +1,4 @@
-send messagesend messagesend messagesend message# 方法解析与消息转发
+# 方法解析与消息转发
 
 [receiver message]调用方法时，如果在message方法在receiver对象的类继承体系中没有找到方法，一般情况下，程序在运行时就会Crash掉，抛出`unrecognized selector sent to…`类似这样的异常信息。但在抛出异常之前，还有三次机会按以下顺序让你拯救程序。
 
