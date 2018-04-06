@@ -24,12 +24,13 @@
 @end
 ```
 如果我在viewDidLoad方法中创建Message对象并调用sendMessage方法：
-
+```objectc
 - (void)viewDidLoad {
     [super viewDidLoad];
     Message *message = [Message new];
     [message sendMessage:@"Sam Lau"];
 }
+``
 控制台会打印以下信息：
 
 normal way : send message = Sam Lau
