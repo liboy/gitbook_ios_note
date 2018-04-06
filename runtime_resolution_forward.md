@@ -85,7 +85,7 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
 
 ### Normal Forwarding
 
-如果没有使用Fast Forwarding来消息转发，最后只有使用Normal Forwarding来进行消息转发。它首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出`unrecognized selector sent to instance`异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
+使用Normal Forwarding来进行消息转发，首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出`unrecognized selector sent to instance`异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
 
 继续前面的例子，将forwardingTargetForSelector方法注释掉，添加methodSignatureForSelector和forwardInvocation方法的实现：
 ```objectc
@@ -105,6 +105,8 @@ resolveInstanceMethod方法返回NO，就跳转到下一步：消息转发(Messa
         [anInvocation invokeWithTarget:messageForwarding];
     }
 }
+
+forwardInvocation: 方法就是一个不能识别消息的分发中心，将这些不能识别的消息转发给不同的接收对象，或者转发给同一个对象，再或者将消息翻译成另外的消息，亦或者简单的“吃掉”某些消息，因此没有响应也不会报错。这一切都取决于方法的具体实现。
 ```
 ## 三种方法的选择
 
