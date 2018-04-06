@@ -31,7 +31,6 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
     [message sendMessage:@"send message"];
 }
 ```
-
 但现在我将原来sendMessage方法实现给注释掉，覆盖resolveInstanceMethod方法：
 ```objectc
 #pragma mark - Method Resolution
@@ -46,6 +45,6 @@ send messagesend messagesend messagesend message# 方法解析与消息转发
     return YES;
 }
 ```
-注意到上面代码有这样一个字符串"v@*，它表示方法的参数和返回值，详情请参考Type Encodings。
+注意上面代码字符串"v@*，它表示方法的参数和返回值，详情请参考[Type Encodings](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)。
 
 resolveInstanceMethod方法返回NO，运行时就跳转到下一步：消息转发(Message Forwarding)
