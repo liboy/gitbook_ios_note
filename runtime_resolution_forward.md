@@ -6,3 +6,4 @@
 - 重定向（Fast Forwarding）
 - 转发（Normal Forwarding）
 
+![](/assets/3.jpg)
