@@ -115,9 +115,10 @@ CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
 }
 ```
 【由上源码可得】：RunLoop 和 线程关系
-1.每条线程都有唯一的一个与之对应的RunLoop对象。
-2.主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
-3.RunLoop在第一次获取时创建，在线程结束时销毁。
+1. 每条线程都有唯一的一个与之对应的RunLoop对象。
+2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
+3. RunLoop在第一次获取时创建，在线程结束时销毁。
+
 【注解】：Runloop 对象是利用字典来进行存储，而且 Key:线程 -- Value:线程对应的 runloop。
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
