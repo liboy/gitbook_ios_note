@@ -33,6 +33,7 @@
 
 ```
 但现在我将原来sendMessage方法实现给注释掉，需要覆盖resolveInstanceMethod方法：
+
 ```objectc
 #pragma mark - Method Resolution
 /// override resolveInstanceMethod or resolveClassMethod for changing sendMessage method implementation
