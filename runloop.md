@@ -60,8 +60,10 @@ int main(int argc, char * argv[]) {
 ----
 #【Runloop 的退出条件】。
 App退出；线程关闭；设置最大时间到期；
-【注解】：说明在UIApplicationMain函数内部开启了一个和主线程相关的RunLoop (保证主线程不会被销毁)，导致 UIApplicationMain 不会返回，一直在运行中，也就保证了程序的持续运行。
 ```
+
+【注解】：说明在UIApplicationMain函数内部开启了一个和主线程相关的RunLoop (保证主线程不会被销毁)，导致 UIApplicationMain 不会返回，一直在运行中，也就保证了程序的持续运行。
+
 ## Runloop和线程关系
 
 【附】：CFRunLoop.c 源码
