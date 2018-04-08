@@ -90,7 +90,6 @@ App退出；线程关闭；设置最大时间到期；
     CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
 ```
 2. 创建与子线程相关联的RunLoop
-
 ```c
     // 从字典中获取子线程的runloop
     CFRunLoopRef loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
