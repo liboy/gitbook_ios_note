@@ -8,7 +8,7 @@
 - 可以利用`method_exchangeImplementations`来交换两个方法的IMP；`class_replaceMethod`来修改类；`method_setImplementation`来直接设置某个方法的IMP。
 - 归根结底，就是偷换了selector的IMP
 
-如果能够利用好这个技巧，可以写出简洁、有效且维护性更好的代码。参考：[Method Swizzling 和 AOP 实践](http://tech.glowing.com/cn/method-swizzling-aop/)
+如何利用好这个技巧写出简洁、有效且维护性更好的代码。参考：[Method Swizzling 和 AOP 实践](http://tech.glowing.com/cn/method-swizzling-aop/)
 
 ## Aspect-Oriented Programming(AOP)
 
