@@ -64,6 +64,9 @@ App退出；线程关闭；设置最大时间到期；
 >【注解】：说明在UIApplicationMain函数内部开启了一个和主线程相关的RunLoop (保证主线程不会被销毁)，导致 UIApplicationMain 不会返回，一直在运行中，也就保证了程序的持续运行。
 
 ## Runloop和线程关系
+1. 每条线程都有唯一的一个与之对应的RunLoop对象。
+2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
+3. RunLoop在第一次获取时创建，在线程结束时销毁。
 
 【附】：CFRunLoop.c 源码
 ```c
@@ -115,10 +118,7 @@ CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
     return loop;
 }
 ```
-【由上源码可得】：RunLoop 和 线程关系
-1. 每条线程都有唯一的一个与之对应的RunLoop对象。
-2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
-3. RunLoop在第一次获取时创建，在线程结束时销毁。
+
 
 【注解】：Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]。
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
