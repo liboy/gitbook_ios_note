@@ -7,6 +7,7 @@
 - NSRunLoop 是基于 CFRunLoopRef 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。
 
 CFRunLoopRef 的代码是开源的，你可以在这里 http://opensource.apple.com/tarballs/CF 下载到整个 CoreFoundation 的源码。
+
 ### 获得RunLoop对象
 ```objectc
 Foundation
