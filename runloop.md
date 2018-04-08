@@ -7,9 +7,9 @@
 ## 作用
 
 1. 保持程序的持续运行（如：程序一启动就会开启一个主线程（中的 runloop 是自动创建并运行），runloop 保证主线程不会被销毁，也就保证了程序的持续运行）。
-2、处理App中的各种事件（如：touches 触摸事件、NSTimer 定时器事件、Selector事件（选择器 performSelector））。
-3、节省CPU资源，提高程序性能（有事情就做事情，没事情就休息 (其资源释放)）。
-4、负责渲染屏幕上的所有UI。
+2. 处理App中的各种事件（如：touches 触摸事件、NSTimer 定时器事件、Selector事件（选择器 performSelector））。
+3. 节省CPU资源，提高程序性能（有事情就做事情，没事情就休息 (其资源释放)）。
+4. 负责渲染屏幕上的所有UI。
 附：CFRunLoop.c 源码
 
 #【用DefaultMode启动，具体实现查看 CFRunLoopRunSpecific Line2704】
