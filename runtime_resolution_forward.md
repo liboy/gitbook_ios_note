@@ -16,6 +16,7 @@
 @interface Message : NSObject
 - (void)sendMessage:(NSString *)word;
 @end
+
 @implementation Message
 
 - (void)viewDidLoad {
