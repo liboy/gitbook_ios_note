@@ -80,15 +80,14 @@ App退出；线程关闭；设置最大时间到期；
 2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
 
-###1. 主线程相关联的RunLoop创建
 ```c
+###1. 主线程相关联的RunLoop创建
    // 创建字典
     CFMutableDictionaryRef dict = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, &kCFTypeDictionaryValueCallBacks);
         // 创建主线程 根据传入的主线程创建主线程对应的RunLoop
     CFRunLoopRef mainLoop = __CFRunLoopCreate(pthread_main_thread_np());
         // 保存主线程 将主线程-key和RunLoop-Value保存到字典中
     CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
-```
 
 ### 2. 创建与子线程相关联的RunLoop
 ```c
@@ -110,9 +109,6 @@ App退出；线程关闭；设置最大时间到期；
     CFRelease(newLoop);
     }
 ```
-从上面的代码可以看出，线程和 RunLoop 之间是一一对应的，其关系是保存在一个 Dictionary 里。所以我们创建子线程RunLoop时，只需在子线程中获取当前线程的RunLoop对象即可[NSRunLoop currentRunLoop];如果不获取，那子线程就不会创建与之相关联的RunLoop，并且只能在一个线程的内部获取其 RunLoop
-[NSRunLoop currentRunLoop];方法调用时，会先看一下字典里有没有存子线程相对用的RunLoop，如果有则直接返回RunLoop，如果没有则会创建一个，并将与之对应的子线程存入字典中。
-RunLoop 的销毁发生在线程结束时
 
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
