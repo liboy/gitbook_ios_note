@@ -81,7 +81,7 @@ App退出；线程关闭；设置最大时间到期；
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
 
 ```c
-###1. 主线程相关联的RunLoop创建
+# 1. 主线程相关联的RunLoop创建
    // 创建字典
     CFMutableDictionaryRef dict = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, &kCFTypeDictionaryValueCallBacks);
         // 创建主线程 根据传入的主线程创建主线程对应的RunLoop
@@ -89,8 +89,7 @@ App退出；线程关闭；设置最大时间到期；
         // 保存主线程 将主线程-key和RunLoop-Value保存到字典中
     CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
 
-### 2. 创建与子线程相关联的RunLoop
-```c
+# 2. 创建与子线程相关联的RunLoop
     // 从字典中获取子线程的runloop
     CFRunLoopRef loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
     __CFUnlock(&loopsLock);
