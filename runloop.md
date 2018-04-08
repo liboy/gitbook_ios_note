@@ -77,6 +77,7 @@ App退出；线程关闭；设置最大时间到期；
 
 ## Runloop和线程关系
 1. 每条线程都有唯一的一个与之对应的RunLoop对象。
+2. Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]。
 2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
 
@@ -114,8 +115,6 @@ App退出；线程关闭；设置最大时间到期；
 [NSRunLoop currentRunLoop];方法调用时，会先看一下字典里有没有存子线程相对用的RunLoop，如果有则直接返回RunLoop，如果没有则会创建一个，并将与之对应的子线程存入字典中。
 RunLoop 的销毁发生在线程结束时
 
-
-【注解】：Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
 
