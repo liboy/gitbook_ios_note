@@ -10,6 +10,7 @@
 2. 处理App中的各种事件（如：touches 触摸事件、NSTimer 定时器事件、Selector事件（选择器 performSelector））。
 3. 节省CPU资源，提高程序性能（有事情就做事情，没事情就休息 (其资源释放)）。
 4. 负责渲染屏幕上的所有UI。
+
 附：CFRunLoop.c 源码
 ```c
 #【用DefaultMode启动，具体实现查看 CFRunLoopRunSpecific Line2704】
@@ -39,7 +40,7 @@ RunLoop 其实内部就是do-while循环，在这个循环内部不断地处理�
 ## Runloop 开启&退出
 
 我们来验证 Runloop 是在那开启的？答案：UIApplicationMain 中开启；
-
+```
 #【验证 Runloop 的开启】。
 
 # int 类型返回值
@@ -60,8 +61,8 @@ int main(int argc, char * argv[]) {
 #【Runloop 的退出条件】。
 App退出；线程关闭；设置最大时间到期；
 【注解】：说明在UIApplicationMain函数内部开启了一个和主线程相关的RunLoop (保证主线程不会被销毁)，导致 UIApplicationMain 不会返回，一直在运行中，也就保证了程序的持续运行。
-
-Runloop和线程关系
+```
+## Runloop和线程关系
 
 【附】：CFRunLoop.c 源码
 
