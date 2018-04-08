@@ -26,5 +26,5 @@
 如果手动调用，将跳过查找IMP的过程，直接触发消息转发，进入如下流程：
 1. 第一步：`+ (BOOL)resolveInstanceMethod:(SEL)sel`方法，指定是否动态添加方法，返回NO，则进入下一步；返回YES，则通过class_addMethod函数动态添加方法，消息得到处理，流程完毕。
 2. 第二步：`- (id)forwardingTargetForSelector:(SEL)aSelector`方法，这是运行时给我们的第二次机会，用于指定哪个对象响应这个selector,不能指定为self,若返回nil，表示没有响应者，则会进入第三步；若返回某个对象，则会调用该对象的方法。
-3. 第三步：
+3. 第三步：- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 
