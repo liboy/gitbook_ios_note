@@ -11,7 +11,7 @@
 3. 节省CPU资源，提高程序性能（有事情就做事情，没事情就休息 (其资源释放)）。
 4. 负责渲染屏幕上的所有UI。
 附：CFRunLoop.c 源码
-
+```c
 #【用DefaultMode启动，具体实现查看 CFRunLoopRunSpecific Line2704】
 #【RunLoop的主函数，是一个死循环 dowhile】
 void CFRunLoopRun(void) {   /* DOES CALLOUT */
@@ -35,6 +35,7 @@ void CFRunLoopRun(void) {   /* DOES CALLOUT */
 RunLoop 其实内部就是do-while循环，在这个循环内部不断地处理各种任务（`比如Source、Timer、Observer`），
 通过判断result的值实现的。所以 可以看成是一个死循环。
 如果没有RunLoop，UIApplicationMain 函数执行完毕之后将直接返回，就是说程序一启动然后就结束；
+```
 Runloop 开启&退出
 
 我们来验证 Runloop 是在那开启的？答案：UIApplicationMain 中开启；
