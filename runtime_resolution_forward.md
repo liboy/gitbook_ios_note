@@ -9,7 +9,7 @@
 ![](/assets/3.jpg)
 
 ## 1. 方法解析
-首先Objective-C在运行时调用+ resolveInstanceMethod:或+ resolveClassMethod:方法，让你添加方法的实现。如果你添加方法并返回YES，那系统在运行时就会重新启动一次消息发送的过程。
+首先Objective-C在运行时调用+ resolveInstanceMethod:或+ resolveClassMethod:方法，如果你添加方法并返回YES，那系统在运行时就会重新启动一次消息发送的过程。
 
 定义一个类Message：
 ``` objectc
