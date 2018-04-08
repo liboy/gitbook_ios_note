@@ -89,6 +89,7 @@ App退出；线程关闭；设置最大时间到期；
         // 保存主线程 将主线程-key和RunLoop-Value保存到字典中
     CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
 ```
+
 2. 创建与子线程相关联的RunLoop
 ```c
     // 从字典中获取子线程的runloop
