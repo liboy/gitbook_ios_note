@@ -40,7 +40,7 @@ RunLoop 其实内部就是do-while循环，在这个循环内部不断地处理�
 ## Runloop 开启&退出
 
 我们来验证 Runloop 是在那开启的？答案：UIApplicationMain 中开启；
-```
+```c
 #【验证 Runloop 的开启】。
 
 # int 类型返回值
