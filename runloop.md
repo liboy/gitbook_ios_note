@@ -17,14 +17,6 @@ Core Foundation
 CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
 CFRunLoopGetMain(); // 获得主线程的RunLoop对象
 
-// Foundation框架
-NSRunLoop *mainRunloop = [NSRunLoop mainRunLoop]; // 获得主线程对应的 runloop对象
-NSRunLoop *currentRunloop = [NSRunLoop currentRunLoop]; // 获得当前线程对应的runloop对象
-    
-// Core Foundation框架
-CFRunLoopRef maiRunloop = CFRunLoopGetMain(); // 获得主线程对应的 runloop对象
-CFRunLoopRef currentRunloop = CFRunLoopGetCurrent(); // 获得当前线程对应的runloop对象
-
 // NSRunLoop <--> CFRunLoopRef 相互转化
 NSLog(@"NSRunLoop <--> CFRunloop == %p--%p",CFRunLoopGetMain() , [NSRunLoop mainRunLoop].getCFRunLoop);
 
