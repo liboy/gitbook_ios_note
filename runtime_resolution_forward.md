@@ -32,7 +32,7 @@
 @end
 
 ```
-但现在我将原来sendMessage方法实现给，需要覆盖resolveInstanceMethod方法：
+注释掉sendMessage方法实现，覆盖resolveInstanceMethod方法：
 
 ```objectc
 #pragma mark - Method Resolution
