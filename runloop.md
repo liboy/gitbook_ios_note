@@ -10,11 +10,11 @@ CFRunLoopRef 的代码是开源的，你可以在这里 http://opensource.apple.
 
 ### 获得RunLoop对象
 ```objectc
-Foundation
+//Foundation
 [NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象
 [NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象
 
-Core Foundation
+//Core Foundation
 CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
 CFRunLoopGetMain(); // 获得主线程的RunLoop对象
 
