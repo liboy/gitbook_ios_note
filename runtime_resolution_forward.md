@@ -120,3 +120,5 @@ Runtime提供三种方式来将原来的方法实现代替掉，那该怎样选�
 - Normal Forwarding：它跟Fast Forwarding一样可以消息转发，但它能通过NSInvocation对象获取更多消息发送的信息，例如：target、selector、arguments和返回值等信息。
 
 ## 转发和多继承
+- 转发和继承相似，可用于为 Objc 编程添加一些多继承的效果。
+- 消息转发弥补了 Objc 不支持多继承的性质，也避免了因为多继承导致单个类变得臃肿复杂。
