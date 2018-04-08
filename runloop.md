@@ -79,10 +79,9 @@ App退出；线程关闭；设置最大时间到期；
 1. 每条线程都有唯一的一个与之对应的RunLoop对象。
 2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
-1. 主线程相关联的RunLoop创建
 
-CFRunLoopRef源码
-```
+1. 主线程相关联的RunLoop创建
+```c
    // 创建字典
     CFMutableDictionaryRef dict = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, &kCFTypeDictionaryValueCallBacks);
         // 创建主线程 根据传入的主线程创建主线程对应的RunLoop
