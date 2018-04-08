@@ -118,7 +118,8 @@ CFRunLoopRef源码
 ```
 从上面的代码可以看出，
 - 线程和 RunLoop 之间是一一对应的，其关系是保存在一个 Dictionary 里。
-- 创建子线程RunLoop，只需[NSRunLoop currentRunLoop]在子线程中获取当前线程的RunLoop对象;如果不获取，那子线程就不会创建与之相关联的RunLoop，并且只能在一个线程的内部获取其 RunLoop
+- 创建子线程RunLoop，只需[NSRunLoop currentRunLoop]在子线程中获取当前线程的RunLoop对象;如果不获取，就不会创建。
+- 只能在一个线程的内部获取其 RunLoop
 - [NSRunLoop currentRunLoop];方法调用时，会先看一下字典里有没有存子线程相对用的RunLoop，如果有则直接返回RunLoop，如果没有则会创建一个，并将与之对应的子线程存入字典中。
 
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
