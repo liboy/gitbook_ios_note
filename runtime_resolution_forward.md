@@ -53,7 +53,7 @@ method resolution way : send message = send message
 ```
 注意上面代码字符串"v@*，它表示方法的参数和返回值，详情请参考[Type Encodings](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)。
 
-resolveInstanceMethod方法返回NO，就跳转到消息转发(Message Forwarding)
+resolveInstanceMethod方法返回NO，就跳转到**消息转发(Message Forwarding)**
 
 ## 2.消息转发
 
