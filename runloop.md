@@ -6,7 +6,21 @@
 
 - NSRunLoop 是基于 CFRunLoopRef 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。
 
-CFRunLoopRef 的代码是开源的，你可以在这里 http://opensource.apple.com/tarballs/CF 下载到整个 CoreFoundation 的源码。为了方便跟踪和查看，你可以新建一个 Xcode 工程，把这堆源码拖进去看
+CFRunLoopRef 的代码是开源的，你可以在这里 http://opensource.apple.com/tarballs/CF 下载到整个 CoreFoundation 的源码。
+### 获得RunLoop对象
+```
+Foundation
+[NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象
+[NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象
+
+Core Foundation
+CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
+CFRunLoopGetMain(); // 获得主线程的RunLoop对象
+```
+作者：xx_cc
+链接：https://www.jianshu.com/p/b9426458fcf6
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ## 作用
 1. 保持程序的持续运行（如：程序一启动就会开启一个主线程（中的 runloop 是自动创建并运行），runloop 保证主线程不会被销毁，也就保证了程序的持续运行）。
