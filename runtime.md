@@ -109,4 +109,6 @@ if (arrayM != nil) {
 // 设置关联对象
 objc_setAssociatedObject(self, propertiesKey, arrayM, OBJC_ASSOCIATION_COPY_NONATOMIC);
 ```
+## 参考
 
+https://www.jianshu.com/p/ab966e8a82e2
