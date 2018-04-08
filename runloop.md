@@ -7,7 +7,7 @@
 * 调用解耦（Message Queue）
 * 节省CPU时间（当程序启动后，什么都没有执行的话，就不用让CPU来消耗资源来执行，直接进入睡眠状态）
 
-![](./images/runloop.jpg)
+![](./assets/runloop.jpg)
 
 ## 模式
 
