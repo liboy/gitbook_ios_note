@@ -24,8 +24,7 @@
     [message sendMessage:@"send message"];
 }
 
-- (void)sendMessage:(NSString *)word
-{
+- (void)sendMessage:(NSString *)word {
     NSLog(@"normal way : send message = %@", word);
 }
 
