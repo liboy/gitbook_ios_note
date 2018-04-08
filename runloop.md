@@ -65,7 +65,7 @@ App退出；线程关闭；设置最大时间到期；
 ## Runloop和线程关系
 
 【附】：CFRunLoop.c 源码
-
+```c
 # NOTE: 获得runloop实现 (创建runloop)
 
 CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
@@ -113,6 +113,7 @@ CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
     }
     return loop;
 }
+```
 【由上源码可得】：RunLoop 和 线程关系
 1.每条线程都有唯一的一个与之对应的RunLoop对象。
 2.主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
