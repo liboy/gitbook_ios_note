@@ -8,6 +8,8 @@
 - 可以利用`method_exchangeImplementations`来交换两个方法的IMP；`class_replaceMethod`来修改类；`method_setImplementation`来直接设置某个方法的IMP。
 - 归根结底，就是偷换了selector的IMP
 
+如果能够利用好这个技巧，可以写出简洁、有效且维护性更好的代码。参考：[Method Swizzling 和 AOP 实践]()
+
 ## Aspect-Oriented Programming(AOP)
 
 类似记录日志、身份验证、缓存等事务非常琐碎，与业务逻辑无关，很多地方都有，又很难抽象出一个模块，这种程序设计问题，业界给它们起了一个名字叫横向关注点(Cross-cutting concern)，AOP作用就是分离横向关注点(Cross-cutting concern)来提高模块复用性，它可以在既有的代码添加一些额外的行为(记录日志、身份验证、缓存)而无需修改代码。
