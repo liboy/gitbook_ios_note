@@ -16,6 +16,20 @@ Foundation
 Core Foundation
 CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
 CFRunLoopGetMain(); // 获得主线程的RunLoop对象
+
+// Foundation框架
+NSRunLoop *mainRunloop = [NSRunLoop mainRunLoop]; // 获得主线程对应的 runloop对象
+NSRunLoop *currentRunloop = [NSRunLoop currentRunLoop]; // 获得当前线程对应的runloop对象
+    
+// Core Foundation框架
+CFRunLoopRef maiRunloop = CFRunLoopGetMain(); // 获得主线程对应的 runloop对象
+CFRunLoopRef currentRunloop = CFRunLoopGetCurrent(); // 获得当前线程对应的runloop对象
+
+// NSRunLoop <--> CFRunLoopRef 相互转化
+NSLog(@"NSRunLoop <--> CFRunloop == %p--%p",CFRunLoopGetMain() , [NSRunLoop mainRunLoop].getCFRunLoop);
+
+#【打印结果】：内存地址相同
+0000-00-13 00:30:16.527 MultiThreading[57703:1217113] NSRunLoop <--> CFRunloop == 0x60000016a680--0x60000016a680
 ```
 
 ## 作用
