@@ -80,6 +80,7 @@ App退出；线程关闭；设置最大时间到期；
 2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
 
+CFRunLoopRef源码
 ```c
 # 1. 主线程相关联的RunLoop创建
    // 创建字典
