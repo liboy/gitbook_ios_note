@@ -1,7 +1,7 @@
 # Runloop
 ![](./assets/runloop.jpg)
 
-## 概念
+## RunLoop对象
 - 【Runloop 释义】："运行循环"、"跑圈"
 - 【注解1】：iOS 中通常所说的 RunLoop 指的是 NSRunloop (Foundation框架) 或者 CFRunloopRef (CoreFoundation 框架) ，CFRunloopRef 是纯C的函数，而 NSRunloop 仅仅是 CFRunloopRef 的一层OC封装，并未提供额外的其他功能，因此要了解 RunLoop 内部结构，需要多研究 CFRunLoopRef API（Core Foundation \ 更底层）。
 - 【注解2】：CFRunloopRef 其实就是 __CFRunloop 这个结构体指针（按照OC的思路我们可以将RunLoop看成一个对象），这个对象的运行才是我们通常意义上说的运行循环，核心方法是 __CFRunloopRun() 查看下（附：源码）。
