@@ -17,10 +17,6 @@ Core Foundation
 CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
 CFRunLoopGetMain(); // 获得主线程的RunLoop对象
 ```
-作者：xx_cc
-链接：https://www.jianshu.com/p/b9426458fcf6
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ## 作用
 1. 保持程序的持续运行（如：程序一启动就会开启一个主线程（中的 runloop 是自动创建并运行），runloop 保证主线程不会被销毁，也就保证了程序的持续运行）。
