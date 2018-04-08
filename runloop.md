@@ -115,7 +115,7 @@ App退出；线程关闭；设置最大时间到期；
 RunLoop 的销毁发生在线程结束时
 
 
-【注解】：Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]。
+【注解】：Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
 
