@@ -17,15 +17,16 @@
 - (void)sendMessage:(NSString *)word;
 @end
 @implementation Message
-- (void)sendMessage:(NSString *)word
-{
-    NSLog(@"normal way : send message = %@", word);
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     Message *message = [Message new];
     [message sendMessage:@"send message"];
+}
+
+- (void)sendMessage:(NSString *)word
+{
+    NSLog(@"normal way : send message = %@", word);
 }
 
 @end
