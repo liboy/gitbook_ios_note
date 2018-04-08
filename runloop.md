@@ -79,57 +79,45 @@ App退出；线程关闭；设置最大时间到期；
 1. 每条线程都有唯一的一个与之对应的RunLoop对象。
 2. 主线程的RunLoop已经自动创建，子线程的RunLoop需要主动创建。
 3. RunLoop在第一次获取时创建，在线程结束时销毁。
+1. 主线程相关联的RunLoop创建
 
-【附】：CFRunLoop.c 源码
-```c
-# NOTE: 获得runloop实现 (创建runloop)
+CFRunLoopRef源码
 
-CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
-    if (pthread_equal(t, kNilPthreadT)) {// ✔️【主线程相关联的RunLoop创建】,如果为空，默认是主线程
-        t = pthread_main_thread_np();
-    }
-    __CFLock(&loopsLock);
-    if (!__CFRunLoops) { // 如果 RunLoop 不存在
-        __CFUnlock(&loopsLock);
-        // 创建字典
-        CFMutableDictionaryRef dict = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, &kCFTypeDictionaryValueCallBacks);
-        // 创建主线程对应的runloop
-        CFRunLoopRef mainLoop = __CFRunLoopCreate(pthread_main_thread_np());
-        // 使用字典保存（KEY:线程 -- Value:线程对应的runloop）, 以保证一一对应关系。
-        CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
-        if (!OSAtomicCompareAndSwapPtrBarrier(NULL, dict, (void * volatile *)&__CFRunLoops)) {
-            CFRelease(dict);
-        }
-        CFRelease(mainLoop);
-        __CFLock(&loopsLock);
-    }
-    
-    // ✔️【创建与子线程相关联的RunLoop】,从字典中获取 子线程的runloop
+   // 创建字典
+    CFMutableDictionaryRef dict = CFDictionaryCreateMutable(kCFAllocatorSystemDefault, 0, NULL, &kCFTypeDictionaryValueCallBacks);
+        // 创建主线程 根据传入的主线程创建主线程对应的RunLoop
+    CFRunLoopRef mainLoop = __CFRunLoopCreate(pthread_main_thread_np());
+        // 保存主线程 将主线程-key和RunLoop-Value保存到字典中
+    CFDictionarySetValue(dict, pthreadPointer(pthread_main_thread_np()), mainLoop);
+2. 创建与子线程相关联的RunLoop
+
+CFRunLoopRef源码
+
+    // 从字典中获取子线程的runloop
     CFRunLoopRef loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
     __CFUnlock(&loopsLock);
     if (!loop) {
         // 如果子线程的runloop不存在,那么就为该线程创建一个对应的runloop
-        CFRunLoopRef newLoop = __CFRunLoopCreate(t);
+    CFRunLoopRef newLoop = __CFRunLoopCreate(t);
         __CFLock(&loopsLock);
-        loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
+    loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
         // 把当前子线程和对应的runloop保存到字典中
-        if (!loop) {
-            CFDictionarySetValue(__CFRunLoops, pthreadPointer(t), newLoop);
-            loop = newLoop;
-        }
+    if (!loop) {
+        CFDictionarySetValue(__CFRunLoops, pthreadPointer(t), newLoop);
+        loop = newLoop;
+    }
         // don't release run loops inside the loopsLock, because CFRunLoopDeallocate may end up taking it
         __CFUnlock(&loopsLock);
-        CFRelease(newLoop);
+    CFRelease(newLoop);
     }
-    if (pthread_equal(t, pthread_self())) {
-        _CFSetTSD(__CFTSDKeyRunLoop, (void *)loop, NULL);
-        if (0 == _CFGetTSD(__CFTSDKeyRunLoopCntr)) {
-            _CFSetTSD(__CFTSDKeyRunLoopCntr, (void *)(PTHREAD_DESTRUCTOR_ITERATIONS-1), (void (*)(void *))__CFFinalizeRunLoop);
-        }
-    }
-    return loop;
-}
-```
+从上面的代码可以看出，线程和 RunLoop 之间是一一对应的，其关系是保存在一个 Dictionary 里。所以我们创建子线程RunLoop时，只需在子线程中获取当前线程的RunLoop对象即可[NSRunLoop currentRunLoop];如果不获取，那子线程就不会创建与之相关联的RunLoop，并且只能在一个线程的内部获取其 RunLoop
+[NSRunLoop currentRunLoop];方法调用时，会先看一下字典里有没有存子线程相对用的RunLoop，如果有则直接返回RunLoop，如果没有则会创建一个，并将与之对应的子线程存入字典中。
+RunLoop 的销毁发生在线程结束时
+
+作者：xx_cc
+链接：https://www.jianshu.com/p/b9426458fcf6
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 【注解】：Runloop 对象是利用字典来进行存储，[Key(线程) : Value(对应的 runloop)]。
