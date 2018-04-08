@@ -21,12 +21,15 @@
 {
     NSLog(@"normal way : send message = %@", word);
 }
-@end
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     Message *message = [Message new];
     [message sendMessage:@"send message"];
 }
+
+@end
+
 ```
 但现在我将原来sendMessage方法实现给注释掉，需要覆盖resolveInstanceMethod方法：
 ```objectc
