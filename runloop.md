@@ -92,7 +92,6 @@ CFRunLoopRef源码
 ```
 2. 创建与子线程相关联的RunLoop
 
-CFRunLoopRef源码
 ```c
     // 从字典中获取子线程的runloop
     CFRunLoopRef loop = (CFRunLoopRef)CFDictionaryGetValue(__CFRunLoops, pthreadPointer(t));
