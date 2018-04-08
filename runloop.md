@@ -123,8 +123,6 @@ CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
 
-![](./assets/runloop.jpg)
-
 ## 模式
 
 * `RunLoop` 在同一段时间只能且必须在一种特定的模式下运行
