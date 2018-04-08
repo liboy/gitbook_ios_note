@@ -22,9 +22,6 @@
     NSLog(@"normal way : send message = %@", word);
 }
 @end
-```
-在viewDidLoad方法调用sendMessage：
-```objectc
 - (void)viewDidLoad {
     [super viewDidLoad];
     Message *message = [Message new];
