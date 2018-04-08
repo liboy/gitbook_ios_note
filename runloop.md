@@ -122,12 +122,6 @@ CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
 【注解】：Runloop 对象是利用字典来进行存储，而且 Key:线程 -- Value:线程对应的 runloop。
 iOS开发过程中对于开发者而言更多的使用的是NSRunloop,它默认提供了三个常用的run方法
 
-## 作用
-
-* 保持程序持续运行
-* 处理App中的各种事件
-* 调用解耦（Message Queue）
-* 节省CPU资源，提高程序性能
 
 ![](./assets/runloop.jpg)
 
