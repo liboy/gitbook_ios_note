@@ -17,7 +17,7 @@ Core Foundation
 CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
 CFRunLoopGetMain(); // 获得主线程的RunLoop对象
 
-// NSRunLoop <--> CFRunLoopRef 相互转化
+//NSRunLoop <--> CFRunLoopRef 相互转化
 NSLog(@"NSRunLoop <--> CFRunloop == %p--%p",CFRunLoopGetMain() , [NSRunLoop mainRunLoop].getCFRunLoop);
 
 #【打印结果】：内存地址相同
