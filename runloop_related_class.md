@@ -81,9 +81,12 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 
 - `Input Source Port`对应Source1。Source1和Timer都属于端口事件源，不同的是所有的Timer都共用一个端口`Mode Timer Port`，而每个Source1都有不同的对应端口
 
+- Source0(负责App内部事件，由App负责管理触发，例如UITouch事件)和Timer（又叫Timer Source，基于时间的触发器，上层对应NSTimer）是两个不同的Runloop事件源（当然Source0是Input Source中的一类，Input Source还包括Custom Input Source，由其他线程手动发出），RunLoop被这些事件唤醒之后就会处理并调用事件处理方法（CFRunLoopTimerRef和CFRunLoopSourceRef均包含对应的回调指针）。
 
-再结合前面RunLoop核心运行流程可以看出Source0(负责App内部事件，由App负责管理触发，例如UITouch事件)和Timer（又叫Timer Source，基于时间的触发器，上层对应NSTimer）是两个不同的Runloop事件源（当然Source0是Input Source中的一类，Input Source还包括Custom Input Source，由其他线程手动发出），RunLoop被这些事件唤醒之后就会处理并调用事件处理方法（CFRunLoopTimerRef的回调指针和CFRunLoopSourceRef均包含对应的回调指针）。
-但是对于CFRunLoopSourceRef除了Source0之外还有另一个版本就是Source1，Source1除了包含回调指针外包含一个mach port，和Source0需要手动触发不同，Source1可以监听系统端口和其他线程相互发送消息，它能够主动唤醒RunLoop(由操作系统内核进行管理，例如CFMessagePort消息)。官方也指出可以自定义Source，因此对于CFRunLoopSourceRef来说它更像一种协议，框架已经默认定义了两种实现，如果有必要开发人员也可以自定义，详细情况可以查看官方文档。
+- Source1除了包含回调指针外包含一个mach port，
+- Source1可以监听系统端口和其他线程相互发送消息，能主动唤醒RunLoop(由操作系统内核进行管理，例如CFMessagePort消息)。
+
+对于CFRunLoopSourceRef来说它更像一种协议，框架已经默认定义了两种实现，自定义Source详细情况可以查看官方文档。
 
 ## CFRunLoopTimerRef
 CFRunLoopTimerRef 是基于时间的触发器，它和 NSTimer 是`toll-free bridged` 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
