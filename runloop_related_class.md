@@ -104,33 +104,31 @@ Run loop接收输入事件来自两种不同的来源：
 Cocoa和Core Foundation内置支持使用端口相关的对象和函数来创建的基于端口的源。例如，在Cocoa里面你从来不需要直接创建输入源。你只要简单的创建端口对象，并使用NSPort的方法把该端口添加到run loop。端口对象会自己处理创建和配置输入源。
 
 在Core Foundation，你必须人工创建端口和它的run loop源。我们可以使用端口相关的函数（CFMachPortRef，CFMessagePortRef，CFSocketRef）来创建合适的对象。下面的例子展示了如何创建一个基于端口的输入源，将其添加到run loop并启动：
-
-voidcreatePortSource()
-
-{
-
+```objectc
+void createPortSource() {
+    
     CFMessagePortRef port = CFMessagePortCreateLocal(kCFAllocatorDefault, CFSTR("com.someport"),myCallbackFunc, NULL, NULL);
-
-    CFRunLoopSourceRef source =  CFMessagePortCreateRunLoopSource(kCFAllocatorDefault, port, 0);
-
+    
+    CFRunLoopSourceRef source = CFMessagePortCreateRunLoopSource(kCFAllocatorDefault, port, 0);
+    
     CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopCommonModes);
-
+    
     while (pageStillLoading) {
-
+        
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
+        
         CFRunLoopRun();
-
+        
         [pool release];
-
+        
     }
-
+    
     CFRunLoopRemoveSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
-
+    
     CFRelease(source);
-
+    
 }
-
+```
 2.1.1.2自定义输入源
 
 自定义的输入源需要人工从其他线程发送。
