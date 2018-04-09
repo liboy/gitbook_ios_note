@@ -27,6 +27,67 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
 5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
 
+CFRunLoopMode 和 CFRunLoop 的结构大致如下：
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+struct __CFRunLoopMode {
+    CFStringRef _name;            // Mode Name, 例如 @"kCFRunLoopDefaultMode"
+    CFMutableSetRef _sources0;    // Set
+    CFMutableSetRef _sources1;    // Set
+    CFMutableArrayRef _observers; // Array
+    CFMutableArrayRef _timers;    // Array
+    ...
+};
+  
+struct __CFRunLoop {
+    CFMutableSetRef _commonModes;     // Set
+    CFMutableSetRef _commonModeItems; // Set
+    CFRunLoopModeRef _currentMode;    // Current Runloop Mode
+    CFMutableSetRef _modes;           // Set
+    ...
+};
+这里有个概念叫 "CommonModes"：一个 Mode 可以将自己标记为"Common"属性（通过将其 ModeName 添加到 RunLoop 的 "commonModes" 中）。每当 RunLoop 的内容发生变化时，RunLoop 都会自动将 _commonModeItems 里的 Source/Observer/Timer 同步到具有 "Common" 标记的所有Mode里。
+
+应用场景举例：主线程的 RunLoop 里有两个预置的 Mode：kCFRunLoopDefaultMode 和 UITrackingRunLoopMode。这两个 Mode 都已经被标记为"Common"属性。DefaultMode 是 App 平时所处的状态，TrackingRunLoopMode 是追踪 ScrollView 滑动时的状态。当你创建一个 Timer 并加到 DefaultMode 时，Timer 会得到重复回调，但此时滑动一个TableView时，RunLoop 会将 mode 切换为 TrackingRunLoopMode，这时 Timer 就不会被回调，并且也不会影响到滑动操作。
+
+有时你需要一个 Timer，在两个 Mode 中都能得到回调，一种办法就是将这个 Timer 分别加入这两个 Mode。还有一种方式，就是将 Timer 加入到顶层的 RunLoop 的 "commonModeItems" 中。"commonModeItems" 被 RunLoop 自动更新到所有具有"Common"属性的 Mode 里去。
+
+CFRunLoop对外暴露的管理 Mode 接口只有下面2个:
+
+1
+2
+CFRunLoopAddCommonMode(CFRunLoopRef runloop, CFStringRef modeName);
+CFRunLoopRunInMode(CFStringRef modeName, ...);
+Mode 暴露的管理 mode item 的接口有下面几个：
+```c
+CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef modeName);
+CFRunLoopAddObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef modeName);
+CFRunLoopAddTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode);
+CFRunLoopRemoveSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef modeName);
+CFRunLoopRemoveObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef modeName);
+CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode);
+```
+你只能通过 mode name 来操作内部的 mode，当你传入一个新的 mode name 但 RunLoop 内部没有对应 mode 时，RunLoop会自动帮你创建对应的 CFRunLoopModeRef。对于一个 RunLoop 来说，其内部的 mode 只能增加不能删除。
+
+苹果公开提供的 Mode 有两个：kCFRunLoopDefaultMode (NSDefaultRunLoopMode) 和 UITrackingRunLoopMode，你可以用这两个 Mode Name 来操作其对应的 Mode。
+
+同时苹果还提供了一个操作 Common 标记的字符串：kCFRunLoopCommonModes (NSRunLoopCommonModes)，你可以用这个字符串来操作 Common Items，或标记一个 Mode 为 "Common"。使用时注意区分这个字符串和其他 mode name。
+
 ## CFRunLoopSourceRef
 CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 和 Source1。
 
