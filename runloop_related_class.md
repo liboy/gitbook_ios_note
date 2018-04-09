@@ -101,7 +101,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
     kCFRunLoopBeforeWaiting = (1UL << 5), // 即将进入休眠
     kCFRunLoopAfterWaiting  = (1UL << 6), // 刚从休眠中唤醒
     kCFRunLoopExit          = (1UL << 7), // 即将退出Loop
-};
+}
 ```
 ```objectc
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
