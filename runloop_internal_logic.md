@@ -6,7 +6,7 @@
 
 ![](/assets/runloop5.png)
 
-其内部代码整理如下 （太长了不想看可以直接跳过去，后面会有说明）：
+其内部代码整理如下 ：
 ```c
 /// 用DefaultMode启动
 void CFRunLoopRun(void) {
