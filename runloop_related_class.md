@@ -161,7 +161,7 @@ void createCustomSource()
 
 }
 ```
-2.1.1.3Cocoa上的Selector源
+##### 1.3Cocoa上的Selector源
 
 除了基于端口的源，Cocoa定义了自定义输入源，允许你在任何线程执行selector方法。和基于端口的源一样，执行selector请求会在目标线程上序列化，减缓许多在线程上允许多个方法容易引起的同步问题。不像基于端口的源，一个selector执行完后会自动从run loop里面移除。
 
@@ -173,7 +173,7 @@ NSObject类提供了类似如下的selector方法：
 
  
 
-2.1.2定时源（timer source）
+### 2定时源（timer source）
 
 定时源在预设的时间点同步方式传递消息，这些消息都会发生在特定时间或者重复的时间间隔。定时源则直接传递消息给处理例程，不会立即退出run loop。
 
