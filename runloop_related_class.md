@@ -74,7 +74,7 @@ CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode)
 
 CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 和 Source1。
 
-- Source0 (负责App内部事件，由App负责管理触发，例如UITouch事件) 只包含了一个回调（函数指针），它并不能主动触发事件。使用时，你需要先调用`CFRunLoopSourceSignal(source)`，将这个 Source 标记为待处理，然后手动调用 `CFRunLoopWakeUp(runloop)` 来唤醒 RunLoop，让其处理这个事件。
+- Source0 (负责App内部事件，由App负责管理触发，例如UITouch事件) 只包含了一个回调（函数指针），它并不能主动触发事件。使用时，你需要先调用`CFRunLoopSourceSignal(source)`，将这个 Source 标记为待处理，然后手动调用 `CFRunLoopWakeUp(runloop)` 来唤醒 RunLoop，就会处理并调用事件处理方法。
 - Source1 包含了一个 `mach_port` 和一个回调（函数指针），被用于通过内核和其他线程相互发送消息。这种 Source 能主动唤醒 RunLoop 的线程，其原理在下面会讲到。
 
 ![官方Runloop结构图](./assets/runloop.jpg)
@@ -83,7 +83,7 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 - 【Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
 - 【Perform Selector Sources】：`performSelector:OnThread:delay:`
 
-- Source0和Timer是两个不同的Runloop事件源（当然Source0是Input Source中的一类，Input Source还包括Custom Input Source，由其他线程手动发出），RunLoop被这些事件唤醒之后就会处理并调用事件处理方法（CFRunLoopTimerRef和CFRunLoopSourceRef均包含对应的回调指针）。
+- Source0和Timer是两个不同的Runloop事件源（当然Source0是Input Source中的一类，Input Source还包括Custom Input Source，由其他线程手动发出），RunLoop被这些事件唤醒之后就会处理并调用事件处理方法
 
 - Source1除了包含回调指针外包含一个mach port，
 - Source1可以监听系统端口和其他线程相互发送消息，能主动唤醒RunLoop(由操作系统内核进行管理，例如CFMessagePort消息)。
