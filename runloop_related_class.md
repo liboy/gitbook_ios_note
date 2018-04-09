@@ -27,7 +27,8 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
 5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
 
-## CFRunLoopSourceRef事件源
+## Source
+CFRunLoopSourseRef是事件源，分为两种
 - Source0：非基于Port的 用于用户主动触发的事件（点击button 或点击屏幕）
 - Source1：基于Port的 通过内核和其他线程相互发送消息（与内核相关）
 >注意：Source1在处理的时候会分发一些操作给Source0去处理
