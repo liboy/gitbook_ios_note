@@ -86,7 +86,7 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 - Source0和Timer是两个不同的Runloop事件源（当然Source0是Input Source中的一类，Input Source还包括Custom Input Source，由其他线程手动发出），RunLoop被这些事件唤醒之后就会处理并调用事件处理方法
 
 - Source1除了包含回调指针外包含一个mach port，
-- Source1可以监听系统端口和其他线程相互发送消息，能主动唤醒RunLoop。
+- Source，能主动唤醒RunLoop。
 
 对于CFRunLoopSourceRef来说它更像一种协议，框架已经默认定义了两种实现，自定义Source详细情况可以查看官方文档。
 
