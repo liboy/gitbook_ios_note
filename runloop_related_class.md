@@ -32,6 +32,20 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 - Source1：基于Port的 通过内核和其他线程相互发送消息（与内核相关）
 >注意：Source1在处理的时候会分发一些操作给Source0去处理
 
+## CFRunLoopObserverRef
+
+CFRunLoopObserver是观察者，可以监听runLoop的状态改变
+监听的状态如下：
+
+typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) { 
+kCFRunLoopEntry = (1UL << 0), //即将进入Runloop
+kCFRunLoopBeforeTimers = (1UL << 1), //即将处理NSTimer 
+kCFRunLoopBeforeSources = (1UL << 2), //即将处理Sources 
+kCFRunLoopBeforeWaiting = (1UL << 5), //即将进入休眠 
+kCFRunLoopAfterWaiting = (1UL << 6), //刚从休眠中唤醒 
+kCFRunLoopExit = (1UL << 7), //即将退出runloop 
+kCFRunLoopAllActivities = 0x0FFFFFFFU //所有状态改变};
+
 
 
 
