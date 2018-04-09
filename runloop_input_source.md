@@ -11,7 +11,7 @@ Run loop接收输入事件来自两种不同的来源：
 
 ![Runloop的结构和输入源类型](./assets/runloop.jpg) 
 
-#### 1.输入源（input source）
+## 1.输入源（input source）
 
 传递异步事件，通常消息来自于其他线程或程序。输入源传递异步消息给相应的处理例程，并调用runUntilDate:方法来退出(在线程里面相关的NSRunLoop对象调用)。
 
