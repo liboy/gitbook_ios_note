@@ -30,6 +30,6 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 ## CFRunLoopSourceRef事件源
 - Source0：非基于Port的 用于用户主动触发的事件（点击button 或点击屏幕）
 - Source1：基于Port的 通过内核和其他线程相互发送消息（与内核相关）
-注意：Source1在处理的时候会分发一些操作给Source0去处理
+>注意：Source1在处理的时候会分发一些操作给Source0去处理
 
 
