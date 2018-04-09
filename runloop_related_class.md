@@ -16,3 +16,14 @@ Core Foundation 中关于 RunLoop 的5个类
 4. 如果需要切换 Mode，只能退出 Loop，再重新指定一个 Mode 进入。这样做主要是为了分隔开不同组的 Source/Timer/Observer，让其互不影响。
 
 >注意：一种Mode中可以有多个Source(事件源，输入源，基于端口事件源例键盘触摸等) Observer(观察者，观察当前RunLoop运行状态) 和Timer(定时器事件源)。但是必须至少有一个Source或者Timer，因为如果Mode为空，RunLoop运行到空模式不会进行空转，就会立刻退出。
+
+系统默认注册了5个Mode:
+
+RunLoop 有五种运行模式，其中常见的有1.2两种
+
+1. kCFRunLoopDefaultMode：App的默认Mode，通常主线程是在这个Mode下运行
+2. UITrackingRunLoopMode：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+3. UIInitializationRunLoopMode: 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用
+4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
+5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
+
