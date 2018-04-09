@@ -33,7 +33,7 @@ CFRunLoopSourseRef是事件源，分为两种
 - Source1：基于Port的 通过内核和其他线程相互发送消息（与内核相关）
 >注意：Source1在处理的时候会分发一些操作给Source0去处理
 
-## CFRunLoopObserverRef
+## Observer
 
 CFRunLoopObserver是观察者，可以监听runLoop的状态改变
 监听的状态如下：
