@@ -17,7 +17,7 @@ Core Foundation 中关于 RunLoop 的5个类
 
 >注意：一种Mode中可以有多个Source(事件源，输入源，基于端口事件源例键盘触摸等) Observer(观察者，观察当前RunLoop运行状态) 和Timer(定时器事件源)。但是必须至少有一个Source或者Timer，因为如果Mode为空，RunLoop运行到空模式不会进行空转，就会立刻退出。
 
-系统默认注册了5个Mode:
+## Mode:
 
 RunLoop 有五种运行模式，其中常见的有1.2两种
 
