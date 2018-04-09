@@ -91,7 +91,6 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 对于CFRunLoopSourceRef来说它更像一种协议，框架已经默认定义了两种实现，自定义Source详细情况可以查看官方文档。
 
 ## CFRunLoopTimerRef
-基于时间的触发器，上层对应NSTimer
 CFRunLoopTimerRef 是基于时间的触发器，上层对应NSTimer
 ，它和 NSTimer 是`toll-free bridged` 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
 
