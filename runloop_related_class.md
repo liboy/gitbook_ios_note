@@ -83,8 +83,8 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 ### 输入事件来源
 
 Run loop接收输入事件来自两种不同的来源：
-- 输入源（input source）
-- 定时源（timer source）
+- 1.输入源（input source）
+- 2.定时源（timer source）
 
 两种源都使用程序的某一特定的处理例程来处理到达的事件。
 
