@@ -88,7 +88,7 @@ CFRunLoopTimerRef 是基于时间的触发器，上层对应NSTimer
 ，它和 NSTimer 是`toll-free bridged` 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
 
 ## Observer
-CFRunLoopObserverRef相当于消息循环中的一个监听器，随时通知外部当前RunLoop的运行状态（它包含一个函数指针_callout_将当前状态及时告诉观察者）。具体的Observer状态如下
+CFRunLoopObserverRef相当于消息循环中的一个监听器，随时通知外部当前RunLoop的运行状态（它包含一个函数指针`_callout`将当前状态及时告诉观察者）。具体的Observer状态如下
 
 ```
 typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
