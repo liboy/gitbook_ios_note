@@ -69,9 +69,6 @@ CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode)
 - 更多系统或框架 Mode查看[这里](http://iphonedevwiki.net/index.php/CFRunLoop)
 
 
-你只能通过 mode name 来操作内部的 mode，当你传入一个新的 mode name 但 RunLoop 内部没有对应 mode 时，RunLoop会自动帮你创建对应的 CFRunLoopModeRef。对于一个 RunLoop 来说，其内部的 mode 只能增加不能删除。
-
-
 
 ## CFRunLoopSourceRef
 CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 和 Source1。
