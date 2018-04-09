@@ -48,7 +48,7 @@ struct __CFRunLoop {
 ```
 
 - CommonModes：一个 mode 可以标记为 common 属性（用于 CFRunLoopAddCommonMode函数），然后它就会保存在_commonModes。主线程 CommonModes 默认已有两个modek CFRunLoopDefaultMode 和 UITrackingRunLoopMode，当然你也可以通过调用 CFRunLoopAddCommonMode() 方法将自定义mode 放到 kCFRunLoopCommonModes 组合）。
-- _commonModeItems】：_commonModeItems 里面存放的source, observer, timer等，在每次 runLoop 运行的时候都会被同步到具有 Common 标记的 Modes 里。如：[[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes]; 就是把timer放到commonModeItems 里。
+- _commonModeItems 里面存放的source, observer, timer等，在每次 runLoop 运行的时候都会被同步到具有 Common 标记的 Modes 里。如：[[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes]; 就是把timer放到commonModeItems 里。
 
 更多系统或框架 Mode查看这里
 
