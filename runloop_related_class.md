@@ -46,6 +46,12 @@ struct __CFRunLoop {
     ...
 };
 ```
+CFRunLoop对外暴露的管理 Mode 接口只有下面2个:
+```c
+CFRunLoopAddCommonMode(CFRunLoopRef runloop, CFStringRef modeName);
+CFRunLoopRunInMode(CFStringRef modeName, ...);
+```
+
 
 - _commonModes：一个 mode 可以标记为 `Common` 属性,主线程的 RunLoop 里有两个预置的 Mode：`kCFRunLoopDefaultMode` 和 `UITrackingRunLoopMode`都已经被标记为`Common`属性，当然你也可以通过调用 `CFRunLoopAddCommonMode()` 方法将自定义mode 放到 `kCFRunLoopCommonModes` 组合。
 
@@ -53,11 +59,7 @@ struct __CFRunLoop {
 
 - 更多系统或框架 Mode查看[这里](http://iphonedevwiki.net/index.php/CFRunLoop)
 
-CFRunLoop对外暴露的管理 Mode 接口只有下面2个:
-```c
-CFRunLoopAddCommonMode(CFRunLoopRef runloop, CFStringRef modeName);
-CFRunLoopRunInMode(CFStringRef modeName, ...);
-```
+
 Mode 暴露的管理 mode item 的接口有下面几个：
 ```c
 CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef modeName);
