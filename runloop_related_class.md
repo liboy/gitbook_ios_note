@@ -27,26 +27,25 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
 5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
 
-## Source
-CFRunLoopSourseRef是事件源，分为两种
-- Source0：非基于Port的 用于用户主动触发的事件（点击button 或点击屏幕）
-- Source1：基于Port的 通过内核和其他线程相互发送消息（与内核相关）
->注意：Source1在处理的时候会分发一些操作给Source0去处理
+- CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 和 Source1。
 
-## Observer
+Source0 只包含了一个回调（函数指针），它并不能主动触发事件。使用时，你需要先调用 CFRunLoopSourceSignal(source)，将这个 Source 标记为待处理，然后手动调用 CFRunLoopWakeUp(runloop) 来唤醒 RunLoop，让其处理这个事件。
+Source1 包含了一个 mach_port 和一个回调（函数指针），被用于通过内核和其他线程相互发送消息。这种 Source 能主动唤醒 RunLoop 的线程，其原理在下面会讲到。
+CFRunLoopTimerRef 是基于时间的触发器，它和 NSTimer 是toll-free bridged 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
 
-CFRunLoopObserver是观察者，可以监听runLoop的状态改变
-监听的状态如下：
+- CFRunLoopObserverRef 是观察者，每个 Observer 都包含了一个回调（函数指针），当 RunLoop 的状态发生变化时，观察者就能通过回调接受到这个变化。可以观测的时间点有以下几个：
 
-typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) { 
-kCFRunLoopEntry = (1UL << 0), //即将进入Runloop
-kCFRunLoopBeforeTimers = (1UL << 1), //即将处理NSTimer 
-kCFRunLoopBeforeSources = (1UL << 2), //即将处理Sources 
-kCFRunLoopBeforeWaiting = (1UL << 5), //即将进入休眠 
-kCFRunLoopAfterWaiting = (1UL << 6), //刚从休眠中唤醒 
-kCFRunLoopExit = (1UL << 7), //即将退出runloop 
-kCFRunLoopAllActivities = 0x0FFFFFFFU //所有状态改变};
-
+```
+typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
+    kCFRunLoopEntry         = (1UL << 0), // 即将进入Loop
+    kCFRunLoopBeforeTimers  = (1UL << 1), // 即将处理 Timer
+    kCFRunLoopBeforeSources = (1UL << 2), // 即将处理 Source
+    kCFRunLoopBeforeWaiting = (1UL << 5), // 即将进入休眠
+    kCFRunLoopAfterWaiting  = (1UL << 6), // 刚从休眠中唤醒
+    kCFRunLoopExit          = (1UL << 7), // 即将退出Loop
+};
+```
+上面的 Source/Timer/Observer 被统称为 mode item，一个 item 可以被同时加入多个 mode。但一个 item 被重复加入同一个 mode 时是不会有效果的。如果一个 mode 中一个 item 都没有，则 RunLoop 会直接退出，不进入循环。
 
 
 
