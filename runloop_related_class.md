@@ -14,4 +14,4 @@ Core Foundation 中关于 RunLoop 的5个类
 2. 一个 RunLoop 包含若干个 Mode，每个 Mode 又包含若干个 Source/Timer/Observer。
 3. 每次调用 RunLoop 的主函数时，只能指定其中一个 Mode，这个Mode被称作 CurrentMode。
 4. 如果需要切换 Mode，只能退出 Loop，再重新指定一个 Mode 进入。这样做主要是为了分隔开不同组的 Source/Timer/Observer，让其互不影响。
-5. Runloop 有效，mode 里面 至少 要有一个timer(定时器事件) 或者是source(源)；
+5. Runloop 有效，Mode 里面 至少 要有一个timer(定时器事件) 或者是source(源)；
