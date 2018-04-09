@@ -96,11 +96,11 @@ struct __CFRunLoopObserver {
     CFRuntimeBase _base;
     pthread_mutex_t _lock;
     CFRunLoopRef _runLoop;
-        CFIndex _rlCount;
-        CFOptionFlags _activities;      /* immutable */
-        CFIndex _order;         /* immutable */
-        CFRunLoopObserverCallBack _callout; /* immutable */
-        CFRunLoopObserverContext _context;  /* immutable, except invalidation */
+    CFIndex _rlCount;
+    CFOptionFlags _activities;      /* immutable */
+    CFIndex _order;         /* immutable */
+    CFRunLoopObserverCallBack _callout; /* immutable */
+    CFRunLoopObserverContext _context;  /* immutable, except invalidation */
 };
 ```
 CFRunLoopObserverRef相当于消息循环中的一个监听器，随时通知外部当前RunLoop的运行状态（它包含一个函数指针`_callout`将当前状态及时告诉观察者）。具体的Observer状态如下
