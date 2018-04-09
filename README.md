@@ -1,3 +1,3 @@
 # 学习笔记
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+记录一些iOS的知识总结，方便自己查看和学习。
