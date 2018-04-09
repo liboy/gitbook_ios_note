@@ -179,35 +179,6 @@ NSObject类提供了类似如下的selector方法：
 
 需要注意的是，尽管定时器可以产生基于时间的通知，但它并不是实时机制。和输入源一样，定时器也和你的run loop的特定模式相关。如果定时器所在的模式当前未被run loop监视，那么定时器将不会开始直到run loop运行在相应的模式下。类似的，如果定时器在run loop处理某一事件期间开始，定时器会一直等待直到下次run loop开始相应的处理程序。如果run loop不再运行，那定时器也将永远不启动。
 
-创建定时器源有两种方法，
-
-方法一：
-```objectc
-NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:4.0
-
-                                                     target:self
-
-                                                   selector:@selector(backgroundThreadFire:) userInfo:nil
-
-                                                    repeats:YES];
-
-    [[NSRunLoop currentRunLoop] addTimer:timerforMode:NSDefaultRunLoopMode];
-```
- 
-
-方法二：
-```objectc
-
-[NSTimer scheduledTimerWithTimeInterval:10
-
-                                        target:self
-
-                                       selector:@selector(backgroundThreadFire:)
-
-                                       userInfo:nil
-
-                                       repeats:YES];
-```
 - 【Port-Based Sources】：基于端口的源 (对应的是source1)：与内核端口相关，只需要简单的创建端口对象，并使用 NSPort 的方法将端口对象加入到runloop，端口对象会处理创建以及配置输入源对应，Source1和Timer都属于端口事件源，不同的是所有的Timer都共用一个端口`Mode Timer Port`，而每个Source1都有不同的对应端口
 - 【Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
 - 【Perform Selector Sources】：`performSelector:OnThread:delay:`
