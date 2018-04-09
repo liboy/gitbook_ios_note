@@ -65,6 +65,8 @@ CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode)
 - _commonModes：一个 mode 可以标记为 `Common` 属性,主线程的 RunLoop 里有两个预置的 Mode：`kCFRunLoopDefaultMode` 和 `UITrackingRunLoopMode`都已经被标记为`Common`属性，当然你也可以通过调用 `CFRunLoopAddCommonMode()` 方法将自定义mode 放到 `kCFRunLoopCommonModes` 组合。
 
 - commonModeItems：存放的source, observer, timer等，在每次 runLoop 运行的时候都会被同步到具有 `Common` 标记的 Modes 里。如：`[[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes]` 就是把timer放到commonModeItems 里。
+- Source/Timer/Observer 被统称为 mode item，一个 item 可以被同时加入多个 mode。但一个 item 被重复加入同一个 mode 时是不会有效果的。如果一个 mode 中一个 item 都没有，则 RunLoop 会直接退出，不进入循环。
+
 
 - 更多系统或框架 Mode查看[这里](http://iphonedevwiki.net/index.php/CFRunLoop)
 
@@ -100,7 +102,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
     kCFRunLoopExit          = (1UL << 7), // 即将退出Loop
 };
 ```
-上面的 Source/Timer/Observer 被统称为 mode item，一个 item 可以被同时加入多个 mode。但一个 item 被重复加入同一个 mode 时是不会有效果的。如果一个 mode 中一个 item 都没有，则 RunLoop 会直接退出，不进入循环。
+
 
 
 
