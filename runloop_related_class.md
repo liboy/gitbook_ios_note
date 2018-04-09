@@ -86,7 +86,7 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 - 【Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
 - 【Perform Selector Sources】：`performSelector:OnThread:delay:`
 
-## CFRunLoopTimerRef
+## Timer
 CFRunLoopTimerRef 是基于时间的触发器，上层对应NSTimer
 ，它和 NSTimer 是`toll-free bridged` 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
 
