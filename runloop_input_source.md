@@ -79,7 +79,7 @@ void createCustomSource()
 
 }
 ```
-##### 1.3Cocoa上的Selector源
+### 1.3Cocoa上的Selector源
 
 除了基于端口的源，Cocoa定义了自定义输入源，允许你在任何线程执行selector方法。和基于端口的源一样，执行selector请求会在目标线程上序列化，减缓许多在线程上允许多个方法容易引起的同步问题。不像基于端口的源，一个selector执行完后会自动从run loop里面移除。
 
