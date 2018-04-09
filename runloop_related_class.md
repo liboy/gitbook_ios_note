@@ -168,9 +168,9 @@ void createCustomSource()
 当在其他线程上面执行selector时，目标线程须有一个活动的run loop。对于你创建的线程，这意味着线程在你显式的启动run loop之前是不会执行selector方法的，而是一直处于休眠状态。
 
 NSObject类提供了类似如下的selector方法：
-
+```objectc
 - (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)argwaitUntilDone:(BOOL)wait modes:(NSArray *)array;
-
+```
  
 
 #### 2.定时源（timer source）
@@ -182,7 +182,7 @@ NSObject类提供了类似如下的selector方法：
 创建定时器源有两种方法，
 
 方法一：
-
+```objectc
 NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:4.0
 
                                                      target:self
@@ -192,10 +192,11 @@ NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:4.0
                                                     repeats:YES];
 
     [[NSRunLoop currentRunLoop] addTimer:timerforMode:NSDefaultRunLoopMode];
-
+```
  
 
 方法二：
+```objectc
 
 [NSTimer scheduledTimerWithTimeInterval:10
 
@@ -206,7 +207,7 @@ NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:4.0
                                        userInfo:nil
 
                                        repeats:YES];
-
+```
 - 【Port-Based Sources】：基于端口的源 (对应的是source1)：与内核端口相关，只需要简单的创建端口对象，并使用 NSPort 的方法将端口对象加入到runloop，端口对象会处理创建以及配置输入源对应，Source1和Timer都属于端口事件源，不同的是所有的Timer都共用一个端口`Mode Timer Port`，而每个Source1都有不同的对应端口
 - 【Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
 - 【Perform Selector Sources】：`performSelector:OnThread:delay:`
