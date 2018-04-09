@@ -93,9 +93,9 @@ CFRunLoopTimerRef 是基于时间的触发器，上层对应NSTimer
 ## Observer
 ```c
 struct __CFRunLoopObserver {
-        CFRuntimeBase _base;
-        pthread_mutex_t _lock;
-        CFRunLoopRef _runLoop;
+    CFRuntimeBase _base;
+    pthread_mutex_t _lock;
+    CFRunLoopRef _runLoop;
         CFIndex _rlCount;
         CFOptionFlags _activities;      /* immutable */
         CFIndex _order;         /* immutable */
