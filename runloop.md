@@ -1,5 +1,5 @@
 # Runloop
-![](./assets/runloop.jpg)
+
 
 ## RunLoop对象
 - CFRunLoopRef 是在 CoreFoundation 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。
