@@ -74,7 +74,7 @@ CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode)
 
 CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 和 Source1。
 
-- Source0 (负责App内部事件，由App负责管理触发，例如UITouch事件) 只包含了一个回调（函数指针），它并不能主动触发事件。使用时，你需要先调用`CFRunLoopSourceSignal(source)`，将这个 Source 标记为待处理，然后手动调用 `CFRunLoopWakeUp(runloop)` 来唤醒 RunLoop，就会处理并调用事件处理方法。
+- Source0 (负责App内部事件，由App负责管理触发，例如UITouch事件) 只包含了一个回调（函数指针），它不能主动触发事件。使用时，你需要先调用`CFRunLoopSourceSignal(source)`，将这个 Source 标记为待处理，然后手动调用 `CFRunLoopWakeUp(runloop)` 来唤醒 RunLoop，就会处理并调用事件处理方法。
 - Source1 包含了一个 `mach_port` 和一个回调（函数指针），可以监听系统端口和其他线程相互发送消息，能主动唤醒 RunLoop(由操作系统内核进行管理，例如CFMessagePort消息)。
 
 ![官方Runloop结构图](./assets/runloop.jpg)
@@ -87,8 +87,8 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 CFRunLoopTimerRef 是基于时间的触发器，上层对应NSTimer
 ，它和 NSTimer 是`toll-free bridged` 的，可以混用。其包含一个时间长度和一个回调（函数指针）。当其加入到 RunLoop 时，RunLoop会注册对应的时间点，当时间点到时，RunLoop会被唤醒以执行那个回调。
 
-## CFRunLoopObserverRef
-CFRunLoopObserverRef 是观察者，每个 Observer 都包含了一个回调（函数指针），当 RunLoop 的状态发生变化时，观察者就能通过回调接受到这个变化。可以观测的时间点有以下几个：
+## Observer
+CFRunLoopObserverRef相当于消息循环中的一个监听器，随时通知外部当前RunLoop的运行状态（它包含一个函数指针_callout_将当前状态及时告诉观察者）。具体的Observer状态如下
 
 ```
 typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
