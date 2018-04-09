@@ -116,7 +116,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
      */
      /*
      所有事件
-     typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity)              {
+     typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity{
     kCFRunLoopEntry         = (1UL << 0), // 即将进入Loop
     kCFRunLoopBeforeTimers  = (1UL << 1), // 即将处理 Timer
     kCFRunLoopBeforeSources = (1UL << 2), // 即将处理 Source
