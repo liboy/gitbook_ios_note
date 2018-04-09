@@ -79,8 +79,8 @@ CFRunLoopSourceRef 是事件产生的地方。Source有两个版本：Source0 �
 
 ![官方Runloop结构图](./assets/runloop.jpg)
 
-- Port：基于端口的源 (对应的是source1)：与内核端口相关，只需要简单的创建端口对象，并使用 NSPort 的方法将端口对象加入到runloop，端口对象会处理创建以及配置输入源对应，Source1和Timer都属于端口事件源，不同的是所有的Timer都共用一个端口`Mode Timer Port`，而每个Source1都有不同的对应端口
-- Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
+- 【Port-Based Sources】：基于端口的源 (对应的是source1)：与内核端口相关，只需要简单的创建端口对象，并使用 NSPort 的方法将端口对象加入到runloop，端口对象会处理创建以及配置输入源对应，Source1和Timer都属于端口事件源，不同的是所有的Timer都共用一个端口`Mode Timer Port`，而每个Source1都有不同的对应端口
+- 【Custom Input Sources】：自定义源：使用CFRunLoopSourceRef 类型相关的函数 (线程) 来创建自定义输入源。
 
 -【Perform Selector Sources】：performSelector:OnThread:delay:
 
