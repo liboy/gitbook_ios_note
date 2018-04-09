@@ -51,15 +51,6 @@ CFRunLoop对外暴露的管理 Mode 接口只有下面2个:
 CFRunLoopAddCommonMode(CFRunLoopRef runloop, CFStringRef modeName);
 CFRunLoopRunInMode(CFStringRef modeName, ...);
 ```
-
-
-- _commonModes：一个 mode 可以标记为 `Common` 属性,主线程的 RunLoop 里有两个预置的 Mode：`kCFRunLoopDefaultMode` 和 `UITrackingRunLoopMode`都已经被标记为`Common`属性，当然你也可以通过调用 `CFRunLoopAddCommonMode()` 方法将自定义mode 放到 `kCFRunLoopCommonModes` 组合。
-
-- commonModeItems：存放的source, observer, timer等，在每次 runLoop 运行的时候都会被同步到具有 `Common` 标记的 Modes 里。如：`[[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes]` 就是把timer放到commonModeItems 里。
-
-- 更多系统或框架 Mode查看[这里](http://iphonedevwiki.net/index.php/CFRunLoop)
-
-
 Mode 暴露的管理 mode item 的接口有下面几个：
 ```c
 CFRunLoopAddSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef modeName);
@@ -69,6 +60,15 @@ CFRunLoopRemoveSource(CFRunLoopRef rl, CFRunLoopSourceRef source, CFStringRef mo
 CFRunLoopRemoveObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFStringRef modeName);
 CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode);
 ```
+
+
+- _commonModes：一个 mode 可以标记为 `Common` 属性,主线程的 RunLoop 里有两个预置的 Mode：`kCFRunLoopDefaultMode` 和 `UITrackingRunLoopMode`都已经被标记为`Common`属性，当然你也可以通过调用 `CFRunLoopAddCommonMode()` 方法将自定义mode 放到 `kCFRunLoopCommonModes` 组合。
+
+- commonModeItems：存放的source, observer, timer等，在每次 runLoop 运行的时候都会被同步到具有 `Common` 标记的 Modes 里。如：`[[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes]` 就是把timer放到commonModeItems 里。
+
+- 更多系统或框架 Mode查看[这里](http://iphonedevwiki.net/index.php/CFRunLoop)
+
+
 你只能通过 mode name 来操作内部的 mode，当你传入一个新的 mode name 但 RunLoop 内部没有对应 mode 时，RunLoop会自动帮你创建对应的 CFRunLoopModeRef。对于一个 RunLoop 来说，其内部的 mode 只能增加不能删除。
 
 
