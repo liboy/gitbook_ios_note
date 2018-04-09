@@ -118,15 +118,3 @@ CFRunLoopRef源码
     }
 ```
 
-
-## 模式
-
-* `RunLoop` 在同一段时间只能且必须在一种特定的模式下运行
-* 如果要更换 Mode，必须先停止当前的 Loop，然后再重新启动 Loop
-* Mode 是保证滚动流畅的关键
-
-* `NSDefaultRunLoopMode`：默认状态、空闲状态
-* `UITrackingRunLoopMode`：滚动模式
-* `UIInitializationRunLoopMode`：私有的，App启动时
-* `NSRunLoopCommonModes`：默认包含1，2两种模式
-
