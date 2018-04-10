@@ -34,7 +34,7 @@ App启动后，苹果在主线程 RunLoop 里注册了两个 Observer管理和�
     * 销毁：一次完整的运行循环结束之前，会被销毁
 
 
-* 常见面试题
+- 常见面试题
 
 ```objc
 for (long i = 0; i < largeNumber; ++i) {
