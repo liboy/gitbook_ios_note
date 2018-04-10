@@ -54,7 +54,7 @@ id objc_msgSend(id self, SEL op, ...)
 }
 ```
 当调用[super class]方法时，会转化为objc_msgSendSuper，这个函数定义如下：
-```c
+```objectivec
 id objc_msgSendSuper(struct objc_super *super, SEL op, ...)
 ```
 objc_msgSendSuper函数第一个参数super的数据类型
