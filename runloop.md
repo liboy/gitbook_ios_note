@@ -9,7 +9,7 @@
 CFRunLoopRef 的代码是开源的，你可以在这里 http://opensource.apple.com/tarballs/CF 下载到整个 CoreFoundation 的源码。
 
 ### 获得RunLoop对象
-```objectc
+```objectivec
 //Foundation
 [NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象
 [NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象
