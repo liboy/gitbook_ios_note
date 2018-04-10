@@ -116,7 +116,7 @@ struct objc_method_list {
 
 Method表示类中的某个方法，在runtime.h文件中找到它的定义：
 
-```c
+```objectivec
 /// An opaque type that represents a method in a class definition.
 typedef struct objc_method *Method;
 struct objc_method {
@@ -133,7 +133,7 @@ struct objc_method {
 ## Ivar
 
 Ivar表示类中的实例变量，在runtime.h文件中找到它的定义：
-```c
+```objectivec
 /// An opaque type that represents an instance variable.
 typedef struct objc_ivar *Ivar;
 
@@ -164,7 +164,7 @@ typedef id (*IMP)(id, SEL, ...);
 ## Cache
 
 在runtime.h文件看看它的定义：
-```c
+```objectivec
 typedef struct objc_cache *Cache                             OBJC2_UNAVAILABLE;
 
 struct objc_cache {
@@ -176,7 +176,8 @@ struct objc_cache {
 Cache其实就是一个存储Method的链表，主要是为了优化方法调用的性能。当对象receiver调用方法message时，首先根据对象receiver的isa指针查找到它对应的类，然后在类的methodLists中搜索方法，如果没有找到，就使用super_class指针到父类中的methodLists查找，一旦找到就调用方法。如果没有找到，有可能消息转发，也可能忽略它。但这样查找方式效率太低，因为往往一个类大概只有20%的方法经常被调用，占总调用次数的80%。所以使用Cache来缓存经常调用的方法，当调用方法时，优先在Cache查找，如果没有找到，再到methodLists查找。
 
 ## Property
-```c
+```objectivec
+
 typedef struct objc_property *Property;
 typedef struct objc_property *objc_property_t;//这个更常用
 ```
