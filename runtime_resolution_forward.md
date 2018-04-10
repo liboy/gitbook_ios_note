@@ -73,7 +73,7 @@ resolveInstanceMethod方法返回NO，就跳转到**消息转发(Message Forward
 }
 ```
 类MessageForwarding实现如下：
-```objectc
+```objectivec
 @interface MessageForwarding : NSObject
 - (void)sendMessage:(NSString *)word;
 @end
@@ -90,7 +90,7 @@ resolveInstanceMethod方法返回NO，就跳转到**消息转发(Message Forward
 使用Normal Forwarding进行消息转发，首先调用methodSignatureForSelector:方法来获取函数的参数和返回值，如果返回为nil，程序会Crash掉，并抛出`unrecognized selector sent to instance`异常信息。如果返回一个函数签名，系统就会创建一个NSInvocation对象并调用-forwardInvocation:方法。
 
 添加方法的实现如下：
-```objectc
+```objectivec
 #pragma mark - Normal Forwarding
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
