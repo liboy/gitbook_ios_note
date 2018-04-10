@@ -144,6 +144,20 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
 这张图更详细描述了上面Runloop的核心流程：
 ![](/assets/runloop6.png)
 
-需要注意的
+>注意：
 - 是_黄色_区域的消息处理中并不包含source0，因为它在循环开始之初就会处理
 - CFRunLoopPerformBlock尽管在上图中作为唤醒机制有所体现，但事实上执行只是入队，等待下次RunLoop运行才会执行，而如果需要立即执行则必须调用CFRunLoopWakeUp。
+
+## RunLoop 的底层实现
+从上面代码可以看到，RunLoop 的核心是基于 mach port 的，其进入休眠时调用的函数是 mach_msg()。
+RunLoop 最核心的事情就是保证线程在没有消息时休眠以避免占用系统资源，有消息时能够及时唤醒。 RunLoop 的这个机制完全依靠系统内核来完成，具体来说是苹果操作系统核心组件 Darwin 中的 Mach 来完成的。
+
+![OSX/iOS 这个核心的架构](/assets/runloop7.png)
+
+Mach 是 Darwin 的核心，可以说是内核的核心，提供了进程间通信（IPC）、处理器调度等基础服务。在 Mach 中，进程、线程间的通信是以消息的方式来完成的，消息在两个 Port 之间进行传递（这也正是 Source1 之所以称之为 Port-based Source 的原因，因为它就是依靠系统发送消息到指定的Port来触发的）。消息的发送和接收使用<mach/message.h>中的mach_msg()函数
+mach_msg() 的本质是一个调用 mach_msg_trap()，这相当于一个系统调用，会触发内核状态切换。当程序静止时，RunLoop停留在__CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort, poll ? 0 : TIMEOUT_INFINITY, &voucherState, &voucherCopy)，而这个函数内部就是调用了mach_msg 让程序处于休眠状态。
+
+RunLoop 的核心就是一个 mach_msg() (见上面代码的第7步)，RunLoop 调用这个函数去接收消息，如果没有别人发送 port 消息过来，内核会将线程置于等待状态。例如你在模拟器里跑起一个 iOS 的 App，然后在 App 静止时点击暂停，你会看到主线程调用栈是停留在 mach_msg_trap() 这个地方。
+
+关于具体的如何利用 mach port 发送信息，可以看看 NSHipster 这一篇文章，或者这里的中文翻译 。
+关于Mach的历史可以看看这篇很有趣的文章：Mac OS X 背后的故事（三）Mach 之父 Avie Tevanian。
