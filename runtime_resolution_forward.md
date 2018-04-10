@@ -34,7 +34,7 @@
 ```
 注释掉sendMessage方法实现，覆盖resolveInstanceMethod方法：
 
-```objectc
+```objectivec
 #pragma mark - Method Resolution
 /// override resolveInstanceMethod or resolveClassMethod for changing sendMessage method implementation
 + (BOOL)resolveInstanceMethod:(SEL)sel
