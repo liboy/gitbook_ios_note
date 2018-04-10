@@ -148,7 +148,7 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
 - 是_黄色_区域的消息处理中并不包含source0，因为它在循环开始之初就会处理
 - CFRunLoopPerformBlock尽管在上图中作为唤醒机制有所体现，但事实上执行只是入队，等待下次RunLoop运行才会执行，而如果需要立即执行则必须调用CFRunLoopWakeUp。
 
-## RunLoop 的底层实现
+## 底层实现
 从上面代码第7步可以看到，RunLoop 的核心是基于 mach port 的，其进入休眠时调用的函数是 `mach_msg()`。
 
 ```
