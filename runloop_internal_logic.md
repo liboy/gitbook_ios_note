@@ -172,4 +172,3 @@ __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort) {
 
 
 关于具体 mach port 发送信息可以查看：NSHipster这篇[文章](http://nshipster.com/inter-process-communication/)，或[中文翻译](http://segmentfault.com/a/1190000002400329) 。
-关于Mach的历史：Mac OS X 背后的故事（三）Mach 之父 Avie Tevanian。
