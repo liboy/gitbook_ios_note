@@ -15,7 +15,7 @@ typedef struct objc_selector *SEL;
 ## id
 
 id 是一个参数类型，它是指向某个类的实例的指针。定义如下：
-``` c
+```objectivec
 typedef struct objc_object *id;
 struct objc_object { Class isa; };
 ```
