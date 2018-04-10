@@ -182,7 +182,7 @@ typedef struct objc_property *Property;
 typedef struct objc_property *objc_property_t;//这个更常用
 ```
 可以通过class_copyPropertyList 和 protocol_copyPropertyList 方法获取类和协议中的属性：
-```c
+```objectivec
 objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
 objc_property_t *protocol_copyPropertyList(Protocol *proto, unsigned int *outCount)
 ```
@@ -231,7 +231,7 @@ test[2321:451525] weight--------Td,N,V_weight
 >关于类型编码参考：[类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1) 、[属性的类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW6)
 
 class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
-```c
+```objectivec
 objc_property_t class_getProperty(Class cls, const char *name)
 objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
 ```
