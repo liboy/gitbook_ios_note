@@ -5,7 +5,7 @@
 ## SEL
 
 SEL是函数objc_msgSend第二个参数的数据类型，表示方法选择器，在objc.h文件数据结构是：
-``` c
+```objectivec
 typedef struct objc_selector *SEL;
 ```
 - 它是个映射到方法的 C 字符串，你可以通过 Objc 编译器器命令@selector() 或者 Runtime 系统的 sel_registerName 函数来获取一个 SEL 类型的方法选择器。
