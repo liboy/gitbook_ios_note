@@ -15,6 +15,6 @@ App启动后，苹果在主线程 RunLoop 里注册了两个 Observer管理和�
     - BeforeWaiting(准备进入休眠)时调用`_objc_autoreleasePoolPop()` 和 `_objc_autoreleasePoolPush()` 释放旧的池并创建新池；
     - Exit(即将退出Loop) 时调用 _objc_autoreleasePoolPop() 来释放自动释放池。
     
-    
+![](./images/自动释放池.jpg)    
     
 主线程的其他操作通常均在这个AutoreleasePool之内（main函数中），以尽可能减少内存维护操作(当然你如果需要显式释放【例如循环】时可以自己创建AutoreleasePool否则一般不需要自己创建)。
