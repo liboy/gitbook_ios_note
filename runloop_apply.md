@@ -3,6 +3,7 @@
 ## AutoreleasePool
 
 App启动后，苹果在主线程 RunLoop 里注册了两个 Observer，其回调都是 _wrapRunLoopWithAutoreleasePoolHandler()。
+注册两个Observer管理和维护AutoreleasePool。在应用程序刚刚启动时打印currentRunLoop可以看到系统默认注册了很多个Observer，其中有两个Observer的callout都是` _ wrapRunLoopWithAutoreleasePoolHandler`，这两个是和自动释放池相关的两个监听。
 ```c
 <CFRunLoopObserver 0x6080001246a0 [0x101f81df0]>{valid = Yes, activities = 0x1, repeats = Yes, order = -2147483647, callout = _wrapRunLoopWithAutoreleasePoolHandler (0x1020e07ce), context = <CFArray 0x60800004cae0 [0x101f81df0]>{type = mutable-small, count = 0, values = ()}}
     '' <CFRunLoopObserver 0x608000124420 [0x101f81df0]>{valid = Yes, activities = 0xa0, repeats = Yes, order = 2147483647, callout = _wrapRunLoopWithAutoreleasePoolHandler (0x1020e07ce), context = <CFArray 0x60800004cae0 [0x101f81df0]>{type = mutable-small, count = 0, values = ()}}
