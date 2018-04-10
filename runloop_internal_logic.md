@@ -8,7 +8,7 @@
 
 每次运行run loop，线程的run loop对会自动处理之前未处理的消息，并通知相关的观察者。具体的顺序如下：
 
-RunLoop的事件队列,[官方描述](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html#//apple_ref/doc/uid/10000057i-CH16-SW23)
+RunLoop的事件队列,官方描述[看这里](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html#//apple_ref/doc/uid/10000057i-CH16-SW23)
 
 >1. 通知观察者run loop已经启动
 - 通知观察者任何即将要开始的定时器
