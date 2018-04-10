@@ -171,5 +171,5 @@ __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort) {
 例如你在模拟器里跑起一个 iOS 的 App，然后在 App 静止时点击暂停，你会看到主线程调用栈是停留在 `mach_msg_trap()` 这个地方
 
 
-关于具体的如何利用 mach port 发送信息，可以看看 NSHipster 这一篇文章，或者这里的中文翻译 。
-关于Mach的历史可以看看这篇很有趣的文章：Mac OS X 背后的故事（三）Mach 之父 Avie Tevanian。
+关于具体 mach port 发送信息可以查看：[NSHipster这一篇文章]()，或[中文翻译]() 。
+关于Mach的历史：Mac OS X 背后的故事（三）Mach 之父 Avie Tevanian。
