@@ -185,7 +185,7 @@ int main(int argc, const char * argv[]) {
 
 * 将时钟添加到其他线程工作
 
-```objc
+```objectc
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     self.thread = [[NSThread alloc] initWithTarget:self selector:@selector(startTimer) object:nil];
     [self.thread start];
