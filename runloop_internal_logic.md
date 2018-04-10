@@ -80,10 +80,10 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
             }
              
             /// 7. 调用 mach_msg 等待接受 mach_port 的消息。线程将进入休眠, 直到被下面某一个事件唤醒。
-            /// ? 一个基于 port 的Source 的事件。
-            /// ? 一个 Timer 到时间了
-            /// ? RunLoop 自身的超时时间到了
-            /// ? 被其他什么调用者手动唤醒
+            ///  一个基于 port 的Source 的事件。
+            ///  一个 Timer 到时间了
+            ///  RunLoop 自身的超时时间到了
+            ///  被其他什么调用者手动唤醒
             __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort) {
                 mach_msg(msg, MACH_RCV_MSG, port); // thread wait for receive msg
             }
@@ -156,7 +156,10 @@ RunLoop 最核心的事情就是保证线程在没有消息时休眠以避免占
 
 - Mach 是 Darwin 的核心，可以说是内核的核心，提供了进程间通信（IPC）、处理器调度等基础服务。在 Mach 中，进程、线程间的通信是以消息的方式来完成的，消息在两个 Port 之间进行传递（这也正是 Source1 之所以称之为 Port-based Source 的原因，因为它就是依靠系统发送消息到指定的Port来触发的）。消息的发送和接收使用<mach/message.h>中的mach_msg()函数
 
-- mach_msg() 的本质是一个调用 mach_msg_trap()，例如你在模拟器里跑起一个 iOS 的 App，然后在 App 静止时点击暂停，你会看到主线程调用栈是停留在 mach_msg_trap() 这个地方，这相当于一个系统调用，会触发内核状态切换。当程序静止时，RunLoop停留在__CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort, poll ? 0 : TIMEOUT_INFINITY, &voucherState, &voucherCopy)，而这个函数内部就是调用了mach_msg 让程序处于休眠状态。
+为了实现消息的发送和接收，mach_msg() 函数实际上是调用了一个 Mach 陷阱 (trap)，即函数mach_msg_trap()，陷阱这个概念在 Mach 中等同于系统调用。当你在用户态调用 mach_msg_trap() 时会触发陷阱机制，切换到内核态；内核态中内核实现的 mach_msg() 函数会完成实际的工作，如下图：
+
+例如你在模拟器里跑起一个 iOS 的 App，然后在 App 静止时点击暂停，你会看到主线程调用栈是停留在 mach_msg_trap() 这个地方
+
 
 RunLoop 的核心就是一个 mach_msg() ，RunLoop 调用这个函数去接收消息，如果没有别人发送 port 消息过来，内核会将线程置于等待状态。
 
