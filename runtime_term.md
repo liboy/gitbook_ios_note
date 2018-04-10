@@ -32,7 +32,7 @@ Class 其实是指向 objc_class 结构体的指针。
 typedef struct objc_class *Class;
 ```
 打开`runtime.h`文件objc_class 的数据结构如下：
-```c
+```objectivec
 struct objc_class {
     Class _Nonnull isa  OBJC_ISA_AVAILABILITY;
 
