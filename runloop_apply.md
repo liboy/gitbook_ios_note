@@ -36,7 +36,7 @@ App启动后，苹果在主线程 RunLoop 里注册了两个 Observer管理和�
 
 #### 2. 以上代码是否有问题？如果有，如何解决？
 
-```objectc
+```objectivec
 for (long i = 0; i < largeNumber; ++i) {
     NSString *str = [NSString stringWithFormat:@"hello - %ld", i];
     str = [str uppercaseString];
@@ -48,7 +48,7 @@ for (long i = 0; i < largeNumber; ++i) {
 需要等到 for 结束后，才会释放内存
     * 2> 里面加自动释放池（慢）：能够每一次 for 都释放产生的自动释放对象！
    
-```objectc
+```objectivec
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     NSLog(@"start");
