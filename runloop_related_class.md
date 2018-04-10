@@ -105,7 +105,7 @@ struct __CFRunLoopObserver {
 ```
 CFRunLoopObserverRef相当于消息循环中的一个监听器，随时通知外部当前RunLoop的运行状态（它包含一个函数指针`_callout`将当前状态及时告诉观察者）。具体的Observer状态如下
 
-```objectc
+```objectivec
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
      //创建监听者
