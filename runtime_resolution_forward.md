@@ -12,7 +12,7 @@
 首先Objective-C在运行时调用`+ resolveInstanceMethod:`或`+ resolveClassMethod:`方法，如果你添加方法并返回YES，那系统在运行时就会重新启动一次消息发送的过程。
 
 定义一个类Message：
-``` objectc
+``` objectivec
 @interface Message : NSObject
 - (void)sendMessage:(NSString *)word;
 @end
@@ -62,7 +62,7 @@ resolveInstanceMethod方法返回NO，就跳转到**消息转发(Message Forward
 如果目标对象实现`- forwardingTargetForSelector:`方法，系统就会在运行时调用这个方法，只要这个方法返回的不是nil或self，也会重启消息发送的过程，把这消息转发给其他对象来处理。否则，就会继续Normal Fowarding。
 
 继续上面例子添加forwardingTargetForSelector方法的实现：
-```objectc
+```objectivec
 #pragma mark - Fast Forwarding
 - (id)forwardingTargetForSelector:(SEL)aSelector
 {
