@@ -1,7 +1,7 @@
 # RunLoop应用
 
 ## 自动释放池
-![](./images/自动释放池.jpg)
+![](./assets/自动释放池.jpg)
 
 App启动后，苹果在主线程 RunLoop 里注册了两个 Observer管理和维护AutoreleasePool，其回调都是 _wrapRunLoopWithAutoreleasePoolHandler()，打印currentRunLoop可以看到。
 
