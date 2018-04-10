@@ -211,7 +211,8 @@ int main(int argc, const char * argv[]) {
 
 * 停止运行循环
 
-```objectc
+```objectivec
+
 - (IBAction)stop {
     if (_timerRf == NULL) {
         return;
