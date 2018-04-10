@@ -71,7 +71,7 @@ objc_msgSend(objc_super->receiver, @selector(class))
 ### methodForSelector
 
 NSObject 类中有一个实例方法：methodForSelector，你可以用它来获取某个方法选择器对应的 IMP
-```c
+```objectivec
 void (*setter)(id, SEL, BOOL);
 int i;
 
