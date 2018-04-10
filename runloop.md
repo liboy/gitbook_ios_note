@@ -120,7 +120,7 @@ CFRunLoopRef源码
 
 ## 模拟 RunLoop 实现
 
-```objc
+```objectc
 #import <objc/message.h>
 
 Person *person;
@@ -155,7 +155,7 @@ int main(int argc, const char * argv[]) {
 
 ## 运行循环与时钟
 
-```objc
+```objectc
 @interface ViewController ()
 @property (nonatomic, strong) NSTimer *timer;
 @end
