@@ -63,7 +63,7 @@ objc_super结构体含两个成员，可在`message.h`文件中查看
     - super_class = 当前类的父类(id)class_getSuperclass(objc_getClass("self.name"))
 
 底层编译器将代码转换为:
-```c
+```objectivec
 objc_msgSend(objc_super->receiver, @selector(class))
 ```
 去调用，与[self class]调用相同。
