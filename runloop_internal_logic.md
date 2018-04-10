@@ -6,8 +6,6 @@
 
 ![](/assets/runloop5.png)
 
-每次运行run loop，线程的run loop对会自动处理之前未处理的消息，并通知相关的观察者。具体的顺序如下：
-
 RunLoop的事件队列,官方描述[看这里](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html#//apple_ref/doc/uid/10000057i-CH16-SW23)
 
 >1. 通知观察者run loop已经启动
@@ -143,7 +141,7 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
 ```
 可以看到，实际上 RunLoop 就是这样一个函数，其内部是一个 do-while 循环。当你调用 CFRunLoopRun() 时，线程就会一直停留在这个循环里；直到超时或被手动停止，该函数才会返回。
 
-下图描述了Runloop运行流程（基本描述了上面Runloop的核心流程，）：
+这张图更详细描述了上面Runloop的核心流程：
 ![](/assets/runloop6.png)
 
 整个流程并不复杂（需要注意的就是_黄色_区域的消息处理中并不包含source0，因为它在循环开始之初就会处理），整个流程其实就是一种Event Loop的实现，其他平台均有类似的实现，只是这里叫做Runloop。但是既然RunLoop是一个消息循环，谁来管理和运行Runloop？那么它接收什么类型的消息？休眠过程是怎么样的？如何保证休眠时不占用系统资源？如何处理这些消息以及何时退出循环？还有一系列问题需要解开。
