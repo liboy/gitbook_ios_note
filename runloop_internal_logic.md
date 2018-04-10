@@ -150,6 +150,15 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
 
 ## RunLoop 的底层实现
 从上面代码可以看到，RunLoop 的核心是基于 mach port 的，其进入休眠时调用的函数是 `mach_msg()`(见上面代码的第7步)。
+```
+/// 7. 调用 mach_msg 等待接受 mach_port 的消息。线程将进入休眠, 直到被下面某一个事件唤醒。
+            ///  一个基于 port 的Source 的事件。
+            ///  一个 Timer 到时间了
+            ///  RunLoop 自身的超时时间到了
+            ///  被其他什么调用者手动唤醒
+            __CFRunLoopServiceMachPort(waitSet, &msg, sizeof(msg_buffer), &livePort) {
+                mach_msg(msg, MACH_RCV_MSG, port); // thread wait for receive msg
+```
 RunLoop 最核心的事情就是保证线程在没有消息时休眠以避免占用系统资源，有消息时能够及时唤醒。 RunLoop 的这个机制完全依靠系统内核来完成，具体来说是苹果操作系统核心组件 Darwin 中的 Mach 来完成的。
 
 ![OSX/iOS 这个核心的架构](/assets/runloop7.png)
