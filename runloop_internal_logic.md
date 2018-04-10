@@ -144,6 +144,6 @@ int CFRunLoopRunSpecific(runloop, modeName, seconds, stopAfterHandle) {
 这张图更详细描述了上面Runloop的核心流程：
 ![](/assets/runloop6.png)
 
-整个流程并不复杂（需要注意的就是_黄色_区域的消息处理中并不包含source0，因为它在循环开始之初就会处理），整个流程其实就是一种Event Loop的实现，其他平台均有类似的实现，只是这里叫做Runloop。但是既然RunLoop是一个消息循环，谁来管理和运行Runloop？那么它接收什么类型的消息？休眠过程是怎么样的？如何保证休眠时不占用系统资源？如何处理这些消息以及何时退出循环？还有一系列问题需要解开。
-
-注意的是尽管CFRunLoopPerformBlock在上图中作为唤醒机制有所体现，但事实上执行CFRunLoopPerformBlock只是入队，下次RunLoop运行才会执行，而如果需要立即执行则必须调用CFRunLoopWakeUp。
+需要注意的
+- 是_黄色_区域的消息处理中并不包含source0，因为它在循环开始之初就会处理
+- CFRunLoopPerformBlock尽管在上图中作为唤醒机制有所体现，但事实上执行只是入队，等待下次RunLoop运行才会执行，而如果需要立即执行则必须调用CFRunLoopWakeUp。
