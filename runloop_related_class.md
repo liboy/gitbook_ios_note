@@ -31,7 +31,7 @@ RunLoop 有五种运行模式，其中常见的有1.2两种
 5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
 
 CFRunLoopMode 和 CFRunLoop 的结构大致如下：
-```c
+```objectivec
 struct __CFRunLoopMode {
     CFStringRef _name;            // Mode Name, 例如 @"kCFRunLoopDefaultMode"
     CFMutableSetRef _sources0;    // Set
