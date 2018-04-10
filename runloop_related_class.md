@@ -1,6 +1,5 @@
-# 相关类
+# RunLoop相关类
 
-Core Foundation 中关于 RunLoop 的5个类
 
 1. CFRunloopRef【RunLoop本身】
 2. CFRunloopModeRef【Runloop的运行模式】
@@ -8,6 +7,7 @@ Core Foundation 中关于 RunLoop 的5个类
 4. CFRunloopTimerRef【Timer事件】
 5. CFRunloopObserverRef【Runloop的观察者（监听者）】
 
+内部关系如图：
 ![](/assets/runloop3.png)
 由图中可以得出以下几点：
 1. CFRunLoopModeRef代表的是RunLoop的运行模式。
