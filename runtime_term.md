@@ -28,7 +28,7 @@ isa 指针在代码运行时并不总指向实例对象所属的类型，所以�
 
 ## Class
 Class 其实是指向 objc_class 结构体的指针。
-```c
+```objectivec
 typedef struct objc_class *Class;
 ```
 打开`runtime.h`文件objc_class 的数据结构如下：
@@ -55,7 +55,7 @@ struct objc_class {
 从 objc_class 可以看到，一个运行时类中关联了它的父类指针、类名、成员变量、方法、缓存以及附属的协议。
 
 - **isa**表示一个Class对象的Class，也就是Meta Class。在面向对象设计中，一切都是对象，Class在设计中本身也是一个对象。我们会在objc-runtime-new.h文件找到证据，发现objc_class有以下定义：
-```c
+```objectivec
 struct objc_class : objc_object {
   // Class ISA;
   Class superclass;
