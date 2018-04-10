@@ -120,7 +120,8 @@ CFRunLoopRef源码
 
 ## 模拟 RunLoop 实现
 
-```objectc
+```objectivec
+
 #import <objc/message.h>
 
 Person *person;
@@ -155,7 +156,7 @@ int main(int argc, const char * argv[]) {
 
 ## 运行循环与时钟
 
-```objectc
+```objectivec
 @interface ViewController ()
 @property (nonatomic, strong) NSTimer *timer;
 @end
@@ -185,7 +186,8 @@ int main(int argc, const char * argv[]) {
 
 * 将时钟添加到其他线程工作
 
-```objectc
+```objectivec
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     self.thread = [[NSThread alloc] initWithTarget:self selector:@selector(startTimer) object:nil];
     [self.thread start];
