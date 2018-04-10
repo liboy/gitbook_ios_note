@@ -44,11 +44,11 @@ NSLog(@"%@", NSStringFromClass([super class]));
 ```
 
 当调用[self class]方法时，会转化为objc_msgSend函数，这个函数定义如下：
-```
+```objectivec
 id objc_msgSend(id self, SEL op, ...)
 ```
 这时会从当前Son类的方法列表中查找，如果没有，就到父类查找，还是没有，最后在NSObject类查找到。我们可以从NSObject.mm文件中看到- (Class)class的实现：
-```c
+```objectivec
 - (Class)class {
     return object_getClass(self);
 }
