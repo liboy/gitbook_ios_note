@@ -209,7 +209,7 @@ int main(int argc, const char * argv[]) {
 
 * 停止运行循环
 
-```objc
+```objectc
 - (IBAction)stop {
     if (_timerRf == NULL) {
         return;
