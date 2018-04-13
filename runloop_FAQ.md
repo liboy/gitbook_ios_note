@@ -21,7 +21,7 @@ runloop: 从字面意思看：运行循环、跑圈，其实它内部就是do-wh
 <!--endsec--> 
 
 <!--sec data-title="问题4：苹果是如何实现Autorelease Pool的？
-" data-id="section0" data-show=true ces-->
+" data-id="section4" data-show=true ces-->
  
 解答： Autorelease Pool作用：缓存池，可以避免我们经常写relase的一种方式。其实就是延迟release，将创建的对象，添加到最近的autoreleasePool中，等到autoreleasePool作用域结束的时候，会将里面所有的对象的引用计数器 - autorelease.
 <!--endsec--> 
