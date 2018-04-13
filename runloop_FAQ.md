@@ -10,7 +10,7 @@ runloop: 从字面意思看：运行循环、跑圈，其实它内部就是do-wh
 <!--sec data-title="问题2：runloop的mode是用来做什么的？有几种mode？
 " data-id="section2" data-show=true ces-->
  
-解答： model:是runloop里面的运行模式，不同的模式下的runloop处理的事件和消息有一定的差别。系统默认注册了5个Mode:（1）kCFRunLoopDefaultMode: App的默认 Mode，通常主线程是在这个 Mode 下运行的。（2）UITrackingRunLoopMode: 界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响。（3）UIInitializationRunLoopMode: 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用。（4）GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到。（5）kCFRunLoopCommonModes: 这是一个占位的 Mode，没有实际作用。注意iOS 对以上5中model进行了封装 NSDefaultRunLoopMode、NSRunLoopCommonModes
+model:是runloop里面的运行模式，不同的模式下的runloop处理的事件和消息有一定的差别。系统默认注册了5个Mode:（1）kCFRunLoopDefaultMode: App的默认 Mode，通常主线程是在这个 Mode 下运行的。（2）UITrackingRunLoopMode: 界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响。（3）UIInitializationRunLoopMode: 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用。（4）GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到。（5）kCFRunLoopCommonModes: 这是一个占位的 Mode，没有实际作用。注意iOS 对以上5中model进行了封装 NSDefaultRunLoopMode、NSRunLoopCommonModes
 <!--endsec--> 
 
 
