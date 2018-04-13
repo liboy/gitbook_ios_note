@@ -40,10 +40,10 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(newT
     }  
 }
 ```
-NSTimer可能就会存在误差
+### NSTimer可能存在误差
 
 NSTimer不是一种实时机制
-官方文档明确说明在一个循环中如果RunLoop没有被识别（这个时间大概在50-100ms）或者说当前RunLoop在执行一个长的call out（例如执行某个循环操作），RunLoop在下一次循环中继续检查并根据情况确定是否执行（NSTimer的执行时间总是固定在一定的时间间隔，例如1:00:00、1:00:01、1:00:02、1:00:05则跳过了第4、5次运行循环）。
+当前RunLoop在执行一个长的call out（例如执行某个循环操作），RunLoop在下一次循环中继续检查并根据情况确定是否执行
 
 下面的例子选择在同一个RunLoop中即加入定时器和执行耗时任务
 ```
@@ -117,7 +117,7 @@ NSTimer不是一种实时机制
     
     @end
 ```
-如果运行并且不退出上面的程序会发现，前两秒NSTimer可以正常执行，但是两秒后由于同一个RunLoop中循环操作的执行造成定时器跳过了中间执行的机会一直到caculator循环完毕，这也正说明了NSTimer不是实时系统机制的原因。
+说明了NSTimer不是实时系统机制
 
 但是以上程序还有几点需要说明一下：
 
