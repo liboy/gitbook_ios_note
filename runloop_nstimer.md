@@ -20,7 +20,7 @@ NSTimer的创建：
 NSTimer使用时的注意事项
 
 - 注意timer添加到runloop时应该设置为什么mode
-- 注意timer在不需要时，一定要调用invalidate方法使定时器失效，否则得不到释放
+- 注意timer在不需要时，一定要调用invalidate方法释放定时器
 
 ```objectivec
     #import "ViewController1.h"
