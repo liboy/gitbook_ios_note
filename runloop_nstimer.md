@@ -23,7 +23,7 @@
 - 注意timer在不需要时，一定要调用invalidate方法释放定时器
 
 ## UITableView 与 NSTimer 冲突
-解决方案
+解决方案：
 ```
 1. 更改RunLoop运行Mode（NSRunLoopCommonModes）
 [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
