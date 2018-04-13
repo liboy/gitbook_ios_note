@@ -67,6 +67,7 @@ NSTimer的创建：
 注意上面代码中UIViewController1对timer1和timer2并没有强引用，对于普通的对象而言，执行完viewDidLoad方法之后（准确的说应该是执行完viewDidLoad方法后的的一个RunLoop运行结束）二者应该会被释放，但事实上二者并没有被释放。原因是：为了确保定时器正常运转，当加入到RunLoop以后系统会对NSTimer执行一次retain操作（特别注意：timer2创建时并没直接赋值给timer2，原因是timer2是weak属性，如果直接赋值给timer2会被立即释放，因为timerWithXXX方法创建的NSTimer默认并没有加入RunLoop，只有后面加入RunLoop以后才可以将引用指向timer2）。
 但是即使使用了弱引用，上面的代码中ViewController1也无法正常释放，原因是在创建NSTimer2时指定了target为self，这样一来造成了timer1和timer2对ViewController1有一个强引用。解决这个问题的方法通常有两种：一种是将target分离出来独立成一个对象（在这个对象中创建NSTimer并将对象本身作为NSTimer的target），控制器通过这个对象间接使用NSTimer；另一种方式的思路仍然是转移target，只是可以直接增加NSTimer扩展（分类），让NSTimer自身做为target，同时可以将操作selector封装到block中。后者相对优雅，也是目前使用较多的方案（目前有大量类似的封装，例如：NSTimer+Block）。显然Apple也认识到了这个问题，如果你可以确保代码只在iOS 10下运行就可以使用iOS 10新增的系统级block方案（上面的代码中已经贴出这种方法）。
 当然使用上面第二种方法可以解决控制器无法释放的问题，但是会发现即使控制器被释放了两个定时器仍然正常运行，要解决这个问题就需要调用NSTimer的invalidate方法（注意：无论是重复执行的定时器还是一次性的定时器只要调用invalidate方法则会变得无效，只是一次性的定时器执行完操作后会自动调用invalidate方法）。修改后的代码如下：
+```objectivec
 
     #import "ViewController1.h"
     
@@ -110,6 +111,7 @@ NSTimer的创建：
         NSLog(@"ViewController1 dealloc...");
     }
     @end
+```
 其实和定时器相关的另一个问题大家也经常碰到，那就是NSTimer不是一种实时机制，官方文档明确说明在一个循环中如果RunLoop没有被识别（这个时间大概在50-100ms）或者说当前RunLoop在执行一个长的call out（例如执行某个循环操作）则NSTimer可能就会存在误差，RunLoop在下一次循环中继续检查并根据情况确定是否执行（NSTimer的执行时间总是固定在一定的时间间隔，例如1:00:00、1:00:01、1:00:02、1:00:05则跳过了第4、5次运行循环）。
 要演示这个问题请看下面的例子（注意：有些示例中可能会让一个线程中启动一个定时器，再在主线程启动一个耗时任务来演示这个问，如果实际测试可能效果不会太明显，因为现在的iPhone都是多核运算的，这样一来这个问题会变得相对复杂，因此下面的例子选择在同一个RunLoop中即加入定时器和执行耗时任务）
 
