@@ -46,7 +46,7 @@ NSTimer不是一种实时机制
 官方文档明确说明在一个循环中如果RunLoop没有被识别（这个时间大概在50-100ms）或者说当前RunLoop在执行一个长的call out（例如执行某个循环操作），RunLoop在下一次循环中继续检查并根据情况确定是否执行（NSTimer的执行时间总是固定在一定的时间间隔，例如1:00:00、1:00:01、1:00:02、1:00:05则跳过了第4、5次运行循环）。
 
 下面的例子选择在同一个RunLoop中即加入定时器和执行耗时任务
-
+```
     #import "ViewController.h"
     
     @interface ViewController ()
