@@ -23,9 +23,6 @@
 - 注意timer在不需要时，一定要调用invalidate方法释放定时器
 - NSTimer不是一种实时机制，可能存在误差
 
-
-
-
 ## UITableView 与 NSTimer 冲突
 解决方案：
 ```
