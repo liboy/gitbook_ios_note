@@ -24,9 +24,9 @@
 
 ## UITableView 与 NSTimer 冲突
 ```
-1、更改RunLoop运行Mode（NSRunLoopCommonModes）
+1. 更改RunLoop运行Mode（NSRunLoopCommonModes）
 [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-2、将NSTimer放到新的线程中
+2. 将NSTimer放到新的线程中
 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(newThread) object:nil];
     [thread start];
 
