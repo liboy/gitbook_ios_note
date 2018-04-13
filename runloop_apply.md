@@ -9,7 +9,6 @@
 ## PerformSelecter
 
 - performSelecter:afterDelay: 实际上其内部会创建一个 Timer 并添加到当前线程的 RunLoop 中
-
 - performSelector:onThread: 实际上其会创建一个Timer加到对应的线程
 
 ## UI更新
