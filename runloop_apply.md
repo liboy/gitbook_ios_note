@@ -16,8 +16,7 @@
 当在操作 UI 时，比如改变了 Frame、更新了 UIView/CALayer 的层次时，或者手动调用了 UIView/CALayer 的 setNeedsLayout/setNeedsDisplay方法后，这个 UIView/CALayer 就被标记为待处理，并被提交到一个全局的容器去。
 
 苹果注册了一个 Observer 监听 BeforeWaiting(即将进入休眠) 和 Exit (即将退出Loop) 事件，回调去执行一个很长的函数：
-
-_ZN2CA11Transaction17observer_callbackEP19__CFRunLoopObservermPv()。这个函数里会遍历所有待处理的 UIView/CAlayer 以执行实际的绘制和调整，并更新 UI 界面。
+`_ZN2CA11Transaction17observer_callbackEP19__CFRunLoopObservermPv()`函数遍历所有待处理的 UIView/CAlayer 以执行实际的绘制和调整，并更新 UI 界面。
 
 ## GCD和RunLoop的关系
 
