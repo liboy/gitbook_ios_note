@@ -24,4 +24,10 @@
 
 ## 更多RunLoop使用
 通常情况下不会自定义Timer，更不会自定义一个完整的Mode，利用更多的其实是Observer和Mode的切换。
-例如很多人都熟悉的使用perfromSelector在默认模式下设置图片，防止UITableView滚动卡顿（[[UIImageView alloc initWithFrame:CGRectMake(0, 0, 100, 100)] performSelector:@selector(setImage:) withObject:myImage afterDelay:0.0 inModes:@NSDefaultRunLoopMode]）。还有sunnyxx的UITableView+FDTemplateLayoutCell利用Observer在界面空闲状态下计算出UITableViewCell的高度并进行缓存。再有老谭的PerformanceMonitor关于iOS实时卡顿监控，同样是利用Observer对RunLoop进行监视。
+例如很多人都熟悉的
+- 用perfromSelector在默认模式下设置图片，防止UITableView滚动卡顿
+``
+[[UIImageView alloc initWithFrame:CGRectMake(0, 0, 100, 100)] performSelector:@selector(setImage:) withObject:myImage afterDelay:0.0 inModes:@NSDefaultRunLoopMode]
+```
+
+还有sunnyxx的UITableView+FDTemplateLayoutCell利用Observer在界面空闲状态下计算出UITableViewCell的高度并进行缓存。再有老谭的PerformanceMonitor关于iOS实时卡顿监控，同样是利用Observer对RunLoop进行监视。
