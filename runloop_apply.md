@@ -26,7 +26,7 @@
 通常情况下不会自定义Timer，更不会自定义一个完整的Mode，利用更多的其实是Observer和Mode的切换。
 例如很多人都熟悉的
 - 用perfromSelector在默认模式下设置图片，防止UITableView滚动卡顿
-``
+```
 [[UIImageView alloc initWithFrame:CGRectMake(0, 0, 100, 100)] performSelector:@selector(setImage:) withObject:myImage afterDelay:0.0 inModes:@NSDefaultRunLoopMode]
 ```
 
