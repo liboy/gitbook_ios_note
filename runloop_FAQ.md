@@ -1,6 +1,6 @@
 # 常见面试题
 
-<!--sec data-title="runloop是来做什么的？runloop和线程有什么关系？主线程默认开启了runloop么？子线程呢？
+<!--sec data-title="问题1：runloop是来做什么的？runloop和线程有什么关系？主线程默认开启了runloop么？子线程呢？
 " data-id="section0" data-show=true ces-->
 
 解答： runloop: 从字面意思看：运行循环、跑圈，其实它内部就是do-while循环，在这个循环内部不断地处理各种任务（比如Source、Timer、Observer）事件。runloop和线程的关系：一个线程对应一个RunLoop，主线程的RunLoop默认创建并启动，子线程的RunLoop需手动创建且手动启动（调用run方法）。RunLoop只能选择一个Mode启动，如果当前Mode中没有任何Source(Sources0、Sources1)、Timer，那么就直接退出RunLoop。  
