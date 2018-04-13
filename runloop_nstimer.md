@@ -8,14 +8,14 @@ NSTimer的创建：
 ```objectivec
 + (NSTimer *)timerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo
 ```
-- scheduedTimerWithXXX
+- 2. scheduedTimerWithXXX
 
 ```objectivec
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo
 ```
 区别：
 就是后者除了创建一个定时器外会自动以NSDefaultRunLoopModeMode添加到当前线程RunLoop中
-，不添加到RunLoop中的NSTimer是无法正常工作的。例如下面的代码中如果timer2不加入到RunLoop中是无法正常工作的。同时注意如果滚动UIScrollView（UITableView、UICollectionview是类似的）二者是无法正常工作的，但是如果将NSDefaultRunLoopMode改为NSRunLoopCommonModes则可以正常工作，这也解释了前面介绍的Mode内容。
+- 不添加到RunLoop中的NSTimer是无法正常工作的。例如下面的代码中如果timer2不加入到RunLoop中是无法正常工作的。同时注意如果滚动UIScrollView（UITableView、UICollectionview是类似的）二者是无法正常工作的，但是如果将NSDefaultRunLoopMode改为NSRunLoopCommonModes则可以正常工作，这也解释了前面介绍的Mode内容。
 
     #import "ViewController1.h"
 
