@@ -22,11 +22,9 @@ runloop: 从字面意思看：运行循环、跑圈，其实它内部就是do-wh
 解答： nstime对象是在 NSDefaultRunLoopMode下面调用消息的，但是当我们滑动scrollview的时候，NSDefaultRunLoopMode模式就自动切换到UITrackingRunLoopMode模式下面，却不可以继续响应nstime发送的消息。所以如果想在滑动scrollview的情况下面还调用nstime的消息，我们可以把nsrunloop的模式更改为NSRunLoopCommonModes.
 <!--endsec--> 
 
-<!--sec data-title="问题1：runloop是来做什么的？runloop和线程有什么关系？主线程默认开启了runloop么？子线程呢？
+<!--sec data-title="问题1：苹果是如何实现Autorelease Pool的？
 " data-id="section0" data-show=true ces-->
-
-04
-问题： 苹果是如何实现Autorelease Pool的？
+ 
 解答： Autorelease Pool作用：缓存池，可以避免我们经常写relase的一种方式。其实就是延迟release，将创建的对象，添加到最近的autoreleasePool中，等到autoreleasePool作用域结束的时候，会将里面所有的对象的引用计数器 - autorelease.
 <!--endsec--> 
 
