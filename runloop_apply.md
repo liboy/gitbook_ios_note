@@ -6,8 +6,13 @@
 - AutoreleasePool 自动释放池
 - UI更新
 
+## PerformSelecter
 
-UI更新
+当调用 NSObject 的 performSelecter:afterDelay: 后，实际上其内部会创建一个 Timer 并添加到当前线程的 RunLoop 中。所以如果当前线程没有 RunLoop，则这个方法会失效。
+
+当调用 performSelector:onThread: 时，实际上其会创建一个 Timer 加到对应的线程去，同样的，如果对应线程没有 RunLoop 该方法也会失效。
+
+## UI更新
 
 如果打印App启动之后的主线程RunLoop可以发现另外一个callout为_ZN2CA11Transaction17observer_callbackEP19__CFRunLoopObservermPv 的 Observer，这个监听专门负责UI变化后的更新，比如修改了frame、调整了UI层级（UIView/CALayer）或者手动设置了setNeedsDisplay/setNeedsLayout 之后就会将这些操作提交到全局容器。而这个Observer监听了主线程RunLoop的即将进入休眠和退出状态，一旦进入这两种状态则会遍历所有的UI更新并提交进行实际绘制更新。
 
