@@ -23,8 +23,8 @@
 在RunLoop的源代码中可以看到用到了GCD的相关内容，但是RunLoop本身和GCD并没有直接的关系。当调用了dispatch_async(dispatch_get_main_queue(), <#^(void)block#>)时libDispatch会向主线程RunLoop发送消息唤醒RunLoop，RunLoop从消息中获取block，并且在__CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__回调里执行这个block。不过这个操作仅限于主线程，其他线程dispatch操作是全部由libDispatch驱动的。
 
 ## 更多RunLoop使用
-通常情况下不会自定义Timer，更不会自定义一个完整的Mode，利用更多的其实是Observer和Mode的切换。
-利用Observer对RunLoop进行监视。
+
+利用Observer对RunLoop进行监视
 - 用perfromSelector在默认模式下设置图片，防止UITableView滚动卡顿
 ```
 [[UIImageView alloc initWithFrame:CGRectMake(0, 0, 100, 100)] performSelector:@selector(setImage:) withObject:myImage afterDelay:0.0 inModes:@NSDefaultRunLoopMode]
