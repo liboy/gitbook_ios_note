@@ -5,7 +5,6 @@
 NSTimer的创建：
 - 一种是timerWithXXX，
 
-
 ```objectivec
 + (NSTimer *)timerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo
 ```
