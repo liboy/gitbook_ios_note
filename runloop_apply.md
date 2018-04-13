@@ -29,5 +29,5 @@
 ```
 [[UIImageView alloc initWithFrame:CGRectMake(0, 0, 100, 100)] performSelector:@selector(setImage:) withObject:myImage afterDelay:0.0 inModes:@NSDefaultRunLoopMode]
 ```
-
-还有sunnyxx的UITableView+FDTemplateLayoutCell利用Observer在界面空闲状态下计算出UITableViewCell的高度并进行缓存。再有老谭的PerformanceMonitor关于iOS实时卡顿监控，同样是利用Observer对RunLoop进行监视。
+- UITableView+FDTemplateLayoutCell利用Observer在界面空闲状态下计算出UITableViewCell的高度并进行缓存
+- PerformanceMonitor关于iOS实时卡顿监控，同样是利用Observer对RunLoop进行监视。
