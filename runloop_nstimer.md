@@ -17,6 +17,13 @@ NSTimer的创建：
 - 后者除了创建一个定时器外会自动以NSDefaultRunLoopModeMode添加到当前线程RunLoop中
 - 不添加到RunLoop中的NSTimer是无法正常工作的。
 
+NSTimer使用时的注意事项（两项即可）
+
+思路和上一题一样，如果想要销毁timer，则必须先将timer置为失效，否则timer就一直占用内存而不会释放。造成逻辑上的内存泄漏。该泄漏不能用xcode及instruments测出来。 另外对于要求必须销毁timer的逻辑处理，未将timer置为失效，若每次都创建一次，则之前的不能得到释放，则会同时存在多个timer的实例在内存中。
+参考答案：
+•   注意timer添加到runloop时应该设置为什么mode
+•   注意timer在不需要时，一定要调用invalidate方法使定时器失效，否则得不到释放
+
 ```objectivec
     #import "ViewController1.h"
     
