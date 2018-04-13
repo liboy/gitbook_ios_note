@@ -21,6 +21,7 @@
 
 - 注意timer添加到runloop时应该设置为什么mode
 - 注意timer在不需要时，一定要调用invalidate方法释放定时器
+- NSTimer不是一种实时机制
 
 ## UITableView 与 NSTimer 冲突
 解决方案：
@@ -42,7 +43,7 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(newT
 ```
 ### NSTimer可能存在误差
 
-NSTimer不是一种实时机制
+
 当前RunLoop在执行一个长的call out（例如执行某个循环操作），RunLoop在下一次循环中继续检查并根据情况确定是否执行
 
 下面的例子选择在同一个RunLoop中即加入定时器和执行耗时任务
