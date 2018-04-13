@@ -14,7 +14,7 @@ model:是runloop里面的运行模式，不同的模式下的runloop处理的事
 <!--endsec--> 
 
 
-<!--sec data-title="问题3：为什么把NSTimer对象以NSDefaultRunLoopMode（kCFRunLoopDefaultMode）添加到主运行循环以后，滑动scrollview的时候NSTimer却不动了？
+<!--sec data-title="问题3：为什么把NSTimer对象以NSDefaultRunLoopMode添加到主运行循环以后，滑动scrollview的时候NSTimer却不动了？
 " data-id="section3" data-show=true ces-->
 
 NSTimer对象是在 NSDefaultRunLoopMode下面调用消息的，但是当我们滑动scrollview的时候，NSDefaultRunLoopMode模式就自动切换到UITrackingRunLoopMode模式下面，却不可以继续响应nstime发送的消息。所以如果想在滑动scrollview的情况下面还调用nstime的消息，我们可以把nsrunloop的模式更改为NSRunLoopCommonModes.
