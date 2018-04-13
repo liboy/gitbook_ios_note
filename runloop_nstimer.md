@@ -17,16 +17,12 @@
 - 后者除了创建一个定时器外会自动以NSDefaultRunLoopModeMode添加到当前线程RunLoop中
 - 不添加到RunLoop中的NSTimer是无法正常工作的。
 
-NSTimer使用时的注意事项
+## NSTimer使用时的注意事项
 
 - 注意timer添加到runloop时应该设置为什么mode
 - 注意timer在不需要时，一定要调用invalidate方法释放定时器
 
-UITableView 与 NSTimer 冲突
-
-【描述】：由于 UItabelView 在滑动的时候，会从当前的 RunLoop 默认的模式 kCFRunLoopDefaultMode (NSDefaultRunLoopMode) 自动切换到 UITrackingRunLoopMode界面追踪模式。这个时候，处于 NSDefaultRunLoopMode 里面的 NSTimer 由于切换了模式造成计时器无法继续运行。
-
-【解决】：
+## UITableView 与 NSTimer 冲突
 ```
 1、更改RunLoop运行Mode（NSRunLoopCommonModes）
 [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
