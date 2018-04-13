@@ -22,50 +22,28 @@ NSTimer使用时的注意事项
 - 注意timer添加到runloop时应该设置为什么mode
 - 注意timer在不需要时，一定要调用invalidate方法释放定时器
 
-```objectivec
-    #import "ViewController1.h"
-    
-    @interface ViewController1 ()
-    @property (nonatomic,weak) NSTimer *timer1;
-    @property (nonatomic,weak) NSTimer *timer2;
-    @end
-    
-    @implementation ViewController1
-    
-    - (void)viewDidLoad {
-        [super viewDidLoad];
-        self.view.backgroundColor = [UIColor blueColor];
-    
-        self.timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            NSLog(@"timer1...");
-        }];
-        NSTimer *tempTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            NSLog(@"timer2...");
-        }];
-        [[NSRunLoop currentRunLoop] addTimer:tempTimer forMode:NSDefaultRunLoopMode];
-        self.timer2 = tempTimer;
-        
-        CGRect rect = [UIScreen mainScreen].bounds;
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectInset(rect, 0, 200)];
-        [self.view addSubview:scrollView];
-        
-        UIView *contentView = [[UIView alloc] initWithFrame:CGRectInset(scrollView.bounds, -100, -100)];
-        contentView.backgroundColor = [UIColor redColor];
-        [scrollView addSubview:contentView];
-        scrollView.contentSize = contentView.frame.size;
-    }
-    
-    - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-        [self dismissViewControllerAnimated:true completion:nil];
-    }
-    
-    - (void)dealloc {
-        [self.timer1 invalidate];
-        [self.timer2 invalidate];
-        NSLog(@"ViewController1 dealloc...");
-    }
-    @end
+UITableView 与 NSTimer 冲突
+
+【描述】：由于 UItabelView 在滑动的时候，会从当前的 RunLoop 默认的模式 kCFRunLoopDefaultMode (NSDefaultRunLoopMode) 自动切换到 UITrackingRunLoopMode界面追踪模式。这个时候，处于 NSDefaultRunLoopMode 里面的 NSTimer 由于切换了模式造成计时器无法继续运行。
+
+【解决】：
 ```
+1、更改RunLoop运行Mode（NSRunLoopCommonModes）
+[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+2、将NSTimer放到新的线程中
+NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(newThread) object:nil];
+    [thread start];
+
+- (void)newThread{
+    @autoreleasepool{
+        //在当前Run Loop中添加timer，模式是默认的NSDefaultRunLoopMode
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(incrementCounter:) userInfo: nil repeats:YES];
+        //开始执行新线程的Run Loop，如果不启动run loop，timer的事件是不会响应的
+        [[NSRunLoop currentRunLoop] run];
+    }  
+}
+```
+
 其实和定时器相关的另一个问题大家也经常碰到，那就是NSTimer不是一种实时机制，官方文档明确说明在一个循环中如果RunLoop没有被识别（这个时间大概在50-100ms）或者说当前RunLoop在执行一个长的call out（例如执行某个循环操作）则NSTimer可能就会存在误差，RunLoop在下一次循环中继续检查并根据情况确定是否执行（NSTimer的执行时间总是固定在一定的时间间隔，例如1:00:00、1:00:01、1:00:02、1:00:05则跳过了第4、5次运行循环）。
 要演示这个问题请看下面的例子（注意：有些示例中可能会让一个线程中启动一个定时器，再在主线程启动一个耗时任务来演示这个问，如果实际测试可能效果不会太明显，因为现在的iPhone都是多核运算的，这样一来这个问题会变得相对复杂，因此下面的例子选择在同一个RunLoop中即加入定时器和执行耗时任务）
 
