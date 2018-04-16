@@ -237,7 +237,7 @@ test[2321:451525] weight--------Td,N,V_weight
 
 >关于类型编码参考：[类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1) 、[属性的类型编码](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW6)
 
-class_getProperty 和 protocol_getProperty 通过给出属性名在类和协议中获得属性的引用。
+`class_getProperty` 和 `protocol_getProperty` 通过给出属性名在类和协议中获得属性的引用。
 ```objectivec
 objc_property_t class_getProperty(Class cls, const char *name)
 objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isRequiredProperty, BOOL isInstanceProperty)
