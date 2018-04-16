@@ -81,7 +81,7 @@ Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和
  1. `Root class (class)`其实就是`NSObject`，`NSObject`是没有超类的，所以`Root class(class)`的superclass指向`nil`。
  2. 每个`Class`都有一个`isa`指针指向唯一的`Meta class`
  3. `Root class(meta)`的`superclass`指向`Root class(class)`，也就是NSObject，形成一个回路。
- 4. 每个Meta class的isa指针都指向Root class (meta)。
+ 4. 每个`Meta class`的`isa`指针都指向`Root class (meta)`。
 
 - **super_class**表示实例对象对应的父类；
 
