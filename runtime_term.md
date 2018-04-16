@@ -99,7 +99,7 @@ struct objc_ivar_list {
   struct objc_ivar ivar_list[1]                            OBJC2_UNAVAILABLE;
 }
 ```
-`objc_ivar_list`其实就是一个`链表`，存储多个`objc_ivar`，而objc_ivar结构体存储类的单个成员变量信息。
+`objc_ivar_list`其实就是一个`链表`，存储多个`objc_ivar`，而`objc_ivar`结构体存储类的单个成员变量信息。
 
 - **methodLists**表示方法列表，它指向objc_method_list结构体的二级指针，可以动态修改*methodLists的值来添加成员方法，也是Category实现原理，同样也解释Category不能添加属性的原因。在runtime.h可以看到它的定义：
 ```objectivec
