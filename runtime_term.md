@@ -114,7 +114,7 @@ struct objc_method_list {
   struct objc_method method_list[1]                        OBJC2_UNAVAILABLE;
 }
 ```
-objc_method_list也是一个链表，存储多个objc_method，而objc_method结构体存储类的某个方法的信息。
+`objc_method_list`也是一个链表，存储多个objc_method，而objc_method结构体存储类的某个方法的信息。
 
 - **cache**用来缓存经常访问的方法，它指向objc_cache结构体，后面会重点讲到。
 - **protocols**表示类遵循哪些协议。
