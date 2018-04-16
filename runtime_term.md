@@ -266,7 +266,7 @@ objc_property_t protocol_getProperty(Protocol *proto, const char *name, BOOL isR
 ## objc_msgForward
 是IMP类型，用于消息转发，当向一个对象发送消息，但它并没有实现，`_objc_msgForward`会尝试做消息转发。
 如果手动调用，将跳过查找IMP的过程，直接触发消息转发，进入如下流程：
-1. 第一步：`+ (BOOL)resolveInstanceMethod:(SEL)sel`方法，指定是否动态添加方法，返回NO，则进入下一步；返回YES，则通过class_addMethod函数动态添加方法，消息得到处理，流程完毕。
+1. 第一步：`+ (BOOL)resolveInstanceMethod:(SEL)sel`方法，指定是否动态添加方法，返回NO，则进入下一步；返回YES，则通过`class_addMethod`函数动态添加方法，消息得到处理，流程完毕。
 2. 第二步：`- (id)forwardingTargetForSelector:(SEL)aSelector`方法，这是运行时给我们的第二次机会，用于指定哪个对象响应这个selector,不能指定为self,若返回nil，表示没有响应者，则会进入第三步；若返回某个对象，则会调用该对象的方法。
 3. 第三步：`- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector`方法，指定方法签名，返回nil，表示不出理；返回签名，进入第四步。
 4. 第四步：`- (void)forwardInvocation:(NSInvocation *)anInvocation  `方法，可以通过anInvocation对象做很多处理，比如：修改实现方法、修改响应对象等；若没有实现，进入第五步。
