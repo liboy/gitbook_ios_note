@@ -34,6 +34,7 @@ block出栈需要将使用的数据从栈内存拷贝到堆内存，当然对象
 5 Blocks 更清晰。比如 一个 viewController 中有多个弹窗事件，Delegate 就得对每个事件进行判断识别来源。而 Blocks 就可以在创建事件的时候区分开来了。这也是为什么现在苹果 API 中越来越多地使用 Blocks 而不是 Delegate。
 
 通知，代理，block 单例的使用和区别
+
 1.NotificationCenter 通知中心：“一对多”，在APP中，很多控制器都需要知道一个事件，应该用通知；
 
 2.delegate 代理委托：
