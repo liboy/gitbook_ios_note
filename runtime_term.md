@@ -69,12 +69,15 @@ struct objc_class : objc_object {
 }
 ```
 由此可见，结构体`objc_class`也是继承`objc_object`，说明Class在设计中本身也是一个对象。
-为了处理类和对象的关系，Runtime 库创建了一种叫做 Meta Class(元类) 的东西，类对象所属的类就叫做元类。
+
+为了处理类和对象的关系，Runtime 库创建了一种叫做 `Meta Class(元类)` 的东西，类对象所属的类就叫做元类。
  - Meta Class 表述了类对象本身所具备的元数据。
  - 我们所熟悉类方法，就源自于 Meta Class。
  - 类方法就是类对象的实例方法，每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。
 Meta Class也是一个Class，那么它也跟其他Class一样有自己的isa和super_class指针，关系如下：
+
 ![](/assets/1.png)
+
  1. Root class (class)其实就是NSObject，NSObject是没有超类的，所以Root class(class)的superclass指向nil。
  2. 每个Class都有一个isa指针指向唯一的Meta class
  3. Root class(meta)的superclass指向Root class(class)，也就是NSObject，形成一个回路。
