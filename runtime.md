@@ -24,7 +24,7 @@ Objective-C是基于C语言加入了面向对象特性和消息转发机制的�
 
 ## 实战
 
-Apple开源的[Runtime代码](https://opensource.apple.com/tarballs/objc4/)
+Apple开源的[Runtime源码](https://opensource.apple.com/tarballs/objc4/)
 
 * 导入头文件
 
