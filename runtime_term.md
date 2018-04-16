@@ -135,7 +135,7 @@ struct objc_method {
 其实Method就是一个指向objc_method结构体指针，它存储了
 - 方法名(method_name)
 - 方法类型(method_types)
-- 方法实现(method_imp)，method_imp的数据类型是IMP，它是一个函数指针
+- 方法实现(method_imp)，`method_imp`的数据类型是IMP，它是一个函数指针
 
 ## Ivar
 
@@ -157,7 +157,7 @@ Ivar其实就是一个指向objc_ivar结构体指针，它包含了变量名(iva
 
 ## IMP
 
-在上面讲Method时就说过，IMP本质上就是一个函数指针，指向方法的实现，在objc.h找到它的定义：
+在上面讲Method时就说过，IMP本质上就是一个函数指针，指向方法的实现，在`objc.h`找到它的定义：
 ```c
 /// A pointer to the function of a method implementation. 
 #if !OBJC_OLD_DISPATCH_PROTOTYPES
@@ -180,7 +180,7 @@ struct objc_cache {
     Method buckets[1]                                        OBJC2_UNAVAILABLE;
 };
 ```
-Cache其实就是一个存储Method的链表，主要是为了优化方法调用的性能。当对象receiver调用方法message时，首先根据对象receiver的isa指针查找到它对应的类，然后在类的methodLists中搜索方法，如果没有找到，就使用super_class指针到父类中的methodLists查找，一旦找到就调用方法。如果没有找到，有可能消息转发，也可能忽略它。但这样查找方式效率太低，因为往往一个类大概只有20%的方法经常被调用，占总调用次数的80%。所以使用Cache来缓存经常调用的方法，当调用方法时，优先在Cache查找，如果没有找到，再到methodLists查找。
+Cache其实就是一个存储Method的链表，主要是为了优化方法调用的性能。当对象receiver调用方法message时，首先根据对象receiver的isa指针查找到它对应的类，然后在类的methodLists中搜索方法，如果没有找到，就使用`super_class`指针到父类中的`methodLists`查找，一旦找到就调用方法。如果没有找到，有可能消息转发，也可能忽略它。但这样查找方式效率太低，所以使用Cache来缓存经常调用的方法，当调用方法时，优先在Cache查找，如果没有找到，再到methodLists查找。
 
 ## Property
 ```objectivec
