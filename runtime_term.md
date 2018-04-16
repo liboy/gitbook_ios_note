@@ -20,7 +20,7 @@ id 是一个参数类型，它是指向某个类的实例的指针。定义如�
 typedef struct objc_object *id;
 struct objc_object { Class isa; };
 ```
-以上定义，看到 objc_object 结构体包含一个 `isa` 指针，根据 isa 指针就可以找到对象所属的类。
+以上定义，看到 `objc_object` 结构体包含一个 `isa` 指针，根据 isa 指针就可以找到对象所属的类。
 
 >注意：
 isa 指针在代码运行时并不总指向实例对象所属的类型，所以不能依靠它来确定类型，要想确定类型还是需要用对象的 `-class` 方法。
