@@ -32,9 +32,8 @@ SEL sel = sel_get_uid(setValue:forKey);
 IMP method = objc_msg_loopup(site->isa,sel);
 method(site,sel,@"sitename",@"name");
 ```
-### KVC键值查找
-
-    1. 检查是否存在对应`key`的`set`或`get`方法，存在，就调用并赋值
-    2. 查找与key相同名称带有下划线的成员变量`_key`，有，就赋值
-    3. 查找相同名称的属性 `key`，有，就赋值
-    4. 都没有，则调用 `valueForUndefinedKey:`或`setValue:forUndefinedKey:`，默认实现都是抛出异常，可根据需要重写
+### 内部原理
+1. 检查是否存在对应`key`的`set`或`get`方法，存在，就调用并赋值
+2. 查找与key相同名称带有下划线的成员变量`_key`，有，就赋值
+3. 查找相同名称的属性 `key`，有，就赋值
+4. 都没有，则调用 `valueForUndefinedKey:`或`setValue:forUndefinedKey:`，默认实现都是抛出异常，可根据需要重写
