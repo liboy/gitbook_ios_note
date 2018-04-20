@@ -40,7 +40,7 @@ method(site,sel,@"sitename",@"name");
 
     2. 上面的setter方法没找到，如果类方法accessInstanceVariablesDirectly返回YES。那么按 _key，_isKey，key，iskey的顺序搜索成员名。（NSKeyValueCodingCatogery中实现的类方法，默认实现为返回YES）
 
-    3、如果没有找到成员变量，调用setValue:forUnderfinedKey:
+    3. 如果没有找到成员变量，调用setValue:forUnderfinedKey:
 
 - valueForKey:的搜索方式
 
