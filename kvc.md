@@ -20,7 +20,7 @@
     - setNilValueForKey: 对非类对象属性设置nil时调用，默认抛出异常。
     
 ## 实现分析
-KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护方法表的对象的类
+KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护方法表的对象的类，每个类都有一张方法表，是一个hash表，值是函数指针IMP，SEL的名称就是查表时所用的键key。
 ```objectivec
 [site setValue:@"sitename" forKey:@"name"];
 
@@ -29,4 +29,3 @@ SEL sel = sel_get_uid(setValue:forKey);
 IMP method = objc_msg_loopup(site->isa,sel);
 method(site,sel,@"sitename",@"name");
 ```
-每个类都有一张方法表，是一个hash表，值是函数指针IMP，SEL的名称就是查表时所用的键key。
