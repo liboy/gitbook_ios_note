@@ -34,7 +34,7 @@ method(site,sel,@"sitename",@"name");
 ```
 ### KVC键值查找
 
-- setValue:forKey:搜索方式
+- setValue:forKey:
 
     1. 首先搜索`setKey:`方法。（key指成员变量名，首字母大写）
 
