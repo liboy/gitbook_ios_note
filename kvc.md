@@ -82,7 +82,7 @@ author *authorObj=[[author alloc] init];
 NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 ```
      
-### 一对多
+### 操作集合
 
 ```objectivec
 @interface Book : NSObject
@@ -96,14 +96,14 @@ NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 //一对多
 NSMutableArray *array=[NSMutableArray arrayWithCapacity:3];
 for (int i=0; i<3; i++) {
-            Book *bookObj=[[Book alloc] init];
-            NSString *name=[NSString stringWithFormat:@"job_%d",i];
-            [bookObj setValue:name forKey:@"name"];
-            [array addObject:bookObj];
-        }
-        [book setValue:array forKey:@"relativeBooks"];
-        NSArray *arr=[book valueForKeyPath:@"relativeBooks.name"];
-        NSLog(@"arr is %@",arr);
+    Book *bookObj=[[Book alloc] init];
+    NSString *name=[NSString stringWithFormat:@"job_%d",i];
+    [bookObj setValue:name forKey:@"name"];
+    [array addObject:bookObj];
+}
+[book setValue:array forKey:@"relativeBooks"];
+NSArray *arr=[book valueForKeyPath:@"relativeBooks.name"];
+NSLog(@"arr is %@",arr);
 ```
 第四、kvc支持简单的预算如max、min、sum，其中运算的字段必须是基本数据类型或NSNumber类型
 第五、KVC对数值和结构体类型的支持
@@ -117,7 +117,5 @@ for (int i=0; i<3; i++) {
 同样，以如下方式获取age属性值：
      [person valueForKey:@"num"];
 这时，会以NSNumber的形式返回num的值。
-第六、KVC实现原理的方法定义
-在iOS中，通过KVC可以直接用字符串的名字(key)来访问类属性的机制。而不是通过调用Setter、Getter方法访问。
 KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
 NSKeyValueCodingprotocol
