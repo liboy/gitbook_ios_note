@@ -20,7 +20,7 @@
     - setNilValueForKey: 对非类对象属性设置nil时调用，默认抛出异常。
     
 ## 实现分析
-KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护方法表的对象的类，该分发表实际上包含了指向实现类中的方法的指针和其他数据。
+KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护方法表的对象的类
 ```objectivec
 [site setValue:@"sitename" forKey:@"name"];
 
@@ -30,5 +30,3 @@ IMP method = objc_msg_loopup(site->isa,sel);
 method(site,sel,@"sitename",@"name");
 ```
 每个类都有一张方法表，是一个hash表，值是函数指针IMP，SEL的名称就是查表时所用的键key。
-SEL数据类型：查找方法表时所用的键。定义成char*，实质上可以理解成int值。
-IMP数据类型：他其实就是一个编译器内部实现时候的函数指针。当Objective-C编译器去处理实现一个方法的时候，就会指向一个IMP对象，这个对象是C语言表述的类型。
