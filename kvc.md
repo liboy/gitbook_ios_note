@@ -35,13 +35,12 @@ method(site,sel,@"sitename",@"name");
 ### KVC键值查找
 
 - 赋值:
-
-    1. 首先搜索`setKey:`方法。（key指成员变量名，首字母大写）
-
-    2. 上面的setter方法没找到，如果类方法accessInstanceVariablesDirectly返回YES。那么按 _key，_isKey，key，iskey的顺序搜索成员名。（NSKeyValueCodingCatogery中实现的类方法，默认实现为返回YES）
-
-    3. 如果没有找到成员变量，调用setValue:forUnderfinedKey:
-
+    1. 检查是否存在对应key的set方法，存在，就调用并赋值
+    2. 查找与key相同名称带有下划线的成员变量`_key`，有，就赋值
+    3. 查找相同名称的属性 `key`，有，就赋值
+    第一步：寻找该属性有没有setsetter方法？有，就直接赋值
+第二步：寻找有没有该属性带下划线的成员属性？有，就直接赋值
+第三步：寻找有没有该属性的成员属性？有，就直接赋值
 - 取值:
 
     1. 首先按getKey，key，isKey的顺序查找getter方法，找到直接调用。如果是BOOL、int等内建值类型，会做NSNumber的转换。
