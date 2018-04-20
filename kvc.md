@@ -74,7 +74,7 @@ NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
 ### KVC路径访问
 ```
-[book valueForKeyPath:@"authorObj.name"]  
+[book valueForKeyPath:@"authorObj.name"]; 
 author *authorObj=[[author alloc] init];
 [authorObj setValue:@"niudun" forKey:@"name"];
 [book setValue:authorObj forKey:@"authorObj"];
