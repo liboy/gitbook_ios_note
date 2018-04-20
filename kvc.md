@@ -72,15 +72,17 @@ Book *book=[[Book alloc]init];
 [book setValue:@"hello"forKey:@"name"];
 NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
-第二、KVC路径访问
+### KVC路径访问
 除了通过键设置值外，键/值编码还支持指定路径，像文件系统一样，用“点”号隔开
-[book valueForKeyPath:@"authorObj.name"]
-       
-        author *authorObj=[[author alloc] init];
-        [authorObj setValue:@"niudun" forKey:@"name"];
-        [book setValue:authorObj forKey:@"authorObj"];
+
+```
+[book valueForKeyPath:@"authorObj.name"]  
+author *authorObj=[[author alloc] init];
+[authorObj setValue:@"niudun" forKey:@"name"];
+[book setValue:authorObj forKey:@"authorObj"];
         
-        NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
+NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
+```        
 第三、一对多
 @interface Book : NSObject
 {
