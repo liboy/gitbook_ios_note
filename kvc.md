@@ -42,7 +42,7 @@ method(site,sel,@"sitename",@"name");
 
     3. 如果没有找到成员变量，调用setValue:forUnderfinedKey:
 
-- valueForKey:
+- 取值:
 
     1. 首先按getKey，key，isKey的顺序查找getter方法，找到直接调用。如果是BOOL、int等内建值类型，会做NSNumber的转换。
 
