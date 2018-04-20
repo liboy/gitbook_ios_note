@@ -72,6 +72,7 @@ Book *book=[[Book alloc]init];
 [book setValue:@"hello"forKey:@"name"];
 NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
+
 ### KVC路径访问
 ```objectivec
 [book valueForKeyPath:@"authorObj.name"]; 
@@ -82,6 +83,8 @@ NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 ```
      
 ### 一对多
+
+```objectivec
 @interface Book : NSObject
 {
     @private
@@ -90,9 +93,9 @@ NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
     NSArray *relativeBooks;
     
 }        
-        //一对多
-        NSMutableArray *array=[NSMutableArray arrayWithCapacity:3];
-        for (int i=0; i<3; i++) {
+//一对多
+NSMutableArray *array=[NSMutableArray arrayWithCapacity:3];
+for (int i=0; i<3; i++) {
             Book *bookObj=[[Book alloc] init];
             NSString *name=[NSString stringWithFormat:@"job_%d",i];
             [bookObj setValue:name forKey:@"name"];
@@ -101,6 +104,7 @@ NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
         [book setValue:array forKey:@"relativeBooks"];
         NSArray *arr=[book valueForKeyPath:@"relativeBooks.name"];
         NSLog(@"arr is %@",arr);
+```
 第四、kvc支持简单的预算如max、min、sum，其中运算的字段必须是基本数据类型或NSNumber类型
 第五、KVC对数值和结构体类型的支持
 一套机制如果不支持数值和结构体型的数据，那么它的实用性就会大大折扣。幸运的是KVC中苹果对这方面的支持做的很好。KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或NSValue对象，以达到适配的目的。
