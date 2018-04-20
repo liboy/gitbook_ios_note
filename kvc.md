@@ -73,14 +73,14 @@ Book *book=[[Book alloc]init];
 NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
 ### KVC路径访问
-```
+```objectivec
 [book valueForKeyPath:@"authorObj.name"]; 
 author *authorObj=[[author alloc] init];
 [authorObj setValue:@"niudun" forKey:@"name"];
 [book setValue:authorObj forKey:@"authorObj"];
-        
 NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
-```        
+```
+     
 第三、一对多
 @interface Book : NSObject
 {
