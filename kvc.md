@@ -62,15 +62,15 @@ NSLog(@"val is %@",book->name);
 ```
 2. 利用属性访问
 3. 利用KVC,即使该属性是private也可以访问
-```
+```objectivec
 @interface Book : NSObject
 {
     @private
     NSString *name;
 }
- Book *book=[[Book alloc]init];
- [book setValue:@"hello"forKey:@"name"];
- NSLog(@"val is %@",[bookvalueForKey:@"name"]);
+Book *book=[[Book alloc]init];
+[book setValue:@"hello"forKey:@"name"];
+NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
 第二、KVC路径访问
 除了通过键设置值外，键/值编码还支持指定路径，像文件系统一样，用“点”号隔开
