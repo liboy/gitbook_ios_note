@@ -29,6 +29,6 @@ SEL sel = sel_get_uid(setValue:forKey);
 IMP method = objc_msg_loopup(site->isa,sel);
 method(site,sel,@"sitename",@"name");
 ```
-每个类都有一张方法表，是一个hash表，值是还书指针IMP，SEL的名称就是查表时所用的键。
+每个类都有一张方法表，是一个hash表，值是函数指针IMP，SEL的名称就是查表时所用的键。
 SEL数据类型：查找方法表时所用的键。定义成char*，实质上可以理解成int值。
 IMP数据类型：他其实就是一个编译器内部实现时候的函数指针。当Objective-C编译器去处理实现一个方法的时候，就会指向一个IMP对象，这个对象是C语言表述的类型。
