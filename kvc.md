@@ -20,7 +20,7 @@
     - setNilValueForKey: 对非类对象属性设置nil时调用，默认抛出异常。
     
 ## 实现分析
-KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护分发表的对象的类，该分发表实际上包含了指向实现类中的方法的指针和其他数据。
+KVC通过`isa-swizzing`实现其内部查找定位。isa指针（is kind of 的意思）指向维护方法表的对象的类，该分发表实际上包含了指向实现类中的方法的指针和其他数据。
 ```objectivec
 [site setValue:@"sitename" forKey:@"name"];
 
