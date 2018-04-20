@@ -73,7 +73,6 @@ Book *book=[[Book alloc]init];
 NSLog(@"val is %@",[bookvalueForKey:@"name"]);
 ```
 ### KVC路径访问
-除了通过键设置值外，键/值编码还支持指定路径，像文件系统一样，用“点”号隔开
 ```
 [book valueForKeyPath:@"authorObj.name"]  
 author *authorObj=[[author alloc] init];
