@@ -5,11 +5,6 @@
 * KVO - key value observer `键值`观察
 * `监听对象属性变化`的一种手段，可以用在开源框架，让代码解耦。例如：`上拉、下拉刷新控件`
 
-## 常见面试题
-
-* NSNotification、KVO、Delegate 是同步的还是异步的？
-  
-  
 
 ## 代码演练
 
@@ -51,8 +46,10 @@
     NSLog(@"%@ %@ %@ %@", keyPath, object, change, context);
 }
 ```
+## 常见面试题
+* NSNotification、KVO、Delegate 是同步的还是异步的？
 
-## 结论
+### 结论
 - NSNotification、KVO、Delegate在哪个线程中触发，就在哪个线程中响应，而且都是同步的，会阻塞当前线程，直到处理完成。
 - 要注意避免阻塞主线程，如果存在耗时操作，建议在方法中先异步操作，再回到主线程做更新UI操作。
 
