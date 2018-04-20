@@ -2,7 +2,7 @@
 
 ## KVC概述
 
-- KVC是`Key Value Coding`。它是一种可以通过字符串的名字（key）来访问类属性的机制。而不是通过调用Setter、Getter方法访问。
+- KVC `Key-value coding` 键值编码。它是一种可以通过字符串的名字（key）来访问类属性的机制。而不是通过调用Setter、Getter方法访问。
 - 关键方法定义在 NSKeyValueCodingProtocol
 - KVC支持类对象和内建基本数据类型。
 
