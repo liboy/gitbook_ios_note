@@ -81,7 +81,7 @@ author *authorObj=[[author alloc] init];
 NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 ```
      
-第三、一对多
+### 一对多
 @interface Book : NSObject
 {
     @private
