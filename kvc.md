@@ -44,23 +44,25 @@ KVC在iOS开发中是绝不可少的利器，这种基于运行时的编程方�
 - 访问和修改私有变量
 - Model和字典转换
 - 修改一些控件的内部属性
+    - 在xib/Storyboard中，也可以使用KVC，下面是在xib中使用KVC把图片边框设置成圆角
+- 用KVC中的函数操作集合
 
-- - (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues；／这个方法用来字典转模型
-
-KVC提供了一种在运行时而非编译时动态访问对象属性与成员变量的方式，该方法不需要调用get和set方法和变量实例就可以访问对象，KVC默认的实现方法有NSOject提供，这种方法及支持对象也支持简单数据类型。
+KVC默认的实现方法有NSOject提供，这种方法及支持对象也支持简单数据类型。
 第一、在OC中访问变量的几种方式：
-1、设置为public型，通过->直接访问：
-代码为：
+1. `public`型，通过 `->` 直接访问：
+```objectivec
 @interface Book : NSObject
 {
     @public
     NSString *name;
 }
-        Book *book=[[Bookalloc]init];
-        book->name=@"hello";
-        NSLog(@"val is %@",book->name);
-2.利用属性访问
-3.利用KVC,即使该属性是private也可以访问
+Book *book=[[Bookalloc]init];
+book->name=@"hello";
+NSLog(@"val is %@",book->name);
+```
+2. 利用属性访问
+3. 利用KVC,即使该属性是private也可以访问
+```
 @interface Book : NSObject
 {
     @private
@@ -69,7 +71,7 @@ KVC提供了一种在运行时而非编译时动态访问对象属性与成员�
  Book *book=[[Book alloc]init];
  [book setValue:@"hello"forKey:@"name"];
  NSLog(@"val is %@",[bookvalueForKey:@"name"]);
-
+```
 第二、KVC路径访问
 除了通过键设置值外，键/值编码还支持指定路径，像文件系统一样，用“点”号隔开
 [book valueForKeyPath:@"authorObj.name"]
