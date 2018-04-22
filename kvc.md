@@ -166,6 +166,6 @@ for (NSNumber *price in arrUnion) {
 @unionOfArrays
 @distinctUnionOfSets
 ```
-    - @distinctUnionOfArrays：该操作会返回一个数组，这个数组包含不同的对象，不同的对象是在从关键路径到操作器右边的被指定的属性里
-    - @unionOfArrays 该操作会返回一个数组，这个数组包含的对象是在从关键路径到操作器右边的被指定的属性里和@distinctUnionOfArrays不一样，重复的对象不会被移除
-    - @distinctUnionOfSets 和@distinctUnionOfArrays类似。因为Set本身就不支持重复。
+    - `@distinctUnionOfArrays`：该操作会返回一个数组，这个数组包含不同的对象，不同的对象是在从关键路径到操作器右边的被指定的属性里
+    - `@unionOfArrays` 该操作会返回一个数组，这个数组包含的对象是在从关键路径到操作器右边的被指定的属性里和@distinctUnionOfArrays不一样，重复的对象不会被移除
+    - `@distinctUnionOfSets` 和`@distinctUnionOfArrays`类似。因为Set本身就不支持重复。
