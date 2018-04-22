@@ -153,8 +153,6 @@ KVC同时还提供了很复杂的函数，主要有下面这些
 @end
 @implementation Book
 @end
-```
-```
 Book *book1 = [Book new];
 book1.name = @"The Great Gastby";
 book1.price = 22;
