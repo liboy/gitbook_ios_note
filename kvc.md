@@ -118,8 +118,6 @@ for (NSNumber* length  in arrCapStrLength) {
 同样如果要执行多个方法也可以用valueForKeyPath:方法。它先会对每一个成员调用 capitalizedString方法，然后再调用length，因为lenth方法返回是一个数字，所以返回结果以NSNumber的形式保存在新数组里。
 
 ### 用KVC中的函数操作集合
-
-KVC同时还提供了很复杂的函数，主要有下面这些
 - 简单集合运算符@avg， @count ， @max ， @min ，@sum5种
 ```
 //属性相加
