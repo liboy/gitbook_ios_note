@@ -111,7 +111,8 @@ NSLog(@"arr is %@",arr);
 KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或NSValue对象，以达到适配的目的。
 
 KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
-操作集合
+
+## 操作集合
 
 Apple对KVC的valueForKey:方法作了一些特殊的实现，比如说NSArray和NSSet这样的容器类就实现了这些方法。所以可以用KVC很方便地操作集合
 
