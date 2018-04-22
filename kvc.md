@@ -136,7 +136,7 @@ NSLog(@"avg = %@",avg);
 ```
 它们的返回值都是NSArray，区别是前者返回的元素都是唯一的，是去重以后的结果；后者返回的元素是全集。
 用法如下：
-```
+```objectivec
 NSLog(@"distinctUnionOfObjects");
 NSArray* arrDistinct = [arrBooks valueForKeyPath:@"@distinctUnionOfObjects.price"];
 for (NSNumber *price in arrDistinct) {
