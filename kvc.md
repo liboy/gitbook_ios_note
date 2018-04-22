@@ -107,8 +107,7 @@ for (NSNumber* length  in arrCapStrLength) {
     NSLog(@"%ld",(long)length.integerValue);
 }
 ```
-方法capitalizedString被传递到NSArray中的每一项，这样，NSArray的每一员都会执行capitalizedString并返回一个包含结果的新的NSArray。从打印结果可以看出，所有String都成功以转成了大写。
-同样如果要执行多个方法也可以用valueForKeyPath:方法。它先会对每一个成员调用 capitalizedString方法，然后再调用length，因为lenth方法返回是一个数字，所以返回结果以NSNumber的形式保存在新数组里。
+
 
 ### 用KVC中的函数操作集合
 - 简单集合运算符@avg， @count ， @max ， @min ，@sum5种
