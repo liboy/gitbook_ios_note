@@ -45,6 +45,7 @@ KVC在iOS开发中是绝不可少的利器，这种基于运行时的编程方�
 - Model和字典转换
 - 修改一些控件的内部属性
     - 在xib/Storyboard中，也可以使用KVC，下面是在xib中使用KVC把图片边框设置成圆角
+    ![](/assets/kvc.png)
 - 用KVC中的函数操作集合
 
 KVC默认的实现方法有NSOject提供，这种方法及支持对象也支持简单数据类型。
