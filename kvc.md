@@ -105,17 +105,119 @@ for (int i=0; i<3; i++) {
 NSArray *arr=[book valueForKeyPath:@"relativeBooks.name"];
 NSLog(@"arr is %@",arr);
 ```
+用KVC中的函数操作集合
 第四、kvc支持简单的预算如max、min、sum，其中运算的字段必须是基本数据类型或NSNumber类型
 第五、KVC对数值和结构体类型的支持
-一套机制如果不支持数值和结构体型的数据，那么它的实用性就会大大折扣。幸运的是KVC中苹果对这方面的支持做的很好。KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或NSValue对象，以达到适配的目的。
-举个例子，Person类有个个NSInteger类型的num属性
-①修改值
-我们通过KVC技术使用如下方式设置age属性的值： 
-[_person setValue:[NSNumber numberWithInteger:5] forKey:@"num"];
-我们赋给num的是一个NSNumber对象，KVC会自动的将NSNumber对象转换成NSInteger对象，然后再调用相应的访问器方法设置age的值。
-②获取值
-同样，以如下方式获取age属性值：
-     [person valueForKey:@"num"];
-这时，会以NSNumber的形式返回num的值。
+KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或NSValue对象，以达到适配的目的。
+
 KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
-NSKeyValueCodingprotocol
+操作集合
+
+Apple对KVC的valueForKey:方法作了一些特殊的实现，比如说NSArray和NSSet这样的容器类就实现了这些方法。所以可以用KVC很方便地操作集合
+
+用KVC实现高阶消息传递
+
+当对容器类使用KVC时，valueForKey:将会被传递给容器中的每一个对象，而不是容器本身进行操作。结果会被添加进返回的容器中，这样，开发者可以很方便的操作集合来返回另一个集合。
+
+NSArray* arrStr = @[@"english",@"franch",@"chinese"];
+NSArray* arrCapStr = [arrStr valueForKey:@"capitalizedString"];
+for (NSString* str  in arrCapStr) {
+    NSLog(@"%@",str);
+}
+NSArray* arrCapStrLength = [arrStr valueForKeyPath:@"capitalizedString.length"];
+for (NSNumber* length  in arrCapStrLength) {
+    NSLog(@"%ld",(long)length.integerValue);
+}
+打印结果
+2016-04-20 16:29:14.239 KVCDemo[1356:118667] English
+2016-04-20 16:29:14.240 KVCDemo[1356:118667] Franch
+2016-04-20 16:29:14.240 KVCDemo[1356:118667] Chinese
+2016-04-20 16:29:14.240 KVCDemo[1356:118667] 7
+2016-04-20 16:29:14.241 KVCDemo[1356:118667] 6
+2016-04-20 16:29:14.241 KVCDemo[1356:118667] 7
+方法capitalizedString被传递到NSArray中的每一项，这样，NSArray的每一员都会执行capitalizedString并返回一个包含结果的新的NSArray。从打印结果可以看出，所有String都成功以转成了大写。
+同样如果要执行多个方法也可以用valueForKeyPath:方法。它先会对每一个成员调用 capitalizedString方法，然后再调用length，因为lenth方法返回是一个数字，所以返回结果以NSNumber的形式保存在新数组里。
+
+用KVC中的函数操作集合
+
+KVC同时还提供了很复杂的函数，主要有下面这些
+①简单集合运算符
+简单集合运算符共有@avg， @count ， @max ， @min ，@sum5种，都表示啥不用我说了吧， 目前还不支持自定义。
+
+@interface Book : NSObject
+@property (nonatomic,copy)  NSString* name;
+@property (nonatomic,assign)  CGFloat price;
+@end
+@implementation Book
+@end
+
+
+Book *book1 = [Book new];
+book1.name = @"The Great Gastby";
+book1.price = 22;
+Book *book2 = [Book new];
+book2.name = @"Time History";
+book2.price = 12;
+Book *book3 = [Book new];
+book3.name = @"Wrong Hole";
+book3.price = 111;
+
+Book *book4 = [Book new];
+book4.name = @"Wrong Hole";
+book4.price = 111;
+
+NSArray* arrBooks = @[book1,book2,book3,book4];
+NSNumber* sum = [arrBooks valueForKeyPath:@"@sum.price"];
+NSLog(@"sum:%f",sum.floatValue);
+NSNumber* avg = [arrBooks valueForKeyPath:@"@avg.price"];
+NSLog(@"avg:%f",avg.floatValue);
+NSNumber* count = [arrBooks valueForKeyPath:@"@count"];
+NSLog(@"count:%f",count.floatValue);
+NSNumber* min = [arrBooks valueForKeyPath:@"@min.price"];
+NSLog(@"min:%f",min.floatValue);
+NSNumber* max = [arrBooks valueForKeyPath:@"@max.price"];
+NSLog(@"max:%f",max.floatValue);
+
+打印结果
+2016-04-20 16:45:54.696 KVCDemo[1484:127089] sum:256.000000
+2016-04-20 16:45:54.697 KVCDemo[1484:127089] avg:64.000000
+2016-04-20 16:45:54.697 KVCDemo[1484:127089] count:4.000000
+2016-04-20 16:45:54.697 KVCDemo[1484:127089] min:12.000000
+2016-04-20 16:45:54.697 KVCDemo[1484:127089] max:111.000000
+
+②对象运算符
+比集合运算符稍微复杂，能以数组的方式返回指定的内容，一共有两种：
+@distinctUnionOfObjects
+@unionOfObjects
+它们的返回值都是NSArray，区别是前者返回的元素都是唯一的，是去重以后的结果；后者返回的元素是全集。
+用法如下：
+
+NSLog(@"distinctUnionOfObjects");
+NSArray* arrDistinct = [arrBooks valueForKeyPath:@"@distinctUnionOfObjects.price"];
+for (NSNumber *price in arrDistinct) {
+    NSLog(@"%f",price.floatValue);
+}
+NSLog(@"unionOfObjects");
+NSArray* arrUnion = [arrBooks valueForKeyPath:@"@unionOfObjects.price"];
+for (NSNumber *price in arrUnion) {
+    NSLog(@"%f",price.floatValue);
+}
+        
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] distinctUnionOfObjects
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 12.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 22.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] unionOfObjects
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 22.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 12.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
+2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
+前者会将重复的价格去除后返回所有价格，后者直接返回所有的图书价格。(因为只返回价格，没有返回图书，感觉用处不大。)
+③Array和Set操作符
+这种情况更复杂了，说的是集合中包含集合的情况，我们执行了如下的一段代码：
+@distinctUnionOfArrays
+@unionOfArrays
+@distinctUnionOfSets
+@distinctUnionOfArrays：该操作会返回一个数组，这个数组包含不同的对象，不同的对象是在从关键路径到操作器右边的被指定的属性里
+@unionOfArrays 该操作会返回一个数组，这个数组包含的对象是在从关键路径到操作器右边的被指定的属性里和@distinctUnionOfArrays不一样，重复的对象不会被移除
+@distinctUnionOfSets 和@distinctUnionOfArrays类似。因为Set本身就不支持重复。
