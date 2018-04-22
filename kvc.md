@@ -116,10 +116,10 @@ KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC�
 
 Apple对KVC的valueForKey:方法作了一些特殊的实现，比如说NSArray和NSSet这样的容器类就实现了这些方法。所以可以用KVC很方便地操作集合
 
-用KVC实现高阶消息传递
+### 用KVC实现高阶消息传递
 
 当对容器类使用KVC时，valueForKey:将会被传递给容器中的每一个对象，而不是容器本身进行操作。结果会被添加进返回的容器中，这样，开发者可以很方便的操作集合来返回另一个集合。
-
+```
 NSArray* arrStr = @[@"english",@"franch",@"chinese"];
 NSArray* arrCapStr = [arrStr valueForKey:@"capitalizedString"];
 for (NSString* str  in arrCapStr) {
@@ -136,15 +136,16 @@ for (NSNumber* length  in arrCapStrLength) {
 2016-04-20 16:29:14.240 KVCDemo[1356:118667] 7
 2016-04-20 16:29:14.241 KVCDemo[1356:118667] 6
 2016-04-20 16:29:14.241 KVCDemo[1356:118667] 7
+```
 方法capitalizedString被传递到NSArray中的每一项，这样，NSArray的每一员都会执行capitalizedString并返回一个包含结果的新的NSArray。从打印结果可以看出，所有String都成功以转成了大写。
 同样如果要执行多个方法也可以用valueForKeyPath:方法。它先会对每一个成员调用 capitalizedString方法，然后再调用length，因为lenth方法返回是一个数字，所以返回结果以NSNumber的形式保存在新数组里。
 
-用KVC中的函数操作集合
+### 用KVC中的函数操作集合
 
 KVC同时还提供了很复杂的函数，主要有下面这些
-①简单集合运算符
+- 简单集合运算符
 简单集合运算符共有@avg， @count ， @max ， @min ，@sum5种，都表示啥不用我说了吧， 目前还不支持自定义。
-
+```
 @interface Book : NSObject
 @property (nonatomic,copy)  NSString* name;
 @property (nonatomic,assign)  CGFloat price;
@@ -185,7 +186,7 @@ NSLog(@"max:%f",max.floatValue);
 2016-04-20 16:45:54.697 KVCDemo[1484:127089] count:4.000000
 2016-04-20 16:45:54.697 KVCDemo[1484:127089] min:12.000000
 2016-04-20 16:45:54.697 KVCDemo[1484:127089] max:111.000000
-
+```
 ②对象运算符
 比集合运算符稍微复杂，能以数组的方式返回指定的内容，一共有两种：
 @distinctUnionOfObjects
