@@ -144,8 +144,7 @@ for (NSNumber* length  in arrCapStrLength) {
 ### 用KVC中的函数操作集合
 
 KVC同时还提供了很复杂的函数，主要有下面这些
-- 简单集合运算符
-简单集合运算符共有@avg， @count ， @max ， @min ，@sum5种，都表示啥不用我说了吧， 目前还不支持自定义。
+- 简单集合运算符@avg， @count ， @max ， @min ，@sum5种
 ```
 //属性相加
 NSString *sum= [persons valueForKeyPath:@"Person.@sum.age"];
@@ -169,7 +168,7 @@ NSLog(@"avg = %@",avg);
 @unionOfObjects
 它们的返回值都是NSArray，区别是前者返回的元素都是唯一的，是去重以后的结果；后者返回的元素是全集。
 用法如下：
-
+``
 NSLog(@"distinctUnionOfObjects");
 NSArray* arrDistinct = [arrBooks valueForKeyPath:@"@distinctUnionOfObjects.price"];
 for (NSNumber *price in arrDistinct) {
@@ -180,7 +179,7 @@ NSArray* arrUnion = [arrBooks valueForKeyPath:@"@unionOfObjects.price"];
 for (NSNumber *price in arrUnion) {
     NSLog(@"%f",price.floatValue);
 }
-        
+```        
 2016-04-20 16:47:34.490 KVCDemo[1522:128840] distinctUnionOfObjects
 2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
 2016-04-20 16:47:34.490 KVCDemo[1522:128840] 12.000000
