@@ -151,7 +151,7 @@ for (NSNumber *price in arrUnion) {
 
 - Array和Set操作符
 这种情况更复杂了，说的是集合中包含集合的情况，我们执行了如下的一段代码：
-```
+```objectivec
 @distinctUnionOfArrays
 @unionOfArrays
 @distinctUnionOfSets
