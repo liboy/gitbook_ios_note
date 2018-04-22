@@ -111,7 +111,7 @@ for (NSNumber* length  in arrCapStrLength) {
 
 ### 用KVC中的函数操作集合
 - 简单集合运算符@avg， @count ， @max ， @min ，@sum5种
-```
+```objectivec
 //属性相加
 NSString *sum= [persons valueForKeyPath:@"Person.@sum.age"];
 NSLog(@"sum = %@",sum);
