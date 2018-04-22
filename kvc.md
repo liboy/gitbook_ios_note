@@ -119,6 +119,7 @@ Apple对KVC的valueForKey:方法作了一些特殊的实现，比如说NSArray�
 ### 用KVC实现高阶消息传递
 
 当对容器类使用KVC时，valueForKey:将会被传递给容器中的每一个对象，而不是容器本身进行操作。结果会被添加进返回的容器中，这样，开发者可以很方便的操作集合来返回另一个集合。
+
 ```
 NSArray* arrStr = @[@"english",@"franch",@"chinese"];
 NSArray* arrCapStr = [arrStr valueForKey:@"capitalizedString"];
