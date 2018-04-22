@@ -147,45 +147,21 @@ KVC同时还提供了很复杂的函数，主要有下面这些
 - 简单集合运算符
 简单集合运算符共有@avg， @count ， @max ， @min ，@sum5种，都表示啥不用我说了吧， 目前还不支持自定义。
 ```
-@interface Book : NSObject
-@property (nonatomic,copy)  NSString* name;
-@property (nonatomic,assign)  CGFloat price;
-@end
-@implementation Book
-@end
-Book *book1 = [Book new];
-book1.name = @"The Great Gastby";
-book1.price = 22;
-Book *book2 = [Book new];
-book2.name = @"Time History";
-book2.price = 12;
-Book *book3 = [Book new];
-book3.name = @"Wrong Hole";
-book3.price = 111;
-
-Book *book4 = [Book new];
-book4.name = @"Wrong Hole";
-book4.price = 111;
-
-NSArray* arrBooks = @[book1,book2,book3,book4];
-NSNumber* sum = [arrBooks valueForKeyPath:@"@sum.price"];
-NSLog(@"sum:%f",sum.floatValue);
-NSNumber* avg = [arrBooks valueForKeyPath:@"@avg.price"];
-NSLog(@"avg:%f",avg.floatValue);
-NSNumber* count = [arrBooks valueForKeyPath:@"@count"];
-NSLog(@"count:%f",count.floatValue);
-NSNumber* min = [arrBooks valueForKeyPath:@"@min.price"];
-NSLog(@"min:%f",min.floatValue);
-NSNumber* max = [arrBooks valueForKeyPath:@"@max.price"];
-NSLog(@"max:%f",max.floatValue);
-```
-```
-打印结果
-2016-04-20 16:45:54.696 KVCDemo[1484:127089] sum:256.000000
-2016-04-20 16:45:54.697 KVCDemo[1484:127089] avg:64.000000
-2016-04-20 16:45:54.697 KVCDemo[1484:127089] count:4.000000
-2016-04-20 16:45:54.697 KVCDemo[1484:127089] min:12.000000
-2016-04-20 16:45:54.697 KVCDemo[1484:127089] max:111.000000
+//属性相加
+NSString *sum= [persons valueForKeyPath:@"Person.@sum.age"];
+NSLog(@"sum = %@",sum);
+//数量
+NSString *count= [persons valueForKeyPath:@"Person.@count.age"];
+NSLog(@"count = %@",count);
+//最大值
+NSString *max= [persons valueForKeyPath:@"Person.@max.age"];
+NSLog(@"max = %@",max);
+//最小值
+NSString *min= [persons valueForKeyPath:@"Person.@min.age"];
+NSLog(@"min = %@",min);
+//平均值
+NSString *avg= [persons valueForKeyPath:@"Person.@avg.age"];
+NSLog(@"avg = %@",avg);
 ```
 ②对象运算符
 比集合运算符稍微复杂，能以数组的方式返回指定的内容，一共有两种：
