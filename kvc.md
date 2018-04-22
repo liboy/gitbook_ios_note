@@ -88,11 +88,11 @@ KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或
 
 KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
 
-## 操作集合
+### 操作集合
 
 Apple对KVC的valueForKey:方法作了一些特殊的实现，比如说NSArray和NSSet这样的容器类就实现了这些方法。所以可以用KVC很方便地操作集合
 
-### 用KVC实现高阶消息传递
+#### 用KVC实现高阶消息传递
 
 当对容器类使用KVC时，valueForKey:将会被传递给容器中的每一个对象，而不是容器本身进行操作。结果会被添加进返回的容器中，这样，开发者可以很方便的操作集合来返回另一个集合。
 
@@ -109,7 +109,7 @@ for (NSNumber* length  in arrCapStrLength) {
 ```
 
 
-### 用KVC中的函数操作集合
+#### 用KVC中的函数操作集合
 - 简单集合运算符@avg， @count ， @max ， @min ，@sum5种
 ```objectivec
 //属性相加
