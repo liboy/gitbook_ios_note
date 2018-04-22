@@ -81,30 +81,6 @@ author *authorObj=[[author alloc] init];
 [book setValue:authorObj forKey:@"authorObj"];
 NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 ```
-     
-### 操作集合
-
-```objectivec
-@interface Book : NSObject
-{
-    @private
-    NSString *name;
-    author *authorObj;
-    NSArray *relativeBooks;
-    
-}        
-//一对多
-NSMutableArray *array=[NSMutableArray arrayWithCapacity:3];
-for (int i=0; i<3; i++) {
-    Book *bookObj=[[Book alloc] init];
-    NSString *name=[NSString stringWithFormat:@"job_%d",i];
-    [bookObj setValue:name forKey:@"name"];
-    [array addObject:bookObj];
-}
-[book setValue:array forKey:@"relativeBooks"];
-NSArray *arr=[book valueForKeyPath:@"relativeBooks.name"];
-NSLog(@"arr is %@",arr);
-```
 用KVC中的函数操作集合
 第四、kvc支持简单的预算如max、min、sum，其中运算的字段必须是基本数据类型或NSNumber类型
 第五、KVC对数值和结构体类型的支持
@@ -162,10 +138,12 @@ NSLog(@"min = %@",min);
 NSString *avg= [persons valueForKeyPath:@"Person.@avg.age"];
 NSLog(@"avg = %@",avg);
 ```
-②对象运算符
+- 对象运算符
 比集合运算符稍微复杂，能以数组的方式返回指定的内容，一共有两种：
+```
 @distinctUnionOfObjects
 @unionOfObjects
+```
 它们的返回值都是NSArray，区别是前者返回的元素都是唯一的，是去重以后的结果；后者返回的元素是全集。
 用法如下：
 ```
@@ -180,21 +158,14 @@ for (NSNumber *price in arrUnion) {
     NSLog(@"%f",price.floatValue);
 }
 ```        
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] distinctUnionOfObjects
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 12.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 22.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] unionOfObjects
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 22.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 12.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
-2016-04-20 16:47:34.490 KVCDemo[1522:128840] 111.000000
-前者会将重复的价格去除后返回所有价格，后者直接返回所有的图书价格。(因为只返回价格，没有返回图书，感觉用处不大。)
-③Array和Set操作符
+
+- Array和Set操作符
 这种情况更复杂了，说的是集合中包含集合的情况，我们执行了如下的一段代码：
+```
 @distinctUnionOfArrays
 @unionOfArrays
 @distinctUnionOfSets
+```
 @distinctUnionOfArrays：该操作会返回一个数组，这个数组包含不同的对象，不同的对象是在从关键路径到操作器右边的被指定的属性里
 @unionOfArrays 该操作会返回一个数组，这个数组包含的对象是在从关键路径到操作器右边的被指定的属性里和@distinctUnionOfArrays不一样，重复的对象不会被移除
 @distinctUnionOfSets 和@distinctUnionOfArrays类似。因为Set本身就不支持重复。
