@@ -152,8 +152,8 @@ KVC同时还提供了很复杂的函数，主要有下面这些
 @end
 @implementation Book
 @end
-
-
+```
+```
 Book *book1 = [Book new];
 book1.name = @"The Great Gastby";
 book1.price = 22;
@@ -179,7 +179,8 @@ NSNumber* min = [arrBooks valueForKeyPath:@"@min.price"];
 NSLog(@"min:%f",min.floatValue);
 NSNumber* max = [arrBooks valueForKeyPath:@"@max.price"];
 NSLog(@"max:%f",max.floatValue);
-
+```
+```
 打印结果
 2016-04-20 16:45:54.696 KVCDemo[1484:127089] sum:256.000000
 2016-04-20 16:45:54.697 KVCDemo[1484:127089] avg:64.000000
