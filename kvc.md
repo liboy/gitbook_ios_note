@@ -5,6 +5,9 @@
 - KVC `Key-value coding` 键值编码。它是一种可以通过`字符串的名字（key）`来访问类属性的机制。而不是通过调用Setter、Getter方法访问。
 - 关键方法定义在 NSKeyValueCodingProtocol
 - KVC支持类对象和内建基本数据类型。
+- 是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
+
+
 
 ## KVC使用
 
@@ -82,12 +85,6 @@ author *authorObj=[[author alloc] init];
 [book setValue:authorObj forKey:@"authorObj"];
 NSLog(@"the author of book is%@",[book valueForKeyPath:@"authorObj.name"]);
 ```
-用KVC中的函数操作集合
-第四、kvc支持简单的预算如max、min、sum，其中运算的字段必须是基本数据类型或NSNumber类型
-第五、KVC对数值和结构体类型的支持
-KVC可以自动的将数值或结构体型的数据打包或解包成NSNumber或NSValue对象，以达到适配的目的。
-
-KVC是KVO、Core Data、CocoaBindings的技术基础，他们都是利用了OC的动态性。
 
 ### 操作集合
 
