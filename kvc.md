@@ -130,7 +130,7 @@ NSLog(@"avg = %@",avg);
 ```
 - 对象运算符
 比集合运算符稍微复杂，能以数组的方式返回指定的内容，一共有两种：
-```
+```objectivec
 @distinctUnionOfObjects
 @unionOfObjects
 ```
