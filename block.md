@@ -15,9 +15,6 @@
 - 堆块(_NSConcreteMallocBlock)
     - 堆块存储在堆区中，是一个带引用计数的对象，需要自行管理其内存。
 
-copy修饰符的作用就是将block从栈区拷贝到堆区
-复制到堆区的主要目的就是保存block的状态，延长其生命周期。
-
 ### block使用copy方法
 
 | block的类型 | 存储区域 | 复制效果 |
@@ -25,6 +22,9 @@ copy修饰符的作用就是将block从栈区拷贝到堆区
 |_NSConcreteStackBlock	|栈|从栈复制到堆|
 |_NSConcreteGlobalBlock	|静态区(全局区)|什么也不做|
 |_NSConcreteMallocBlock	|堆|引用计数增加|
+
+copy修饰符的作用就是将block从栈区拷贝到堆区，主要目的就是保存block的状态，延长其生命周期。
+
 
 
 ### 动画 block 回顾
