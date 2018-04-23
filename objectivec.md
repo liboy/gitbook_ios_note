@@ -1,17 +1,16 @@
 # Objective-C
 
+
+
+@property、@synthesize和@dynamic分别有什么作用？
 ```objectivec
 @property = ivar(实例变量) + getter(取方法) + setter(存方法);
 ```
+- @property的本质就是ivar(实例变量)加存取方法(getter + setter)。在我们属性定义完成后，编译器会自动生成该属性的getter和setter方法，这个过程就叫做自动合成。除了生成getter与setter方法，编译器还要自动向类中添加适当类型的实例变量，并且在属性名前面加下划线，以此做实例变量的名字。
 
-@property、@synthesize和@dynamic分别有什么作用？
+- @synthesize的作用就是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
 
-
-@property的本质就是ivar(实例变量)加存取方法(getter + setter)。在我们属性定义完成后，编译器会自动生成该属性的getter和setter方法，这个过程就叫做自动合成。除了生成getter与setter方法，编译器还要自动向类中添加适当类型的实例变量，并且在属性名前面加下划线，以此做实例变量的名字。
-
-@synthesize的作用就是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
-
-@dynamic的作用就是告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
+- @dynamic的作用就是告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
 如果都没有写@synthesize和@dynamic，那么默认的就是@synthesize var = _var;
 
 为了加深对@synthesize和@dynamic的理解，我们来看几个具体的例子，例子1代码如下：
