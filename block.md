@@ -93,7 +93,7 @@ self.block = ^{
 ```
 >注意：不会造成循环引用，是因为strongSelf实质是一个局部变量（在block这个“函数”里面的局部变量），当block执行完毕就会释放自动变量strongSelf，不会对self进行一直进行强引用。
 
-## 动画 block
+### 动画 block
 ```objectivec
 self.demoView.center = CGPointMake(self.view.center.x, 0);
 // 此方法会立即执行动画 block
