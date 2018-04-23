@@ -37,14 +37,14 @@ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们�
 
 ## 为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
 
-- 非集合类对象的copy操作如下：
+- 非集合类对象的copy：
 ```objectivec
 [immutableObject copy]; //浅复制
 [immutableObject mutableCopy]; //深复制
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
 ```
-- 集合类对象的copy操作如下：
+- 集合类对象的copy：
 ```objectivec
 [immutableObject copy]; //浅复制
 [immutableObject mutableCopy]; //单层深复制
