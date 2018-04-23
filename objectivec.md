@@ -35,7 +35,7 @@ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们�
 
 除了上面的三种情况，剩下的就使用strong来进行修饰。
 
-为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
+## 为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
 
 要搞清楚这个问题，我们先来弄明白深拷贝与浅拷贝的区别，以非集合类与集合类两种情况来进行说明下，先看非集合类的情况，代码如下：
 
