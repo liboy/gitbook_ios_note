@@ -59,10 +59,11 @@ self.blk();//该block必须执行一次，否则还是内存泄露
     
 >注意：在block代码块内，使用完使用完__block变量后将其设为nil，并且该block必须至少执行一次，否则存在内存泄露。
 
-优点：
+#### 优点：
 - 可通过__block变量动态控制持有XXController对象的时间，运行时决定是否将nil或其他变量赋值给__block变量
 - 不能使用__weak的系统中，使用__unsafe_unretained来替代__weak打破循环可能有野指针问题，使用__block则可避免该问题
-缺点：
+
+#### 缺点：
 - 必须手动保证__block变量最后设置为nil
 - block必须执行一次，否则__block不为nil循环应用仍存在
 
@@ -74,7 +75,7 @@ self.blk = ^(UIViewController *vc) {
 };
 self.blk(self);
 ```
-优点：
+#### 优点：
 - 简化了两行代码，更优雅
 - 更明确的API设计：告诉API使用者，该方法的Block直接使用传进来的参数对象，不会造成循环引用，不用调用者再使用weak避免循环
 
