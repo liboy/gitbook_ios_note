@@ -6,6 +6,18 @@
 * 是一种数据类型，可以当作参数传递
 * 是一组预先准备好的代码，在需要的时候执行
 
+## block有3种类型：
+
+全局块(_NSConcreteGlobalBlock)
+栈块(_NSConcreteStackBlock)
+堆块(_NSConcreteMallocBlock)
+全局块存储在静态区（也叫全局区），相当于Objective-C中的单例；栈块存储在栈区，超出作用域则马上被销毁。堆块存储在堆区中，是一个带引用计数的对象，需要自行管理其内存。
+
+作者：国士无双A
+链接：https://www.jianshu.com/p/3c0dd2cbb509
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 ### 动画 block 回顾
 
 ```objectivec
