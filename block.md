@@ -57,7 +57,7 @@ self.blk();//该block必须执行一次，否则还是内存泄露
 
 ```
     
-在block代码块内，使用完使用完__block变量后将其设为nil，并且该block必须至少执行一次，否则存在内存泄露。
+>注意：在block代码块内，使用完使用完__block变量后将其设为nil，并且该block必须至少执行一次，否则存在内存泄露。
 
 XXController对象持有Block对象blk
 blk对象持有__block变量blkSelf(类型为编译器创建的结构体)
