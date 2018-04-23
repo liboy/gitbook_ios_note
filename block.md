@@ -31,17 +31,11 @@ copy修饰符的作用就是将block从栈区拷贝到堆区，主要目的就�
 - 使用__weak ClassName
 ```objectivec
 __weak XXViewController* weakSelf = self;
-self.blk = ^{
-    NSLog(@"In Block : %@",weakSelf);
-};
 ```
 - 使用__weak typeof(self)
 ```objectivec
 __weak typeof(self) weakSelf = self;
 ```
-    self.blk = ^{
-        NSLog(@"In Block : %@",weakSelf);
-    };
 - Reactive Cocoa中的@weakify和@strongify
     @weakify(self);
     self.blk = ^{
