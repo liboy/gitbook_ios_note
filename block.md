@@ -90,8 +90,8 @@ self.block = ^{
 };
 ```
 
-当block内部调用了延时函数，需要用`__strong`再将弱指针重新引用，保证block执行完毕之前self不会被释放
-
+- 当block内部调用了延时函数，需要用`__strong`再将弱指针重新引用，保证block执行完毕之前self不会被释放
+- 外部使用了weakSelf，里面使用strongSelf却不会造成循环，究其原因就是因为weakSelf是block截获的属性，而strongSelf是一个局部变量会在“函数”执行完释放。
 
 ## 动画 block
 ```objectivec
