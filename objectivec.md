@@ -6,11 +6,11 @@
 ```objectivec
 @property = ivar(实例变量) + getter(取方法) + setter(存方法);
 ```
-- ivar(实例变量)加存取方法(getter + setter)是编译器自动合成的，通过`@synthesize`指定，若不指定，默认为 `@synthesize propertyName = _propertyName`
+- ivar(实例变量)和存取方法(getter + setter)是编译器自动合成的，通过`@synthesize`指定，若不指定，默认为 `@synthesize propertyName = _propertyName`
 
-- `@synthesize`的作用就是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
+- `@synthesize`：是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
 
-- @dynamic的作用就是告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
+- `@dynamic`：告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
 如果都没有写@synthesize和@dynamic，那么默认的就是@synthesize var = _var;
 
 为了加深对@synthesize和@dynamic的理解，我们来看几个具体的例子，例子1代码如下：
