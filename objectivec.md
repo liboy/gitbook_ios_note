@@ -71,9 +71,10 @@ name memory address: 0x600000077380 newName memory address: 0x6000000776c0
 [mutableObject mutableCopy]; //深复制
 ```
 采用同样的方法可以验证集合类对象的copy操作如下：
-
+```objectivec
 [immutableObject copy]; //浅复制
 [immutableObject mutableCopy]; //单层深复制
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
+```
 对于NSString、NSDictionary、NSArray等经常使用copy关键字，是因为它们有对应的可变类型：NSMutableString、NSMutableDictionary、NSMutableArray，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
