@@ -5,7 +5,7 @@
 * [Block](block.md)
 * [KVC](kvc.md)
 * [KVO](kvo.md)
-* [Objective-C](swift.md)
+* [Objective-C](objectivec.md)
 * [Swift](swift.md)
 * [运行时机制](runtime.md)
     * [相关术语和数据结构](runtime_term.md)
