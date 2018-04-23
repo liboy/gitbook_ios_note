@@ -13,7 +13,7 @@
 - `@dynamic`：告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
 如果都没有写@synthesize和@dynamic，那么默认的就是@synthesize var = _var;
 
-什么时候不会使用自动合成？
+### 什么时候不会使用自动合成？
 
 - 同时重写了setter和getter时。
 - 重写了只读属性的getter时。
