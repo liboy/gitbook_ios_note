@@ -29,7 +29,7 @@ copy修饰符的作用就是将block从栈区拷贝到堆区，主要目的就�
 ### 方法一：使用 `__weak` 进行修饰
 
 - 使用__weak ClassName
-```
+```objectivec
 __weak XXViewController* weakSelf = self;
 self.blk = ^{
     NSLog(@"In Block : %@",weakSelf);
