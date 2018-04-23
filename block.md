@@ -81,15 +81,14 @@ self.blk(self);
 
 
 ### `__strong`作用
-- (void)configureBlock {
-    __weak typeof(self) weakSelf = self;
-    self.block = ^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf doSomething]; // strongSelf != nil
-        // 在抢占的时候，strongSelf还是非nil的。
-        [strongSelf doAnotherThing];
-    };
-}
+```objectivec
+__weak __typeof(self) weakSelf  = self;
+self.block = ^{
+    __strong __typeof(self) strongSelf = weakSelf; 
+    [strongSelf doSomeThing];
+    [strongSelf doOtherThing];
+};
+```
 
 当block内部调用了延时函数，需要用`__strong`再将弱指针重新引用，保证block执行完毕之前self不会被释放
 
