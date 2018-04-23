@@ -19,4 +19,5 @@
 * [KVO](kvo.md)
 * [KVC](kvc.md)
 * [Block](block.md)
+* [内存管理](memory_manage.md)
 
