@@ -51,4 +51,4 @@ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们�
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
 ```
-对于NSString、NSDictionary、NSArray等经常使用copy关键字，是因为它们有对应的可变类型：NSMutableString、NSMutableDictionary、NSMutableArray，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
+是因为它们有对应的可变类型，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
