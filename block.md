@@ -94,7 +94,7 @@ self.demoView.center = CGPointMake(self.view.center.x, 0);
 }];
 NSLog(@"come here");
 ```
->不需要考虑循环引用的，因为这里只有block对self进行了一次强引用，属于单向的强引用，没有形成循环引用。
+>使用系统提供的block api不需要考虑循环引用的，因为这里只有block对self进行了一次强引用，属于单向的强引用，没有形成循环引用。
 
 ## block 基本演练
 
