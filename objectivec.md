@@ -1,9 +1,9 @@
 # Objective-C
 
 @property本质
-
+```objectivec
 @property = ivar(实例变量) + getter(取方法) + setter(存方法);
-
+```
 
 @synthesize和@dynamic分别有什么作用？
 
