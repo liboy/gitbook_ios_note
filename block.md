@@ -80,7 +80,18 @@ self.blk(self);
     - 更明确的API设计：告诉API使用者，该方法的Block直接使用传进来的参数对象，不会造成循环引用，不用调用者再使用weak避免循环
 
 
-### `__weak`与`__strong`区别
+### `__strong`作用
+- (void)configureBlock {
+    __weak typeof(self) weakSelf = self;
+    self.block = ^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf doSomething]; // strongSelf != nil
+        // 在抢占的时候，strongSelf还是非nil的。
+        [strongSelf doAnotherThing];
+    };
+}
+
+当和并发执行相关的时候，当涉及异步的服务的时候，block可以在之后被执行，并且不会发生关于self是否存在的问题
 
 
 ## 动画 block
