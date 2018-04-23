@@ -80,7 +80,7 @@ self.blk(self);
     - 更明确的API设计：告诉API使用者，该方法的Block直接使用传进来的参数对象，不会造成循环引用，不用调用者再使用weak避免循环
 
 
-## 动画 block 回顾
+## 动画 block
 ```objectivec
 self.demoView.center = CGPointMake(self.view.center.x, 0);
 // 此方法会立即执行动画 block
