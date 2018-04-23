@@ -36,7 +36,9 @@ self.blk = ^{
 };
 ```
 - 使用__weak typeof(self)
-    __weak typeof(self) weakSelf = self;
+```objectivec
+__weak typeof(self) weakSelf = self;
+```
     self.blk = ^{
         NSLog(@"In Block : %@",weakSelf);
     };
