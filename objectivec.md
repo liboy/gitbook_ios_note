@@ -6,7 +6,7 @@
 ```objectivec
 @property = ivar(实例变量) + getter(取方法) + setter(存方法);
 ```
-- ivar(实例变量)和存取方法(getter + setter)是编译器自动合成的，通过`@synthesize`指定，若不指定，默认为 `@synthesize propertyName = _propertyName`
+- ivar̶getter̶setter是编译器自动合成的，通过`@synthesize`指定，若不指定，默认为 `@synthesize propertyName = _propertyName`
 
 - `@synthesize`：是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
 
