@@ -17,14 +17,13 @@
 
 什么时候不会使用自动合成？
 
-同时重写了setter和getter时。
-重写了只读属性的getter时。
-使用了@dynamic时。
-在@protocol中定义的所有属性。
-在category中定义的所有属性。
-重载的属性。
+- 同时重写了setter和getter时。
+- 重写了只读属性的getter时。
+- 使用了@dynamic时。
+- 在@protocol中定义的所有属性。
+- 在category中定义的所有属性。
+- 重载的属性。
 注意点：
-
 在category中使用@property也是只会生成getter和setter方法的声明，如果真的需要给category增加属性的实现，需要借助于运行时的两个函数：objc_setAssociatedObject和objc_getAssociatedObject。
 在protocol中使用property只会生成setter和getter方法声明，使用属性的目的是希望遵守我协议的对象能够实现该属性。
 weak、copy、strong、assgin分别用在什么地方？
