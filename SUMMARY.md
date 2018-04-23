@@ -1,6 +1,11 @@
 # Summary
 
 * [前言](README.md)
+* [内存管理](memory_manage.md)
+* [Block](block.md)
+* [KVC](kvc.md)
+* [KVO](kvo.md)
+* [Swift](swift.md)
 * [运行时机制](runtime.md)
     * [相关术语和数据结构](runtime_term.md)
     * [消息发送](runtime_message.md)
@@ -15,9 +20,8 @@
         * [自动释放池](runloop_autoreleasePool.md)
         * [NSTimer](runloop_nstimer.md)
     * [常见面试题](runloop_FAQ.md)
-* [Swift](swift.md)
-* [KVO](kvo.md)
-* [KVC](kvc.md)
-* [Block](block.md)
-* [内存管理](memory_manage.md)
+
+
+
+
 
