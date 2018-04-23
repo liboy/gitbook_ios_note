@@ -61,7 +61,7 @@ self.blk();//该block必须执行一次，否则还是内存泄露
 
 * 优点：
     - 可通过`__block`变量动态控制持有XXController对象的时间，运行时决定是否将nil或其他变量赋值给__block变量
-    - 不能使用__weak的系统中，使用__unsafe_unretained来替代__weak打破循环可能有野指针问题，使用__block则可避免该问题
+    - 不能使用`__weak`的系统中，使用`__unsafe_unretained`来替代打破循环可能有野指针问题，使用`__block`则可避免该问题
 
 * 缺点：
     - 必须手动保证__block变量最后设置为nil
