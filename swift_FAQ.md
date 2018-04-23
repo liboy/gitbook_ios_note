@@ -19,9 +19,8 @@ block优点
 delegate 和 block对比
  
     效率：Delegate比NSNOtification高； 
- 1,   Delegate和Block一般都是一对一的通信； 
-
- 2,   Delegate需要定义协议方法，代理对象实现协议方法，并且需要建立代理关系才可以实现通信； 
+1. Delegate和Block一般都是一对一的通信； 
+2. Delegate需要定义协议方法，代理对象实现协议方法，并且需要建立代理关系才可以实现通信； 
       Block：Block更加简洁，不需要定义繁琐的协议方法，但通信事件比较多的话，建议使用Delegate； 
 
 3,  delegate运行成本低。block成本很高的。
