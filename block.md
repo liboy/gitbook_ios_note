@@ -59,13 +59,13 @@ self.blk();//该block必须执行一次，否则还是内存泄露
     
 >注意：在block代码块内，使用完使用完__block变量后将其设为nil，并且该block必须至少执行一次，否则存在内存泄露。
 
-#### 优点：
-- 可通过__block变量动态控制持有XXController对象的时间，运行时决定是否将nil或其他变量赋值给__block变量
-- 不能使用__weak的系统中，使用__unsafe_unretained来替代__weak打破循环可能有野指针问题，使用__block则可避免该问题
+* 优点：
+    - 可通过__block变量动态控制持有XXController对象的时间，运行时决定是否将nil或其他变量赋值给__block变量
+    - 不能使用__weak的系统中，使用__unsafe_unretained来替代__weak打破循环可能有野指针问题，使用__block则可避免该问题
 
-#### 缺点：
-- 必须手动保证__block变量最后设置为nil
-- block必须执行一次，否则__block不为nil循环应用仍存在
+* 缺点：
+    - 必须手动保证__block变量最后设置为nil
+    - block必须执行一次，否则__block不为nil循环应用仍存在
 
 ### 方法三：对象以Block参数形式传入
 将在Block内要使用到的对象（一般为self对象），以Block参数的形式传入，Block就不会捕获该对象，而将其作为参数使用，其生命周期系统的栈自动管理，不造成内存泄露。
