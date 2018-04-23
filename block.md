@@ -45,7 +45,7 @@ self.blk = ^{
 };
 ```
 
-方法二：`__block` 进行修饰
+### 方法二：`__block` 进行修饰
 
 ```objectivec
 __block XXController *blkSelf = self;
