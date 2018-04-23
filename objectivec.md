@@ -23,7 +23,7 @@
 - 重载的属性。
 
 
-weak、copy、strong、assgin分别用在什么地方？
+## weak、copy、strong、assgin分别用在什么地方？
 
 什么情况下会使用weak关键字？
 
