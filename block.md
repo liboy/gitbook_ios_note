@@ -66,7 +66,7 @@ self.blk();//该block必须执行一次，否则还是内存泄露
 - 必须手动保证__block变量最后设置为nil
 - block必须执行一次，否则__block不为nil循环应用仍存在
 
-### 方法三：
+### 方法三：对象以Block参数形式传入
 将在Block内要使用到的对象（一般为self对象），以Block参数的形式传入，Block就不会捕获该对象，而将其作为参数使用，其生命周期系统的栈自动管理，不造成内存泄露。
 ```objectivec
 self.blk = ^(UIViewController *vc) {
@@ -75,9 +75,8 @@ self.blk = ^(UIViewController *vc) {
 self.blk(self);
 ```
 优点：
-
-简化了两行代码，更优雅
-更明确的API设计：告诉API使用者，该方法的Block直接使用传进来的参数对象，不会造成循环引用，不用调用者再使用weak避免循环
+- 简化了两行代码，更优雅
+- 更明确的API设计：告诉API使用者，该方法的Block直接使用传进来的参数对象，不会造成循环引用，不用调用者再使用weak避免循环
 
 
 ### 动画 block 回顾
