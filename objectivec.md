@@ -37,33 +37,7 @@ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们�
 
 ## 为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
 
-要搞清楚这个问题，我们先来弄明白深拷贝与浅拷贝的区别，以非集合类与集合类两种情况来进行说明下，先看非集合类的情况，代码如下：
-
-NSString *name = @"国士梅花";
-NSString *newName = [name copy];
-NSLog(@"name memory address: %p newName memory address: %p", name, newName);
-运行之后，输出的信息如下：
-
-name memory address: 0x10159f758 newName memory address: 0x10159f758
-可以看出复制过后，内存地址是一样的，没有发生变化，这就是浅复制，只是把指针地址复制了一份。我们改下代码改成[name mutableCopy]，此时日志的输出信息如下：
-
-name memory address: 0x101b72758 newName memory address: 0x608000263240
-我们看到内存地址发生了变化，并且newName的内存地址的偏移量比name的内存地址要大许多，由此可见经过mutableCopy操作之后，复制到堆区了，这就是深复制了，深复制就是内容也就进行了拷贝。
-
-上面的都是不可变对象，在看下可变对象的情况，代码如下：
-
-NSMutableString *name = [[NSMutableString alloc] initWithString:@"国士梅花"];
-NSMutableString *newName = [name copy];
-NSLog(@"name memory address: %p newName memory address: %p", name, newName);
-运行之后日志输出信息如下：
-
-name memory address: 0x600000076e40 newName memory address: 0x6000000295e0
-从上面可以看出copy之后，内存地址不一样，且都存储在堆区了，这是深复制，内容也就进行拷贝。在把代码改成[name mutableCopy]，此时日志的输出信息如下：
-
-name memory address: 0x600000077380 newName memory address: 0x6000000776c0
-可以看出可变对象copy与mutableCopy的效果是一样的，都是深拷贝。
-
-总结：对于非集合类对象的copy操作如下：
+对于非集合类对象的copy操作如下：
 ```objectivec
 [immutableObject copy]; //浅复制
 [immutableObject mutableCopy]; //深复制
