@@ -37,11 +37,13 @@ __weak XXViewController* weakSelf = self;
 __weak typeof(self) weakSelf = self;
 ```
 - Reactive Cocoa中的@weakify和@strongify
-    @weakify(self);
-    self.blk = ^{
-        @strongify(self);
-        NSLog(@"In Block : %@",self);
-    };
+```swift
+@weakify(self);
+self.blk = ^{
+    @strongify(self);
+    NSLog(@"In Block : %@",self);
+};
+```
 其原理参考《@weakify, @strongify》，自己简便实现参考《@weak - @strong 宏的实现》
 
 方法二：对Block内要使用的对象A使用__block进行修饰，并在代码块内，使用完__block变量后将其设为nil，并且该block必须至少执行一次。
