@@ -50,26 +50,23 @@ self.blk = ^{
 __block XXController *blkSelf = self;
 self.blk = ^{
     NSLog(@"In Block : %@",blkSelf);
-};
+    blkSelf = nil;//不能省略
+}; 
+self.blk();//该block必须执行一次，否则还是内存泄露
+
 ```
 注意上述代码仍存在内存泄露，因为：
 
 XXController对象持有Block对象blk
 blk对象持有__block变量blkSelf
 __block变量blkSelf持有XXController对象
-    __block XXController *blkSelf = self;
-    self.blk = ^{
-        NSLog(@"In Block : %@",blkSelf);
-        blkSelf = nil;//不能省略
-    };
     
-    self.blk();//该block必须执行一次，否则还是内存泄露
 在block代码块内，使用完使用完__block变量后将其设为nil，并且该block必须至少执行一次后，不存在内存泄露，因为此时：
 
 XXController对象持有Block对象blk
 blk对象持有__block变量blkSelf(类型为编译器创建的结构体)
 __block变量blkSelf在执行blk()之后被设置为nil（__block变量结构体的__forwarding指针指向了nil），不再持有XXController对象，打破循环
-第二种使用__block打破循环的方法，优点是：
+优点是：
 
 可通过__block变量动态控制持有XXController对象的时间，运行时决定是否将nil或其他变量赋值给__block变量
 不能使用__weak的系统中，使用__unsafe_unretained来替代__weak打破循环可能有野指针问题，使用__block则可避免该问题
