@@ -46,7 +46,7 @@ self.blk = ^{
 ```
 
 方法二：对Block内要使用的对象A使用__block进行修饰，并在代码块内，使用完__block变量后将其设为nil，并且该block必须至少执行一次。
-```
+```objectivec
 __block XXController *blkSelf = self;
 self.blk = ^{
     NSLog(@"In Block : %@",blkSelf);
