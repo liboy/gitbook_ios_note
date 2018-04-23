@@ -26,21 +26,19 @@
 copy修饰符的作用就是将block从栈区拷贝到堆区，主要目的就是保存block的状态，延长其生命周期。
 
 ## block中循环引用
-- 方法一： 对Block内要使用的对象A使用 `__weak` 进行修饰，Block对对象A弱引用打破循环。
+### 方法一：使用 `__weak` 进行修饰
 
-有三种常用形式：
-
-使用__weak ClassName
+- 使用__weak ClassName
     __weak XXViewController* weakSelf = self;
     self.blk = ^{
         NSLog(@"In Block : %@",weakSelf);
     };
-使用__weak typeof(self)
+- 使用__weak typeof(self)
     __weak typeof(self) weakSelf = self;
     self.blk = ^{
         NSLog(@"In Block : %@",weakSelf);
     };
-Reactive Cocoa中的@weakify和@strongify
+- Reactive Cocoa中的@weakify和@strongify
     @weakify(self);
     self.blk = ^{
         @strongify(self);
