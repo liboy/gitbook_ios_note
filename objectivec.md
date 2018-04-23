@@ -1,2 +1,133 @@
 # Objective-C
 
+property
+
+@synthesize和@dynamic分别有什么作用？
+
+在说两者分别有什么作用前，我们先看下@property的本质是什么：
+
+@property = ivar + getter + setter;
+从上面可以看出@property的本质就是ivar(实例变量)加存取方法(getter + setter)。在我们属性定义完成后，编译器会自动生成该属性的getter和setter方法，这个过程就叫做自动合成。除了生成getter与setter方法，编译器还要自动向类中添加适当类型的实例变量，并且在属性名前面加下划线，以此做实例变量的名字。
+
+@synthesize的作用就是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
+
+@dynamic的作用就是告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
+如果都没有写@synthesize和@dynamic，那么默认的就是@synthesize var = _var;
+
+为了加深对@synthesize和@dynamic的理解，我们来看几个具体的例子，例子1代码如下：
+
+@interface ViewController ()
+
+@property (nonatomic, copy) NSString *name;
+
+@end
+
+@implementation ViewController
+
+@dynamic name;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.name = @"国士梅花";
+    NSLog(@"name is : %@", self.name);
+}
+
+@end
+我们在进行编译的时候没有问题，但是运行的时候就会发生崩溃，崩溃的原因如下：
+
+'NSInvalidArgumentException', reason: '-[ViewController setName:]: unrecognized selector sent to instance 0x7fd28dd06000'
+崩溃的原因是不识别setName方法，这也验证了如果加入了@dynamic的话，编译系统就不会自己生成getter和setter方法了，需要我们自己来实现。
+
+我们在来看下@synthesize合成实例变量的规则是什么？例子2代码如下：
+
+@interface ViewController ()
+
+@property (nonatomic, copy) NSString *name;
+
+@end
+
+@implementation ViewController
+
+@synthesize name = _myName;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.name = @"国士梅花";
+    NSLog(@"name is : %@", _myName);
+}
+
+@end
+从代码中可以看出，1、当我们指定了成员变量的名称(指定为带下划线的myName)，就会生成指定的成员变量。如果代码中存在带下划线的name，就不会在生成了。2、如果是@synthesize name;还会生成一个名称为带下划线的name成员变量，也就是说如果没有指定成员变量的名称会自动生成一个属性同名的成员变量。3、如果是@synthesize name = _name; 就不会生成成员变量了。
+
+在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景呢？先搞清楚一个问题，什么时候不会使用自动合成？
+
+同时重写了setter和getter时。
+重写了只读属性的getter时。
+使用了@dynamic时。
+在@protocol中定义的所有属性。
+在category中定义的所有属性。
+重载的属性。
+注意点：
+
+在category中使用@property也是只会生成getter和setter方法的声明，如果真的需要给category增加属性的实现，需要借助于运行时的两个函数：objc_setAssociatedObject和objc_getAssociatedObject。
+在protocol中使用property只会生成setter和getter方法声明，使用属性的目的是希望遵守我协议的对象能够实现该属性。
+weak、copy、strong、assgin分别用在什么地方？
+
+什么情况下会使用weak关键字？
+
+在ARC中，出现循环引用的时候，会使用weak关键字。
+自身已经对它进行了一次强引用，没有必要再强调引用一次。
+assgin适用于基本的数据类型，比如NSInteger、BOOL等。
+
+NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary；
+
+除了上面的三种情况，剩下的就使用strong来进行修饰。
+
+为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
+
+要搞清楚这个问题，我们先来弄明白深拷贝与浅拷贝的区别，以非集合类与集合类两种情况来进行说明下，先看非集合类的情况，代码如下：
+
+NSString *name = @"国士梅花";
+NSString *newName = [name copy];
+NSLog(@"name memory address: %p newName memory address: %p", name, newName);
+运行之后，输出的信息如下：
+
+name memory address: 0x10159f758 newName memory address: 0x10159f758
+可以看出复制过后，内存地址是一样的，没有发生变化，这就是浅复制，只是把指针地址复制了一份。我们改下代码改成[name mutableCopy]，此时日志的输出信息如下：
+
+name memory address: 0x101b72758 newName memory address: 0x608000263240
+我们看到内存地址发生了变化，并且newName的内存地址的偏移量比name的内存地址要大许多，由此可见经过mutableCopy操作之后，复制到堆区了，这就是深复制了，深复制就是内容也就进行了拷贝。
+
+上面的都是不可变对象，在看下可变对象的情况，代码如下：
+
+NSMutableString *name = [[NSMutableString alloc] initWithString:@"国士梅花"];
+NSMutableString *newName = [name copy];
+NSLog(@"name memory address: %p newName memory address: %p", name, newName);
+运行之后日志输出信息如下：
+
+name memory address: 0x600000076e40 newName memory address: 0x6000000295e0
+从上面可以看出copy之后，内存地址不一样，且都存储在堆区了，这是深复制，内容也就进行拷贝。在把代码改成[name mutableCopy]，此时日志的输出信息如下：
+
+name memory address: 0x600000077380 newName memory address: 0x6000000776c0
+可以看出可变对象copy与mutableCopy的效果是一样的，都是深拷贝。
+
+总结：对于非集合类对象的copy操作如下：
+
+[immutableObject copy]; //浅复制
+[immutableObject mutableCopy]; //深复制
+[mutableObject copy]; //深复制
+[mutableObject mutableCopy]; //深复制
+采用同样的方法可以验证集合类对象的copy操作如下：
+
+[immutableObject copy]; //浅复制
+[immutableObject mutableCopy]; //单层深复制
+[mutableObject copy]; //深复制
+[mutableObject mutableCopy]; //深复制
+对于NSString、NSDictionary、NSArray等经常使用copy关键字，是因为它们有对应的可变类型：NSMutableString、NSMutableDictionary、NSMutableArray，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
+
+作者：国士无双A
+链接：https://www.jianshu.com/p/3c0dd2cbb509
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
