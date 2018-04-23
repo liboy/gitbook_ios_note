@@ -22,6 +22,7 @@ copy修饰符的作用就是将block从栈区拷贝到堆区
 | 名称 | 账号 | 密码 |
 | :-: | :-: | :-: |
 | block的类型 | 存储区域 | 复制效果 |
+
 _NSConcreteStackBlock	栈	从栈复制到堆
 _NSConcreteGlobalBlock	静态区(全局区)	什么也不做
 _NSConcreteMallocBlock	堆	引用计数增加
