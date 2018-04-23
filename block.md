@@ -81,7 +81,7 @@ self.blk(self);
 
 
 ### `__strong`作用
-当block内部调用了延时函数，需要用`__strong`再将弱指针重新引用，保证block执行完毕之前self不会被释放
+当block内部调用了延时函数或并发执行时，需要用`__strong`再将弱指针重新引用，保证block执行完毕之前self不会被释放
 
 ```objectivec
 __weak __typeof(self) weakSelf  = self;
