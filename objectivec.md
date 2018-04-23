@@ -15,52 +15,7 @@
 
 为了加深对@synthesize和@dynamic的理解，我们来看几个具体的例子，例子1代码如下：
 
-@interface ViewController ()
-
-@property (nonatomic, copy) NSString *name;
-
-@end
-
-@implementation ViewController
-
-@dynamic name;
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.name = @"国士梅花";
-    NSLog(@"name is : %@", self.name);
-}
-
-@end
-我们在进行编译的时候没有问题，但是运行的时候就会发生崩溃，崩溃的原因如下：
-
-'NSInvalidArgumentException', reason: '-[ViewController setName:]: unrecognized selector sent to instance 0x7fd28dd06000'
-崩溃的原因是不识别setName方法，这也验证了如果加入了@dynamic的话，编译系统就不会自己生成getter和setter方法了，需要我们自己来实现。
-
-我们在来看下@synthesize合成实例变量的规则是什么？例子2代码如下：
-
-@interface ViewController ()
-
-@property (nonatomic, copy) NSString *name;
-
-@end
-
-@implementation ViewController
-
-@synthesize name = _myName;
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.name = @"国士梅花";
-    NSLog(@"name is : %@", _myName);
-}
-
-@end
-从代码中可以看出，1、当我们指定了成员变量的名称(指定为带下划线的myName)，就会生成指定的成员变量。如果代码中存在带下划线的name，就不会在生成了。2、如果是@synthesize name;还会生成一个名称为带下划线的name成员变量，也就是说如果没有指定成员变量的名称会自动生成一个属性同名的成员变量。3、如果是@synthesize name = _name; 就不会生成成员变量了。
-
-在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景呢？先搞清楚一个问题，什么时候不会使用自动合成？
+什么时候不会使用自动合成？
 
 同时重写了setter和getter时。
 重写了只读属性的getter时。
