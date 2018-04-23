@@ -22,9 +22,7 @@
 - 在category中定义的所有属性。
 - 重载的属性。
 
-注意点：
-在category中使用@property也是只会生成getter和setter方法的声明，如果真的需要给category增加属性的实现，需要借助于运行时的两个函数：objc_setAssociatedObject和objc_getAssociatedObject。
-在protocol中使用property只会生成setter和getter方法声明，使用属性的目的是希望遵守我协议的对象能够实现该属性。
+
 weak、copy、strong、assgin分别用在什么地方？
 
 什么情况下会使用weak关键字？
@@ -66,11 +64,12 @@ name memory address: 0x600000077380 newName memory address: 0x6000000776c0
 可以看出可变对象copy与mutableCopy的效果是一样的，都是深拷贝。
 
 总结：对于非集合类对象的copy操作如下：
-
+```objectivec
 [immutableObject copy]; //浅复制
 [immutableObject mutableCopy]; //深复制
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
+```
 采用同样的方法可以验证集合类对象的copy操作如下：
 
 [immutableObject copy]; //浅复制
@@ -78,8 +77,3 @@ name memory address: 0x600000077380 newName memory address: 0x6000000776c0
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
 对于NSString、NSDictionary、NSArray等经常使用copy关键字，是因为它们有对应的可变类型：NSMutableString、NSMutableDictionary、NSMutableArray，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
-
-作者：国士无双A
-链接：https://www.jianshu.com/p/3c0dd2cbb509
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
