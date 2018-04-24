@@ -63,7 +63,6 @@ xcode8 "全局变量"实际存储区域案例验证:
 
 ```objectivec
 #import <Foundation/Foundation.h>
-
 NSInteger num1 = 10;  //定义第一个全局变量  并且初始化
 NSInteger num2;      //定义第二个全局变量   没有初始化
 
