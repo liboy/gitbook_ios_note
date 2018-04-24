@@ -59,7 +59,7 @@
     - 常量 存储在 数据段（常量区））
     - 不能把 全局变量 定义在头文件中，否则会出现重复定义 
     
-xcode8 "全局变量"实际存储区域案例验证:
+xcode8 `全局变量`实际存储区域验证:
 ```objectivec
 #import <Foundation/Foundation.h>
 NSInteger num1 = 10;  //定义第一个全局变量  并且初始化
