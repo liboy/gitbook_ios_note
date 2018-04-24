@@ -94,7 +94,7 @@ self.block = ^{
 >注意：不会造成循环引用，是因为strongSelf实质是一个局部变量（在block这个“函数”里面的局部变量），当block执行完毕就会释放自动变量strongSelf，不会对self进行一直进行强引用。
 
 ### `__unsafe_unretained`和`__weak`区别
- 一样，唯一的区别便是，对象即使被销毁，指针也不会自动置空， 此时指针指向的是一个无用的野地址。如果使用此指针，程序会抛出 BAD_ACCESS 的异常。
+`__unsafe_unretained`对象即使被销毁，指针也不会自动置空，此时指针指向的是一个无用的野地址。如果使用此指针，程序会抛出 BAD_ACCESS 的异常。
 
 ### 动画 block
 ```objectivec
