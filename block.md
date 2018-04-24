@@ -95,7 +95,7 @@ self.block = ^{
 
 ### `__unsafe_unretained`和`__weak`区别
 - `__unsafe_unretained`对象即使被销毁，指针也不会自动置空，此时指针指向的是一个无用的野地址。如果使用此指针，程序会抛出 `BAD_ACCESS` 的异常。
-- `__weak`的指针会将指针自动置为nil
+- `__weak`的指针会将指针自动置为`nil`
 
 ### 动画 block
 ```objectivec
