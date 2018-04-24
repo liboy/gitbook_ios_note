@@ -1,6 +1,6 @@
 # Objective-C
 
-`property modifier`与`ownership qualifier`的对应关系
+## `property modifier`与`ownership qualifier`的对应关系
 
 ![](/assets/oc.png)
 
