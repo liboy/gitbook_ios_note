@@ -10,7 +10,7 @@
 
 - `@synthesize`：是如果你没有手动实现getter与setter方法，那么编译器就会自动为你加上这两个方法。
 
-- `@dynamic`：告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于readonly的属性只需要提供getter即可。
+- `@dynamic`：告诉编译器，getter与setter方法由用户自己实现，不自动生成。当然对于`readonly`的属性只需要提供getter即可。
 
 ### 什么时候不会使用自动合成？
 
