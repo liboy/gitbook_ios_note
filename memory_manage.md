@@ -62,8 +62,8 @@
 ```objectivec
 #import <Foundation/Foundation.h>
 
-       NSInteger num1 = 10;
-       NSInteger num2;
+NSInteger num1 = 10;
+NSInteger num2;
 
 static NSInteger sNum1 = 10;
 static NSInteger sNum2;
