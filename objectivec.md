@@ -24,14 +24,10 @@
 
 ## weak、copy、strong、assgin分别用在什么地方？
 
-什么情况下会使用weak关键字？
-
-    - 在ARC中，出现循环引用的时候，会使用weak关键字。
-    - 自身已经对它进行了一次强引用，没有必要再强调引用一次。
-assgin适用于基本的数据类型，比如NSInteger、BOOL等。
-NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary；
-
-除了上面的三种情况，剩下的就使用strong来进行修饰。
+- 在ARC中，出现循环引用的时候，会使用weak关键字。自身已经对它进行了一次强引用，没有必要再强调引用一次。
+- assgin适用于基本的数据类型，比如NSInteger、BOOL等。
+- NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary；
+- 除了上面的三种情况，剩下的就使用strong来进行修饰。
 
 ## 为什么NSString、NSDictionary、NSArray要使用copy修饰符呢？
 
@@ -49,4 +45,4 @@ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们�
 [mutableObject copy]; //深复制
 [mutableObject mutableCopy]; //深复制
 ```
-是因为它们有对应的可变类型，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
+因为它们有对应的可变类型，它们之间可能进行赋值操作，为确保对象中的字符串值不会无意间变动，应该在设置新属性时拷贝一份。
