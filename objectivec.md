@@ -2,7 +2,7 @@
 
 `property modifier`与`ownership qualifier`的对应关系
 
-
+![](/assets/oc.png)
 
 ## @property、@synthesize和@dynamic分别有什么作用？
 ```objectivec
