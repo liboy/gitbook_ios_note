@@ -123,3 +123,5 @@ int main(int argc, const char * argv[]) {
 - 在 .h 中使用 `extern` 关键字声明常量在其他位置定义并且已经赋值，外部可以直接使用
 extern const NSInteger cNum;
 - 常量名应该尽量的长以避免出现重名
+
+
