@@ -60,6 +60,7 @@
     - 不能把 全局变量 定义在头文件中，否则会出现重复定义 
     
 xcode8 "全局变量"实际存储区域案例验证:
+
 ```objectivec
 #import <Foundation/Foundation.h>
 
