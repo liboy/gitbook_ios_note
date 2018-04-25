@@ -40,9 +40,10 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 通知中心是整个通知机制的关键所在，它管理着监听者的注册和注销，通知的发送和接收。通知中心维护着一个通知的分发表，把所有发送者发送的通知，转发给对应的监听者们。每一个iOS程序都有一个唯一的通知中心，你不必自己去创建一个，它是一个单例，通过 `[NSNotificationCenter defaultCenter]` 方法获取。
 
 注册监听者方法:
-
+```objectivec
 - (void)addObserver:(id)observer selector:(SEL)aSelector name:(nullable NSString *)aName object:(nullable id)anObject;
 - (id <NSObject>)addObserverForName:(nullable NSString *)name object:(nullable id)obj queue:(nullable NSOperationQueue *)queue usingBlock:(void (^)(NSNotification *note))block;
+```
 第一个方法是大家常用的方法，不用多说，第二个方法带了一个block，这个block就是通知被触发时要执行的block，这个block带有一个notification参数；该方法还有一个queue参数，可以指定这个block在哪个队列上执行，如果传nil，这个block将会在发送通知的线程中同步执行。然后注意到，这个方法有一个id类型的返回值，这个返回值是一个不透明的中间值，用来充当监听者，使用时，我们需要将这个返回的监听者保存起来，在后面移除监听者的时候用到。
 
 移除监听者方法:
