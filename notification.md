@@ -74,6 +74,10 @@ NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotifi
 [[NSNotificationQueue defaultQueue] enqueueNotification:myNotification postingStyle:NSPostWhenIdle coalesceMask:NSNotificationCoalescingOnName | NSNotificationCoalescingOnSender forModes:nil];
 ```
 
+### 异步发送通知
+
+
+
 
 
 
