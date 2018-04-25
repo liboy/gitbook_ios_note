@@ -20,6 +20,6 @@
 
 4. 需要第三方对喜爱那个来管理controller与观察者对象之间的联系；
 
-5. controller和观察者需要提前知道通知名称、UserInfo dictionary keys。如果这些没有在工作区间定义，那么会出现不同步的情况；
+5. 需要提前知道通知名称、UserInfo dictionary keys。如果这些没有在工作区间定义，那么会出现不同步的情况；
 
 6. 通知发出后，controller不能从观察者获得任何的反馈信息。
