@@ -5,6 +5,8 @@
 * [Block](block.md)
 * [KVC](kvc.md)
 * [KVO](kvo.md)
+* [Delegate](delegate.md)
+* [Notification](notification.md)
 * [Objective-C](objectivec.md)
 * [Swift](swift.md)
 * [运行时机制](runtime.md)
