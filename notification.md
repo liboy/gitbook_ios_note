@@ -61,7 +61,7 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 - 当一个通知上升到队列的前面时，队列就将它发送给通知中心，通知中心随后将它派发给所有注册为观察者的对象。
 - 每个线程有一个默认的通知队列，它和通知中心关联着，你也可以自己为线程或者通知中心创建多个通知队列。
 
-![NotificationQueue](/assets/NotificationQueue.png)
+![NotificationQueue](/assets/notification1.png)
 
 
 
