@@ -6,7 +6,6 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 @property (readonly, retain) id object;  // 任意想要携带的对象，通常为发送者自己
 @property (readonly, copy) NSDictionary *userInfo; // 关于通知的附加信息
  
-*userInfo;
 ```
 
 通知就是以Notification的形式从通知发送者发出，到通知中心，然后再分发给所有监听该通知的对象的，通知监听者们接收到通知之后，可以获取到传递过来的Notification对象，从而获取里面封装的一些信息，做相应的处理
