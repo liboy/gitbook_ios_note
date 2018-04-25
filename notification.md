@@ -54,12 +54,12 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 在监听对象销把该对象监听的通知移除掉。
 
 发送通知方法:
-
+```objectivec
 - (void)postNotification:(NSNotification *)notification;
 - (void)postNotificationName:(NSString *)aName object:(nullable id)anObject;
 - (void)postNotificationName:(NSString *)aName object:(nullable id)anObject userInfo:(nullable NSDictionary *)aUserInfo;
-还有2点需要注意的是：
+```
 
-通知中心默认是以同步的方式发送通知的，也就是说，当一个对象发送了一个通知，只有当该通知的所有接受者都接受到了通知中心分发的通知消息并且处理完成后，发送通知的对象才能继续执行接下来的方法。异步发送通知的方法下面会说到。
-在一个多线程的程序中，发送方发送通知的线程通常就是监听者接受通知的线程，这可能和监听者注册时的线程不一样。
+- 通知中心默认是以同步的方式发送通知的，也就是说，当一个对象发送了一个通知，只有当该通知的所有接受者都接受到了通知中心分发的通知消息并且处理完成后，发送通知的对象才能继续执行接下来的方法。异步发送通知的方法下面会说到。
+- 在一个多线程的程序中，发送方发送通知的线程通常就是监听者接受通知的线程，这可能和监听者注册时的线程不一样。
 
