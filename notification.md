@@ -90,11 +90,13 @@ NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotifi
 
 
 ### 异步发送通知
-
+使用通知队列的下面2个方法，将通知加到通知队列中，就可以将一个通知异步的发送到当前的线程，这些方法调用后会立即返回，不用再等待通知的所有监听者都接收并处理完。
 ```objectivec
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle;
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle coalesceMask:(NSNotificationCoalescing)coalesceMask forModes:(nullable NSArray<NSString *> *)modes;
 ```
+>注意：如果通知入队的线程在该通知被通知队列发送到通知中心之前结束了，那么这个通知将不会被发送了。
+
 - postingStyle参数
     - NSPostASAP （尽快发送 Posting As Soon As Possible）
     - NSPostWhenIdle（空闲时发送）
