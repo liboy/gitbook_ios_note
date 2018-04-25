@@ -84,6 +84,7 @@ typedef NS_OPTIONS(NSUInteger, NSNotificationCoalescing) {
     NSNotificationCoalescingOnSender = 2
 };
 ```
+合并规则还可以用|符号连接，指定多个
 
 
 ### 异步发送通知
