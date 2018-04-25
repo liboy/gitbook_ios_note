@@ -94,7 +94,12 @@ NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotifi
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle;
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle coalesceMask:(NSNotificationCoalescing)coalesceMask forModes:(nullable NSArray<NSString *> *)modes;
 ```
-
+- postingStyle参数
+    - NSPostASAP （尽快发送 Posting As Soon As Possible）
+    - NSPostWhenIdle（空闲时发送）
+    - NSPostNow（立即发送）
+- modes参数
+    - 某种特定runloop mode后，该通知值有在当前runloop为指定mode的下，才会被发出
 
 
 
