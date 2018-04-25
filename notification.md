@@ -69,10 +69,19 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 
 ### 通知合并
 
-```
+```objectivec
 NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotificationName" object:nil];
 [[NSNotificationQueue defaultQueue] enqueueNotification:myNotification postingStyle:NSPostWhenIdle coalesceMask:NSNotificationCoalescingOnName | NSNotificationCoalescingOnSender forModes:nil];
 ```
+coalesceMask有3个给定的值：
+```objectivec
+typedef NS_OPTIONS(NSUInteger, NSNotificationCoalescing) {
+    NSNotificationNoCoalescing = 0,
+    NSNotificationCoalescingOnName = 1,
+    NSNotificationCoalescingOnSender = 2
+};
+```
+
 
 ### 异步发送通知
 
