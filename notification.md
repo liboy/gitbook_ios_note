@@ -53,7 +53,7 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 ```
 在监听对象销把该对象监听的通知移除掉。
 
-发送通知方法:
+### 发送通知方法:
 ```objectivec
 - (void)postNotification:(NSNotification *)notification;
 - (void)postNotificationName:(NSString *)aName object:(nullable id)anObject;
