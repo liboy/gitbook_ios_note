@@ -63,7 +63,9 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 
 ![NotificationQueue](/assets/notification1.png)
 
-
+通知队列给通知机制提供了2个重要的特性：
+- 通知合并
+- 异步发送通知
 ### 
 
 ```
