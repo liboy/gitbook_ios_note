@@ -13,8 +13,6 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 
 通知就是以Notification的形式从通知发送者发出，到通知中心，然后再分发给所有监听该通知的对象的，通知监听者们接收到通知之后，可以获取到传递过来的Notification对象，从而获取里面封装的一些信息，做相应的处理
 
-
-
 ## 优势
 
 1. 不需要编写多少代码，实现比较简单；
@@ -36,3 +34,34 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 5. 需要提前知道通知名称、UserInfo dictionary keys。如果这些没有在工作区间定义，那么会出现不同步的情况；
 
 6. 通知发出后，controller不能从观察者获得任何的反馈信息。
+
+## NSNotificationCenter（通知中心）
+
+通知中心是整个通知机制的关键所在，它管理着监听者的注册和注销，通知的发送和接收。通知中心维护着一个通知的分发表，把所有发送者发送的通知，转发给对应的监听者们。每一个iOS程序都有一个唯一的通知中心，你不必自己去创建一个，它是一个单例，通过［NSNotificationCenter defaultCenter］方法获取。
+
+注册监听者方法:
+
+- (void)addObserver:(id)observer selector:(SEL)aSelector name:(nullable NSString *)aName object:(nullable id)anObject;
+- (id <NSObject>)addObserverForName:(nullable NSString *)name object:(nullable id)obj queue:(nullable NSOperationQueue *)queue usingBlock:(void (^)(NSNotification *note))block;
+第一个方法是大家常用的方法，不用多说，第二个方法带了一个block，这个block就是通知被触发时要执行的block，这个block带有一个notification参数；该方法还有一个queue参数，可以指定这个block在哪个队列上执行，如果传nil，这个block将会在发送通知的线程中同步执行。然后注意到，这个方法有一个id类型的返回值，这个返回值是一个不透明的中间值，用来充当监听者，使用时，我们需要将这个返回的监听者保存起来，在后面移除监听者的时候用到。
+
+移除监听者方法:
+
+- (void)removeObserver:(id)observer;
+- (void)removeObserver:(id)observer name:(nullable NSString *)aName object:(nullable id)anObject;
+在监听对象销毁前，记得把该对象监听的通知移除掉。
+
+发送通知方法:
+
+- (void)postNotification:(NSNotification *)notification;
+- (void)postNotificationName:(NSString *)aName object:(nullable id)anObject;
+- (void)postNotificationName:(NSString *)aName object:(nullable id)anObject userInfo:(nullable NSDictionary *)aUserInfo;
+还有2点需要注意的是：
+
+通知中心默认是以同步的方式发送通知的，也就是说，当一个对象发送了一个通知，只有当该通知的所有接受者都接受到了通知中心分发的通知消息并且处理完成后，发送通知的对象才能继续执行接下来的方法。异步发送通知的方法下面会说到。
+在一个多线程的程序中，发送方发送通知的线程通常就是监听者接受通知的线程，这可能和监听者注册时的线程不一样。
+
+作者：我叫纠结伦
+链接：https://www.jianshu.com/p/8832f019c17f
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
