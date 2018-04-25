@@ -76,8 +76,11 @@ NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotifi
 coalesceMask有3个给定的值：
 ```objectivec
 typedef NS_OPTIONS(NSUInteger, NSNotificationCoalescing) {
+    //不合并
     NSNotificationNoCoalescing = 0,
+    //按通知的名字合并
     NSNotificationCoalescingOnName = 1,
+    //按通知的发送者合并
     NSNotificationCoalescingOnSender = 2
 };
 ```
