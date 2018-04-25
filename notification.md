@@ -64,6 +64,14 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 ![NotificationQueue](/assets/notification1.png)
 
 
+### 
 
+```
+NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotificationName" object:nil];
+[[NSNotificationQueue defaultQueue] enqueueNotification:myNotification
+                                               postingStyle:NSPostWhenIdle
+                                               coalesceMask:NSNotificationCoalescingOnName | NSNotificationCoalescingOnSender
+                                                   forModes:nil];
+```
 
 
