@@ -1,6 +1,7 @@
 # Notification（通知）
 
 Notification对象封装了通知发送者想要传递给监听的的信息，它有3个属性：
+
 ```objectivec
 @property (readonly, copy) NSString *name;
 @property (nullable, readonly, retain) id object;
