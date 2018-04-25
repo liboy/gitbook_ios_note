@@ -90,9 +90,10 @@ NSNotification *myNotification = [NSNotification notificationWithName:@"MyNotifi
 
 ### 异步发送通知
 
+```objectivec
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle;
 - (void)enqueueNotification:(NSNotification *)notification postingStyle:(NSPostingStyle)postingStyle coalesceMask:(NSNotificationCoalescing)coalesceMask forModes:(nullable NSArray<NSString *> *)modes;
-
+```
 
 
 
