@@ -7,9 +7,9 @@ Notification对象封装了通知发送者想要传递给监听的的信息，�
 @property (nullable, readonly, copy) NSDictionary 
 *userInfo;
 ```
-name：通知的名称，用来标示一个通知，一般为字符串
-object：任意想要携带的对象，通常为发送者自己
-userInfo：附加信息
+- name：通知的名称，用来标示一个通知，一般为字符串
+- object：任意想要携带的对象，通常为发送者自己
+- userInfo：附加信息
 
 通知就是以Notification的形式从通知发送者发出，到通知中心，然后再分发给所有监听该通知的对象的，通知监听者们接收到通知之后，可以获取到传递过来的Notification对象，从而获取里面封装的一些信息，做相应的处理
 
