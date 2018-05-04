@@ -27,7 +27,7 @@ $ echo "pod 'AFNetworking'" > Podfile
 $ pod install
 # 升级
 $ pod update
-#查看版本
+# 查看版本
 $ pod --version
 ```
 
