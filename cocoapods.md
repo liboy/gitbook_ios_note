@@ -1,6 +1,6 @@
 # Cocoapods
 
-* `CocoaPods` 是 iOS 最常用最有名的类库管理工具
+`CocoaPods` 是 iOS 最常用最有名的类库管理工具
 
 ## 安装
 
