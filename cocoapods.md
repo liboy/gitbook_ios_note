@@ -7,7 +7,7 @@
 
 ```bash
 # 添加源
-$ sudo gem sources -a http://ruby.taobao.org/
+$ sudo gem sources -a https://gems.ruby-china.org/
 # 删除源
 $ sudo gem sources -r https://rubygems.org/
 # 安装
