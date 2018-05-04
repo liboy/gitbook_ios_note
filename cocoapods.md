@@ -33,7 +33,7 @@ $ pod --version
 > 注意：
 
 ```
-# 执行pod install还是pod update都卡在了Analyzing dependencies不动
+# 执行pod install还是pod update卡在了Analyzing dependencies不动
 # 忽略升级CocoaPods的spec仓库
 pod install --verbose --no-repo-update
 pod update --verbose --no-repo-update
