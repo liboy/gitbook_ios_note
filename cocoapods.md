@@ -30,6 +30,13 @@ $ pod update
 # 查看版本
 $ pod --version
 ```
+> 注意
+更新慢的问题
+```
+pod install --verbose --no-repo-update
+pod update --verbose --no-repo-update
+```
+
 
 ### git 操作
 
