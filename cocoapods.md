@@ -60,7 +60,7 @@ $ gem uninstall cocoapods
 $ sudo gem update
 # 列出本地安装的包
 $ gem list
-#升级cocoapods
+# 升级cocoapods
 $ sudo gem install -n /usr/local/bin cocoapods --pre
 ```
 
