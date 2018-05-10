@@ -87,9 +87,9 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 7、如果从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:`进而回调展示图片。
 
-8、如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，回调 `imageCache:didNotFindImageForKey:userInfo:`。
+- 如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，回调 `imageCache:didNotFindImageForKey:userInfo:`。
 
-9、共享或重新生成一个下载器 `SDWebImageDownloader` 开始下载图片。
+- 共享或重新生成一个下载器 `SDWebImageDownloader` 开始下载图片。
 
 - 图片下载由 NSURLConnection(3.8.0之后使用了NSURLSession)，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
 
