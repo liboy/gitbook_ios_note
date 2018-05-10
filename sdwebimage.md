@@ -92,19 +92,19 @@
 
 - 共享或重新生成一个下载器 `SDWebImageDownloader` 开始下载图片。
 
-- 图片下载由 NSURLConnection(3.8.0之后使用了NSURLSession)，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
+- 图片下载由 `NSURLConnection`(`3.8.0`之后使用了`NSURLSession`)，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
 
 - `connection:didReceiveData:` 中利用 ImageIO 做了按图片下载进度加载效果。connectionDidFinishLoading: 数据下载完成后交给 `SDWebImageDecoder` 做图片解码处理。
 
-- 图片解码处理在一个 NSOperationQueue 完成，不会拖慢主线程 UI。如果有需要对下载的图片进行二次处理，最好也在这里完成，效率会好很多。
+- 图片解码处理在一个 `NSOperationQueue` 完成，不会拖慢主线程 UI。如果有需要对下载的图片进行二次处理，最好也在这里完成，效率会好很多。
 
-- 在主线程 `notifyDelegateOnMainThreadWithInfo:` 宣告解码完成，`imageDecoder:didFinishDecodingImage:userInfo:` 回调给 SDWebImageDownloader。
+- 在主线程 `notifyDelegateOnMainThreadWithInfo:` 宣告解码完成，`imageDecoder:didFinishDecodingImage:userInfo:` 回调给 `SDWebImageDownloader`。
 
 - `imageDownloader:didFinishWithImage:` 回调给 SDWebImageManager 告知图片下载完成。
 
 - 通知所有的 `downloadDelegates` 下载完成，回调给需要的地方展示图片。
 
-- 将图片保存到 SDImageCache 中，内存缓存和硬盘缓存同时保存。写文件到硬盘也在以单独 NSInvocationOperation 完成，避免拖慢主线程。
+- 将图片保存到 `SDImageCache` 中，内存缓存和硬盘缓存同时保存。写文件到硬盘也在以单独 `NSInvocationOperation` 完成，避免拖慢主线程。
 
 - SDImageCache 在初始化的时候会注册一些消息通知，在内存警告或退到后台的时候清理内存图片缓存，应用结束的时候清理过期图片。
 
