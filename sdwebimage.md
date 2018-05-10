@@ -85,7 +85,7 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 6、根据 `URLKey` 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate:。
 
-7、如果从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:`进而回调展示图片。
+- 如果从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:`进而回调展示图片。
 
 - 如果从硬盘缓存目录读取不到图片，说明所有缓存都不存在该图片，需要下载图片，回调 `imageCache:didNotFindImageForKey:userInfo:`。
 
