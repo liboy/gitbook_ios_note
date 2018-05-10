@@ -70,8 +70,4 @@ UIImage+MultiFormat    根据不同格式的二进制数据转成 UIImage 对象
 UIImage+WebP    用于解码并加载 WebP 图片  
 4. 核心逻辑
 
-作者：ShannonChenCHN  
-链接：[https://www.jianshu.com/p/06f0265c22eb\#](https://www.jianshu.com/p/06f0265c22eb#)  
-來源：简书  
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
