@@ -25,7 +25,7 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 3. 目录结构
 
-```
+
 - Downloader
     - SDWebImageDownloader
     - SDWebImageDownloaderOperation
@@ -48,7 +48,6 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 - Other
     - SDWebImageOperation（协议）
     - SDWebImageCompat（宏定义、常量、通用函数）
-```
 
 类名	功能
 SDWebImageDownloader	是专门用来下载图片和优化图片加载的，跟缓存没有关系
