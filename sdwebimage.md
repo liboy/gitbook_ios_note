@@ -1,9 +1,9 @@
 # SDWebImage
 
-## 一、简介
+## 简介
 SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载分类，只要一行代码就可以实现图片异步下载和缓存功能。
 
-### 特性
+## 特性
 - 显示网络图片，以及缓存管理
 - 异步下载图片
 - 异步缓存（内存+磁盘），并且自动管理缓存有效性
@@ -18,15 +18,16 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
     - 4.0 之前的动图效果并不是太好
     - 4.0 以后基于 FLAnimatedImage加载动图
     
-## 二、实现原理
+## 实现原理
 1. 架构图（UML 类图）
-
+![](/assets/sd_1.png)
 2. 流程图（方法调用顺序图）
 
 3. 目录结构
-Downloader
-SDWebImageDownloader
-SDWebImageDownloaderOperation
+```
+- Downloader
+    - SDWebImageDownloader
+    - SDWebImageDownloaderOperation
 Cache
 SDImageCache
 Utils
@@ -46,6 +47,8 @@ UIImage+WebP
 Other
 SDWebImageOperation（协议）
 SDWebImageCompat（宏定义、常量、通用函数）
+```
+
 类名	功能
 SDWebImageDownloader	是专门用来下载图片和优化图片加载的，跟缓存没有关系
 SDWebImageDownloaderOperation	继承于 NSOperation，用来处理下载任务的
