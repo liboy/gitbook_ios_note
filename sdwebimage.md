@@ -68,6 +68,8 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 |UIImage+GIF |   用于加载 GIF 动图  |
 |UIImage+MultiFormat |   根据不同格式的二进制数据转成 UIImage 对象  |
 |UIImage+WebP  |  用于解码并加载 WebP 图片  |
+
+
 4. 核心逻辑
 
 
