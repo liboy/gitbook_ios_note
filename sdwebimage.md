@@ -23,9 +23,9 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 ## 实现原理
 
 1. 架构图（UML 类图）
-   ![](/assets/sd_1.png)
+![](/assets/sd_1.png)
 2. 流程图（方法调用顺序图）
-
+![](/assets/sd_2.png)
 ### 目录结构
 
 * Downloader
