@@ -29,25 +29,25 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 - Downloader
     - SDWebImageDownloader
     - SDWebImageDownloaderOperation
-Cache
-SDImageCache
-Utils
-SDWebImageManager
-SDWebImageDecoder
-SDWebImagePrefetcher
-Categories
-UIView+WebCacheOperation
-UIImageView+WebCache
-UIImageView+HighlightedWebCache
-UIButton+WebCache
-MKAnnotationView+WebCache
-NSData+ImageContentType
-UIImage+GIF
-UIImage+MultiFormat
-UIImage+WebP
-Other
-SDWebImageOperation（协议）
-SDWebImageCompat（宏定义、常量、通用函数）
+- Cache
+    - SDImageCache
+- Utils
+    - SDWebImageManager
+    - SDWebImageDecoder
+    - SDWebImagePrefetcher
+- Categories
+    - UIView+WebCacheOperation
+    - UIImageView+WebCache
+    - UIImageView+HighlightedWebCache
+    - UIButton+WebCache
+    - MKAnnotationView+WebCache
+    - NSData+ImageContentType
+    - UIImage+GIF
+    - UIImage+MultiFormat
+    - UIImage+WebP
+- Other
+    - SDWebImageOperation（协议）
+    - SDWebImageCompat（宏定义、常量、通用函数）
 ```
 
 类名	功能
