@@ -59,15 +59,15 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 |SDWebImageManager|作为 UIImageView+WebCache 背后的默默付出者，主要功能是将图片下载（SDWebImageDownloader）和图片缓存（SDImageCache）两个独立的功能组合起来  |
 |SDWebImageDecoder  |  图片解码器，用于图片下载完成后进行解码|  
 |SDWebImagePrefetcher  |  预下载图片，方便后续使用，图片下载的优先级低，其内部由 SDWebImageManager 来处理图片下载和缓存  |
-UIView+WebCacheOperation    用来记录图片加载的 operation，方便需要时取消和移除图片加载的 operation  
-UIImageView+WebCache    集成 SDWebImageManager 的图片下载和缓存功能到 UIImageView 的方法中，方便调用方的简单使用  
-UIImageView+HighlightedWebCache    跟 UIImageView+WebCache 类似，也是包装了 SDWebImageManager，只不过是用于加载 highlighted 状态的图片  
-UIButton+WebCache    跟 UIImageView+WebCache 类似，集成 SDWebImageManager 的图片下载和缓存功能到 UIButton 的方法中，方便调用方的简单使用  
-MKAnnotationView+WebCache    跟 UIImageView+WebCache 类似  
-NSData+ImageContentType    用于获取图片数据的格式（JPEG、PNG等）  
-UIImage+GIF    用于加载 GIF 动图  
-UIImage+MultiFormat    根据不同格式的二进制数据转成 UIImage 对象  
-UIImage+WebP    用于解码并加载 WebP 图片  
+|UIView+WebCacheOperation  |  用来记录图片加载的 operation，方便需要时取消和移除图片加载的 operation | 
+|UIImageView+WebCache  |  集成 SDWebImageManager 的图片下载和缓存功能到 UIImageView 的方法中，方便调用方的简单使用  
+|UIImageView+HighlightedWebCache  |  跟 UIImageView+WebCache 类似，也是包装了 SDWebImageManager，只不过是用于加载 highlighted 状态的图片  |
+|UIButton+WebCache  |  跟 UIImageView+WebCache 类似，集成 SDWebImageManager 的图片下载和缓存功能到 UIButton 的方法中，方便调用方的简单使用  |
+|MKAnnotationView+WebCache  |  跟 UIImageView+WebCache 类似|  
+|NSData+ImageContentType  |  用于获取图片数据的格式（JPEG、PNG等）  |
+|UIImage+GIF |   用于加载 GIF 动图  |
+|UIImage+MultiFormat |   根据不同格式的二进制数据转成 UIImage 对象  |
+|UIImage+WebP  |  用于解码并加载 WebP 图片  |
 4. 核心逻辑
 
 
