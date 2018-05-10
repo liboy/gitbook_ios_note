@@ -73,17 +73,17 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 ## 工作流程
 
-1、入口 `setImageWithURL:placeholderImage:options:` 会先把 placeholderImage 显示，然后 SDWebImageManager 根据 URL 开始处理图片。
+1. 入口 `setImageWithURL:placeholderImage:options:` 会先把 placeholderImage 显示，然后 SDWebImageManager 根据 URL 开始处理图片。
 
-2、进入 `SDWebImageManager-downloadWithURL:delegate:options:userInfo:`交给 SDImageCache 从缓存查找图片是否已经下载 `queryDiskCacheForKey:delegate:userInfo:`。
+- 进入 `SDWebImageManager-downloadWithURL:delegate:options:userInfo:`交给 SDImageCache 从缓存查找图片是否已经下载 `queryDiskCacheForKey:delegate:userInfo:`。
 
-3、先从内存图片缓存查找是否有图片，如果内存中已经有图片缓存，SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:` 到 SDWebImageManager。
+- 先从内存图片缓存查找是否有图片，如果内存中已经有图片缓存，SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:` 到 SDWebImageManager。
 
-4、SDWebImageManagerDelegate 回调 `webImageManager:didFinishWithImage:` 到 UIImageView+WebCache 等前端展示图片。
+- SDWebImageManagerDelegate 回调 `webImageManager:didFinishWithImage:` 到 UIImageView+WebCache 等前端展示图片。
 
-5、如果内存缓存中没有，生成 `NSInvocationOperation` 添加到队列开始从硬盘查找图片是否已经缓存。
+- 如果内存缓存中没有，生成 `NSInvocationOperation` 添加到队列开始从硬盘查找图片是否已经缓存。
 
-6、根据 `URLKey` 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate:。
+- 根据 `URLKey` 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate:。
 
 - 如果从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:`进而回调展示图片。
 
