@@ -84,7 +84,7 @@
 
 - 如果内存缓存中没有，生成 `NSInvocationOperation` 添加到队列开始从硬盘查找图片是否已经缓存。
 
-- 根据 `URLKey` 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 notifyDelegate:。
+- 根据 `URLKey` 在硬盘缓存目录下尝试读取图片文件。这一步是在 NSOperation 进行的操作，所以回主线程进行结果回调 `notifyDelegate:`。
 
 - 如果从硬盘读取到了图片，将图片添加到内存缓存中（如果空闲内存过小，会先清空内存缓存）。`SDImageCacheDelegate` 回调 `imageCache:didFindImage:forKey:userInfo:`进而回调展示图片。
 
