@@ -73,7 +73,7 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 ## 工作流程
 
-1. 入口 `setImageWithURL:placeholderImage:options:` 会先把 placeholderImage 显示，然后 SDWebImageManager 根据 URL 开始处理图片。
+1. 入口 `setImageWithURL:placeholderImage:options:` 会先把 `placeholderImage` 显示，然后 `SDWebImageManager` 根据 URL 开始处理图片。
 
 - 进入 `SDWebImageManager-downloadWithURL:delegate:options:userInfo:`交给 SDImageCache 从缓存查找图片是否已经下载 `queryDiskCacheForKey:delegate:userInfo:`。
 
