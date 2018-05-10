@@ -108,7 +108,7 @@
 
 - SDImageCache 在初始化的时候会注册一些消息通知，在内存警告或退到后台的时候清理内存图片缓存，应用结束的时候清理过期图片。
 
-- SDWebImagePrefetcher 可以预先下载图片，方便后续使用。
+- `SDWebImagePrefetcher` 可以预先下载图片，方便后续使用。
 
 
 
