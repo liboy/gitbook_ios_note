@@ -111,12 +111,3 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 
 
-在主线程 notifyDelegateOnMainThreadWithInfo: 宣告解码完成，imageDecoder:didFinishDecodingImage:userInfo: 回调给 SDWebImageDownloader。
-imageDownloader:didFinishWithImage: 回调给 SDWebImageManager 告知图片下载完成。
-通知所有的 downloadDelegates 下载完成，回调给需要的地方展示图片。
-将图片保存到 SDImageCache 中，内存缓存和硬盘缓存同时保存。写文件到硬盘也在以单独 NSInvocationOperation 完成，避免拖慢主线程。
-SDImageCache 在初始化的时候会注册一些消息通知，在内存警告或退到后台的时候清理内存图片缓存，应用结束的时候清理过期图片。
-SDWI 也提供了 UIButton+WebCache 和 MKAnnotationView+WebCache，方便使用。
-SDWebImagePrefetcher 可以预先下载图片，方便后续使用。
-
-
