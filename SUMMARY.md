@@ -9,6 +9,7 @@
 * [Notification](notification.md)
 * [Objective-C](objectivec.md)
 * [Swift](swift.md)
+* [SDWebImage](sdwebimage.md)
 * [运行时机制](runtime.md)
     * [相关术语和数据结构](runtime_term.md)
     * [消息发送](runtime_message.md)
