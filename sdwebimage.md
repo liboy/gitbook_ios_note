@@ -79,7 +79,7 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 - 先从内存图片缓存查找是否有图片，如果内存中已经有图片缓存，SDImageCacheDelegate 回调 `imageCache:didFindImage:forKey:userInfo:` 到 SDWebImageManager。
 
-- SDWebImageManagerDelegate 回调 `webImageManager:didFinishWithImage:` 到 UIImageView+WebCache 等前端展示图片。
+- `SDWebImageManagerDelegate` 回调 `webImageManager:didFinishWithImage:` 到 UIImageView+WebCache 等前端展示图片。
 
 - 如果内存缓存中没有，生成 `NSInvocationOperation` 添加到队列开始从硬盘查找图片是否已经缓存。
 
