@@ -91,7 +91,7 @@ SDWebImage 提供了 UIImageView、UIButton 、MKAnnotationView 的图片下载�
 
 9、共享或重新生成一个下载器 `SDWebImageDownloader` 开始下载图片。
 
-- 图片下载由 NSURLConnection 来做，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
+- 图片下载由 NSURLConnection(3.8.0之后使用了NSURLSession)，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
 
 - `connection:didReceiveData:` 中利用 ImageIO 做了按图片下载进度加载效果。connectionDidFinishLoading: 数据下载完成后交给 `SDWebImageDecoder` 做图片解码处理。
 
