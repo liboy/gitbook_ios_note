@@ -94,7 +94,7 @@
 
 - 图片下载由 `NSURLConnection`(`3.8.0`之后使用了`NSURLSession`)，实现相关 delegate 来判断图片下载中、下载完成和下载失败。
 
-- `connection:didReceiveData:` 中利用 ImageIO 做了按图片下载进度加载效果。`connectionDidFinishLoading:` 数据下载完成后交给 `SDWebImageDecoder` 做图片解码处理。
+- `connection:didReceiveData:` 中利用 `ImageIO` 做了按图片下载进度加载效果。`connectionDidFinishLoading:` 数据下载完成后交给 `SDWebImageDecoder` 做图片解码处理。
 
 - 图片解码处理在一个 `NSOperationQueue` 完成，不会拖慢主线程 UI。如果有需要对下载的图片进行二次处理，最好也在这里完成，效率会好很多。
 
