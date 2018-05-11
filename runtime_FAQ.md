@@ -4,7 +4,7 @@
 
 根据对象的 isa 指针找到类对象 id，在查询类对象里面的 methodLists 方法函数列表，如果没有在找到到，在沿着 superClass ,寻找父类，再在父类 methodLists 方法列表里面查询，最终找到 SEL ,根据 id 和 SEL 确认 IMP（指针函数）,再发送消息。
 
-## 什么时候会报unrecognized selector错误？iOS有哪些机制来避免走到这一步？
+## 什么时候会报`unrecognized selector`错误？iOS有哪些机制来避免走到这一步？
 
 当发送消息的时候，我们会根据类里面的 methodLists 列表去查询我们要调用的SEL，当查询不到的时候，我们会一直沿着父类查询，当最终查询不到的时候我们会报 unrecognized selector 错误，当系统查询不到方法的时候，会调用 +(BOOL)resolveInstanceMethod:(SEL)sel 动态解析的方法来给我一次机会来添加，调用不到的方法。或者我们可以再次使用 -(id)forwardingTargetForSelector:(SEL)aSelector 重定向的方法来告诉系统，该调用什么方法，一来保证不会崩溃。
 
