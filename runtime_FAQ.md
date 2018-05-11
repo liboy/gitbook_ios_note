@@ -16,7 +16,7 @@
 【解释】：1. 编译后的类已经注册在 runtime 中,类结构体中的 objc_ivar_list 实例变量的链表和 instance_size 实例变量的内存大小已经确定，runtime会调用 class_setvarlayout 或 class_setWeaklvarLayout 来处理strong weak 引用.所以不能向存在的类中添加实例变量。2. 运行时创建的类是可以添加实例变量，调用class_addIvar函数. 但是的在调用 objc_allocateClassPair 之后，objc_registerClassPair 之前,原因同上.
 
 ## runtime如何实现weak变量的自动置nil？
-runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 `hash` 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
+runtime 对注册的类会进行布局，对于 weak 对象会放入一个 `hash` 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 `dealloc`，假如 weak 指向的对象内存地址是a，那么就会以a为键， 这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
 
 ## 给类添加一个属性后，在类结构体里哪些元素会发生变化？
 
