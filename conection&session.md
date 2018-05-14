@@ -37,6 +37,7 @@ NSURLConnection进行断点下载，通过设置访问请求的HTTPHeaderField�
 6、配置信息
 
 NSURLSession的构造方法（sessionWithConfiguration:delegate:delegateQueue）中有一个 NSURLSessionConfiguration类的参数可以设置配置信息，其决定了cookie，安全和高速缓存策略，最大主机连接数，资源管理，网络超时等配置。NSURLConnection不能进行这个配置，相比于 NSURLConnection 依赖于一个全局的配置对象，缺乏灵活性而言，NSURLSession 有很大的改进了。 NSURLSession可以设置三种配置信息，分别通过调用三个累方法返回配置对象：
-     + (NSURLSessionConfiguration *)defaultSessionConfiguration，配置信息使用基于硬盘的持久话Cache，保存用户的证书到钥匙串,使用共享cookie存储；
-     + (NSURLSessionConfiguration *)ephemeralSessionConfiguration ，配置信息和default大致相同。除了，不会把cache，证书，或者任何和Session相关的数据存储到硬盘，而是存储在内存中，生命周期和Session一致。比如浏览器无痕浏览等功能就可以基于这个来做；
-     + (NSURLSessionConfiguration *)backgroundSessionConfigurationWithIdentifier:(NSString *)identifier，配置信息可以创建一个可以在后台甚至APP已经关闭的时候仍然在传输数据的session。注意，后台Session一定要在创建的时候赋予一个唯一的identifier，这样在APP下次运行的时候，能够根据identifier来进行相关的区分。如果用户关闭了APP,IOS 系统会关闭所有的background Session。而且，被用户强制关闭了以后，IOS系统不会主动唤醒APP，只有用户下次启动了APP，数据传输才会继续。
+     
+`+ (NSURLSessionConfiguration *)defaultSessionConfiguration`，配置信息使用基于硬盘的持久话Cache，保存用户的证书到钥匙串,使用共享cookie存储；
+`+ (NSURLSessionConfiguration *)ephemeralSessionConfiguration` ，配置信息和default大致相同。除了，不会把cache，证书，或者任何和Session相关的数据存储到硬盘，而是存储在内存中，生命周期和Session一致。比如浏览器无痕浏览等功能就可以基于这个来做；
+`+ (NSURLSessionConfiguration *)backgroundSessionConfigurationWithIdentifier:(NSString *)identifier`，配置信息可以创建一个可以在后台甚至APP已经关闭的时候仍然在传输数据的session。注意，后台Session一定要在创建的时候赋予一个唯一的identifier，这样在APP下次运行的时候，能够根据identifier来进行相关的区分。如果用户关闭了APP,IOS 系统会关闭所有的background Session。而且，被用户强制关闭了以后，IOS系统不会主动唤醒APP，只有用户下次启动了APP，数据传输才会继续。
