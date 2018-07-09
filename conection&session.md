@@ -1,17 +1,23 @@
 # NSURLSession与NSURLConnection区别
-1、 使用现状
+1. 使用现状
 
-NSURLSession是NSURLConnection 的替代者，在2013年苹果全球开发者大会（WWDC2013）随ios7一起发布，是对NSURLConnection进行了重构优化后的新的网络访问接口。从iOS9.0开始， NSURLConnection中发送请求的两个方法已过期（同步请求，异步请求），初始化网络连接（initWithRequest: delegate:）的方法也被设置为过期，系统不再推荐使用，建议使用NSURLSession发送网络请求。
+`NSURLSession`是`NSURLConnection` 的替代者，2013年随ios7一起发布，是对NSURLConnection进行了重构优化后的新的网络访问接口。从iOS9.0开始， NSURLConnection中发送请求的两个方法已过期（同步请求，异步请求），初始化网络连接（initWithRequest: delegate:）的方法也被设置为过期，系统不再推荐使用，建议使用NSURLSession发送网络请求。
  
 
 2、普通任务和上传
 
-NSURLSession针对下载/上传等复杂的网络操作提供了专门的解决方案，针对普通、上传和下载分别对应三种不同的网络请求任务：NSURLSessionDataTask, NSURLSessionUploadTask和NSURLSessionDownloadTask.。创建的task都是挂起状态，需要resume才能执行。 当服务器返回的数据较小时，NSURLSession与NSURLConnection执行普通任务的操作步骤没有区别。 执行上传任务时，NSURLSession与NSURLConnection一样同样需要设置POST请求的请求体进行上传。
+NSURLSession针对下载/上传等复杂的网络操作提供了专门的解决方案，针对普通、上传和下载分别对应三种不同的网络请求任务：
+- NSURLSessionDataTask
+- NSURLSessionUploadTask
+- NSURLSessionDownloadTask
+创建的task都是挂起状态，需要resume才能执行。 
+
+当服务器返回的数据较小时，NSURLSession与NSURLConnection执行普通任务的操作步骤没有区别。 执行上传任务时，NSURLSession与NSURLConnection一样同样需要设置POST请求的请求体进行上传。
  
 
-3、下载任务方式
-
-NSURLConnection下载文件时，先将整个文件下载到内存，然后再写入沙盒，如果文件比较大，就会出现内存暴涨的情况。而使用NSURLSessionDownloadTask下载文件，会默认下载到沙盒中的tem文件夹中，不会出现内存暴涨的情况，但在下载完成后会将tem中的临时文件删除，需要在初始化任务方法时，在completionHandler回调中增加保存文件的代码。 以下代码是实例化网络下载任务时将下载的文件保存到沙盒的caches文件夹中:
+##3. 下载任务方式
+- NSURLConnection下载文件时，先将整个文件下载到内存，然后再写入沙盒，如果文件比较大，就会出现内存暴涨的情况。
+- 使用NSURLSessionDownloadTask下载文件，会默认下载到沙盒中的`temp`文件夹中，不会出现内存暴涨的情况，但在下载完成后会将tem中的临时文件删除，需要在初始化任务方法时，在completionHandler回调中增加保存文件的代码。 以下代码是实例化网络下载任务时将下载的文件保存到沙盒的caches文件夹中:
 ```objectivec
 [NSURLSessionDownloadTask [NSURLSessionDownloadTask *task = [session downloadTaskWithURL:[NSURL URLWithString:@"http://192.168.1.17/xxxx.zip"] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 // 获取沙盒的caches路径 
