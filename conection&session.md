@@ -20,6 +20,7 @@ NSURLSession针对下载/上传等复杂的网络操作提供了专门的解决�
 ##3. 下载任务方式
 - NSURLConnection下载文件时，先将整个文件下载到内存，然后再写入沙盒，如果文件比较大，就会出现内存暴涨的情况。
 - 使用NSURLSessionDownloadTask下载文件，会默认下载到沙盒中的`temp`文件夹中，不会出现内存暴涨的情况，但在下载完成后会将`temp`中的临时文件删除，需要在初始化任务方法时，在completionHandler回调中增加保存文件的代码。 以下代码是实例化网络下载任务时将下载的文件保存到沙盒的caches文件夹中:
+
 ```objectivec
 [NSURLSessionDownloadTask [NSURLSessionDownloadTask *task = [session downloadTaskWithURL:[NSURL URLWithString:@"http://192.168.1.17/xxxx.zip"] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 // 获取沙盒的caches路径 
@@ -34,7 +35,8 @@ NSURL *url = [NSURL fileURLWithPath:path];
 
 4、请求方法的控制
 
-NSURLConnection实例化对象，实例化开始，默认请求就发送（同步发送），不需要调用start方法。而cancel 可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 NSURLSession有三个控制方法，取消（cancel），暂停（suspend），继续（resume），暂停后可以通过继续恢复当前的请求任务。
+- NSURLConnection实例化对象，实例化开始，默认请求就发送（同步发送），不需要调用start方法。而`cancel`可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 
+- NSURLSession有三个控制方法，取消（cancel），暂停（suspend），继续（resume），暂停后可以通过继续恢复当前的请求任务。
  
 
 5、断点续传的方式
