@@ -5,17 +5,17 @@ Push Notification 是如何工作的？
 本地推送:不需要联网也可以推送,是开发人员在APP内设定特定的时间来提醒用户干什么
 远程推送:需要联网,用户的设备会于苹果APNS服务器形成一个长连接,用户设备会发送uuid和Bundle idenidentifier给苹果服务器,苹果服务器会加密生成一个deviceToken给用户设备,然后设备会将deviceToken发送给APP的服务器,服务器会将deviceToken存进他们的数据库,这时候如果有人发送消息给我,服务器端就会去查询我的deviceToken,然后将deviceToken和要发送的信息发送给苹果服务器,苹果服务器通过deviceToken找到我的设备并将消息推送到我的设备上,这里还有个情况是如果APP在线,那么APP服务器会于APP产生一个长连接,这时候APPF服务器会直接通过deviceToken将消息推送到设备上
 
-iOS 常用的通知
+## iOS 常用的通知
 
 1. 本地推送通知：（Local Notification）
 
 2. 远程推送通知：（Remote Notification）
 
-推送和通知NSNotification 的区别 
+### 推送和通知NSNotification 的区别 
 
-1.NSNotification是系统内部发出的通知，一般用于内部事件的监听，或者状态的改变等、是不可见的（建议不要滥用NSNotification,因为是在主线程中执行，使用不当会发生线程阻塞）
+1. NSNotification是系统内部发出的通知，一般用于内部事件的监听，或者状态的改变等、是不可见的（建议不要滥用NSNotification,因为是在主线程中执行，使用不当会发生线程阻塞）
 
-2.本地通知与远程通知是可见的，主要用户告知用户或者发送一些App的内容更新，推送一些消息，让App知道App内部发生了什么事情。
+2. 本地通知与远程通知是可见的，主要用户告知用户或者发送一些App的内容更新，推送一些消息，让App知道App内部发生了什么事情。
 
 ## 1、本地推送通知：
 不需要联网就可以发出的通知
@@ -55,7 +55,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ![](/assets/apns2.png)
 
-1. 首先客户端需要向 APNs 服务器注册当前 App，APNs 会返回一个Token(注意这个过程要求 App 有合法的证书，有关证书这里不做详细描述)；注意不同应用在同一设备上获取的 Token 不同，同一应用在不同设备上获取的 Token也不同，所以 Token 是跟设备与 App 唯一绑定的；
+1. App 需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apps服务器将加密后的Device Token返回给app
 
 2. App 拿到 Token 后需要将其发送给 Provider；
 
@@ -64,6 +64,14 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 4. APNs 服务器会将通知发送给 Token 对应的设备上；
 
 5. 设备收到通知后，根据 APNs 发过来的通知中带有的 bundleID 信息区分是哪个App的远程通知(这里应该是根据 Token 来获取 bundleID)。
+
+1.  
+2. app获得Device Token后，上传到公司的服务器 
+3. 当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给apns服务器 
+4. apns 再将推送的内容推送给客户端 
+
+
+### 
 
 
 1：发送设备的UDID和应用的Bundle Identifier给APNs服务器
@@ -86,10 +94,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 7：苹果服务器根据得到的deviceToken和信息，查到要接受信息的设备和app，将信息发送给用户。
 
 远程推送的基本过程
-1.客户端app需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apps服务器将加密后的Device Token返回给app 
-2.app获得Device Token后，上传到公司的服务器 
-3.当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给apns服务器 
-4.apns 再将推送的内容推送给客户端 
+
 
 
 客户端要做的事情
