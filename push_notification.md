@@ -35,6 +35,7 @@ iOS7，不需要用户授权就可发出通知，而iOS8以后，必须用户授
 长连接的好处
 1. 数据传输速度快 
 2. 数据保持最新状态 
+
 远程推送的基本过程
 1.客户端app需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apps服务器将加密后的Device Token返回给app 
 2.app获得Device Token后，上传到公司的服务器 
