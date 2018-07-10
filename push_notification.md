@@ -55,6 +55,17 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ![](/assets/apns2.png)
 
+1. 首先客户端需要向 APNs 服务器注册当前 App，APNs 会返回一个Token(注意这个过程要求 App 有合法的证书，有关证书这里不做详细描述)；注意不同应用在同一设备上获取的 Token 不同，同一应用在不同设备上获取的 Token也不同，所以 Token 是跟设备与 App 唯一绑定的；
+
+2. App 拿到 Token 后需要将其发送给 Provider；
+
+3. Provider 发送推送通知时，指定 Token 和通知内容，并发送给 APNs 服务器；
+
+4. APNs 服务器会将通知发送给 Token 对应的设备上；
+
+5. 设备收到通知后，根据 APNs 发过来的通知中带有的 bundleID 信息区分是哪个App的远程通知(这里应该是根据 Token 来获取 bundleID)。
+
+
 1：发送设备的UDID和应用的Bundle Identifier给APNs服务器
 
 2：经苹果加密生成一个deviceToken
