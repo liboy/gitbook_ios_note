@@ -36,7 +36,7 @@ NSURL *url = [NSURL fileURLWithPath:path];
 - NSURLSession有三个控制方法：`取消cancel`、`暂停suspend`、`继续resume`，暂停后可以通过继续恢复当前的请求任务。
  
 
-## 5、断点续传的方式
+## 5、断点续传
 
 使用NSURLSession进行断点下载更加便捷
 
