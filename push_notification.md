@@ -86,6 +86,7 @@ deviceToken
 3.当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给apns服务器 
 4.apns 再将推送的内容推送给客户端 
 
+
 客户端要做的事情
 1.注册苹果获得Device Token 
 2.得到苹果返回的Device Token 
