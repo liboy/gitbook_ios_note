@@ -10,9 +10,11 @@ NSURLSession针对下载/上传等复杂的网络操作提供了专门的解决�
 - NSURLSessionDataTask
 - NSURLSessionUploadTask
 - NSURLSessionDownloadTask
+
 创建的task都是挂起状态，需要resume才能执行。 
 
-当服务器返回的数据较小时，NSURLSession与NSURLConnection执行普通任务的操作步骤没有区别。 执行上传任务时，NSURLSession与NSURLConnection一样同样需要设置POST请求的请求体进行上传。
+当服务器返回的数据较小时，NSURLSession与NSURLConnection执行普通任务的操作步骤没有区别。 
+执行上传任务时，NSURLSession与NSURLConnection一样同样需要设置POST请求的请求体进行上传。
  
 
 ##3. 下载任务方式
