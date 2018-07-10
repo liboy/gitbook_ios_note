@@ -26,9 +26,9 @@ iOS 常用的通知
 iOS7，不需要用户授权就可发出通知，而iOS8以后，必须用户授权才可以发出通知
 
 ## 2、远程推送通知：
-远程推送服务APNS（Apple Push Notification Servers）
 
 ### APNs 简介
+远程推送服务APNS（Apple Push Notification Servers）
 APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没有运行时，如果 App 的服务器(之后我们称为 Provider)需要发送通知信息给客户端，则需要借助于 APNs 服务器。
 
 ![](/assets/apns1.png)
