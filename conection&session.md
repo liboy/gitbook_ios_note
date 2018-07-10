@@ -45,7 +45,8 @@ NSURL *url = [NSURL fileURLWithPath:path];
 - NSURLSession进行断点下载，当暂停下载任务后，如果 downloadTask （下载任务）为非空，调用 
 ```
 cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
-``` 这个方法，这个方法接收一个参数，完成处理代码块，这个代码块有一个 NSData 参数 resumeData，如果 resumeData 非空，我们就保存这个对象到视图控制器的 resumeData 属性中。在点击再次下载时，通过调用 
+``` 
+这个方法，这个方法接收一个参数，完成处理代码块，这个代码块有一个 NSData 参数 resumeData，如果 resumeData 非空，我们就保存这个对象到视图控制器的 resumeData 属性中。在点击再次下载时，通过调用 
 ```
 [[self.session downloadTaskWithResumeData:self.resumeData] resume]
 ```
