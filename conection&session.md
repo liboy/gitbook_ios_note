@@ -4,7 +4,7 @@
 `NSURLSession`是`NSURLConnection` 的替代者，2013年随ios7一起发布，是对NSURLConnection进行了重构优化后的新的网络访问接口。从iOS9.0开始， NSURLConnection中发送请求的方法已过期（同步请求，异步请求），初始化网络连接（initWithRequest: delegate:）的方法也被设置为过期，系统不再推荐使用，建议使用NSURLSession发送网络请求。
  
 
-2、普通任务和上传
+## 2、普通任务和上传
 
 NSURLSession针对下载/上传等复杂的网络操作提供了专门的解决方案，针对普通、上传和下载分别对应三种不同的网络请求任务：
 - NSURLSessionDataTask
@@ -33,15 +33,16 @@ NSURL *url = [NSURL fileURLWithPath:path];
 ```
  
 
-4、请求方法的控制
+## 4、请求方法的控制
 
 - NSURLConnection实例化对象，实例化开始，默认请求就发送（同步发送），不需要调用`start`方法。而`cancel`可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 
 - NSURLSession有三个控制方法，取消（cancel），暂停（suspend），继续（resume），暂停后可以通过继续恢复当前的请求任务。
  
 
-5、断点续传的方式
+## 5、断点续传的方式
 
-- NSURLConnection进行断点下载，通过设置访问请求的`HTTPHeaderField`的`Range`属性，开启运行循环，NSURLConnection的代理方法作为运行循环的事件源，接收到下载数据时代理方法就会持续调用，并使用`NSOutputStream`管道流进行数据保存。 
+- NSURLConnection进行断点下载，通过设置访问请求的`HTTPHeaderField`的`Range`属性，开启运行循环，`NSURLConnection`的代理方法作为运行循环的事件源，接收到下载数据时代理方法就会持续调用，并使用`NSOutputStream`管道流进行数据保存。 
+
 - NSURLSession进行断点下载，当暂停下载任务后，如果 downloadTask （下载任务）为非空，调用 
 ```
 cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
