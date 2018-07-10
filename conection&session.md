@@ -17,7 +17,7 @@
 
 ##3. 下载任务方式
 - NSURLConnection下载文件时，先将整个文件下载到内存，然后再写入沙盒，如果文件比较大，就会出现内存暴涨的情况。
-- 使用NSURLSessionDownloadTask下载文件，会默认下载到沙盒中的`temp`文件夹中，不会出现内存暴涨的情况，但在下载完成后会将`temp`中的临时文件删除，需要在初始化任务方法时，在completionHandler回调中增加保存文件的代码。 以下代码是实例化网络下载任务时将下载的文件保存到沙盒的caches文件夹中:
+- 使用`NSURLSessionDownloadTask`下载文件，会默认下载到沙盒中的`temp`文件夹中，不会出现内存暴涨的情况，但在下载完成后会将`temp`中的临时文件删除，需要在初始化任务方法时，在completionHandler回调中增加保存文件的代码。 以下代码是实例化网络下载任务时将下载的文件保存到沙盒的caches文件夹中:
 
 ```objectivec
 [NSURLSessionDownloadTask [NSURLSessionDownloadTask *task = [session downloadTaskWithURL:[NSURL URLWithString:@"http://192.168.1.17/xxxx.zip"] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
