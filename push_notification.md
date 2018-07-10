@@ -2,9 +2,9 @@
 
 ## iOS 常用的通知
 
-1. 本地推送通知`Local Notification`
+1. 本地推送通知(`Local Notification`)
 
-2. 远程推送通知`Remote Notification`
+2. 远程推送通知(`Remote Notification`)
 
 ### 推送和通知 `NSNotification` 的区别 
 
