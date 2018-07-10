@@ -56,7 +56,7 @@ cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
 方法进行继续下载操作。 
  
 
-6、配置信息
+## 6. 配置信息
 
 NSURLSession的构造方法（sessionWithConfiguration:delegate:delegateQueue）中有一个 NSURLSessionConfiguration类的参数可以设置配置信息，其决定了cookie，安全和高速缓存策略，最大主机连接数，资源管理，网络超时等配置。NSURLConnection不能进行这个配置，相比于 NSURLConnection 依赖于一个全局的配置对象，缺乏灵活性而言，NSURLSession 有很大的改进了。
 
