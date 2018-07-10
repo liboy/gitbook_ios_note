@@ -59,8 +59,7 @@ cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
 
 - NSURLConnection不能进行这个配置，相比于 NSURLConnection 依赖于一个全局的配置对象，缺乏灵活性而言，NSURLSession 有很大的改进了。
 
-
-NSURLSession可以设置三种配置信息，分别通过调用三个类方法返回配置对象：
+**NSURLSession三种配置信息**
      
  - `+ (NSURLSessionConfiguration *)defaultSessionConfiguration`，配置信息使用基于硬盘的持久话Cache，保存用户的证书到钥匙串,使用共享cookie存储
  
