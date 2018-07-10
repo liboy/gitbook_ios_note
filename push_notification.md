@@ -1,8 +1,15 @@
+# 推送通知
+
+Push Notification 是如何工作的？
+推送通知分为两种,一个是本地推送,一个是远程推送
+本地推送:不需要联网也可以推送,是开发人员在APP内设定特定的时间来提醒用户干什么
+远程推送:需要联网,用户的设备会于苹果APNS服务器形成一个长连接,用户设备会发送uuid和Bundle idenidentifier给苹果服务器,苹果服务器会加密生成一个deviceToken给用户设备,然后设备会将deviceToken发送给APP的服务器,服务器会将deviceToken存进他们的数据库,这时候如果有人发送消息给我,服务器端就会去查询我的deviceToken,然后将deviceToken和要发送的信息发送给苹果服务器,苹果服务器通过deviceToken找到我的设备并将消息推送到我的设备上,这里还有个情况是如果APP在线,那么APP服务器会于APP产生一个长连接,这时候APPF服务器会直接通过deviceToken将消息推送到设备上
+
 iOS 常用的通知
 
-1.本地推送通知：（Local Notification）
+1. 本地推送通知：（Local Notification）
 
-2.远程推送通知：（Remote Notification）
+2. 远程推送通知：（Remote Notification）
 
 推送和通知NSNotification 的区别 
 
@@ -24,9 +31,10 @@ iOS7，不需要用户授权就可发出通知，而iOS8以后，必须用户授
 长连接：
 1.只要联网就一直建立连接
 2.长连接作用：1.时间校准2.系统升级3.查找我的iPhone等 
+
 长连接的好处
-1.数据传输速度快 
-2.数据保持最新状态 
+1. 数据传输速度快 
+2. 数据保持最新状态 
 远程推送的基本过程
 1.客户端app需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apps服务器将加密后的Device Token返回给app 
 2.app获得Device Token后，上传到公司的服务器 
