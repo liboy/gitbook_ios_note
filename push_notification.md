@@ -53,7 +53,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ### 原理图讲解
 
-
+![](/assets/apns2.png)
 
 1：发送设备的UDID和应用的Bundle Identifier给APNs服务器
 
