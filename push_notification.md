@@ -107,5 +107,5 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
     - 有人发送消息时,服务器端就会去查询我的deviceToken。
     - 然后将deviceToken和要发送的信息发送给苹果服务器。
     - 苹果服务器通过deviceToken找到设备并将消息推送到设备上。
-这里还有个情况是如果APP在线,那么APP服务器会于APP产生一个长连接,这时候APP服务器会直接通过deviceToken将消息推送到设备上。
+    - 如果APP在线,那么APP服务器会于APP产生一个长连接,这时候APP服务器会直接通过deviceToken将消息推送到设备上。
 
