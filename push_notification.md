@@ -6,7 +6,7 @@
 
 2. 远程推送通知：（Remote Notification）
 
-### 推送和通知NSNotification 的区别 
+### 推送和通知 `NSNotification` 的区别 
 
 1. NSNotification是系统内部发出的通知，一般用于内部事件的监听，或者状态的改变等、是不可见的（建议不要滥用NSNotification,因为是在主线程中执行，使用不当会发生线程阻塞）
 
