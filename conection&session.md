@@ -3,7 +3,7 @@
 ## 1. 使用现状
 
 - `NSURLSession`是`NSURLConnection` 的替代者，2013年随ios7一起发布，是对NSURLConnection进行了重构优化后的新的网络访问接口。
-- `NSURLConnection`从iOS9.0之后发送请求方法、初始化网络连接方法也被设置为过期，系统不再推荐使用。
+- `NSURLConnection`从`iOS9.0`之后发送请求方法、初始化网络连接方法也被设置为过期，系统不再推荐使用。
  
 
 ## 2. 普通任务和上传
