@@ -41,7 +41,17 @@ NSURL *url = [NSURL fileURLWithPath:path];
 
 5、断点续传的方式
 
-NSURLConnection进行断点下载，通过设置访问请求的`HTTPHeaderField`的`Range`属性，开启运行循环，NSURLConnection的代理方法作为运行循环的事件源，接收到下载数据时代理方法就会持续调用，并使用NSOutputStream管道流进行数据保存。 NSURLSession进行断点下载，当暂停下载任务后，如果 downloadTask （下载任务）为非空，调用 cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler 这个方法，这个方法接收一个参数，完成处理代码块，这个代码块有一个 NSData 参数 resumeData，如果 resumeData 非空，我们就保存这个对象到视图控制器的 resumeData 属性中。在点击再次下载时，通过调用 [ [self.session downloadTaskWithResumeData:self.resumeData] resume]方法进行继续下载操作。 经过以上比较可以发现，使用NSURLSession进行断点下载更加便捷。
+- NSURLConnection进行断点下载，通过设置访问请求的`HTTPHeaderField`的`Range`属性，开启运行循环，NSURLConnection的代理方法作为运行循环的事件源，接收到下载数据时代理方法就会持续调用，并使用`NSOutputStream`管道流进行数据保存。 
+- NSURLSession进行断点下载，当暂停下载任务后，如果 downloadTask （下载任务）为非空，调用 
+```
+cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
+``` 这个方法，这个方法接收一个参数，完成处理代码块，这个代码块有一个 NSData 参数 resumeData，如果 resumeData 非空，我们就保存这个对象到视图控制器的 resumeData 属性中。在点击再次下载时，通过调用 
+```
+[[self.session downloadTaskWithResumeData:self.resumeData] resume]
+```
+方法进行继续下载操作。 
+
+经过以上比较可以发现，使用NSURLSession进行断点下载更加便捷。
  
 
 6、配置信息
