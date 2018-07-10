@@ -70,6 +70,8 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ![](/assets/apns3.png)
 
+客户端：
+
 1. 发送设备的UDID和应用的Bundle Identifier给APNs服务器
 
 2. 经苹果加密生成一个deviceToken
