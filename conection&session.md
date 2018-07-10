@@ -1,6 +1,5 @@
 # NSURLSession与NSURLConnection区别
 
-NSURLSession比NSURLConnection最方便的地方就是任务可以暂停，继续。
 
 ## 1. 使用现状
 
@@ -33,6 +32,8 @@ NSURL *url = [NSURL fileURLWithPath:path];
  
 
 ## 4、请求方法的控制
+
+NSURLSession比NSURLConnection最方便的地方就是任务可以暂停，继续。
 
 - NSURLConnection实例化对象开始，默认请求就发送（同步发送），不需要调用`start`方法。而`cancel`可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 
 - NSURLSession有三个控制方法：`取消cancel`、`暂停suspend`、`继续resume`，暂停后可以通过继续恢复当前的请求任务。
