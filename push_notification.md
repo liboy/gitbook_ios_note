@@ -53,7 +53,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ### APNs 工作的流程
 
-![](/assets/apns2.png)
+![](/assets/apns3.png)
 
 1. App 需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apns服务器将加密后的Device Token返回给app
 
@@ -67,7 +67,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 1.  
 2. app获得Device Token后，上传到公司的服务器 
-3. 当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给apns服务器 
+3. 当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给APNs 服务器 
 4. apns 再将推送的内容推送给客户端 
 
 
