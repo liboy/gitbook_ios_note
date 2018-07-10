@@ -62,8 +62,11 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 5. 设备收到通知后，根据 APNs 发过来的通知中带有的 bundleID 信息区分是哪个App的远程通知(这里应该是根据 Token 来获取 bundleID)。
 
 
+### 推送的大小限制
 
-### 举例
+远程通知负载的大小根据服务器使用的API不同而不同。当使用HTTP/2 provider API时，负载最大为4kB；当使用legacy binary interface时，负载最大为2kB。当负载大小超过规定的负载大小时，APNs会拒绝发送此通知。
+
+### 整体如下图所示（以微信推送为例）：
 
 ![](/assets/apns3.png)
 
