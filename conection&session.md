@@ -47,7 +47,7 @@ NSURL *url = [NSURL fileURLWithPath:path];
 cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
 ``` 
 这个方法，这个方法接收一个参数，完成处理代码块，这个代码块有一个 NSData 参数 resumeData，如果 resumeData 非空，我们就保存这个对象到视图控制器的 resumeData 属性中。在点击再次下载时，通过调用 
-```
+```objectivec
 [[self.session downloadTaskWithResumeData:self.resumeData] resume]
 ```
 方法进行继续下载操作。 
