@@ -55,20 +55,22 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 ![](/assets/apns3.png)
 
-1. App 需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apns服务器将加密后的Device Token返回给app
+1. 
 
 2. App 拿到 Token 后需要将其发送给 Provider；
 
 3. Provider 发送推送通知时，指定 Token 和通知内容，并发送给 APNs 服务器；
 
-4. APNs 服务器会将通知发送给 Token 对应的设备上；
+4. 
 
+
+
+1. App 需要将用户的UUID和app的bundleID发送给apps服务器，进行注册，apns服务器将加密后的Device Token返回给app
+2. App 拿到 Token 后需要将其发送给 Provider
+3. 当需要推送通知时，Provider 指定 Token 和通知内容，并发送给 APNs 服务器；
+4. APNs 服务器会将通知发送给 Token 对应的设备上；
 5. 设备收到通知后，根据 APNs 发过来的通知中带有的 bundleID 信息区分是哪个App的远程通知(这里应该是根据 Token 来获取 bundleID)。
 
-1.  
-2. app获得Device Token后，上传到公司的服务器 
-3. 当需要推送通知时，公司的服务器会将推送内容和Device Token一起发给APNs 服务器 
-4. apns 再将推送的内容推送给客户端 
 
 
 ### 
