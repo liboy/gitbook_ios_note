@@ -1,4 +1,8 @@
+iOS 常用的通知
 
+1.本地推送通知：（Local Notification）
+
+2.远程推送通知：（Remote Notification）
 
 推送和通知NSNotification 的区别 
 
@@ -6,6 +10,10 @@
 
 2.本地通知与远程通知是可见的，主要用户告知用户或者发送一些App的内容更新，推送一些消息，让App知道App内部发生了什么事情。
 
+## 1、本地推送通知：
+不需要联网就可以发出的通知
+使用场景：
+提醒用户完成一些任务，比如：定时提醒，生活备注，看电影等等
 
 ## 2、远程推送通知：
 远程推送服务APNS（Apple Push Notification Servers）
