@@ -1,5 +1,7 @@
 # NSURLSession与NSURLConnection区别
 
+NSURLSession比NSURLConnection最方便的地方就是任务可以暂停，继续。
+
 ## 1. 使用现状
 
 - `NSURLSession`是`NSURLConnection` 的替代者，2013年随ios7一起发布，是对NSURLConnection进行了重构优化后的新的网络访问接口。
