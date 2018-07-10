@@ -59,10 +59,9 @@ cancelByProducingResumeData:(void (^)(NSData *resumeData))completionHandler
 
 - `NSURLConnection`依赖于一个全局的配置对象不能进行这个配置，缺乏灵活性而言，NSURLSession 有很大的改进了。
 
-**NSURLSession三种配置信息**
-     
- - `+ (NSURLSessionConfiguration *)defaultSessionConfiguration`，配置信息使用基于硬盘的持久化Cache，保存用户的证书到钥匙串,使用共享cookie存储
- 
- - `+ (NSURLSessionConfiguration *)ephemeralSessionConfiguration` ，配置信息和default大致相同。除了，不会把cache，证书，或者任何和Session相关的数据存储到硬盘，而是存储在内存中，生命周期和Session一致。比如浏览器无痕浏览等功能就可以基于这个来做
- 
- - `+ (NSURLSessionConfiguration *)backgroundSessionConfigurationWithIdentifier:(NSString *)identifier`，配置信息可以创建一个可以在后台甚至APP已经关闭的时候仍然在传输数据的session。注意，后台Session一定要在创建的时候赋予一个唯一的identifier，这样在APP下次运行的时候，能够根据identifier来进行相关的区分。如果用户关闭了APP,IOS 系统会关闭所有的background Session。而且，被用户强制关闭了以后，iOS系统不会主动唤醒APP，只有用户下次启动了APP，数据传输才会继续。
+
+**NSURLSessionConfiguration**
+
+- `defaultSessionConfiguration` 使用全局的cache，cookie,使用硬盘来缓存数据。
+- `ephemeralSessionConfiguration` 临时session配置，与默认配置相比，这个配置不会将缓存、cookie等存在本地，只会存在内存里，所以当程序退出时，所有的数据都会消失
+- `backgroundSessionConfiguration` 后台session配置，与默认配置类似，不同的是会在后台开启另一个线程来处理网络数据。
