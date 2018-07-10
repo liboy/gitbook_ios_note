@@ -58,12 +58,9 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 
 上图中1-8的步骤就可以很好的解释远程推送的过程了，而客户端需要做的只有几个步骤：
 
-1：发送设备的UDID和
-应用的Bundle Identifier
-给APNs服务器
+1：发送设备的UDID和应用的Bundle Identifier给APNs服务器
 
-2：经苹果加密生成一个
-deviceToken
+2：经苹果加密生成一个deviceToken
 
 3：发送当前用户的deviceToken
 和用户的标志(比如id或者qq)到自己公司的服务器或者第三方推送服务器
