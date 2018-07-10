@@ -100,7 +100,7 @@ APNs 是苹果提供的远程通知的服务器，当 App 处于后台或者没�
 - 本地推送:不需要联网也可以推送,是开发人员在APP内设定特定的时间来提醒用户干什么
 - 远程推送:
     - 需要联网,用户的设备会于苹果APNS服务器形成一个长连接。
-    - 用户设备会发送uuid和Bundle idenidentifier给苹果服务器。
+    - 用户设备会发送uuid和`Bundle idenidentifier`给苹果服务器。
     - 苹果服务器会加密生成一个deviceToken给用户设备。
     - 然后设备会将deviceToken发送给APP的服务器
     - 服务器会将deviceToken存进他们的数据库
