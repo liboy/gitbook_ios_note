@@ -35,7 +35,7 @@ NSURL *url = [NSURL fileURLWithPath:path];
 
 4、请求方法的控制
 
-- NSURLConnection实例化对象，实例化开始，默认请求就发送（同步发送），不需要调用start方法。而`cancel`可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 
+- NSURLConnection实例化对象，实例化开始，默认请求就发送（同步发送），不需要调用`start`方法。而`cancel`可以停止请求的发送，停止后不能继续访问，需要创建新的请求。 
 - NSURLSession有三个控制方法，取消（cancel），暂停（suspend），继续（resume），暂停后可以通过继续恢复当前的请求任务。
  
 
