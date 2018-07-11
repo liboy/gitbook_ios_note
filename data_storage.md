@@ -122,12 +122,13 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 ```
 - 参数说明
 
-username：因为KeyChain保存也是以键值对存在，所以这个可以看作key，根据key取value.
-forServiceName :这个就是组的名字，可以理解为KeyChain保存是分组保存。一般要唯一哦，命名可以使用YOUR_APP_ID.com.yourcompany.AppIdentifier。
-如果两个应用的username、serviceName参数一样，那么这两个app会共用KeyChain里面的数据，也就是可以共享密码。
+    - username：因为KeyChain保存也是以键值对存在，所以这个可以看作key，根据key取value.
+    - forServiceName :这个就是组的名字，可以理解为KeyChain保存是分组保存。一般要唯一哦，命名可以使用YOUR_APP_ID.com.yourcompany.AppIdentifier。
+    
+- 如果两个应用的username、serviceName参数一样，那么这两个app会共用KeyChain里面的数据，也就是可以共享密码。
 
-KeyChain还有一个用途，就是替代UDID。UDID已经被废除了，所以只能用UUID代替，所以我们可以把UUID用KeyChain保存。
-
+- KeyChain还有一个用途，就是替代UDID。UDID已经被废除了，所以只能用UUID代替，所以我们可以把UUID用KeyChain保存。
+```
   //创建一个uuid
   NSString *uuidString = [self uuidString];
   //31C75924-1D2E-4AF0-9C67-96D6929B1BD3
@@ -145,3 +146,4 @@ KeyChain还有一个用途，就是替代UDID。UDID已经被废除了，所以�
     
     return uuidString;
 }
+```
