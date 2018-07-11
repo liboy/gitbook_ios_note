@@ -133,6 +133,7 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 NSString *uuidString = [self uuidString];
 //31C75924-1D2E-4AF0-9C67-96D6929B1BD3
 [SFHFKeychainUtils storeUsername:kKeyChainKey andPassword:uuidString forServiceName:kKeyChainGroupKey updateExisting:NO error:nil];
+
 -(NSString *)uuidString
 {
     //创建一个uuid
