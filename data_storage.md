@@ -74,7 +74,7 @@ CoreData提供了一种“对象-关系映射”的功能，能将OC对象转化
 
 CoreData的好处就是能够合理管理内存，避免sql语句的麻烦(不用写sql语句)。
 
-CoreData构成
+### CoreData构成
 
 - NSManagedObjectContext:被管理的数据上下文，主要作用：插入、查询、删除。
 - NSManagedObjectModel:数据库所有的表结构和数据结构，包含各个实体的定义的信息。主要作用就是添加实体、实体属性，建立属性之间的关系。
