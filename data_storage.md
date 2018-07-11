@@ -128,12 +128,11 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 - 如果两个应用的username、serviceName参数一样，那么这两个app会共用KeyChain里面的数据，也就是可以共享密码。
 
 - KeyChain还有一个用途，就是替代UDID。UDID已经被废除了，所以只能用UUID代替，所以我们可以把UUID用KeyChain保存。
-```
-  //创建一个uuid
-  NSString *uuidString = [self uuidString];
-  //31C75924-1D2E-4AF0-9C67-96D6929B1BD3
-        
- [SFHFKeychainUtils storeUsername:kKeyChainKey andPassword:uuidString forServiceName:kKeyChainGroupKey updateExisting:NO error:nil];
+```objectivec
+//创建一个uuid
+NSString *uuidString = [self uuidString];
+//31C75924-1D2E-4AF0-9C67-96D6929B1BD3
+[SFHFKeychainUtils storeUsername:kKeyChainKey andPassword:uuidString forServiceName:kKeyChainGroupKey updateExisting:NO error:nil];
 -(NSString *)uuidString
 {
     //创建一个uuid
