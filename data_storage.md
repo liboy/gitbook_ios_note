@@ -120,6 +120,7 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 //删除密码
 +(BOOL) deleteItemForUsername: (NSString *) username andServiceName: (NSString *) serviceName error: (NSError **) error;
 ```
+
 - 参数说明
     - username：因为KeyChain保存也是以键值对存在，所以这个可以看作key，根据key取value.
     - forServiceName :这个就是组的名字，可以理解为KeyChain保存是分组保存。一般要唯一哦，命名可以使用YOUR_APP_ID.com.yourcompany.AppIdentifier。
