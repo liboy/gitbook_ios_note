@@ -83,7 +83,7 @@ NSFetchRequest相当于select语句。查询封装对象。
 NSEntityDescription实体结构对象，相当于表格结构。
 后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
 
-## 6. KeyChain
+## 七、KeyChain
 钥匙串(英文: KeyChain)是苹果公司Mac OS中的密码管理系统。
 一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
 iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
