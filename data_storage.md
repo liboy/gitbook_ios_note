@@ -24,7 +24,8 @@
 | Library/Caches | 体积大，不需要备份 | 不同步 |
 | Library/Preferences |	应用的设置信息 | 同步 |
 | tmp |	临时文件 | 不同步 |
-3. 获取沙盒路径
+
+### 获取沙盒路径
 3.1 获取 Document / Caches下的路径
 
 NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
