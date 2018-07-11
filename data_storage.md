@@ -33,3 +33,7 @@
 - 资源文件:图片,声音文件一类的
 - 其他:可以嵌入定制的数据资源
 
+## 偏好设置（NSUserDefaults）
+偏好设置是专门保存应用的配置信息的，如保存用户名、密码、字体大小、是否登陆等设置，一般不要在偏好设置保存其他数据
+NSUserDefaults适合存储轻量级的本地数据，支持的数据类型有：NSNumbe （NSInteger、float、double），NSString，NSDate，NSArray，NSDictionary，BOOL，NSData。
+
