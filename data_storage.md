@@ -76,11 +76,11 @@ CoreData的好处就是能够合理管理内存，避免sql语句的麻烦(不�
 
 CoreData构成
 
-NSManagedObjectContext:被管理的数据上下文，主要作用：插入、查询、删除。
-NSManagedObjectModel:数据库所有的表结构和数据结构，包含各个实体的定义的信息。主要作用就是添加实体、实体属性，建立属性之间的关系。
-NSPersistentStoreCoordinator持久化存储助理对象，相当于数据库的连接器。主要作用就是设置存储的名字、位置、存储方式。
-NSFetchRequest相当于select语句。查询封装对象。
-NSEntityDescription实体结构对象，相当于表格结构。
+- NSManagedObjectContext:被管理的数据上下文，主要作用：插入、查询、删除。
+- NSManagedObjectModel:数据库所有的表结构和数据结构，包含各个实体的定义的信息。主要作用就是添加实体、实体属性，建立属性之间的关系。
+- NSPersistentStoreCoordinator持久化存储助理对象，相当于数据库的连接器。主要作用就是设置存储的名字、位置、存储方式。
+- NSFetchRequest相当于select语句。查询封装对象。
+- NSEntityDescription实体结构对象，相当于表格结构。
 后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
 
 ## 七、KeyChain
