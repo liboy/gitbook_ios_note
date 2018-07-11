@@ -33,4 +33,7 @@ Plist文件的Type可以是字典NSDictionary或数组NSArray，也就是说可�
 ## 三、偏好设置（NSUserDefaults）
 偏好设置是专门保存应用的配置信息的，如保存用户名、密码、字体大小、是否登陆等设置，一般不要在偏好设置保存其他数据
 NSUserDefaults适合存储轻量级的本地数据，支持的数据类型有：NSNumbe （NSInteger、float、double），NSString，NSDate，NSArray，NSDictionary，BOOL，NSData。
+NSUserDefaults 是一个单例对象,在整个应用程序的生命周期中都只有一个实例。
+NSUserDefaults保存的数据类型有：NSNumber, 基本数据类型(int，NSInter,float,double,CGFlat......), NSString, NSData, NSArray, NSDictionary, NSURL。
+NSUserDefaults一般保存配置信息，比如用户名、密码、是否保存用户名和密码、是否离线下载等一些配置条件信息。
 
