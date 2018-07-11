@@ -84,16 +84,18 @@ NSEntityDescription实体结构对象，相当于表格结构。
 后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
 
 ## 七、KeyChain
-钥匙串(英文: KeyChain)是苹果公司Mac OS中的密码管理系统。
-一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
-iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
-当应用程序被删除后，保存到KeyChain里面的数据不会被删除，所以KeyChain是保存到沙盒范围以外的地方。
-KeyChain的所有数据也都是以key-value的形式存储的，这和NSDictionary的存储方式一样。
-相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
-基本使用
+- 钥匙串(KeyChain)是苹果公司Mac OS中的密码管理系统。
+- 一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
+- iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
+- 当应用程序被删除后，保存到KeyChain里面的数据不会被删除，所以KeyChain是保存到沙盒范围以外的地方。
+- KeyChain的所有数据也都是以key-value的形式存储的，这和NSDictionary的存储方式一样。
+- 相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
+
+### 基本使用
 为了使用方便，我们使用github上封装好的类KeychainItemWrapper和SFHFKeychainUtils
 
-KeychainItemWrapper是苹果封装的类，封装了操作KeyChain的基本操作，下载地址：https://github.com/baptistefetet/KeychainItemWrapper
+- KeychainItemWrapper是苹果封装的类，封装了操作KeyChain的基本操作，下载地址：https://github.com/baptistefetet/KeychainItemWrapper
+```
 // 初始化一个保存用户帐号的KeychainItemWrapper 
 KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
 //保存帐号
@@ -104,19 +106,21 @@ KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@
 NSString *password = [wrapper objectForKey:(id)kSecValueData];
 //清空设置
 [wrapper resetKeychainItem];
+```
 上面代码的setObject: forKey: 里参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key。
 
-SFHFKeychainUtils是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain，下载地址：https://github.com/ldandersen/scifihifi-iphone/tree/master/security。 这个库是mrc，导入后可能会因为mrc会报错。
+- SFHFKeychainUtils是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain，下载地址：https://github.com/ldandersen/scifihifi-iphone/tree/master/security。 这个库是mrc，导入后可能会因为mrc会报错。
 
-SFHFKeychainUtils就3个方法：
-
+- SFHFKeychainUtils就3个方法：
+```
 //获取密码密码
 +(NSString *) getPasswordForUsername: (NSString *) username andServiceName: (NSString *) serviceName error: (NSError **) error;
 //存储密码
 +(BOOL) storeUsername: (NSString *) username andPassword: (NSString *) password forServiceName: (NSString *) serviceName updateExisting: (BOOL) updateExisting error: (NSError **) error;
 //删除密码
 +(BOOL) deleteItemForUsername: (NSString *) username andServiceName: (NSString *) serviceName error: (NSError **) error;
-参数说明
+```
+- 参数说明
 
 username：因为KeyChain保存也是以键值对存在，所以这个可以看作key，根据key取value.
 forServiceName :这个就是组的名字，可以理解为KeyChain保存是分组保存。一般要唯一哦，命名可以使用YOUR_APP_ID.com.yourcompany.AppIdentifier。
