@@ -38,7 +38,6 @@ Plist文件的Type可以是字典NSDictionary或数组NSArray，也就是说可�
 >注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入`[defaults synchornize]`
 
 优点：
-
 - 不需要关心文件名
 - 快速进行键值对存储
 - 直接存储基本数据类型
