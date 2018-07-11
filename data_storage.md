@@ -69,7 +69,21 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 - 对数据库操作，包括增删改查。
 - 关闭数据库。
 
-6. KeyChain
+5. CoreData
+CoreData提供了一种“对象-关系映射”的功能，能将OC对象转化成数据，保存Sqlite中。
+
+CoreData的好处就是能够合理管理内存，避免sql语句的麻烦(不用写sql语句)。
+
+CoreData构成
+
+NSManagedObjectContext:被管理的数据上下文，主要作用：插入、查询、删除。
+NSManagedObjectModel:数据库所有的表结构和数据结构，包含各个实体的定义的信息。主要作用就是添加实体、实体属性，建立属性之间的关系。
+NSPersistentStoreCoordinator持久化存储助理对象，相当于数据库的连接器。主要作用就是设置存储的名字、位置、存储方式。
+NSFetchRequest相当于select语句。查询封装对象。
+NSEntityDescription实体结构对象，相当于表格结构。
+后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
+
+## 6. KeyChain
 钥匙串(英文: KeyChain)是苹果公司Mac OS中的密码管理系统。
 一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
 iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
