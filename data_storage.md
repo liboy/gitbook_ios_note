@@ -45,3 +45,8 @@ Plist文件的Type可以是字典NSDictionary或数组NSArray，也就是说可�
 缺点：
 - 不能存储自定义数据
 - 取出的数据都是不可变的
+
+## 四、归档
+NSKeyedArchiver归档 / NSKeyedUnarchiver解档
+
+归档和解档会在写入、读出数据之前进行序列化、反序列化，数据的安全性相对高一些。
