@@ -88,7 +88,7 @@ NSEntityDescription实体结构对象，相当于表格结构。
 - 一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
 - iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
 - 当应用程序被删除后，保存到KeyChain里面的数据不会被删除，所以KeyChain是保存到沙盒范围以外的地方。
-- KeyChain的所有数据也都是以key-value的形式存储的，这和NSDictionary的存储方式一样。
+- KeyChain的所有数据也都是以`key-value`的形式存储的，这和NSDictionary的存储方式一样。
 - 相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
 
 ### 基本使用
@@ -146,6 +146,7 @@ NSString *uuidString = [self uuidString];
     return uuidString;
 }
 ```
+
 Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储账号，密码，用户信息，银行卡资料等信息，Keychain会以加密的方式存储在设备中
 
 Keychain 的结构
