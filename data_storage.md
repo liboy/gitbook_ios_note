@@ -102,16 +102,9 @@ Keychain内部可以保存很多的信息。每条信息作为一个单独的key
 
 如果把keychain item的类型指定为需要保护的类型比如password或者private key，item的data会被加密并且保护起来，如果把类型指定为不需要保护的类型，比如certificates，item的data就不会被加密。
 
-extern CFTypeRef kSecClassGenericPassword
-extern CFTypeRef kSecClassInternetPassword
-extern CFTypeRef kSecClassCertificate
-extern CFTypeRef kSecClassKey
-extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0);
-
 
 ### Keychain的使用
 为了使用方便，我们使用github上封装好的类
-- [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)是苹果封装的类，封装了操作KeyChain的基本操作
 
 - [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
 
@@ -122,24 +115,13 @@ extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0
     - SecItemUpdate 修改一个keychain item
     - SecItemCopyMatching 搜索一个keychain item
     - SecItemDelete 删除一个keychain item
-    
-根据特定的Service创建一个用于操作KeyChain的Dictionary
-- (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier {
-    NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
-    //指定item的类型为GenericPassword
-    [searchDictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-    
-    //类型为GenericPassword的信息必须提供以下两条属性作为unique identifier
-    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrAccount]；
-    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrService]；
-    
-    return searchDictionary;
-}
+
 
 Keychain API的用法稍微有点复杂。不过Apple自己也提供了一个封装了Keychain API的类： KeychainItemWrapper
-KeychainItemWrapper是apple官方例子“GenericKeychain”里一个访问keychain常用操作的封装类，在官网上下载了GenericKeychain项目后，只需要把“KeychainItemWrapper.h”和“KeychainItemWrapper.m”拷贝到我们项目，并导入Security.framework 。
 
 ### KeychainItemWrapper的用法
+[KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)是苹果封装Keychain API的类，封装了操作KeyChain的基本操作
+
 ```objectivec
 
 // 初始化一个保存用户帐号的KeychainItemWrapper 
