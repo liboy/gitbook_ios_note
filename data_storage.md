@@ -83,7 +83,7 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 
 ## 六、CoreData
 
-- CoreData提供了一种“对象-关系映射”的功能，能将OC对象转化成数据，保存Sqlite中。
+- CoreData提供了一种`对象-关系映射`的功能，能将OC对象转化成数据，保存Sqlite中。
 - CoreData的好处就是能够合理管理内存，避免sql语句的麻烦(不用写sql语句)。
 
 ### CoreData构成
