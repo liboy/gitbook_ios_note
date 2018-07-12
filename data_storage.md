@@ -97,7 +97,7 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 
 - [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
 
-```
+```objectivec
 // 初始化一个保存用户帐号的KeychainItemWrapper 
 KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
 //保存帐号
@@ -109,9 +109,9 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 //清空设置
 [wrapper resetKeychainItem];
 ```
-上面代码的setObject: forKey: 里参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key。
+- 上面代码的setObject: forKey: 里参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key。
 
-- SFHFKeychainUtils是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain，下载地址：https://github.com/ldandersen/scifihifi-iphone/tree/master/security。 这个库是mrc，导入后可能会因为mrc会报错。
+- SFHFKeychainUtils这个库是mrc，导入后可能会因为mrc会报错。
 
 - SFHFKeychainUtils就3个方法：
 ```
