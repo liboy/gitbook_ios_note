@@ -101,6 +101,7 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 
 // 初始化一个保存用户帐号的KeychainItemWrapper 
 KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
+//参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key。
 //保存帐号
 [wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];  
 //保存密码
@@ -109,6 +110,7 @@ KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@
 NSString *password = [wrapper objectForKey:(id)kSecValueData];
 //清空设置
 [wrapper resetKeychainItem];
+
 
 ```
 
