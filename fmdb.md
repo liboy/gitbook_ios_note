@@ -83,7 +83,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
     }
 }
 ```
-4. 修改数据
+### 4. 修改数据
 
 把年龄为17岁的数据，姓名改为lily：[db executeUpdate:@"update t_person set name = 'lily' where age = 17"]
 
