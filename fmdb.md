@@ -132,7 +132,7 @@ NSString *filePath = [path stringByAppendingPathComponent:@"student.sqlite"];
 FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
 ```
 
-在FMDatabaseQueue中执行命令的时候也是非常方便，直接在一个block中进行操作
+- 在FMDatabaseQueue中执行命令的时候也是非常方便，直接在一个block中进行操作
 
 -(void)FMDdatabaseQueueFunction {
     
