@@ -116,9 +116,12 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 ```
 //创建持久化存储助理：数据库
  NSPersistentStoreCoordinator * store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];//请求自动轻量级迁移
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,                             nil];   NSError *error = nil;    //设置数据库相关信息 添加一个持久化存储库并设置存储类型和路径，NSSQLiteStoreType：SQLite作为存储库
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,                             nil];   
+NSError *error = nil;    
+//设置数据库相关信息 添加一个持久化存储库并设置存储类型和路径，NSSQLiteStoreType：SQLite作为存储库
+[store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqlUrl options:options error:&error];
 ```
 8. 重新编译运行就OK了。
 
