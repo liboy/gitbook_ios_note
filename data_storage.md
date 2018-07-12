@@ -124,9 +124,6 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 
 ```
 
-
-其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key！
-
 网上也有许多大神封装好的框架，我这里介绍两个点星上千的框架
 SFHFKeychainUtils
 SAMKeychain
