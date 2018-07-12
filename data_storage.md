@@ -97,11 +97,6 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 - keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamID
 
 ### Keychain的使用
-为了使用方便，我们使用github上封装好的类
-
-- [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
-
-
 - 首先导入Security.framework 框架
 - Keychain的API提供以下几个函数来操作Keychain
     - SecItemAdd 添加一个keychain item
@@ -137,6 +132,7 @@ SFHFKeychainUtils
 SAMKeychain
 
 ### SFHFKeychainUtils
+[SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
 
 - SFHFKeychainUtils这个库是mrc，导入后可能会因为mrc会报错。
 
