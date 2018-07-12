@@ -184,17 +184,17 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
 
 //FMDatabaseQueue的事务inTransaction
 [dbQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
-        //创建表
-        [db executeUpdate:@"create table if not exists t_student (id integer primary key autoincrement, name text, age integer)"];
-        //循环添加2000条数据
-        for (int i = 0; i < 2000; i++) {
-            BOOL success = [db executeUpdate:@"insert into t_student(name,age) values(?,?)",@"jack",@(i)];
-            //如果添加数据出现问题，则回滚
-            if (!success) {
-                //数据回滚
-                *rollback = YES;
-                return;
-            }
+    //创建表
+    [db executeUpdate:@"create table if not exists t_student (id integer primary key autoincrement, name text, age integer)"];
+    //循环添加2000条数据
+    for (int i = 0; i < 2000; i++) {
+        BOOL success = [db executeUpdate:@"insert into t_student(name,age) values(?,?)",@"jack",@(i)];
+        //如果添加数据出现问题，则回滚
+        if (!success) {
+            //数据回滚
+            *rollback = YES;
+            return;
         }
-    }];
+    }
+}];
 ```
