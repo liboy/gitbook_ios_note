@@ -1,5 +1,5 @@
 # FMDB
-
+---
 FMDB封装了SQLite的C语言API，更加面向对象。
 首先需要明确的是FMDB中的三个类。
 
