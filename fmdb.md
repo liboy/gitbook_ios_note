@@ -124,7 +124,7 @@ while ([set next]) {
 FMDatabase是线程不安全的，当FMDB数据存储想要使用多线程的时候，FMDatabaseQueue就派上用场了。
 
 - 初始化FMDatabaseQueue的方法与FMDatabase类似
-```
+```objectivec
 //数据文件路径
 NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
 NSString *filePath = [path stringByAppendingPathComponent:@"student.sqlite"];
