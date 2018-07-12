@@ -11,11 +11,11 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 
 ## FMDB基本语法
 查询
-```
+```objectivec
 [db executeQuery:@"select id, name, age from t_person"]
 ```
 更新
-```
+```objectivec
 // CREATE, UPDATE, INSERT, DELETE, DROP，都使用executeUpdte
 [db executeUpdate:@"create table if not exists t_person (id integer primary key autoincrement, name text, age integer)"]
 ```
