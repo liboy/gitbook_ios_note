@@ -165,10 +165,9 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
 
 ## FMDB中的事务
 
-事务（Transaction）是不可分割的一个整体操作，要么都执行，要么都不执行。
+- 事务（Transaction）是不可分割的一个整体操作，要么都执行，要么都不执行。
 
-
-FMDB中有事务的回滚操作，也就是说，当一个整体事务在执行的时候出了一点小问题，则执行回滚，之后这套事务中的所有操作将整体无效。
+- FMDB中有事务的回滚操作，也就是说，当一个整体事务在执行的时候出了一点小问题，则执行回滚，之后这套事务中的所有操作将整体无效。
 
 ```objectivec
 //数据库路径
