@@ -29,10 +29,10 @@
 Plist文件的Type可以是字典NSDictionary或数组NSArray，也就是说可以把字典或数组直接写入到文件中。
 
 ### Plist不安全
-什么是Plist文件？
+#### 什么是Plist文件？
 属性列表（Plist,Property List）是一种结构化的二进制格式文件，包含了内嵌键值对的可执行bundle的基本配置信息。Plist文件主要用于存储App的用户设置及配置信息，例如，游戏类App经常会在Plist文件中存储游戏等级和分数信息。一般来说，App会将存储用户数据的Plist文件保存在“[App home目录]/documents/”目录下。Plist文件可以是XML格式或二进制格式。
 
-Plist文件有哪些安全风险？
+- Plist文件有哪些安全风险？
 Plist文件主要用于存储用户设置及App的配置信息，但App可能使用Plist文件存储明文的用户名、密码或其它一些个人敏感信息。而保存在Plist文件中的二进制格式文件数据则可以使用Plist文件编辑器（如plutil）进行查看或修改，即使在一个没有越狱的设备上，plist文件也可以通过工具iExplorer获取。对于以编码、未加密或弱加密形式存储的敏感信息就可能会导致敏感信息泄露了。
 
 
