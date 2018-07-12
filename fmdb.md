@@ -94,7 +94,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
     }
 }
 ```
-5. 查询数据
+### 5. 查询数据
 
 执行查询语句，用FMResultSet接收查询结果：FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"]
 
