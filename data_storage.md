@@ -92,9 +92,12 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 - 相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
 
 ### 基本使用
-为了使用方便，我们使用github上封装好的类KeychainItemWrapper和SFHFKeychainUtils
+为了使用方便，我们使用github上封装好的类
+- [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)
 
-- KeychainItemWrapper是苹果封装的类，封装了操作KeyChain的基本操作，下载地址：https://github.com/baptistefetet/KeychainItemWrapper
+- SFHFKeychainUtils
+
+- KeychainItemWrapper是苹果封装的类，封装了操作KeyChain的基本操作，下载地址：
 ```
 // 初始化一个保存用户帐号的KeychainItemWrapper 
 KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
