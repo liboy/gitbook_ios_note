@@ -38,7 +38,7 @@ Plist文件主要用于存储用户设置及App的配置信息，但App可能使
 
 ## 三、偏好设置（NSUserDefaults）
 - NSUserDefaults 是一个单例对象,在整个应用程序的生命周期中都只有一个实例。
-- NSUserDefaults适合存储轻量级的本地数据，支持的数据类型有：NSNumbe （NSInteger、float、double），NSString，NSDate，NSArray，NSDictionary，BOOL，NSData。
+- NSUserDefaults适合存储轻量级的本地数据，支持的数据类型有：NSNumber （NSInteger、float、double），NSString，NSDate，NSArray，NSDictionary，BOOL，NSData。
 - NSUserDefaults一般保存配置信息，比如用户名、密码、是否保存用户名和密码、是否离线下载等一些配置条件信息。
 
 >注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入`[defaults synchornize]`
