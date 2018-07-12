@@ -162,7 +162,7 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
     }];
 }
 ```
-FMDB中的事务
+## FMDB中的事务
 什么是事务？
 
 事务（Transaction）是不可分割的一个整体操作，要么都执行，要么都不执行。
