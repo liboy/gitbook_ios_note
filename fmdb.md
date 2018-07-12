@@ -58,10 +58,10 @@ FMDB封装了SQLite的C语言API，更加面向对象。
     }
 }
 ```
-2. 插入数据
 
-运用executeUpdate方法执行插入数据命令： [db executeUpdate:@"insert into t_person(name,age) values(?,?)",@"jack",@17]
+### 2. 插入数据
 
+```
 -(void)insertData {
     BOOL success = [db executeUpdate:@"insert into t_person(name,age) values(?,?)",@"jack",@17];
     if (success) {
@@ -70,7 +70,8 @@ FMDB封装了SQLite的C语言API，更加面向对象。
         NSLog(@"添加数据失败");
     }
 }
-3. 删除数据
+```
+### 3. 删除数据
 
 删除姓名为lily的数据：[db executeUpdate:@"delete from t_person where name = 'lily'"]
 
