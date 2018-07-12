@@ -73,8 +73,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 ```
 ### 3. 删除数据
 
-删除姓名为lily的数据：[db executeUpdate:@"delete from t_person where name = 'lily'"]
-
+```
 -(void)deleteData {
     BOOL success = [db executeUpdate:@"delete from t_person where name = 'lily'"];
     if (success) {
@@ -83,6 +82,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
         NSLog(@"删除数据失败");
     }
 }
+```
 4. 修改数据
 
 把年龄为17岁的数据，姓名改为lily：[db executeUpdate:@"update t_person set name = 'lily' where age = 17"]
