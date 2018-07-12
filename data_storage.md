@@ -95,6 +95,29 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 - NSEntityDescription实体结构对象，相当于表格结构。
 后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
 
+### CoreData版本升级和数据库迁移
+- app中使用了CoreData,并且在下一个版本中有实体变动，比如实体新增字段、修改字段等改动，
+- 那么app在覆盖安装时就要进行数据库迁移，否则app就会crash。
+
+#### 步骤:
+
+1. 选中你的CoreData.xcdatamodeld文件，选择Xcode菜单editor->Add Model Version  
+比如取名：mydata2.xcdatamodel
+截图.png
+截图.png
+2. 起一个名字，也就是当前新版本CoreData文件的名字。然后点击确认。
+新的CoreData名字
+3. 这时候会发现CoreData.xcdatamodeld中多了一个版本文件。
+4.选择刚才创建的版本，在inspector中的Versioned Core Data Model选择Current模版为CoreData2
+5. 修改新数据模型CoreData2，在新的文件上添加属性和修改实体。
+6. 删除原来的实体文件，重新生成下的类。
+删除实体类文件，重新生成新的类文件
+7. 在persistentStoreCoordinator中添加代码：
+添加代码
+8. 重新编译运行就OK了。
+
+>PS: Xcode8 系统CoreData类做了不少改动，当然使用起来更简单了，如果您是用Xcode8创建的工程实现版本升级和数据迁移，则直接修改实体，然后重新生成即可，非常简单。具体使用和代码见https://github.com/qindeli/XCode8-CoreData-/tree/master/TestCoreData.
+
 ## 七、KeyChain
 Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储账号，密码，用户信息，银行卡资料等信息，Keychain会以加密的方式存储在设备中
 
