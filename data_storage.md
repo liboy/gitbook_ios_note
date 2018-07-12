@@ -96,13 +96,6 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 - 数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
 - keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamID
 
-
-### Keychain 的结构
-Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
-
-如果把keychain item的类型指定为需要保护的类型比如password或者private key，item的data会被加密并且保护起来，如果把类型指定为不需要保护的类型，比如certificates，item的data就不会被加密。
-
-
 ### Keychain的使用
 为了使用方便，我们使用github上封装好的类
 
