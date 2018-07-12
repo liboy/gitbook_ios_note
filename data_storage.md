@@ -174,7 +174,7 @@ keychain的数据是经过加密的
 ### Keychain的使用
 - 首先导入Security.framework 框架
 - Keychain的API提供以下几个函数来操作Keychain
-SecItemAdd 添加一个keychain item
+    - SecItemAdd 添加一个keychain item
 SecItemUpdate 修改一个keychain item
 SecItemCopyMatching 搜索一个keychain item
 SecItemDelete 删除一个keychain item
