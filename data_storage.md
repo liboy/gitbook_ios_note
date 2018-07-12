@@ -95,7 +95,7 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 为了使用方便，我们使用github上封装好的类
 - [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)：KeychainItemWrapper是苹果封装的类，封装了操作KeyChain的基本操作
 
-- [SFHFKeychainUtils]()
+- [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)
 
 ```
 // 初始化一个保存用户帐号的KeychainItemWrapper 
