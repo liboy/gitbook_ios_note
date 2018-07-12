@@ -104,14 +104,15 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 
 也可以这样拿到每条数据的姓名：NSString *name = [result stringForColumn:@"name"];
 
-    FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"];
-    while ([set next]) {
-        int ID = [set intForColumnIndex:0];
-        NSString *name = [set stringForColumnIndex:1];
-        int age = [set intForColumnIndex:2];
-        NSLog(@"%d,%@,%d",ID,name,age);
-    }
+```objectivec
+FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"];
+while ([set next]) {
+    int ID = [set intForColumnIndex:0];
+    NSString *name = [set stringForColumnIndex:1];
+    int age = [set intForColumnIndex:2];
+    NSLog(@"%d,%@,%d",ID,name,age);
 }
+```
 6. 删除表
 
 删除指定表：[db executeUpdate:@"drop table if exists t_person"]
