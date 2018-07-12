@@ -110,9 +110,7 @@ while ([set next]) {
 }
 ```
 ### 6. 删除表
-
-删除指定表：[db executeUpdate:@"drop table if exists t_person"]
-
+```objectivec
 -(void)dropTable {
     BOOL success = [db executeUpdate:@"drop table if exists t_person"];
     if (success) {
@@ -121,6 +119,7 @@ while ([set next]) {
         NSLog(@"删除表失败");
     }
 }
+```
 FMDatabaseQueue基本使用
 FMDatabase是线程不安全的，当FMDB数据存储想要使用多线程的时候，FMDatabaseQueue就派上用场了。
 
