@@ -115,6 +115,75 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 
 ```
 
+
+
+
+
+Keychain 的结构
+Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
+
+如果把keychain item的类型指定为需要保护的类型比如password或者private key，item的data会被加密并且保护起来，如果把类型指定为不需要保护的类型，比如certificates，item的data就不会被加密。
+
+extern CFTypeRef kSecClassGenericPassword
+extern CFTypeRef kSecClassInternetPassword
+extern CFTypeRef kSecClassCertificate
+extern CFTypeRef kSecClassKey
+extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0);
+
+### Keychain的特点
+数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
+keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamD
+keychain的数据是经过加密的
+
+### Keychain的使用
+- 首先导入Security.framework 框架
+- Keychain的API提供以下几个函数来操作Keychain
+    - SecItemAdd 添加一个keychain item
+    - SecItemUpdate 修改一个keychain item
+    - SecItemCopyMatching 搜索一个keychain item
+    - SecItemDelete 删除一个keychain item
+    
+根据特定的Service创建一个用于操作KeyChain的Dictionary
+- (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier {
+    NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
+    //指定item的类型为GenericPassword
+    [searchDictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    
+    //类型为GenericPassword的信息必须提供以下两条属性作为unique identifier
+    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrAccount]；
+    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrService]；
+    
+    return searchDictionary;
+}
+
+Keychain API的用法稍微有点复杂。不过Apple自己也提供了一个封装了Keychain API的类： KeychainItemWrapper
+KeychainItemWrapper是apple官方例子“GenericKeychain”里一个访问keychain常用操作的封装类，在官网上下载了GenericKeychain项目后，只需要把“KeychainItemWrapper.h”和“KeychainItemWrapper.m”拷贝到我们项目，并导入Security.framework 。
+
+KeychainItemWrapper的用法
+/** 初始化一个保存用户帐号的KeychainItemWrapper */
+KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number"
+                                                                   accessGroup:@"YOUR_APP_ID_HERE.com.yourcompany.AppIdentifier"];  
+ 
+//保存帐号
+[wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];    
+ 
+//保存密码
+[wrapper setObject:@"<帐号密码>" forKey:(id)kSecValueData];    
+ 
+//从keychain里取出帐号密码
+NSString *password = [wrapper objectForKey:(id)kSecValueData];      
+ 
+//清空设置
+[wrapper resetKeychainItem];
+
+其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key，用其他字符串做key程序会崩溃！
+
+网上也有许多大神封装好的框架，我这里介绍两个点星上千的框架
+SFHFKeychainUtils
+SAMKeychain
+
+### SFHFKeychainUtils
+
 - SFHFKeychainUtils这个库是mrc，导入后可能会因为mrc会报错。
 
 - SFHFKeychainUtils就3个方法：
@@ -155,116 +224,4 @@ NSString *uuidString = [self uuidString];
 
 
 
-Keychain 的结构
-Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
 
-如果把keychain item的类型指定为需要保护的类型比如password或者private key，item的data会被加密并且保护起来，如果把类型指定为不需要保护的类型，比如certificates，item的data就不会被加密。
-
-extern CFTypeRef kSecClassGenericPassword
-extern CFTypeRef kSecClassInternetPassword
-extern CFTypeRef kSecClassCertificate
-extern CFTypeRef kSecClassKey
-extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0);
-
-### Keychain的特点
-数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
-keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamD
-keychain的数据是经过加密的
-
-### Keychain的使用
-- 首先导入Security.framework 框架
-- Keychain的API提供以下几个函数来操作Keychain
-    - SecItemAdd 添加一个keychain item
-    - SecItemUpdate 修改一个keychain item
-    - SecItemCopyMatching 搜索一个keychain item
-    - SecItemDelete 删除一个keychain item
-    
-根据特定的Service创建一个用于操作KeyChain的Dictionary
-- (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier {
-    NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
-    //指定item的类型为GenericPassword
-    [searchDictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-    
-    //类型为GenericPassword的信息必须提供以下两条属性作为unique identifier
-    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrAccount]；
-    [searchDictionary setObject:encodedIdentifier forKey:(id)kSecAttrService]；
-    
-    return searchDictionary;
-}
-增
-- (BOOL)createKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
-    NSMutableDictionary *dictionary = [self newSearchDictionary:identifier];
-    
-    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
-    [dictionary setObject:passwordData forKey:(id)kSecValueData];
-    
-    OSStatus status = SecItemAdd((CFDictionaryRef)dictionary, NULL);
-    [dictionary release];
-    if (status == errSecSuccess) {
-        return YES;
-    }
-    return NO;
-}
-
-删
-- (void)deleteKeychainValue:(NSString *)identifier {
-    NSMutableDictionary *searchDictionary = [self newSearchDictionary:identifier];
-    SecItemDelete((CFDictionaryRef)searchDictionary);
-}
-改
-- (BOOL)updateKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
-    NSMutableDictionary *searchDictionary = [self newSearchDictionary:identifier];
-    
-    NSMutableDictionary *updateDictionary = [[NSMutableDictionary alloc] init];
-    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
-    [updateDictionary setObject:passwordData forKey:(id)kSecValueData];
-    
-    OSStatus status = SecItemUpdate((CFDictionaryRef)searchDictionary,
-                                    (CFDictionaryRef)updateDictionary);
-    
-    [searchDictionary release];
-    [updateDictionary release];
-    
-    if (status == errSecSuccess) {
-        return YES;
-    }
-    return NO;
-}
-查
-- (BOOL)createKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
-    NSMutableDictionary *dictionary = [self newSearchDictionary:identifier];
-    
-    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
-    [dictionary setObject:passwordData forKey:(id)kSecValueData];
-    
-    OSStatus status = SecItemAdd((CFDictionaryRef)dictionary, NULL);
-    [dictionary release];
-    if (status == errSecSuccess) {
-        return YES;
-    }
-    return NO;
-}
-Keychain API的用法稍微有点复杂。不过Apple自己也提供了一个封装了Keychain API的类： KeychainItemWrapper
-KeychainItemWrapper是apple官方例子“GenericKeychain”里一个访问keychain常用操作的封装类，在官网上下载了GenericKeychain项目后，只需要把“KeychainItemWrapper.h”和“KeychainItemWrapper.m”拷贝到我们项目，并导入Security.framework 。
-
-KeychainItemWrapper的用法
-/** 初始化一个保存用户帐号的KeychainItemWrapper */
-KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number"
-                                                                   accessGroup:@"YOUR_APP_ID_HERE.com.yourcompany.AppIdentifier"];  
- 
-//保存帐号
-[wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];    
- 
-//保存密码
-[wrapper setObject:@"<帐号密码>" forKey:(id)kSecValueData];    
- 
-//从keychain里取出帐号密码
-NSString *password = [wrapper objectForKey:(id)kSecValueData];      
- 
-//清空设置
-[wrapper resetKeychainItem];
-其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key，用其他字符串做key程序会崩溃！
-
-网上也有许多大神封装好的框架，我这里介绍两个点星上千的框架
-SFHFKeychainUtils
-SAMKeychain
