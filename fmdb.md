@@ -24,7 +24,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 
 ### 1. 打开数据库，并创建表
 
-```
+```objectivec
 #import "ViewController.h"
 #import <FMDB.h>
 
@@ -61,7 +61,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 
 ### 2. 插入数据
 
-```
+```objectivec
 -(void)insertData {
     BOOL success = [db executeUpdate:@"insert into t_person(name,age) values(?,?)",@"jack",@17];
     if (success) {
@@ -73,7 +73,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 ```
 ### 3. 删除数据
 
-```
+```objectivec
 -(void)deleteData {
     BOOL success = [db executeUpdate:@"delete from t_person where name = 'lily'"];
     if (success) {
@@ -95,6 +95,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
         NSLog(@"更新数据失败");
     }
 }
+
 5. 查询数据
 
 执行查询语句，用FMResultSet接收查询结果：FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"]
