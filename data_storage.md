@@ -111,7 +111,7 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 
 // 初始化一个保存用户帐号的KeychainItemWrapper 
 KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
-//参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key
+//参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key，用其他字符串做key程序会崩溃
 //保存帐号
 [wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];  
 //保存密码
@@ -125,7 +125,7 @@ NSString *password = [wrapper objectForKey:(id)kSecValueData];
 ```
 
 
-其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key，用其他字符串做key程序会崩溃！
+其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key！
 
 网上也有许多大神封装好的框架，我这里介绍两个点星上千的框架
 SFHFKeychainUtils
