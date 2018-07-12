@@ -3,13 +3,13 @@
 FMDB封装了SQLite的C语言API，更加面向对象。
 首先需要明确的是FMDB中的三个类。
 
-FMDatabase：可以理解成一个数据库。
+- FMDatabase：可以理解成一个数据库。
 
-FMResultSet：查询的结果集合。
+- FMResultSet：查询的结果集合。
 
-FMDatabaseQueue：运用多线程，可执行多个查询、更新。线程安全。
+- FMDatabaseQueue：运用多线程，可执行多个查询、更新。线程安全。
 
-FMDB基本语法
+## FMDB基本语法
 查询：executeQuery: SQLite语句命令。
 
 [db executeQuery:@"select id, name, age from t_person"]
