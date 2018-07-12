@@ -21,16 +21,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 ```
 ## FMDB的基本使用
 在项目中导入FMDB框架和sqlite3.0.tbd，导入头文件。
-
-1. 打开数据库，并创建表
-
-初始化FMDatabase：FMDatabase *db = [FMDatabase databaseWithPath:filePath];
-其中的filePath是提前准备好要存放数据的路径。
-
-打开数据库：[db open]
-
-创建数据表：[db executeUpdate:@"create table if not exists t_person (id integer primary key autoincrement, name text, age integer)"];
-
+```
 #import "ViewController.h"
 #import <FMDB.h>
 
@@ -63,6 +54,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
         NSLog(@"打开失败");
     }
 }
+```
 2. 插入数据
 
 运用executeUpdate方法执行插入数据命令： [db executeUpdate:@"insert into t_person(name,age) values(?,?)",@"jack",@17]
