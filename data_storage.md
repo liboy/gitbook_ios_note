@@ -83,6 +83,8 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 后缀为xxx.xcdatamodeld文件,编译后为xxx.momd的文件。
 
 ## 七、KeyChain
+Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储账号，密码，用户信息，银行卡资料等信息，Keychain会以加密的方式存储在设备中
+
 - 钥匙串(KeyChain)是苹果公司Mac OS中的密码管理系统。
 - 一个钥匙串可以包含多种类型的数据：密码（包括网站，FTP服务器，SSH帐户，网络共享，无线网络，群组软件，加密磁盘镜像等），私钥，电子证书和加密笔记等。
 - iOS的KeyChain服务提供了一种安全的保存私密信息（密码，序列号，证书等）的方式。每个iOS程序都有一个独立的KeyChain存储。从iOS 3.0开始，跨程序分享KeyChain变得可行。
@@ -151,7 +153,7 @@ NSString *uuidString = [self uuidString];
 }
 ```
 
-Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储账号，密码，用户信息，银行卡资料等信息，Keychain会以加密的方式存储在设备中
+
 
 Keychain 的结构
 Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
@@ -163,11 +165,13 @@ extern CFTypeRef kSecClassInternetPassword
 extern CFTypeRef kSecClassCertificate
 extern CFTypeRef kSecClassKey
 extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0);
-Keychain的特点
+
+### Keychain的特点
 数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
 keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamD
 keychain的数据是经过加密的
-Keychain的使用
+
+### Keychain的使用
 首先导入Security.framework 框架
 Keychain的API提供以下几个函数来操作Keychain
 SecItemAdd 添加一个keychain item
