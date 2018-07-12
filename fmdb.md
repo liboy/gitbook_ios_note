@@ -11,8 +11,9 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 
 ## FMDB基本语法
 查询：executeQuery: SQLite语句命令。
-
+```
 [db executeQuery:@"select id, name, age from t_person"]
+```
 其余的操作都是“更新”：executeUpdate: SQLite语句命令。
 
 // CREATE, UPDATE, INSERT, DELETE, DROP，都使用executeUpdte
