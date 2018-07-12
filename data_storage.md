@@ -99,7 +99,7 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 - app中使用了CoreData,并且在下一个版本中有实体变动，比如实体新增字段、修改字段等改动，
 - 那么app在覆盖安装时就要进行数据库迁移，否则app就会crash。
 - Xcode8之后系统CoreData类做了改动，使用起来更简单了，如果您是用Xcode8创建的工程实现版本升级和数据迁移，则直接修改实体，然后重新生成即可，非常简单。
-之前版本具体使用参见：https://github.com/qindeli/XCode8-CoreData-/tree/master/TestCoreData.http://www.cocoachina.com/ios/20180605/23656.html
+- 之前版本具体步骤参见：http://www.cocoachina.com/ios/20180605/23656.html
 ## 七、KeyChainhttp://www.cocoachina.com/ios/20180605/23656.html
 Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储账号，密码，用户信息，银行卡资料等信息，Keychain会以加密的方式存储在设备中
 
