@@ -19,7 +19,7 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 // CREATE, UPDATE, INSERT, DELETE, DROP，都使用executeUpdte
 [db executeUpdate:@"create table if not exists t_person (id integer primary key autoincrement, name text, age integer)"]
 ```
-FMDB的基本使用
+## FMDB的基本使用
 在项目中导入FMDB框架和sqlite3.0.tbd，导入头文件。
 
 1. 打开数据库，并创建表
