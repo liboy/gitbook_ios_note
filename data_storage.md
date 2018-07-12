@@ -93,6 +93,7 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 - 当应用程序被删除后，保存到KeyChain里面的数据不会被删除，所以KeyChain是保存到沙盒范围以外的地方。
 - KeyChain的所有数据也都是以`key-value`的形式存储的，这和NSDictionary的存储方式一样。
 - 相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
+- 数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
 - keychain的数据可以用group的方式，让程序可以在App间共享，不过需要相同的TeamID
 
 
@@ -106,9 +107,6 @@ extern CFTypeRef kSecClassInternetPassword
 extern CFTypeRef kSecClassCertificate
 extern CFTypeRef kSecClassKey
 extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0);
-
-
-- 数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
 
 
 ### Keychain的使用
