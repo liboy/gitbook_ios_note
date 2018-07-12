@@ -162,6 +162,7 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
     }];
 }
 ```
+
 ## FMDB中的事务
 什么是事务？
 
@@ -173,7 +174,7 @@ FMDB中有事务的回滚操作，也就是说，当一个整体事务在执行�
 
 下面代码中，利用事务循环向数据库中添加2000条数据，假如在添加的过程中出现了一些问题，由于执行了*rollback = YES的回滚操作，数据库中一个数据都不会出现。
 如果第2000条数据的添加出了问题，哪怕之前已经添加了1999条数据，由于执行了回滚，数据库中依然一个数据都没有。
-
+```objectivec
 //数据库路径
 NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
 NSString *filePath = [path stringByAppendingPathComponent:@"student.sqlite"];
@@ -196,8 +197,4 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
             }
         }
     }];
-
-作者：remember17
-链接：https://www.jianshu.com/p/e88880be794f
-來源：简书
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+```
