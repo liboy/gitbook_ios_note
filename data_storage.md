@@ -110,7 +110,6 @@ extern CFTypeRef kSecClassIdentity OSX_AVAILABLE_STARTING(MAC_10_7, __IPHONE_2_0
 
 - 数据并不是放在App的Sanbox，即使删除了App，资料依然保存在keychain中，如果重新安装了App，还可以从keychain中获取数据
 
-- keychain的数据是经过加密的
 
 ### Keychain的使用
 为了使用方便，我们使用github上封装好的类
