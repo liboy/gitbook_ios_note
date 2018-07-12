@@ -133,7 +133,7 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
 ```
 
 - 在FMDatabaseQueue中执行命令的时候也是非常方便，直接在一个block中进行操作
-
+```objectivec
 -(void)FMDdatabaseQueueFunction {
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
@@ -161,6 +161,7 @@ FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:filePath];
         
     }];
 }
+```
 FMDB中的事务
 什么是事务？
 
