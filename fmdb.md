@@ -109,7 +109,7 @@ while ([set next]) {
     NSLog(@"%d,%@,%d",ID,name,age);
 }
 ```
-6. 删除表
+### 6. 删除表
 
 删除指定表：[db executeUpdate:@"drop table if exists t_person"]
 
