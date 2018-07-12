@@ -113,7 +113,13 @@ SQLite3是无类型的，意味着你可以保存任何类型的数据到任意�
 6. 删除原来的实体文件，重新生成下的类。
 删除实体类文件，重新生成新的类文件
 7. 在persistentStoreCoordinator中添加代码：
-添加代码
+```
+//创建持久化存储助理：数据库
+ NSPersistentStoreCoordinator * store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];//请求自动轻量级迁移
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,                             nil];   NSError *error = nil;    //设置数据库相关信息 添加一个持久化存储库并设置存储类型和路径，NSSQLiteStoreType：SQLite作为存储库
+```
 8. 重新编译运行就OK了。
 
 >PS: Xcode8 系统CoreData类做了不少改动，当然使用起来更简单了，如果您是用Xcode8创建的工程实现版本升级和数据迁移，则直接修改实体，然后重新生成即可，非常简单。具体使用和代码见https://github.com/qindeli/XCode8-CoreData-/tree/master/TestCoreData.
