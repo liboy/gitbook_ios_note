@@ -45,6 +45,12 @@ Plist文件的Type可以是字典NSDictionary或数组NSArray，也就是说可�
 - 不能存储自定义数据
 - 取出的数据都是不可变的
 
+### NSUserDefaults不安全
+NSUserDefaults其实是plist文件中键值存储，并且最大的问题是存在与沙盒中，这就对安全性埋下了隐患。如果攻击者破解app，拿到了沙盒中的数据，就会造成数据泄漏，后果不堪设想。
+
+当然，一般也不会有把密码直接使用NSUserDefaults存储的，都会进行加密、或者是多重加密后再进行NSUserDefaults存储。这么做其实是可行的，前提是加密算法不能泄漏。有个小问题就是，如果用户删掉app重装的话，之前所有存储的敏感信息都会消失。比如，一个用户误删了使用NSUserDefaults存储密码的app，当重新安装之后，由于以前是记住密码免登录，只因为自己操作不当，接下来要进入找回密码功能，重新修改密码才能再次使用app。这对用户来说是一种相当不友好的体验。
+
+
 ## 四、NSKeyedArchiver归档（NSCoding）
 
 - NSKeyedArchiver归档
