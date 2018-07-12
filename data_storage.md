@@ -98,26 +98,6 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 
 - [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
 
-```objectivec
-
-// 初始化一个保存用户帐号的KeychainItemWrapper 
-KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
-//参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key
-//保存帐号
-[wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];  
-//保存密码
-[wrapper setObject:@"<帐号密码>" forKey:(id)kSecValueData];      
-//从keychain里取出帐号密码
-NSString *password = [wrapper objectForKey:(id)kSecValueData];
-//清空设置
-[wrapper resetKeychainItem];
-
-
-```
-
-
-
-
 
 Keychain 的结构
 Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
@@ -159,22 +139,24 @@ keychain的数据是经过加密的
 Keychain API的用法稍微有点复杂。不过Apple自己也提供了一个封装了Keychain API的类： KeychainItemWrapper
 KeychainItemWrapper是apple官方例子“GenericKeychain”里一个访问keychain常用操作的封装类，在官网上下载了GenericKeychain项目后，只需要把“KeychainItemWrapper.h”和“KeychainItemWrapper.m”拷贝到我们项目，并导入Security.framework 。
 
-KeychainItemWrapper的用法
-/** 初始化一个保存用户帐号的KeychainItemWrapper */
-KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number"
-                                                                   accessGroup:@"YOUR_APP_ID_HERE.com.yourcompany.AppIdentifier"];  
- 
+### KeychainItemWrapper的用法
+```objectivec
+
+// 初始化一个保存用户帐号的KeychainItemWrapper 
+KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Your Apple ID" accessGroup:@"YOUR_APP_ID.com.yourcompany.AppIdentifier"];
+//参数forKey的值应该是Security.framework里头文件SecItem.h里定义好的key
 //保存帐号
-[wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];    
- 
+[wrapper setObject:@"<帐号>" forKey:(id)kSecAttrAccount];  
 //保存密码
-[wrapper setObject:@"<帐号密码>" forKey:(id)kSecValueData];    
- 
+[wrapper setObject:@"<帐号密码>" forKey:(id)kSecValueData];      
 //从keychain里取出帐号密码
-NSString *password = [wrapper objectForKey:(id)kSecValueData];      
- 
+NSString *password = [wrapper objectForKey:(id)kSecValueData];
 //清空设置
 [wrapper resetKeychainItem];
+
+
+```
+
 
 其中方法“- (void)setObject:(id)inObject forKey:(id)key;”里参数“forKey”的值应该是Security.framework 里头文件“SecItem.h”里定义好的key，用其他字符串做key程序会崩溃！
 
