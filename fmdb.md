@@ -96,15 +96,8 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 ```
 ### 5. 查询数据
 
-执行查询语句，用FMResultSet接收查询结果：FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"]
-
-：[set next
-
-拿到每条数的姓名：NSString *name = [set stringForColumnIndex:1];
-
-
-
 ```objectivec
+//用FMResultSet接收查询结果
 FMResultSet *set = [db executeQuery:@"select id, name, age from t_person"];
 //遍历查询结
 while ([set next]) {
