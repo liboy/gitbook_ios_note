@@ -10,11 +10,11 @@ FMDB封装了SQLite的C语言API，更加面向对象。
 - FMDatabaseQueue：运用多线程，可执行多个查询、更新。线程安全。
 
 ## FMDB基本语法
-查询：executeQuery: SQLite语句命令。
+查询
 ```
 [db executeQuery:@"select id, name, age from t_person"]
 ```
-其余的操作都是“更新”：executeUpdate: SQLite语句命令。
+更新
 
 // CREATE, UPDATE, INSERT, DELETE, DROP，都使用executeUpdte
 [db executeUpdate:@"create table if not exists t_person (id integer primary key autoincrement, name text, age integer)"]
