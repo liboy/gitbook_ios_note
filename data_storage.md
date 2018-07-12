@@ -116,9 +116,6 @@ Keychain内部可以保存很多的信息。每条信息作为一个单独的key
     - SecItemCopyMatching 搜索一个keychain item
     - SecItemDelete 删除一个keychain item
 
-
-Keychain API的用法稍微有点复杂。不过Apple自己也提供了一个封装了Keychain API的类： KeychainItemWrapper
-
 ### KeychainItemWrapper的用法
 [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)是苹果封装Keychain API的类，封装了操作KeyChain的基本操作
 
