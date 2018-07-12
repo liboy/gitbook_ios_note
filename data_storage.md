@@ -92,14 +92,7 @@ Keychain是iOS所提供的一种安全存储参数的方式，最常用来存储
 - KeyChain的所有数据也都是以`key-value`的形式存储的，这和NSDictionary的存储方式一样。
 - 相比于NSUserDefaults来说，KeyChain保存更为安全，而且KeyChain里面保存的数据不会因为app删除而丢失。
 
-### 基本使用
-为了使用方便，我们使用github上封装好的类
-- [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)是苹果封装的类，封装了操作KeyChain的基本操作
-
-- [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
-
-
-Keychain 的结构
+### Keychain 的结构
 Keychain内部可以保存很多的信息。每条信息作为一个单独的keychain item，keychain item一般为一个字典，每条keychain item包含一条data和很多attributes。举个例子，一个用户账户就是一条item，用户名可以作为一个attribute , 密码就是data。 keychain虽然是可以保存15000条item,每条50个attributes，但是苹果工程师建议最好别放那么多，存几千条密码，几千字节没什么问题。
 
 如果把keychain item的类型指定为需要保护的类型比如password或者private key，item的data会被加密并且保护起来，如果把类型指定为不需要保护的类型，比如certificates，item的data就不会被加密。
@@ -116,6 +109,13 @@ keychain的数据可以用group的方式，让程序可以在App间共享，不�
 keychain的数据是经过加密的
 
 ### Keychain的使用
+为了使用方便，我们使用github上封装好的类
+- [KeychainItemWrapper](https://github.com/baptistefetet/KeychainItemWrapper)是苹果封装的类，封装了操作KeyChain的基本操作
+
+- [SFHFKeychainUtils](https://github.com/ldandersen/scifihifi-iphone/tree/master/security)是另外一个第三方库，这个类比KeychainItemWrapper要简单很多，提供了更简单的方法保存密码到KeyChain
+
+
+
 - 首先导入Security.framework 框架
 - Keychain的API提供以下几个函数来操作Keychain
     - SecItemAdd 添加一个keychain item
