@@ -4,7 +4,7 @@
 先行安装`Node.js`、`GitBook`、`GitBook Editor`、`Git`版本控制器
 - 环境要求`NodeJS(v4.0.0及以上)`
 ```
-//查看 GitBook 版本
+//查看 nodejs 版本
 $ node -v
 v8.10.0
 $ npm -v
