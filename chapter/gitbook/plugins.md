@@ -165,43 +165,6 @@ graph TD;
   C-->D;
 ```
 
-## Puml
-使用 PlantUML 展示 uml 图。
-
-[插件地址](https://plugins.gitbook.com/plugin/puml)  
-[PlantUML 地址](http://plantuml.com/)
-
-```
-{
-    "plugins": ["puml"]
-}
-```
-使用示例：
-```
-{% plantuml %}
-Class Stage
-    Class Timeout {
-        +constructor:function(cfg)
-        +timeout:function(ctx)
-        +overdue:function(ctx)
-        +stage: Stage
-    }
-    Stage <|-- Timeout
-{% endplantuml %}
-```
-效果如下所示：
-
-{% plantuml %}
-Class Stage
-    Class Timeout {
-        +constructor:function(cfg)
-        +timeout:function(ctx)
-        +overdue:function(ctx)
-        +stage: Stage
-    }
-    Stage <|-- Timeout
-{% endplantuml %}
-
 
 ## Graph
 
@@ -235,24 +198,6 @@ Class Stage
 }
 {% endgraph %}
 ```
-
-效果如下所示：
-{% graph %}
-{
-    "title": "1/x * cos(1/x)",
-    "grid": true,
-    "xAxis": {
-        "domain": [0.01, 1]
-    },
-    "yAxis": {
-        "domain": [-100, 100]
-    },
-    "data": [{
-        "fn": "1/x * cos(1/x)",
-        "closed": true
-    }]
-}
-{% endgraph %}
 
 ## Chart
 使用 C3.js 或者 Highcharts 绘制图形。
@@ -295,26 +240,6 @@ type 可以是 `c3` 或者 `highcharts`, 默认是 `c3`.
 }
 {% endchart %}
 ```
-效果如下所示：
-{% chart %}
-{
-    "data": {
-        "type": "bar",
-        "columns": [
-            ["data1", 30, 200, 100, 400, 150, 250],
-            ["data2", 50, 20, 10, 40, 15, 25]
-        ],
-        "axes": {
-            "data2": "y2"
-        }
-    },
-    "axis": {
-        "y2": {
-            "show": true
-        }
-    }
-}
-{% endchart %}
 
 ## Sharing-plus
 分享当前页面，比默认的 sharing 插件多了一些分享方式。
@@ -751,9 +676,6 @@ Success styling
 ```
 {% includeCsv  src="./assets/csv/test.csv", useHeader="true" %} {% endincludeCsv %}
 ```
-效果如下所示：
-
-{% includeCsv  src="./assets/csv/test.csv", useHeader="true" %} {% endincludeCsv %}
 
 ## Musicxml
 支持 musicxml 格式的乐谱渲染。
@@ -771,8 +693,6 @@ Success styling
 ```
 {% musicxml %}assets/musicxml/mandoline - debussy.xml{% endmusicxml %}
 ```
-效果如下所示
-{% musicxml %}assets/musicxml/mandoline - debussy.xml{% endmusicxml %}
 
 ## Klipse
 集成 Klipse (online code evaluator)
@@ -804,10 +724,6 @@ klipse 目前支持下面的语言：
 print [x + 1 for x in range(10)]
 ```</code></pre>
 
-效果如下所示：
-```eval-python
-print [x + 1 for x in range(10)]
-```
 
 
 
