@@ -50,7 +50,8 @@ $ codesign --verify Example.app
 </plist>  
 ```
 
-在 Xcode 的 `Capabilities` 选项卡下选择一些选项之后，Xcode 就会生成这样一段 XML。 Xcode 会自动生成一个 `.entitlements` 文件，然后在需要的时候往里面添加条目。当构建整个应用时，这个文件也会提交给 codesign 作为应用所需要拥有哪些授权的参考。
+- 选择 Xcode 的 `Capabilities` 选项，会自动生成一个 `.entitlements` 文件。
+- 构建整个应用时，会提交给 `codesign` 作为应用所需要拥有哪些授权的参考。
 - 授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中。
 - 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
 
