@@ -14,3 +14,11 @@ gitbook serve
 ```
 * 在浏览器中打开 `http://localhost:4000/` 进行访问
 
+
+## GitBook 资源
+
+* [GitBook主页](https://www.gitbook.com/)
+* [Github地址](https://github.com/GitbookIO/)
+* [GitBook编辑器](https://www.gitbook.com/editor/osx)
+* [GitBook Toolchain Documentation](http://toolchain.gitbook.com/)
+* [GitBook Documentation](http://help.gitbook.com/)
