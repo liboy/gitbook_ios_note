@@ -35,6 +35,7 @@
 * [Cocoapods](chapter/cocoapods.md)
 * [Charles](chapter/charles.md)
 * [批量自动打包](chapter/packing/auto_packaging.md)
+    * [苹果证书](chapter/packing/resign.md)
     * [重新签名](chapter/packing/resign.md)
 ## 其他
 
