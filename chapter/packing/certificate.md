@@ -6,7 +6,8 @@
 * 非对称加密 `asymmetric cryptography`：加密和解密是不同的钥匙
 
 ### 对称加密
-客户端（Client）和服务器（Server）进行通讯，`Client`和`Server`约定好相同的一把秘钥，Client发送的明文通过这把秘钥进行加密，Server在收到这段加密后的密文后通过事先约定好的那边秘钥进行解密得到明文。理论上只要保证秘钥不被泄露就可以保证安全，但是实际上这种方式很不安全，如果秘钥被破解，又恰好服务器只用了这一个秘钥（这可能是最糟糕的情况），那么服务器和其他的客户端之间的通讯基本上就是完全暴露了。这个例子说的是对称加密。
+客户端（Client）和服务器（Server）进行通讯，`Client`和`Server`约定好相同的一把秘钥，Client发送的明文通过这把秘钥进行加密，Server在收到这段加密后的密文后通过事先约定好的那边秘钥进行解密得到明文。
+
 ![对称加密](http://upload-images.jianshu.io/upload_images/1253942-05697d31c8455025.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 非对称加密
@@ -15,8 +16,8 @@
 
 ![非对称加密](http://upload-images.jianshu.io/upload_images/1253942-07b9e270cc7088f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-- 常见的对称加密有：DES,AES等 
-- 常见的非对称加密有：SSL,HTTPS,TLS,RSA。 
+- 常见的对称加密有：`DES`,`AES`等 
+- 常见的非对称加密有：`SSL`,`HTTPS`,`TLS`,`RSA`。 
 
 秘钥长度越长破解的难度越大。我在iOS持久化数据时用过AES，其他的没有用过。非对称加密中RSA是很有名，被应用的很广泛的数字证书。
 
