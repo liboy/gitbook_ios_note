@@ -43,7 +43,7 @@ gitbook builid --debug //输出错误信息
 * Clone 代码到本地并运行
 ```bash
 git clone git@github.com:liboy/gitbook_ios_note.git
-cd gitbook-use
+cd ios_study_notes
 gitbook install
 gitbook serve
 ```
