@@ -2,7 +2,6 @@
   
 记录一些实用的插件, 如果要指定插件的版本可以使用 `plugin@0.3.1`。下面的插件在 GitBook 的 `3.2.3` 版本中可以正常工作，因为一些插件可能不会随着 GitBook 版本的升级而升级，即下面的插件可能不适用高版本的 GitBook，所以这里指定了 GitBook 的版本。另外本文记录的插件在 Linux 下都是可以正确工作的，windows 系统没有测试。这里只是列举了一部分插件，如果有其它的需求，可以到 [插件官网](https://plugins.gitbook.com/) 区搜索相关插件。
 
-- [Disqus - Disqus 评论](#disqus)
 - [Search Plus - 支持中文搜索](#search-plus)
 - [Prsim - 使用 Prism.js 高亮代码](#prsim)
 - [Advanced Emoji - 支持 emoji 表情](#advanced-emoji)
@@ -38,8 +37,6 @@
 - [Include-csv - 显示 csv 文件内容](#include-csv)
 - [Musicxml - 支持 musicxml 格式的乐谱渲染](#musicxml)
 - [Klipse - 集成 Kplise (online code evaluator)](#klipse)
-- [Versions-select - 添加版本选择的下拉菜单](#versions-select)
-- [Rss - 添加 rss 订阅功能](#rss)
 
 
 ## Search Plus
