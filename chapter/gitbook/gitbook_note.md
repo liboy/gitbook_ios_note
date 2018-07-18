@@ -60,3 +60,4 @@ gitbook serve
 * [GitBook编辑器](https://www.gitbook.com/editor/osx)
 * [GitBook Toolchain Documentation](http://toolchain.gitbook.com/)
 * [GitBook Documentation](http://help.gitbook.com/)
+* [插件官网](https://plugins.gitbook.com/)
