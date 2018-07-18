@@ -228,8 +228,8 @@
             "title": "GitBook 使用教程",
             "description": "记录 GitBook 的配置和一些插件的使用",
             "author": "Jikai Zhang",
-            "feed_url": "http://gitbook.zhangjikai.com/rss",
-            "site_url": "http://gitbook.zhangjikai.com/",
+            "feed_url": "http://gitbook.liboy.com/rss",
+            "site_url": "http://gitbook.liboy.com/",
             "managingEditor": "me@zhangjikai.com",
             "webMaster": "me@zhangjikai.com",
             "categories": [
