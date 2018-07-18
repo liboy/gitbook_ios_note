@@ -21,7 +21,7 @@ $ codesign -vv -d Example.app
 $ codesign --verify Example.app  
 ```
 ### 授权文件（entitlements）
-授权机制决定了哪些系统资源在什么情况下允许被一个应用使用，即沙盒的配置列表。授权机制也是按照 `plist` 文件格式来列出的，Xcode 会将这个文件作为 `–entitlements` 参数的内容传给 codesign ，这个文件内部格式如下：
+授权机制决定了哪些系统资源在什么情况下允许被一个应用使用，即沙盒的配置列表。授权机制也是按照 `plist` 文件格式来列出的，这个文件内部格式如下：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -50,8 +50,7 @@ $ codesign --verify Example.app
 </plist>  
 ```
 
-- 选择 Xcode 的 `Capabilities` 选项，会自动生成一个 `.entitlements` 文件。
-- 构建整个应用时，会提交给 `codesign` 作为应用所需要拥有哪些授权的参考。
+- 选择 Xcode 的 `Capabilities` 选项，会自动生成一个 `.entitlements` 文件，作为 `–entitlements` 参数的内容传给 codesign 
 - 授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中。
 - 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
 
