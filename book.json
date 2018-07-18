@@ -2,7 +2,6 @@
     "title": "学习笔记",
     "description": "对知识点总体整理",
     "language": "zh-hans",
-    "root": "",
     "plugins": [
         "-lunr",
         "-search",
