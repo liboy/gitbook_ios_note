@@ -1,5 +1,5 @@
 # GitBook 插件
-<!--email_off-->  
+  
 记录一些实用的插件, 如果要指定插件的版本可以使用 `plugin@0.3.1`。下面的插件在 GitBook 的 `3.2.3` 版本中可以正常工作，因为一些插件可能不会随着 GitBook 版本的升级而升级，即下面的插件可能不适用高版本的 GitBook，所以这里指定了 GitBook 的版本。另外本文记录的插件在 Linux 下都是可以正确工作的，windows 系统没有测试。这里只是列举了一部分插件，如果有其它的需求，可以到 [插件官网](https://plugins.gitbook.com/) 区搜索相关插件。
 <!--/email_off-->
 
@@ -42,21 +42,6 @@
 - [Versions-select - 添加版本选择的下拉菜单](#versions-select)
 - [Rss - 添加 rss 订阅功能](#rss)
 
-## Disqus
-
-添加disqus评论
-
-[插件地址](https://plugins.gitbook.com/plugin/disqus)
- ```json
-"plugins": [
-    "disqus"
-],
-"pluginsConfig": {
-    "disqus": {
-        "shortName": "gitbookuse"
-    }
-}
-```
 
 ## Search Plus
 支持中文搜索, 需要将默认的 `search` 和 `lunr` 插件去掉。  
@@ -124,29 +109,6 @@ pre[class*="language-"] {
 "pluginsConfig": {
     "github": {
         "url": "https://github.com/zhangjikai"
-    }
-}
-```
-## Github Buttons
-添加项目在 github 上的 star，watch，fork情况
-
-[插件地址](https://plugins.gitbook.com/plugin/github-buttons)
-
-```json
-{
-    "plugins": [
-        "github-buttons"
-    ],
-    "pluginsConfig": {
-        "github-buttons": {
-            "repo": "zhangjikai/gitbook-use",
-            "types": [
-                "star",
-                "watch",
-                "fork"
-            ],
-            "size": "small"
-        }
     }
 }
 ```
@@ -922,65 +884,5 @@ print [x + 1 for x in range(10)]
 print [x + 1 for x in range(10)]
 ```
 
-## Versions-select
-添加版本选择的下拉菜单，针对文档有多个版本的情况。
 
-[插件地址](https://plugins.gitbook.com/plugin/versions-select)
 
-```
-{
-    "plugins": [ "versions-select" ],
-    "pluginsConfig": {
-        "versions": {
-            "options": [
-                {
-                    "value": "http://gitbook.zhangjikai.com",
-                    "text": "v3.2.2"
-                },
-                {
-                    "value": "http://gitbook.zhangjikai.com/v2/",
-                    "text": "v2.6.4"
-                }
-            ]
-        }
-    }
-}
-```
-
-我们可以自定义 css 来修改 select 的显示样式：
-```css
-.versions-select select {
-    height: 2em;
-    line-height: 2em;
-    border-radius: 4px;
-    background: #efefef;
-}
-```
-
-效果见左上角。
-
-## RSS
-添加 rss 订阅功能。
-
-[插件地址](https://plugins.gitbook.com/plugin/rss)
-
-```json
-{
-    "plugins": [ "rss" ],
-    "pluginsConfig": {
-        "rss": {
-            "title": "GitBook 使用教程",
-            "description": "记录 GitBook 的配置和一些插件的使用",
-            "author": "Jikai Zhang",
-            "feed_url": "http://gitbook.zhangjikai.com/rss",
-            "site_url": "http://gitbook.zhangjikai.com/",
-            "managingEditor": "me@zhangjikai.com",
-            "webMaster": "me@zhangjikai.com",
-            "categories": [
-                "gitbook"
-            ]
-        }
-    }
-}
-```
-效果见右上角。
