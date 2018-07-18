@@ -49,6 +49,9 @@ gitbook serve
 ```
 * 在浏览器中打开 `http://localhost:4000/` 进行访问
 
+## GitBook 插件
+
+
 
 ## GitBook 资源
 
