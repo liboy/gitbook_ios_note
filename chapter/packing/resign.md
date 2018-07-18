@@ -83,29 +83,12 @@ $ security cms -D -i example.mobileprovision
 - Entitlements
 有关前面讲到的配置文件的所有内容都会被保存在这里。
 
-### 实战
-
+### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
 ![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![](/assets/packing1.png)
 
-
-
-`PackageExample`(Demo已上传到[这里](https://github.com/Vienta/BlogArticle/tree/master/package))，并且使用了CocoaPods（实验起见仅引用了AFNetworking），项目的证书是dev状态的。`PackageExample`项目在我机器上的路径和目录如下截图：
-
-
-和`PackageExample`同目录的还有`PackageShell`，里面的`buildipa.sh`为编译脚本，由于最后的目标是要做成可以随意配置的，所以还有一个`PackageConfig`文件夹，里面有配置文件`packageExample.mobileprovision`和`packageExample.plist`，配置文件主要用来签名，plist文件的内容为可配置的，例如里面有app_Prefix、app_Name、app_ID等信息。`Package`文件夹为打的包的存放的地方。
-
-
-`xxx.xcarchive`包目录结构如图：
-```
-├── Info.plist
-├── Products
-├── SCMBlueprint
-├── SwiftSupport
-└── dSYMs
-```
 
 实例的`Resign-ipa`文件夹目录结构如下图：
 [![image](http://upload-images.jianshu.io/upload_images/1253942-565b2e08ff4e0d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_10.png) 
