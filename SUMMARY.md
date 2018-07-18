@@ -38,5 +38,5 @@
 
 ## 其他
 
-* [GitBook使用笔记](chapter/gitbook/gitbook_note.md)
+* [GitBook使用](chapter/gitbook/gitbook_note.md)
     * [插件](chapter/gitbook/plugins.md)
