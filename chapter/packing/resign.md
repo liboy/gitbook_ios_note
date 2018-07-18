@@ -87,15 +87,12 @@ $ security cms -D -i example.mobileprovision
 
 自动打包是基础，打包完之后可以根据母包重新签名生成相似的包，生成的包可以自动部署。只要攻克这三个点就能实现全自动化
 
-为了讲的更清楚，新建了一个项目`PackageExample`(Demo已上传到[这里](https://github.com/Vienta/BlogArticle/tree/master/package))，并且使用了CocoaPods（实验起见仅引用了AFNetworking），项目的证书是dev状态的。`PackageExample`项目在我机器上的路径和目录如下截图：
+`PackageExample`(Demo已上传到[这里](https://github.com/Vienta/BlogArticle/tree/master/package))，并且使用了CocoaPods（实验起见仅引用了AFNetworking），项目的证书是dev状态的。`PackageExample`项目在我机器上的路径和目录如下截图：
 
-![image](http://upload-images.jianshu.io/upload_images/1253942-c5e38379402c1688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 和`PackageExample`同目录的还有`PackageShell`，里面的`buildipa.sh`为编译脚本，由于最后的目标是要做成可以随意配置的，所以还有一个`PackageConfig`文件夹，里面有配置文件`packageExample.mobileprovision`和`packageExample.plist`，配置文件主要用来签名，plist文件的内容为可配置的，例如里面有app_Prefix、app_Name、app_ID等信息。`Package`文件夹为打的包的存放的地方。
 
 
-### PlistBuddy
-脚本的开头有`PlistBuddy`命令，它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
 `xxx.xcarchive`包目录结构如图：
 ```
 ├── Info.plist

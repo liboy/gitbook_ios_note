@@ -114,6 +114,9 @@ xctool是可以使用[homebrew](http://brew.sh/)安装的，或者下[源码](ht
 ```
 brew install xctool
 ```
+### PlistBuddy
+脚本的开头有`PlistBuddy`命令，它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
+
 
 ## 自动部署
 
