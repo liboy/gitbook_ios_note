@@ -14,7 +14,7 @@ $ npm -v
 ```bash
 npm install gitbook-cli -g
 ```
-查看 GitBook 版本
+- 查看 GitBook 版本
 ```bash
 $ gitbook -V
 CLI version: 2.3.2
