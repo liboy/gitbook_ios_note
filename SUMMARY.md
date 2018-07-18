@@ -40,3 +40,5 @@
 
 * [GitBook使用](chapter/gitbook/gitbook_note.md)
     * [插件](chapter/gitbook/plugins.md)
+    * [bookjson](chapter/gitbook/bookjson.md)
+
