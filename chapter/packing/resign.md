@@ -23,7 +23,7 @@ $ codesign --verify Example.app
 ### 授权文件（entitlements）
 授权机制决定了哪些系统资源在什么情况下允许被一个应用使用，即沙盒的配置列表。授权机制也是按照 plist 文件格式来列出的，Xcode 会将这个文件作为 `–entitlements` 参数的内容传给 codesign ，这个文件内部格式如下：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
 <plist version="1.0">  
