@@ -2,8 +2,7 @@
 
 ## 安装
 先行安装`Node.js`、`GitBook`、`GitBook Editor`、`Git`版本控制器
-- 环境要求
-    * `NodeJS`(v4.0.0及以上)
+- 环境要求`NodeJS(v4.0.0及以上)`
 
 - 通过NPM安装
 ```bash
