@@ -13,7 +13,7 @@ $ codesign -s 'iPhone Developer: Thomas Kollbach (7TPNXN7G6K)' Example.app
 //-f 参数会用选择的签名替换掉已经存在的
 $ codesign -f -s 'iPhone Developer: Thomas Kollbach (7TPNXN7G6K)' Example.app  重新签名
 ```
-- 列出有关 Example.app的签名信息
+- 列出有关签名信息
 ```
 $ codesign -vv -d Example.app  
 ```
