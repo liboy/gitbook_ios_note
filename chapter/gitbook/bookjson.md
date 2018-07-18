@@ -66,7 +66,7 @@
     },
     "links": {
         "sidebar": {
-            "Home": "http://www.zhangjikai.com"
+            "Home": "http://www.liboy.com"
         }
     },
     "plugins": [
