@@ -288,7 +288,7 @@ $ security cms -D -i example.mobileprovision
 
 `resign.sh`为重签名的脚本，内容也不算多：
 
-```
+```bash
 #!/bin/bash
 
 for file2 in `ls -a ./module`
