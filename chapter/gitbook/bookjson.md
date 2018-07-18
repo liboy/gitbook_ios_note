@@ -1,6 +1,6 @@
 # book.json配置文件
 
-```
+```json
 {
     "title": "学习笔记",
     "description": "对知识点总体整理",
