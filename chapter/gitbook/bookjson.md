@@ -57,7 +57,7 @@
     "title": "学习笔记",
     "description": "对知识点总体整理",
     "language": "zh-hans",
-    "author": "zhangjikai",
+    "author": "liboy",
     "output.name": "site",
     "gitbook": "3.2.3",
     "root": ".",
