@@ -50,7 +50,7 @@ $ codesign --verify Example.app
 </plist>  
 ```
 
-在 Xcode 的 Capabilities 选项卡下选择一些选项之后，Xcode 就会生成这样一段 XML。 Xcode 会自动生成一个 .entitlements 文件，然后在需要的时候往里面添加条目。当构建整个应用时，这个文件也会提交给 codesign 作为应用所需要拥有哪些授权的参考。这些授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中，稍后我们会详细讨论这一点。在构建应用时需要使用的授权文件可以在 Xcode build setting 中的 code signing entitlements 中设置。
+在 Xcode 的 `Capabilities` 选项卡下选择一些选项之后，Xcode 就会生成这样一段 XML。 Xcode 会自动生成一个 .entitlements 文件，然后在需要的时候往里面添加条目。当构建整个应用时，这个文件也会提交给 codesign 作为应用所需要拥有哪些授权的参考。这些授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中，稍后我们会详细讨论这一点。在构建应用时需要使用的授权文件可以在 Xcode build setting 中的 code signing entitlements 中设置。
 
 ### 描述文件（provisioning file）
 在整个代码签名和沙盒机制中有一个组成部分将签名，授权和沙盒联系了起来，那就是描述文件 (provisioning profiles)。
