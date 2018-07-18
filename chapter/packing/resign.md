@@ -1,25 +1,27 @@
-## 重新签名和授权机制
+## 重新签名
 
-快捷查看系统中能用来对代码签名的证书
+- 查看系统中能用来对代码签名的证书
 ```
 $security find-identity -v -p codesigning  
 ```
-设置签名
+- 设置签名
 ```
 $ codesign -s 'iPhone Developer: Thomas Kollbach (7TPNXN7G6K)' Example.app 
 ```
-重新设置签名，你必须带上 -f 参数，有了这个参数，codesign 会用你选择的签名替换掉已经存在的那一个：
+- 重新设置签名
 ```
+//-f 参数会用选择的签名替换掉已经存在的
 $ codesign -f -s 'iPhone Developer: Thomas Kollbach (7TPNXN7G6K)' Example.app  重新签名
 ```
-列出一些有关 Example.app的签名信息
+- 列出有关 Example.app的签名信息
 ```
 $ codesign -vv -d Example.app  
 ```
-验证签名是否完好，若无任何输出则说明签名完好
+- 验证签名是否完好，若无任何输出则说明签名完好
 ```
 $ codesign --verify Example.app  
 ```
+
 ### 授权文件（entitlements）
 授权机制决定了哪些系统资源在什么情况下允许被一个应用使用，即沙盒的配置列表。授权机制也是按照 `plist` 文件格式来列出的，这个文件内部格式如下：
 
