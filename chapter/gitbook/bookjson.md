@@ -227,11 +227,11 @@
         "rss": {
             "title": "GitBook 使用教程",
             "description": "记录 GitBook 的配置和一些插件的使用",
-            "author": "Jikai Zhang",
+            "author": "liboy",
             "feed_url": "http://gitbook.liboy.com/rss",
             "site_url": "http://gitbook.liboy.com/",
-            "managingEditor": "me@zhangjikai.com",
-            "webMaster": "me@zhangjikai.com",
+            "managingEditor": "me@liboy.com",
+            "webMaster": "me@liboy.com",
             "categories": [
                 "gitbook"
             ]
