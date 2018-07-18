@@ -10,7 +10,7 @@ v8.10.0
 $ npm -v
 5.7.1
 ```
-- 通过`NPM`安装
+- 安装gitbook
 ```bash
 npm install gitbook-cli -g
 ```
