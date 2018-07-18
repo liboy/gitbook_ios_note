@@ -17,7 +17,7 @@ GitBook version: 3.2.3
 
 ## gitbook 常用的命令
 
-```
+```bash
 gitbook init //初始化目录文件
 gitbook help //列出gitbook所有的命令
 gitbook --help //输出gitbook-cli的帮助信息
