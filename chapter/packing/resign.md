@@ -85,7 +85,12 @@ $ security cms -D -i example.mobileprovision
 
 ### 实战
 
-自动打包是基础，打包完之后可以根据母包重新签名生成相似的包，生成的包可以自动部署。只要攻克这三个点就能实现全自动化
+设计思路如下图：
+![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](/assets/packing1.png)
+
+
 
 `PackageExample`(Demo已上传到[这里](https://github.com/Vienta/BlogArticle/tree/master/package))，并且使用了CocoaPods（实验起见仅引用了AFNetworking），项目的证书是dev状态的。`PackageExample`项目在我机器上的路径和目录如下截图：
 
@@ -101,12 +106,6 @@ $ security cms -D -i example.mobileprovision
 ├── SwiftSupport
 └── dSYMs
 ```
-
-### 重新签名
-设计思路如下图：
-![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![](/assets/packing1.png)
 
 实例的`Resign-ipa`文件夹目录结构如下图：
 [![image](http://upload-images.jianshu.io/upload_images/1253942-565b2e08ff4e0d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_10.png) 
