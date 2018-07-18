@@ -108,7 +108,7 @@ https://github.com/Vienta/BlogArticle/tree/master/package
 
 整个流程走完后我们在`build`中得到了重新签名后的包，并且可以通过iTunes按照到设备上且能够正常打开，但是我们发现icon被换掉了，内部的bundleId、版本号信息等也被换了，于是乎，就这样轻轻松松的**“换皮了”**。我的手机上最后的截图如下：
 
-[![image](http://upload-images.jianshu.io/upload_images/1253942-97b20b550a71ee49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_11.png) 
+ 
 
 优势：
 1.  节省劳动
