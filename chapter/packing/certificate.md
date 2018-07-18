@@ -1,10 +1,11 @@
 # 苹果证书
 ![image](http://upload-images.jianshu.io/upload_images/1253942-5aa0f5f1990499b5.jpg)
 
-## 对称加密和非对称加密
+## 加密
 * 对称加密 `symmetric cryptography`：加密和解密用的是同一个秘钥
 * 非对称加密 `asymmetric cryptography`：加密和解密是不同的钥匙
 
+### 对称加密
 客户端（Client）和服务器（Server）进行通讯，`Client`和`Server`约定好相同的一把秘钥，Client发送的明文通过这把秘钥进行加密，Server在收到这段加密后的密文后通过事先约定好的那边秘钥进行解密得到明文。理论上只要保证秘钥不被泄露就可以保证安全，但是实际上这种方式很不安全，如果秘钥被破解，又恰好服务器只用了这一个秘钥（这可能是最糟糕的情况），那么服务器和其他的客户端之间的通讯基本上就是完全暴露了。这个例子说的是对称加密。
 ![对称加密](http://upload-images.jianshu.io/upload_images/1253942-05697d31c8455025.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
