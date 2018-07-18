@@ -57,3 +57,7 @@ gitbook serve
 * [GitBook Toolchain Documentation](http://toolchain.gitbook.com/)
 * [GitBook Documentation](http://help.gitbook.com/)
 * [插件官网](https://plugins.gitbook.com/)
+
+## 参考
+* http://gitbook.zhangjikai.com
+* https://zq99299.gitbooks.io/gitbook-guide/content/
