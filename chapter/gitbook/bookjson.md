@@ -52,7 +52,7 @@
 }
 ```
 
-```
+```json
 {
     "title": "学习笔记",
     "description": "对知识点总体整理",
@@ -166,7 +166,7 @@
            ]
        },
         "tbfed-pagefooter": {
-            "copyright": "Copyright © zhangjikai.com 2017",
+            "copyright": "Copyright © liboy.com 2017",
             "modify_label": "该文件修订时间：",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
@@ -174,8 +174,8 @@
             "token": "ff100361cdce95dd4c8fb96b4009f7bc"
         },
         "donate": {
-            "wechat": "https://zhangjikai.com/resource/weixin.png",
-            "alipay": "https://zhangjikai.com/resource/alipay.png",
+            "wechat": "https://liboy.com/resource/weixin.png",
+            "alipay": "https://liboy.com/resource/alipay.png",
             "title": "",
             "button": "赏",
             "alipayText": "支付宝打赏",
@@ -186,11 +186,11 @@
             "skipFirstH1": true
         },
         "edit-link": {
-            "base": "https://github.com/zhangjikai/gitbook-use/edit/master",
+            "base": "https://github.com/liboy/gitbook-use/edit/master",
             "label": "Edit This Page"
         },
         "sitemap-general": {
-            "prefix": "http://gitbook.zhangjikai.com"
+            "prefix": "http://gitbook.liboy.com"
         },
         "anchor-navigation-ex": {
             "isRewritePageTitle": false,
@@ -214,11 +214,11 @@
         "versions": {
             "options": [
                 {
-                    "value": "http://gitbook.zhangjikai.com",
+                    "value": "http://gitbook.liboy.com",
                     "text": "v3.2.3"
                 },
                 {
-                    "value": "http://gitbook.zhangjikai.com/v2/",
+                    "value": "http://gitbook.liboy.com/v2/",
                     "text": "v2.6.4"
                 }
             ]
