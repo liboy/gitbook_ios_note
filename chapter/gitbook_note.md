@@ -3,7 +3,13 @@
 ## 安装
 先行安装`Node.js`、`GitBook`、`GitBook Editor`、`Git`版本控制器
 - 环境要求`NodeJS(v4.0.0及以上)`
-
+```
+//查看 GitBook 版本
+$ node -v
+v8.10.0
+$ npm -v
+5.7.1
+```
 - 通过`NPM`安装
 ```bash
 npm install gitbook-cli -g
