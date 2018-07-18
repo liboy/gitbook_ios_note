@@ -62,7 +62,7 @@
     "gitbook": "3.2.3",
     "root": ".",
     "structure": {
-        "readme": "introduction.md"
+        "readme": "README.md"
     },
     "links": {
         "sidebar": {
