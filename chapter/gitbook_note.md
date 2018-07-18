@@ -15,7 +15,7 @@ CLI version: 2.3.2
 GitBook version: 3.2.3
 ```
 
-## gitbook 常用的命令
+## 常用的命令
 
 ```bash
 gitbook init //初始化目录文件
