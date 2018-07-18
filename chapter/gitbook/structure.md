@@ -28,9 +28,6 @@ GitBook 基本的目录结构如下所示
     * [We love feedback](part2/feedback_please.md)
     * [Better tools for authors](part2/better_tools.md)
 ```
-这个配置对应的目录结构如下所示:
-
-![](assets/images/summary1.png)
 
 我们通过使用 标题 或者 水平分割线 标志将 GitBook 分为几个不同的部分
 ```
