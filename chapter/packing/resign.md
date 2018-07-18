@@ -14,7 +14,7 @@ $ codesign -f -s 'iPhone Developer: Thomas Kollbach (7TPNXN7G6K)' Example.app  �
 ```
 列出一些有关 Example.app的签名信息
 ```
-$ codesign -vv -d Example.app 会  
+$ codesign -vv -d Example.app  
 ```
 验证签名是否完好，若无任何输出则说明签名完好
 ```
