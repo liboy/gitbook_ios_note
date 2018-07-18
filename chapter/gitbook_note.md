@@ -8,7 +8,11 @@
 ```bash
 npm install gitbook-cli -g
 ```
-
+```bash
+$ gitbook -V
+CLI version: 2.3.2
+GitBook version: 3.2.3
+```
 ## 运行
 * Clone 代码到本地并运行
 ```bash
