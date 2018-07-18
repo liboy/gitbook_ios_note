@@ -1,5 +1,53 @@
 # book.json配置文件
 
 ```
+{
+    "title": "学习笔记",
+    "description": "对知识点总体整理",
+    "language": "zh-hans",
+    "plugins": [
+        "-lunr",
+        "-search",
+        "-highlight",
+        "-livereload",
+        "search-plus@^0.0.11",
+        "prism@^2.1.0",
+        "prism-themes@^0.0.2",
+        "emphasize@^1.1.0",
+        "katex@^1.1.3",
+        "expandable-chapters-small@^0.1.7",
+        "anchor-navigation-ex@0.1.8",
+        "todo@^0.1.3",
+        "tbfed-pagefooter@^0.0.1",
+        "terminal@^0.3.2",
+        "alerts@^0.2.0"
+    ],
 
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-okaidia.css"
+            ]
+        },
+        "anchor-navigation-ex": {
+            "isRewritePageTitle": false,
+            "tocLevel1Icon": "fa fa-hand-o-right",
+            "tocLevel2Icon": "fa fa-hand-o-right",
+            "tocLevel3Icon": "fa fa-hand-o-right"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © 2017 liboy.",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "terminal": {
+            "copyButtons": true,
+            "fade": false,
+            "style": "flat"
+        }
+    }
+}
 ```
