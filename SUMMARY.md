@@ -37,5 +37,5 @@
 * [批量自动打包](chapter/auto_packaging.md)
 
 ## 其他
-* [GitBook使用笔记](chapter/gitbook_note.md)
+* [GitBook使用笔记](chapter/gitbook/gitbook_note.md)
     *[插件](chapter/gitbook/plug.md)
