@@ -1,16 +1,14 @@
 # GitBook
 
 ## 安装
-## 环境要求
+- 环境要求
+    * NodeJS(v4.0.0及以上)
 
-* NodeJS(v4.0.0及以上)
-
-## 通过NPM安装
-运行下面的命令进行安装
+- 通过NPM安装
 ```bash
 npm install gitbook-cli -g
 ```
-`gitbook-cli`是gitbook的一个命令行工具, 通过它可以在电脑上安装和管理gitbook的多个版本.
+- `gitbook-cli`是gitbook的一个命令行工具, 通过它可以在电脑上安装和管理gitbook的多个版本.
 
 ## 运行
 * Clone 代码到本地并运行
