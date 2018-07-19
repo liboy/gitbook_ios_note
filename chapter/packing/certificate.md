@@ -103,40 +103,6 @@ $ codesign -vv -d Example.app
 $ codesign --verify Example.app  
 ```
 
-### 授权文件（entitlements）
-授权机制决定了哪些系统资源在什么情况下允许被使用，即沙盒的配置列表。
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
-<plist version="1.0">  
-<dict>  
-    <key>application-identifier</key>
-    <string>7TPNXN7G6K.ch.kollba.example</string>
-    <key>aps-environment</key>
-    <string>development</string>
-    <key>com.apple.developer.team-identifier</key> 
-    <string>7TPNXN7G6K</string>
-    <key>com.apple.developer.ubiquity-container-identifiers</key>
-    <array>
-            <string>7TPNXN7G6K.ch.kollba.example</string>
-    </array>
-    <key>com.apple.developer.ubiquity-kvstore-identifier</key>
-    <string>7TPNXN7G6K.ch.kollba.example</string>
-    <key>com.apple.security.application-groups</key>
-    <array>
-            <string>group.ch.kollba.example</string>
-    </array>
-    <key>get-task-allow</key>
-    <true/>
-</dict>  
-</plist>  
-```
-
-- 选择 Xcode 的 `Capabilities` 选项，会自动生成一个 `.entitlements` 文件，作为 `–entitlements` 参数的内容传给 codesign 
-- 授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中。
-- 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
-
 ### 描述文件
 在整个代码签名和沙盒机制中有一个组成部分将`签名`、`授权`和`沙盒`联系了起来，那就是`描述文件 (provisioning profiles)`。
 
@@ -234,7 +200,16 @@ OpenSSL 来处理
 openssl x509 -text -in file.pem
 ```
 - `Entitlements`
-有关前面讲到的授权文件的所有内容都会被保存在这里。
+授权文件。
+
+### 授权文件（entitlements）
+授权机制决定了哪些系统资源在什么情况下允许被使用，即沙盒的配置列表。
+
+- 选择 Xcode 的 `Capabilities` 选项，会自动生成一个 `.entitlements` 文件，作为 `–entitlements` 参数的内容传给 codesign 
+- 授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中。
+- 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
+
+
 
 ### OpenSSL
 是一个安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。
