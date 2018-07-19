@@ -146,7 +146,7 @@ Xcode 配置文件路径：
 ~/Library/MobileDevice/Provisioning Profiles
 ```
 #### 文件格式
-- 描述文件并不是一个普通的plist文件，它是一个根据密码讯息语法 (Cryptographic Message Syntax) 加密的文件。
+- 描述文件并不是一个普通的plist文件，它是一个根据密码讯息语法 (Cryptographic Message Syntax)简称 CMS 加密的文件。
 - 命令行工具 `security` 可以解码这个 CMS 格式，以XML格式查看描述文件的命令：
 ```
 $ security cms -D -i example.mobileprovision
