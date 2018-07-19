@@ -91,7 +91,7 @@ brew install xctool
 - :Objects:0C14C6811E4964FA00F40247:List:2:name
 
 命令：
-```
+```bash
 /usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
 ```
 
