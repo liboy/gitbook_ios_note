@@ -83,4 +83,5 @@ $ ipa distribute:itunesconnect -a me@email.com -p myitunesconnectpassword -i app
 https://blog.csdn.net/skylin19840101/article/details/60583893
 https://objccn.io/issue-17-2/
 http://www.vienta.me/
+http://foggry.com/
 
