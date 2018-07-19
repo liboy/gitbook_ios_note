@@ -31,8 +31,9 @@
 
 Mach是一种操作系统内核。在Mach上，一种可执行的文件格是就是`Mach-O（Mach Object file format）`。iOS是从OS X演变而来，所以同样支持Mach-O格式的可执行文件。
 
-ipa包实际上就是一个`zip`压缩包，解压之后会有一个`Payload`文件夹，其中有个`XXX.app`文件，它里面除了有个各种资源、图片等，还有个和包名相同的文件——这个就是二进制可执行文件。可以用`file`命令查看文件类型：
-```
+`ipa`包实际上就是一个`zip`压缩包，解压之后会有一个`Payload`文件夹，其中有个`XXX.app`文件，它里面除了有个各种资源、图片等，有个和包名相同的文件——就是`二进制可执行文件`。
+`file`命令查看文件类型：
+```bash
 file iXiao
 iXiao: Mach-O universal binary with 2 architectures: [arm_v7:Mach-O executable arm_v7] [arm64]
 iXiao (for architecture armv7):	Mach-O executable arm_v7
