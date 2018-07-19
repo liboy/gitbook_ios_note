@@ -86,10 +86,8 @@ brew install xctool
 ```
 ### PlistBuddy
 它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
-简单介绍PlistBuddy使用
+#### 使用
 - PlistBuddy 使用冒号:来分割每个属性key的名字，例如下图假设需要获取name的值，那么冒号分割key的组成就是
-- :Objects:0C14C6811E4964FA00F40247:List:2:name
-
 命令：
 ```bash
 /usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
