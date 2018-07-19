@@ -40,7 +40,8 @@
 阮一峰的[数字签名是什么](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)很形象的说明了其中的意思。
 
 ## 苹果的证书
-在Mac上的钥匙串访问app是专门用来管理证书的。iOS开发者在申请iOS开发证书时，需要通过keychain生成CSR文件（Certificate Signing Request），提交给苹果的`Apple Worldwide Developer Relations Certification Authority(WWDR)`证书认证中心进行签名，最后从苹果官网下载并安装使用。这个过程中还会产生一个私钥，证书和私钥在keychain中得位置如图：
+在Mac上的`钥匙串访问`是专门用来管理证书的。
+iOS开发者在申请iOS开发证书时，需要通过keychain生成`CSR文件（Certificate Signing Request）`，提交给苹果的`Apple Worldwide Developer Relations Certification Authority(WWDR)`证书认证中心进行签名，最后从苹果官网下载并安装使用。这个过程中还会产生一个私钥，证书和私钥在keychain中得位置如图：
 ![私钥](http://upload-images.jianshu.io/upload_images/1253942-0814c4c37eb06449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 1. iOS系统原本就持有WWDR的公钥，系统首先会对证书内容通过指定的哈希算法计算得到一个信息摘要；
