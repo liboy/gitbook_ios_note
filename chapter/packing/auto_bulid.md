@@ -70,15 +70,13 @@ OS X上几个标识：
 |security |	解码mobileprovision文件、获取可用签名列表
 |codesign |	代码签名（此处值用来检查APP签名）
 
-- 苹果自带的`xcodebuild`命令行工具
-- [xctool](https://github.com/facebook/xctool)
-  1. 相比较xcodebuild输出的log杂乱，xctool更有结构
-  2. xctool有人性化的颜色输出
-  3. facebook声称xctool更快，据说能快2、3倍
-  4. 完全用Ojbective-C实现
 
 ### xctool
 
+1. 相比较xcodebuild输出的log杂乱，xctool更有结构
+2. xctool有人性化的颜色输出
+3. facebook声称xctool更快，据说能快2、3倍
+4. 完全用Ojbective-C实现
 xctool是可以使用[homebrew](http://brew.sh/)安装的，或者下[源码](https://github.com/facebook/xctool)然后运行 `xctool.sh`脚本，homebrew安装命令如下：
 
 ```
