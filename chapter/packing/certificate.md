@@ -183,7 +183,7 @@ $ security cms -D -i example.mobileprovision
 		<key>get-task-allow</key>
 		<true/>
 		<key>application-identifier</key>
-		<string>4PH3U52Z85.com.BaoNaHaoParent.hangxiangschool</string>
+		<string>4PH3U52Z85.com.xxx.xxx</string>
 		<key>com.apple.developer.team-identifier</key>
 		<string>4PH3U52Z85</string>
 		<key>aps-environment</key>
@@ -195,16 +195,9 @@ $ security cms -D -i example.mobileprovision
 	<string>52017_development</string>
 	<key>ProvisionedDevices</key>
 	<array>
-		<string>c825170a0a40c92a36e8f067022bc7db429e56bc</string>
-		<string>17e2f06d16a3a7f016f9e0456714c3d380750858</string>
-		<string>ed29c8eece35a5713e338afd40d6853b69fc07cf</string>
-		<string>3848ba15cbc212fd21cc704e130c92cc08ad6f9c</string>
-		<string>61528ace61bbc6b02d9729d0edd21632633610e5</string>
-		<string>5c7636b8c0f8da517e12b0bb133e500b0755d9d7</string>
-		<string>50a71904f5dc4e957f61b7c24c5032bc720f70cd</string>
-		<string>346fefb6ec3edd83910104a14a1b372344ba5a34</string>
-		<string>a61586f89b20b1c6b6fa1f47917d929fa481112a</string>
-		<string>2645722ddda402c259bda5f1004e0bf3feca515b</string>
+		<string>xxxxx</string>
+		<string>xxxxx</string>
+
 	</array>
 	<key>TeamIdentifier</key>
 	<array>
