@@ -93,13 +93,15 @@ openssl x509 -text -in file.pem
 如果你的openssl是 LibreSSL ，那么请安装新版本的openssl
 
 Mac OSX 安装新版OpenSSL问题
-
+```
 $ openssl version
 LibreSSL 2.2.7
+```
 更新之后
-
+```
 $ openssl version
 OpenSSL 1.0.2j  26 Sep 2016
+```
 如果更新之后还是没有显示正确的openssl，是因为系统存在两个openssl，通过which openssl命令可以查看，当前终端执行的openssl是哪个路径下的。可通过设置系统环境变量PATH来优先执行执行哪个路径下的openssl。
 
 echo 'export PATH="/usr/local/Cellar/openssl/1.0.2o_1/bin/:$PATH"' >> ~/.bash_profile
