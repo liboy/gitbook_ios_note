@@ -1,6 +1,5 @@
-# 自动打包
-![image](http://upload-images.jianshu.io/upload_images/1253942-f218f61e611122fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 
-
+# 自动打包 
+![auto_build](/assets/packing/auto_build.jpg)
 ## 应用构建
 
 ### 构建过程
