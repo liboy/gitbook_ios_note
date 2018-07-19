@@ -80,4 +80,7 @@ $ ipa distribute:itunesconnect -a me@email.com -p myitunesconnectpassword -i app
 18.  [公开密钥加密](https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86)
 19.  [数字签名](https://zh.wikipedia.org/wiki/%E6%95%B8%E4%BD%8D%E7%B0%BD%E7%AB%A0)
 
+https://blog.csdn.net/skylin19840101/article/details/60583893
+https://objccn.io/issue-17-2/
+http://www.vienta.me/
 
