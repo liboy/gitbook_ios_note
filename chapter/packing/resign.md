@@ -67,7 +67,7 @@ Xcode 将从开发者中心下载的全部配置文件都放在了这里：
 #### 文件格式
 描述文件并不是一个普通的plist文件，它是一个根据密码讯息语法 (Cryptographic Message Syntax) 加密的文件。
 
-以XML格式查看该文件的命令：
+以XML格式查看描述文件的命令：
 ```
 $ security cms -D -i example.mobileprovision
 ```
