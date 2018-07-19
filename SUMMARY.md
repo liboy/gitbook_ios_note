@@ -38,7 +38,7 @@
     * [苹果证书](chapter/packing/certificate.md)
     * [自动打包](chapter/packing/auto_bulid.md)
     * [重新签名](chapter/packing/resign.md)
-* [Mac常用命令](mac_command.md)
+* [Mac常用命令](chapter/mac_command.md)
 ## 其他
 
 * [GitBook使用](chapter/gitbook/gitbook_note.md)
