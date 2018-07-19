@@ -34,7 +34,7 @@
 * [安全机制](chapter/security.md)
 * [Cocoapods](chapter/cocoapods.md)
 * [Charles](chapter/charles.md)
-* [批量自动打包](chapter/packing/auto_packaging.md)
+* [批量自动打包](chapter/packing/batch_packaging.md)
     * [苹果证书](chapter/packing/certificate.md)
     * [自动打包](chapter/packing/auto_bulid.md)
     * [重新签名](chapter/packing/resign.md)
