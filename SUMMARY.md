@@ -36,7 +36,7 @@
 * [Charles](chapter/charles.md)
 * [批量自动打包](chapter/packing/auto_packaging.md)
     * [苹果证书](chapter/packing/certificate.md)
-    * [自动打包](chapter/packing/certificate.md)
+    * [自动打包](chapter/packing/auto_bulid.md)
     * [重新签名](chapter/packing/resign.md)
 ## 其他
 
