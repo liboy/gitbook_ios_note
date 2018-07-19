@@ -36,7 +36,7 @@
 ## 苹果的证书
 在Mac上的`钥匙串访问`是专门用来管理证书的。
 
-### 申请iOS开发证书
+### 证书生成
 - 通过keychain生成`CSR文件（Certificate Signing Request）`，
 - 提交给苹果的`Apple Worldwide Developer Relations Certification Authority(WWDR)`证书认证中心进行签名
 - 从苹果官网下载并安装使用。
