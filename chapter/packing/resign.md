@@ -107,10 +107,14 @@ OpenSSL 1.0.2j  26 Sep 2016
 ```
 如果更新之后还是没有显示正确的openssl，是因为系统存在两个openssl，通过which openssl命令可以查看，当前终端执行的openssl是哪个路径下的。可通过设置系统环境变量PATH来优先执行执行哪个路径下的openssl。
 
-ln -s /usr/local/Cellar/openssl/1.0.2j/bin/openssl /usr/local/bin
-
+```
 echo 'export PATH="/usr/local/Cellar/openssl/1.0.2o_1/bin/:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
+```
+或创建软连接
+```
+ln -s /usr/local/Cellar/openssl/1.0.2j/bin/openssl /usr/local/bin
+```
 注意：`/usr/local/Cellar/openssl/1.0.2o_1/bin/` 该路径请按照你实际情况来更改,通常是1.0.2o_1这个文件夹不同！
 
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
