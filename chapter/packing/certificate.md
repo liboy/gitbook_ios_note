@@ -49,6 +49,7 @@
         
 这个过程中还会产生一个私钥，证书和私钥在keychain中位置如图：
 ![私钥](http://upload-images.jianshu.io/upload_images/1253942-0814c4c37eb06449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+>注意：如果你要导出证书，例如为了备份（强烈建议进行），一定要记得展开证书那一条显示出私钥并将两行都选中。
 
 1. iOS系统原本就持有WWDR的公钥，系统首先会对证书内容通过指定的哈希算法计算得到一个信息摘要；
 2. 然后使用WWDR的公钥对证书中包含的数字签名解密，从而得到经过WWDR的私钥加密过的信息摘要；
@@ -63,6 +64,7 @@
 在`objc.io`上面有篇[《Inside Code Signing》](https://www.objc.io/issues/17-security/inside-code-signing/)(中文翻译篇：[代码签名探析](http://objccn.io/issue-17-2/))上详细的讲述了一个已签名应用的组成和一些其他知识
 
 ### 证书和密匙
+
 - 查看系统中能用来对代码签名的证书
 ```
 $security find-identity -v -p codesigning  
