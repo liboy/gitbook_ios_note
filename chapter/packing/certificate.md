@@ -141,7 +141,7 @@ $ codesign --verify Example.app
 在整个代码签名和沙盒机制中有一个组成部分将签名，授权和沙盒联系了起来，那就是描述文件 (provisioning profiles)。
 
 #### OS X中保存目录
-Xcode 将从开发者中心下载的全部配置文件都放在了这里：
+Xcode 配置文件路径：
 ```
 ~/Library/MobileDevice/Provisioning Profiles
 ```
