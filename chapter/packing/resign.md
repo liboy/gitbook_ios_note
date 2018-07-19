@@ -91,23 +91,27 @@ openssl x509 -text -in file.pem
 
 ### OpenSSL
 是一个安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。
-[Mac安装新版OpenSSL问题](https://www.jianshu.com/p/32f068922baf)
 
-如果你的openssl是 LibreSSL ，那么请安装新版本的openssl
+- 使用最新的openssl命令，方便研究SSL协议、数字证书。
+
+如果你的openssl是 `LibreSSL` 查看[Mac安装新版OpenSSL问题](https://www.jianshu.com/p/32f068922baf)
+
 ```
 $ openssl version
 LibreSSL 2.2.7
 ```
-更新之后
+更新后
 ```
 $ openssl version
 OpenSSL 1.0.2j  26 Sep 2016
 ```
 如果更新之后还是没有显示正确的openssl，是因为系统存在两个openssl，通过which openssl命令可以查看，当前终端执行的openssl是哪个路径下的。可通过设置系统环境变量PATH来优先执行执行哪个路径下的openssl。
 
+ln -s /usr/local/Cellar/openssl/1.0.2j/bin/openssl /usr/local/bin
+
 echo 'export PATH="/usr/local/Cellar/openssl/1.0.2o_1/bin/:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
-注意：/usr/local/Cellar/openssl/1.0.2o_1/bin/ 该路径请按照你实际情况来更改,通常是1.0.2o_1这个文件夹不同！
+注意：`/usr/local/Cellar/openssl/1.0.2o_1/bin/` 该路径请按照你实际情况来更改,通常是1.0.2o_1这个文件夹不同！
 
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
