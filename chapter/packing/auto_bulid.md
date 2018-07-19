@@ -62,19 +62,20 @@ OS X上几个标识：
 ## 打包
 
 ### 涉及工具
-工具	作用
-PlistBuddy	读写mobileprovision格式的文件，即可授权文件
-xcodebuild	Xcode Project 构建
-security	解码mobileprovision文件、获取可用签名列表
-codesign	代码签名（此处值用来检查APP签名）
+| 工具 |	作用 |
+| --- | --- |
+|PlistBuddy |	读写mobileprovision格式的文件，即可授权文件
+|xcodebuild |	Xcode Project 构建
+|security |	解码mobileprovision文件、获取可用签名列表
+|codesign |	代码签名（此处值用来检查APP签名）
 简单介绍PlistBuddy使用
-PlistBuddy 使用冒号:来分割每个属性key的名字，例如下图假设需要获取name的值，那么冒号分割key的组成就是
-:Objects:0C14C6811E4964FA00F40247:List:2:name
-1
-2
-完整的命令就是：
+- PlistBuddy 使用冒号:来分割每个属性key的名字，例如下图假设需要获取name的值，那么冒号分割key的组成就是
+- :Objects:0C14C6811E4964FA00F40247:List:2:name
 
+完整的命令就是：
+```
 /usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
+```
 - 苹果自带的`xcodebuild`命令行工具
 - [xctool](https://github.com/facebook/xctool)
   1. 相比较xcodebuild输出的log杂乱，xctool更有结构
