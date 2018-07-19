@@ -79,7 +79,7 @@
 ## 代码签名探析
 在`objc.io`上面有篇[《Inside Code Signing》](https://www.objc.io/issues/17-security/inside-code-signing/)(中文翻译篇：[代码签名探析](http://objccn.io/issue-17-2/))上详细的讲述了一个已签名应用的组成和一些其他知识
 
-### 证书和密匙
+### 签名相关命令
 
 - 查看系统中能用来对代码签名的证书
 ```
