@@ -61,7 +61,7 @@ OS X上几个标识：
 
 - `cafebabe`:就是跨处理器架构的通用格式
 - `feedface`和`feedfacf`则分别是某一处理器架构下的Mach-O格式
-- 脚本的就很常见了，比如#!/bin/bash开头的shell脚本。
+- 脚本的就很常见了，比如`#!/bin/bash`开头的shell脚本。
 
 ### CodeResources文件
 
