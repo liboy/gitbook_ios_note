@@ -199,8 +199,7 @@ OpenSSL 来处理
 ```
 openssl x509 -text -in file.pem
 ```
-- `Entitlements`
-授权文件。
+- `Entitlements`授权文件。
 
 ### 授权文件（entitlements）
 授权机制决定了哪些系统资源在什么情况下允许被使用，即沙盒的配置列表。
