@@ -23,9 +23,22 @@
 
 想象一下平时的打包过程，在Xcode中选择对应的appid,bundleid,还要选择正确的配置文件（provisioning profile），然后点击`run`，我们看到Xcode上面有内容在不断的更新，正如猜想的，更新的内容实际就是app包编译的过程。
 
-这个过程大概经过了：配置（编译器确定当前系统环境）-> 确定标准库和头文件的位置->确定依赖关系 ->头文件预编译(precompilation) -> 预处理(preprocessing) -> 编译(compilation) -> 连接(Linking) -> 打包 ，大致步骤是这些，但其中还有一些过程是没有讲的。
+这个过程大概经过了：
+- 配置（编译器确定当前系统环境）
+- 确定标准库和头文件的位置
+- 确定依赖关系 
+- 头文件预编译(precompilation) 
+- 预处理(preprocessing) 
+- 编译(compilation) 
+- 连接(Linking) 
+- 打包
 
-对于iOS的包来讲，在构建完成之后还会自动调用`codesign`命令进行签名，这个时候我们之前选择的bundleid啊，配置文件啊等等就排上用场了。经过签名后的应用是个相对来讲安全的应用，通过签名确保了包的来源合法，也能确保包的内容是否被修改过（理论知识上篇已讲过）。最后的包的本质实际上是一个`Mach-O`格式的二进制可执行文件（签名的数据就在这个二进制文件中）和一些资源文件。
+构建完成之后还会自动调用`codesign`命令进行签名，
+签名后的应用是个相对来讲安全的应用，通过签名确保了包的来源合法，也能确保包的内容是否被修改过。
+
+包的本质
+- 一个`Mach-O`格式的二进制可执行文件(签名的数据就在这个二进制文件中)
+- 一些资源文件。
 
 ### Mach-O可执行文件
 
@@ -39,7 +52,7 @@ iXiao: Mach-O universal binary with 2 architectures: [arm_v7:Mach-O executable a
 iXiao (for architecture armv7):	Mach-O executable arm_v7
 iXiao (for architecture arm64):	Mach-O 64-bit executable arm64
 ```
-从上面看是支持arm7和arm64两种处理器架构的通用程序包，里面的格式是Mach-O。将可执行文件用Sublime打开，二进制开始部分如下：
+从上面看是支持arm7和arm64两种处理器架构的通用程序包，里面的格式是Mach-O。用Sublime打开部分如下：
 ```
 cafe babe 0000 0002 0000 000c 0000 0009
 0000 4000 0109 2df0 0000 000e 0100 000c
