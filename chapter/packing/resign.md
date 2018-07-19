@@ -95,10 +95,13 @@ openssl x509 -text -in file.pem
 - 使用最新的openssl命令，方便研究SSL协议、数字证书。
 
 如果你的openssl是 `LibreSSL` 查看[Mac安装新版OpenSSL问题](https://www.jianshu.com/p/32f068922baf)
-
+更新前
 ```
 $ openssl version
 LibreSSL 2.2.7
+
+$ which openssl
+/usr/bin/openssl
 ```
 更新后
 ```
