@@ -216,11 +216,11 @@ $ security cms -D -i example.mobileprovision
 - UUID
 每一个配置文件都有它自己的 UUID 。Xcode 会用这个 UUID 来作为标识，记录你在 build settings 中选择了哪一个配置文件。
 
-- ProvisionedDevices
+- `ProvisionedDevices`
 记录所有可用于调试的设备ID。
 
-- DeveloperCertificates
-包含了可以为使用这个配置文件的应用签名的所有证书。所有的证书都是基于 Base64 编码符合 PEM (Privacy Enhanced Mail, RFC 1848) 格式。
+- `DeveloperCertificates`
+包含了可以为使用这个配置文件的应用签名的所有证书。所有的证书都是基于 Base64 编码符合 `PEM (Privacy Enhanced Mail, RFC 1848)` 格式。
 查看一个证书的详细内容
 将编码过的文件内容复制粘贴到一个文件中去，OpenSSL 来处理 
 ```
