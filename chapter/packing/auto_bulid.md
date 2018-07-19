@@ -59,7 +59,7 @@ OS X上几个标识：
 
 更详细的介绍参见[《代码签名探析》](http://objccn.io/issue-17-2/)
 
-## 自动打包
+## 打包
 
 - 苹果自带的`xcodebuild`命令行工具
 - [xctool](https://github.com/facebook/xctool)
