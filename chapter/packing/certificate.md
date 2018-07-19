@@ -152,7 +152,74 @@ Xcode 配置文件路径：
 $ security cms -D -i example.mobileprovision
 ```
 
-#### 文件内容：
+#### 文件内容
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppIDName</key>
+	<string>hangxiangSchool</string>
+	<key>ApplicationIdentifierPrefix</key>
+	<array>
+	<string>4PH3U52Z85</string>
+	</array>
+	<key>CreationDate</key>
+	<date>2018-02-02T03:15:39Z</date>
+	<key>Platform</key>
+	<array>
+		<string>iOS</string>
+	</array>
+	<key>DeveloperCertificates</key>
+	<array>
+		<data>MIIFuTCCBKGgAwIBAgIIR6tbqT0NssMwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3JsZHdpZGUgRGV2ZWxvcGVyIFJlbGF0aW9uczFEMEIGA1UEAww7QXBwbGUgV29ybGR3aWRlIERldmVsb3BlciBSZWxhdGlvbnMgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTgwMjAyMDIzNjI0WhcNMTkwMjAyMDIzNjI0WjCBrDEaMBgGCgmSJomT8ixkAQEMCktYNllLRURFVlYxMjAwBgNVBAMMKWlQaG9uZSBEZXZlbG9wZXI6IFhpYW5nIENoZW4gKEI4NFRHRjRCSjYpMRMwEQYDVQQLDAo0UEgzVTUyWjg1MTgwNgYDVQQKDC9HdWFuZ2RvbmcgaGFuZ3hpYW5nIGN1bHR1cmUgdGVjaG5vbG9neSBjby4gTFRELjELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHhFI9RA68fs98k1Jvdi2ixcvFxftoPemPqYhN2BqEd02IQEoajT9jafPoHpUPYwvBAzI7HKE/dVofVODJXrTmvKdNDns9MFja5HbV0/VbZp006oIF37jhC2ubf2xmVwlGxYDt3p/CAMIokXcp3mbPY4+WT6ZexrqwmIMjlQ9pj2apOsW5llnSzrOsguu/n4S5Ko7Qf4sYw1Er2rb30bCCqqVqpSOyx0Gvzv5D4zAmQdiDFbvhLp1/z6PLbeFJCLTllfJxIPEMWxXQseM0YTczm+aF/g6V8G/glbvUddnWFe7Pvr/HjjiD/cjXnQFL1hC9mxgNt2t5IFNFdzoHtrnpAgMBAAGjggHxMIIB7TA/BggrBgEFBQcBAQQzMDEwLwYIKwYBBQUHMAGGI2h0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDMtd3dkcjAxMB0GA1UdDgQWBBTjpCmBOMQ1sNZ8dcKGzFm6KYroLjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFIgnFwmpthhgi+zruvZHWcVSVKO3MIIBHQYDVR0gBIIBFDCCARAwggEMBgkqhkiG92NkBQEwgf4wgcMGCCsGAQUFBwICMIG2DIGzUmVsaWFuY2Ugb24gdGhpcyBjZXJ0aWZpY2F0ZSBieSBhbnkgcGFydHkgYXNzdW1lcyBhY2NlcHRhbmNlIG9mIHRoZSB0aGVuIGFwcGxpY2FibGUgc3RhbmRhcmQgdGVybXMgYW5kIGNvbmRpdGlvbnMgb2YgdXNlLCBjZXJ0aWZpY2F0ZSBwb2xpY3kgYW5kIGNlcnRpZmljYXRpb24gcHJhY3RpY2Ugc3RhdGVtZW50cy4wNgYIKwYBBQUHAgEWKmh0dHA6Ly93d3cuYXBwbGUuY29tL2NlcnRpZmljYXRlYXV0aG9yaXR5LzAOBgNVHQ8BAf8EBAMCB4AwFgYDVR0lAQH/BAwwCgYIKwYBBQUHAwMwEwYKKoZIhvdjZAYBAgEB/wQCBQAwDQYJKoZIhvcNAQELBQADggEBAFmPS8bdI3ScLN54Zq2eR++XJ4dpnOEV0ohkjryuHeBoBqqKsE0yPoTtgng7vuQR7PmJvcLvK8iGtPoPJFip2FfvDGPt2piLElZ6e0Iuxdfr9+fNwr/CDY35hLCbk+y0W/zHKc4XcAjZbaFRWP3wHa0T1l8XQGylf21c7NjSIxEguI3mTTZbFE5ojXD9QN5w4dwpqT61lDIpywmkGEMr52oaw6znU2cpUazAHKJ9n1vAFrDa0cpPArLl/5DbKBaJNXoNZgQs/t4GCIO9VjkkU9h1sY+7bOCUWDE9wnnsXexC+cSLhqJoBz63xWXx2tnkZq0Mbaf0RQ3WmVkXy2h+Cw8=</data>
+	</array>
+	<key>Entitlements</key>
+	<dict>
+		<key>keychain-access-groups</key>
+		<array>
+			<string>4PH3U52Z85.*</string>		
+		</array>
+		<key>get-task-allow</key>
+		<true/>
+		<key>application-identifier</key>
+		<string>4PH3U52Z85.com.BaoNaHaoParent.hangxiangschool</string>
+		<key>com.apple.developer.team-identifier</key>
+		<string>4PH3U52Z85</string>
+		<key>aps-environment</key>
+		<string>development</string>
+	</dict>
+	<key>ExpirationDate</key>
+	<date>2019-02-02T03:15:39Z</date>
+	<key>Name</key>
+	<string>52017_development</string>
+	<key>ProvisionedDevices</key>
+	<array>
+		<string>c825170a0a40c92a36e8f067022bc7db429e56bc</string>
+		<string>17e2f06d16a3a7f016f9e0456714c3d380750858</string>
+		<string>ed29c8eece35a5713e338afd40d6853b69fc07cf</string>
+		<string>3848ba15cbc212fd21cc704e130c92cc08ad6f9c</string>
+		<string>61528ace61bbc6b02d9729d0edd21632633610e5</string>
+		<string>5c7636b8c0f8da517e12b0bb133e500b0755d9d7</string>
+		<string>50a71904f5dc4e957f61b7c24c5032bc720f70cd</string>
+		<string>346fefb6ec3edd83910104a14a1b372344ba5a34</string>
+		<string>a61586f89b20b1c6b6fa1f47917d929fa481112a</string>
+		<string>2645722ddda402c259bda5f1004e0bf3feca515b</string>
+	</array>
+	<key>TeamIdentifier</key>
+	<array>
+		<string>4PH3U52Z85</string>
+	</array>
+	<key>TeamName</key>
+	<string>Guangdong hangxiang culture technology co. LTD.</string>
+	<key>TimeToLive</key>
+	<integer>365</integer>
+	<key>UUID</key>
+	<string>0c245721-2417-40a5-bdb8-12c4a17c44b6</string>
+	<key>Version</key>
+	<integer>1</integer>
+</dict>
+```
 - UUID
 每一个配置文件都有它自己的 UUID 。Xcode 会用这个 UUID 来作为标识，记录你在 build settings 中选择了哪一个配置文件。
 
