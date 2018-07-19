@@ -138,7 +138,7 @@ $ codesign --verify Example.app
 - 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
 
 ### 描述文件
-在整个代码签名和沙盒机制中有一个组成部分将签名、授权和沙盒联系了起来，那就是描述文件 (provisioning profiles)。
+在整个代码签名和沙盒机制中有一个组成部分将`签名`、`授权`和`沙盒`联系了起来，那就是`描述文件 (provisioning profiles)`。
 
 #### OS X中保存目录
 Xcode 配置文件路径：
