@@ -137,8 +137,8 @@ $ codesign --verify Example.app
 - 授权信息必须都在开发者中心的 App ID 中启用，并且包含在配置文件中。
 - 在构建应用时可以在 `Xcode build setting` 中的 `code signing entitlements` 中设置。
 
-### 描述文件（provisioning file）
-在整个代码签名和沙盒机制中有一个组成部分将签名，授权和沙盒联系了起来，那就是描述文件 (provisioning profiles)。
+### 描述文件
+在整个代码签名和沙盒机制中有一个组成部分将签名、授权和沙盒联系了起来，那就是描述文件 (provisioning profiles)。
 
 #### OS X中保存目录
 Xcode 配置文件路径：
@@ -146,9 +146,8 @@ Xcode 配置文件路径：
 ~/Library/MobileDevice/Provisioning Profiles
 ```
 #### 文件格式
-描述文件并不是一个普通的plist文件，它是一个根据密码讯息语法 (Cryptographic Message Syntax) 加密的文件。
-
-以XML格式查看描述文件的命令：
+- 描述文件并不是一个普通的plist文件，它是一个根据密码讯息语法 (Cryptographic Message Syntax) 加密的文件。
+- 命令行工具 `security` 可以解码这个 CMS 格式，以XML格式查看描述文件的命令：
 ```
 $ security cms -D -i example.mobileprovision
 ```
