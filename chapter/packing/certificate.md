@@ -33,7 +33,8 @@
 
 阮一峰的[数字签名是什么](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)很形象的说明了其中的意思。
 
-## 苹果的证书
+
+## 证书和密匙
 在Mac上的`钥匙串访问`是专门用来管理证书的。
 
 ### 证书生成
