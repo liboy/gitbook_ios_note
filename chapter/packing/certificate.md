@@ -222,7 +222,8 @@ $ security cms -D -i example.mobileprovision
 - `DeveloperCertificates`
 	- 包含了可以为使用这个配置文件的应用签名的所有证书。
 	- 证书都是基于 Base64 编码符合 `PEM (Privacy Enhanced Mail, RFC 1848)` 格式。
-查看一个证书的详细内容，将编码过的文件内容复制粘贴到一个文件中去
+
+	- 查看一个证书的详细内容，将编码过的文件内容复制粘贴到一个文件中去
 ```
 -----BEGIN CERTIFICATE-----
 MIIFuTCCBKGgAwIBA....
@@ -232,7 +233,7 @@ OpenSSL 来处理
 ```
 openssl x509 -text -in file.pem
 ```
-- Entitlements
+- `Entitlements`
 有关前面讲到的配置文件的所有内容都会被保存在这里。
 
 ### OpenSSL
