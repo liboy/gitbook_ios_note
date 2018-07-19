@@ -1,5 +1,7 @@
 # 自动打包 
+
 ![auto_build](/assets/packing/auto_build.jpg)
+
 ## 应用构建
 
 ### 构建过程
