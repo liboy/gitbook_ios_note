@@ -29,7 +29,7 @@
 
 ### Mach-O可执行文件
 
-Mach是一种操作系统内核。它的大致历史是：Mach内核被NeXT公司的NeXTSTEP操作系统使用，NeXT是乔布斯苹果被赶出苹果后创建的公司。1996年，乔布斯将NeXTSTEP带回苹果，成为了OS X的内核基础。在Mach上，一种可执行的文件格是就是Mach-O（Mach Object file format）。iOS是从OS X演变而来，所以同样支持Mach-O格式的可执行文件。
+Mach是一种操作系统内核。在Mach上，一种可执行的文件格是就是`Mach-O（Mach Object file format）`。iOS是从OS X演变而来，所以同样支持Mach-O格式的可执行文件。
 
 ipa包实际上就是一个`zip`压缩包，解压之后会有一个`Payload`文件夹，其中有个`XXX.app`文件，它里面除了有个各种资源、图片等，还有个和包名相同的文件——这个就是二进制可执行文件。可以用`file`命令查看文件类型：
 ```
