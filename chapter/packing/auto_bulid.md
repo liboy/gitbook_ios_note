@@ -69,14 +69,7 @@ OS X上几个标识：
 |xcodebuild |	Xcode Project 构建
 |security |	解码mobileprovision文件、获取可用签名列表
 |codesign |	代码签名（此处值用来检查APP签名）
-简单介绍PlistBuddy使用
-- PlistBuddy 使用冒号:来分割每个属性key的名字，例如下图假设需要获取name的值，那么冒号分割key的组成就是
-- :Objects:0C14C6811E4964FA00F40247:List:2:name
 
-完整的命令就是：
-```
-/usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
-```
 - 苹果自带的`xcodebuild`命令行工具
 - [xctool](https://github.com/facebook/xctool)
   1. 相比较xcodebuild输出的log杂乱，xctool更有结构
@@ -92,6 +85,14 @@ xctool是可以使用[homebrew](http://brew.sh/)安装的，或者下[源码](ht
 brew install xctool
 ```
 ### PlistBuddy
-脚本的开头有`PlistBuddy`命令，它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
+它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
+简单介绍PlistBuddy使用
+- PlistBuddy 使用冒号:来分割每个属性key的名字，例如下图假设需要获取name的值，那么冒号分割key的组成就是
+- :Objects:0C14C6811E4964FA00F40247:List:2:name
+
+命令：
+```
+/usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
+```
 
 
