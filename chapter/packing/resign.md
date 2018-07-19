@@ -89,6 +89,23 @@ openssl x509 -text -in file.pem
 - Entitlements
 有关前面讲到的配置文件的所有内容都会被保存在这里。
 
+## OpenSSL
+如果你的openssl是 LibreSSL ，那么请安装新版本的openssl
+
+Mac OSX 安装新版OpenSSL问题
+
+bluemoon007deiMac:SVGManager itx$ openssl version
+LibreSSL 2.2.7
+更新之后
+
+bluemoon007deiMac:~ itx$ openssl version
+OpenSSL 1.0.2o  27 Mar 2018
+如果更新之后还是没有显示正确的openssl，是因为系统存在两个openssl，通过which openssl命令可以查看，当前终端执行的openssl是哪个路径下的。可通过设置系统环境变量PATH来优先执行执行哪个路径下的openssl。
+
+echo 'export PATH="/usr/local/Cellar/openssl/1.0.2o_1/bin/:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+注意：/usr/local/Cellar/openssl/1.0.2o_1/bin/ 该路径请按照你实际情况来更改,通常是1.0.2o_1这个文件夹不同！
+
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
 ![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
