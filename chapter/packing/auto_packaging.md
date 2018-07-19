@@ -31,12 +31,17 @@
 
 Mach是一种操作系统内核。它的大致历史是：Mach内核被NeXT公司的NeXTSTEP操作系统使用，NeXT是乔布斯苹果被赶出苹果后创建的公司。1996年，乔布斯将NeXTSTEP带回苹果，成为了OS X的内核基础。在Mach上，一种可执行的文件格是就是Mach-O（Mach Object file format）。iOS是从OS X演变而来，所以同样支持Mach-O格式的可执行文件。
 
-ipa包实际上就是一个zip压缩包，解压之后会有一个`Payload`文件夹，其中有个`XXX.app`这样的`.app`文件，它里面除了有个各种资源、图片等，还有个和包名相同的文件——这个就是二进制可执行文件。可以用`file`命令查看文件类型：
+ipa包实际上就是一个`zip`压缩包，解压之后会有一个`Payload`文件夹，其中有个`XXX.app`文件，它里面除了有个各种资源、图片等，还有个和包名相同的文件——这个就是二进制可执行文件。可以用`file`命令查看文件类型：
 ![image.png](https://upload-images.jianshu.io/upload_images/1253942-843929af7dad9f64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 从上面看是支持arm7和arm64两种处理器架构的通用程序包，里面的格式是Mach-O。将可执行文件用Sublime打开，二进制开始部分如下：
-
-[![wechat file](http://upload-images.jianshu.io/upload_images/1253942-03ba2dfe23a58f91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_6.png) 
+```
+cafe babe 0000 0002 0000 000c 0000 0009
+0000 4000 0109 2df0 0000 000e 0100 000c
+0000 0000 0109 8000 012a 4970 0000 000e
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+``` 
 
 开头的4个字节是cafebabe，这被称为“魔数”，反映文件的类型。查了下相关文章，OS X上还有如下几个标识：
 
