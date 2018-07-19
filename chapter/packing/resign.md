@@ -91,10 +91,9 @@ openssl x509 -text -in file.pem
 
 ### OpenSSL
 是一个安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。
+[Mac安装新版OpenSSL问题](https://www.jianshu.com/p/32f068922baf)
 
 如果你的openssl是 LibreSSL ，那么请安装新版本的openssl
-
-[Mac安装新版OpenSSL问题](https://www.jianshu.com/p/32f068922baf)
 ```
 $ openssl version
 LibreSSL 2.2.7
