@@ -89,7 +89,7 @@ openssl x509 -text -in file.pem
 - Entitlements
 有关前面讲到的配置文件的所有内容都会被保存在这里。
 
-## OpenSSL
+### OpenSSL
 如果你的openssl是 LibreSSL ，那么请安装新版本的openssl
 
 Mac OSX 安装新版OpenSSL问题
