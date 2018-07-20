@@ -91,6 +91,6 @@ brew install xctool
 /usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
 ```
 
-### 编译
+## 编译
 因为 PackageApplication 已经弃用，改用 xcodebuild -exportArchive ，所以 编译 也改用 archive，xcodebuild archive
 
