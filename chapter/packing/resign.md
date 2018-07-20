@@ -66,6 +66,13 @@ PS：前三步可以手动操作，点击ipa，右键打开方式，归档实用
 4、把embedded.mobileprovision文件拖到窗口上，回车
 5、好了，resign脚本会自动更改bundel id，签名并重新打包。
 
+
+security cms -D -i "embedded.mobileprovision" > t_entitlements_full.plist
+/usr/libexec/PlistBuddy -x -c 'Print:Entitlements' t_entitlements_full.plist > entitlements.plist
+Entitlements=entitlements.plist
+
+codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
+
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
 ![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
