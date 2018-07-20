@@ -1,5 +1,7 @@
 ## 重新签名
 
+https://www.jianshu.com/p/6fe9eb030922
+
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
 ![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
