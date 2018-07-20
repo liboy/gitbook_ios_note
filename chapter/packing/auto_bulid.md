@@ -94,3 +94,15 @@ brew install xctool
 ## 编译
 因为 PackageApplication 已经弃用，改用 xcodebuild -exportArchive ，所以 编译 也改用 archive，xcodebuild archive
 
+打开终端，cd到你的工程位置，然后先试一下xcodebuild命令，
+```
+//xcrun
+$ xcrun --version
+xcrun version 35.
+
+//xcodebuild
+$ xcodebuild -version
+Xcode 9.1
+Build version 9B55
+
+```
