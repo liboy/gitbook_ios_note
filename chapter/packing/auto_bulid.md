@@ -92,7 +92,7 @@ brew install xctool
 ```
 
 ## 编译
-
+xcode的project的架构图
 ![](/assets/packing/auto_build2.png)
 
 因为 PackageApplication 已经弃用，改用 xcodebuild -exportArchive ，所以 编译 也改用 archive，xcodebuild archive
