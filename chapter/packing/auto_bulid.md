@@ -109,3 +109,8 @@ Xcode 9.1
 Build version 9B55
 
 ```
+```
+- xcodebuild -showsdks          -------   列出 Xcode 所有可用的 SDKs
+      - xcodebuild -list              -------   查看 project 中的 targets 和 configurations，或者 workspace 中 schemes
+      - xcodebuild -showBuildSettings -------   查看当前工程 build setting 的配置参数
+```
