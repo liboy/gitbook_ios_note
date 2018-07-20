@@ -1,14 +1,8 @@
 ## 重新签名
 
-https://www.jianshu.com/p/6fe9eb030922
+
 1.工具iReSign
-
-
-
-界面如下
-
-
-
+https://www.jianshu.com/p/6fe9eb030922
 1.就是ipa的路径，点击浏览就能添加
 
 2.就是新的配置文件的路径
