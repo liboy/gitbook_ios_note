@@ -1,7 +1,5 @@
 # GitBook 插件
   
-
-
 ## Search Plus
 支持中文搜索, 需要将默认的 `search` 和 `lunr` 插件去掉。  
 
