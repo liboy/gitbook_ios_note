@@ -16,7 +16,7 @@ unzip youApp.ipa
 ```
 2.删除解压后包内的_CodeSignature文件夹，解除之前的签名
 ```bash
-rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
+rm -rf Payload/YourApp.app/_CodeSignature
 ```
 3.替换解压包内的配置文件 
 ```bash
