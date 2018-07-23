@@ -63,7 +63,8 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 ![](/assets/packing1.png)
 
 
-实例的`Resign-ipa`文件夹目录结构如下图：
+### 实例的[`Resign-ipa`](https://github.com/Vienta/BlogArticle/tree/master/package)
+文件夹目录结构如下图：
 [![image](http://upload-images.jianshu.io/upload_images/1253942-565b2e08ff4e0d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_10.png) 
 
 - `templates`文件夹中存放的是和授权文件相关的配置文件，
