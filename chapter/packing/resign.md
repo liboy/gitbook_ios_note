@@ -22,7 +22,7 @@ https://www.jianshu.com/p/6fe9eb030922
 命令行：   unzip youApp.ipa  （youApp.ipa就是你的ipa路径，拖进去即可）
 
 2.删除解压后包内的_CodeSignature文件夹，解除之前的签名
-```
+```bash
 rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
 ```
 3.替换解压包内的配置文件 
