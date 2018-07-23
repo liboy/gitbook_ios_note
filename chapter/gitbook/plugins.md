@@ -260,36 +260,7 @@ Google 统计
 ```json
 "plugins": [ "local-video" ]
 ```
-使用示例：为了使视频可以自适应，我们指定视频的`width`为100%，并设置宽高比为`16:9`，如下面所示
-```
-{% raw %}
-<video id="my-video" class="video-js" controls preload="auto" width="100%"
-poster="https://zhangjikai.com/resource/poster.jpg" data-setup='{"aspectRatio":"16:9"}'>
-  <source src="https://zhangjikai.com/resource/demo.mp4" type='video/mp4' >
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a web browser that
-    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-  </p>
-</video>
-{% endraw %}
-```
-另外我们还要再配置下css，即在website.css中加入
-```css
-.video-js {
-    width:100%;
-    height: 100%;
-}
-```
-<br />
-{% raw %}
-<video id="my-video" class="video-js" controls preload="auto" width="100%" poster="https://zhangjikai.com/resource/poster.jpg" data-setup='{"aspectRatio":"16:9"}'>
-  <source src="http://zhangjikai.com/resource/demo.mp4" type='video/mp4' >
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a web browser that
-    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-  </p>
-</video>
-{% endraw %}
+
 
 ## Simple-page-toc
 自动生成本页的目录结构。另外 GitBook 在处理重复的标题时有些问题，所以尽量不适用重复的标题。
@@ -306,8 +277,6 @@ poster="https://zhangjikai.com/resource/poster.jpg" data-setup='{"aspectRatio":"
         }
     }
 }
-```
-使用方法: 在需要生成目录的地方加上 &lt;!-- toc --&gt;
 
 ## Anchors
 添加 Github 风格的锚点样式
@@ -409,9 +378,6 @@ input[type=checkbox]{
 ```json
 "plugins": ["todo"]
 ```
-使用示例：
-- [ ] write some articles
-- [x] drink a cup of tea
 
 ## Terminal
 模拟终端显示，主要用于显示命令以及多行输出，不过写起来有些麻烦。
@@ -457,24 +423,6 @@ What about an error message?
 **[error [ERROR] This is not the error you are looking for]
 ```</pre>
 
-效果如下所示：
-```
-**[terminal]
-**[prompt foo@joe]**[path ~]**[delimiter  $ ]**[command ./myscript]
-Normal output line. Nothing special here...
-But...
-You can add some colors. What about a warning message?
-**[warning [WARNING] The color depends on the theme. Could look normal too]
-What about an error message?
-**[error [ERROR] This is not the error you are looking for]
-```
-
-terminal 支持下面 5 种样式，如果需要更换样式，在 pluginsConfig 里配置即可。
-* black: Just that good old black terminal everybody loves.
-* classic: Looking for green color font over a black background? This is for you.
-* flat: Oh, flat colors. I love flat colors. Everything looks modern with them.
-* ubuntu: Admit it or not, but Ubuntu have a good looking terminal.
-* white: Make your terminal to blend in with your GitBook.
 
 ## Copy-code-button
 为代码块添加复制的按钮。
