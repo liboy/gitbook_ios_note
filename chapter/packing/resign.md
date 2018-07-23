@@ -36,9 +36,9 @@ MyApp.app  MyApp指的是解压payload内的包名，ipa名称可以改动，这
 embedded.mobileprovision旧的配置文件
 
 4.签名 codesign -f -s “证书名字” 目标文件
-
-命令行：  codesign -f -s "iPhone Developer: shize zhong (EMDFFQCRZQ)" /Users/hfios/Desktop/Payload/YouApp.app
-
+```bash
+codesign -f -s "iPhone Developer: shize zhong (EMDFFQCRZQ)" /Users/hfios/Desktop/Payload/YouApp.app
+```
 MyApp指的是解压payload内的包名
 
 成功后的提示如下
@@ -46,9 +46,9 @@ MyApp指的是解压payload内的包名
 /Users/hfios/Payload/YouApp.app: replacing existing signature
 
 5.压缩成ipa
-
-命令行：  zip -r new.ipa Payload
-
+```
+zip -r new.ipa Payload
+```
 完成后查找new.ipa就是新的ipa
 
 PS：前三步可以手动操作，点击ipa，右键打开方式，归档实用工具 。 然后会有Payload文件夹，点开，里面的文件单机右键，显示包内容。删除里面的配置文件和签名文件，并把新的配置文件拖进去，保存。
