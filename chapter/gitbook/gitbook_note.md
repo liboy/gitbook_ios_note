@@ -49,6 +49,30 @@ gitbook serve
 ```
 * 在浏览器中打开 `http://localhost:4000/` 进行访问
 
+## 输出 PDF 文件
+### 下载 Calibre
+生成 PDF 文件依赖于 ebook-convert，需要安装 Calibre;
+
+配置 Calibre 环境变量
+如何配置环境变量参考[这里](http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/)，在 .bash_profile 文件加入：
+```
+export PATH=/Applications/calibre.app/Contents/MacOS:$PATH
+```
+更新刚配置的环境变量：
+```
+$ source .bash_profile
+```
+查看所有的配置路径：
+```
+$ echo $PATH
+```
+输出 PDF 文件
+```
+$ gitbook pdf
+```
+将在根目录下生成了 book.pdf 文件
+
+
 ## GitBook 资源
 
 * [GitBook主页](https://www.gitbook.com/)
