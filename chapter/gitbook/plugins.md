@@ -176,7 +176,7 @@ type 可以是 `c3` 或者 `highcharts`, 默认是 `c3`.
 ],
 "pluginsConfig": {
     "tbfed-pagefooter": {
-        "copyright":"Copyright &copy zhangjikai.com 2017",
+        "copyright":"Copyright &copy liboy.com 2017",
         "modify_label": "该文件修订时间：",
         "modify_format": "YYYY-MM-DD HH:mm:ss"
     }
@@ -338,7 +338,7 @@ Google 统计
     "plugins": ["sitemap-general"],
     "pluginsConfig": {
         "sitemap-general": {
-            "prefix": "http://gitbook.zhangjikai.com"
+            "prefix": "http://gitbook.liboy.com"
         }
     }
 }
