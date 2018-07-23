@@ -470,27 +470,7 @@ Success styling
 >
 > Use this for success messages.
 ```
-效果如下所示：
 
-Info styling
-> **[info] For info**
->
-> Use this for infomation messages.
-
-Warning styling
-> **[warning] For warning**
->
-> Use this for warning messages.
-
-Danger styling
-> **[danger] For danger**
->
-> Use this for danger messages.
-
-Success styling
-> **[success] For info**
->
-> Use this for success messages.
 
 ## Include-csv
 展示 csv 文件。
@@ -535,24 +515,6 @@ Success styling
     "plugins": ["klipse"]
 }
 ```
-
-klipse 目前支持下面的语言：
-* javascript: evaluation is done with the javascript function eval and pretty printing of the result is done with pretty-format
-* clojure[script]: evaluation is done with Self-Hosted Clojurescript
-* ruby: evaluation is done with Opal
-* C++: evaluation is done with JSCPP
-* python: evaluation is done with Skulpt
-* scheme: evaluation is done with BiwasScheme
-* PHP: evaluation is done with Uniter
-* BrainFuck
-* JSX
-* EcmaScript2017
-* Google Charts: See Interactive Business Report with Google Charts.
-
-下面是一个使用示例：
-<pre><code>```eval-python
-print [x + 1 for x in range(10)]
-```</code></pre>
 
 
 
