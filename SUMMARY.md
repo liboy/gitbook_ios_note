@@ -38,6 +38,8 @@
     * [苹果证书](chapter/packing/certificate.md)
     * [自动打包](chapter/packing/auto_bulid.md)
     * [重新签名](chapter/packing/resign.md)
+    * [实例分析](chapter/packing/example.md)
+
 * [Xcode使用](chapter/xcode/xocde_use.md)
     * [xcconfig文件配置](chapter/xcode/xcconfig.md)
 ## 其他
