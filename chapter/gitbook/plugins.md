@@ -448,29 +448,6 @@ What about an error message?
     "plugins": ["alerts"]
 }
 ```
-下面是使用示例：
-```
-Info styling
-> **[info] For info**
->
-> Use this for infomation messages.
-
-Warning styling
-> **[warning] For warning**
->
-> Use this for warning messages.
-
-Danger styling
-> **[danger] For danger**
->
-> Use this for danger messages.
-
-Success styling
-> **[success] For info**
->
-> Use this for success messages.
-```
-
 
 ## Include-csv
 展示 csv 文件。
