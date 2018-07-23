@@ -34,7 +34,7 @@ codesign -f -s "iPhone Developer: shize zhong (EMDFFQCRZQ)" /Users/hfios/Desktop
 zip -r new.ipa Payload
 ```
 
-### sign脚本
+### 3. sign脚本
 
 安装好brew，先用brew安装ruby，然后用gem安装sigh。（brew去网上搜一下）
 ```bash
