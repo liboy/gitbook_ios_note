@@ -29,31 +29,18 @@ rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解�
 ```bash
 cp ~/Downloads/AdHoc.mobileprovision Payload/YouApp.app/embedded.mobileprovision
 ```
-Downloads/AdHoc.mobileprovision   新配置文件路径（这里在Downloads放，根据个人位置改动）
-
-MyApp.app  MyApp指的是解压payload内的包名，ipa名称可以改动，这里并不一定就是ipa的名字
-
-embedded.mobileprovision旧的配置文件
 
 4.签名 codesign -f -s “证书名字” 目标文件
 ```bash
 codesign -f -s "iPhone Developer: shize zhong (EMDFFQCRZQ)" /Users/hfios/Desktop/Payload/YouApp.app
 ```
-MyApp指的是解压payload内的包名
-
-成功后的提示如下
-
-/Users/hfios/Payload/YouApp.app: replacing existing signature
 
 5.压缩成ipa
 ```
 zip -r new.ipa Payload
 ```
-完成后查找new.ipa就是新的ipa
 
-PS：前三步可以手动操作，点击ipa，右键打开方式，归档实用工具 。 然后会有Payload文件夹，点开，里面的文件单机右键，显示包内容。删除里面的配置文件和签名文件，并把新的配置文件拖进去，保存。
-
-3.可用sign脚本（网上爬的，这里没做尝试，看着可行）
+### sign脚本
 
 安装好brew，先用brew安装ruby，然后用gem安装sigh。（brew去网上搜一下）
 
