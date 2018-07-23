@@ -56,7 +56,7 @@ Entitlements=entitlements.plist
 codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
 ```
 
-## [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
+## 实战
 设计思路如下图：
 ![image](http://upload-images.jianshu.io/upload_images/1253942-64d44600afabaeb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
