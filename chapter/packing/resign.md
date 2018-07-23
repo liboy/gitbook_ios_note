@@ -1,7 +1,7 @@
 ## 重新签名
 
 
-1.工具iReSign
+### 工具iReSign
 https://www.jianshu.com/p/6fe9eb030922
 1.就是ipa的路径，点击浏览就能添加
 
