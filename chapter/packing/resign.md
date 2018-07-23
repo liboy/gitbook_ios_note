@@ -58,6 +58,8 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 
 ## 实战
 
+https://github.com/yang152412/AutoArchive
+
 设计思路如下图：
 
 ![](/assets/packing/resign2.png)
