@@ -26,7 +26,7 @@ https://www.jianshu.com/p/6fe9eb030922
 rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
 ```
 3.替换解压包内的配置文件 
-```
+```bash
 cp ~/Downloads/AdHoc.mobileprovision Payload/YouApp.app/embedded.mobileprovision
 ```
 Downloads/AdHoc.mobileprovision   新配置文件路径（这里在Downloads放，根据个人位置改动）
