@@ -10,7 +10,7 @@ https://www.jianshu.com/p/6fe9eb030922
 
 ### 终端命令行
 
-1.解压ipa包（这里用zz.ipa作为旧的ipa）
+1.解压ipa包
 ```
 unzip youApp.ipa
 ```
