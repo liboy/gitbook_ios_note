@@ -22,13 +22,13 @@ https://www.jianshu.com/p/6fe9eb030922
 命令行：   unzip youApp.ipa  （youApp.ipa就是你的ipa路径，拖进去即可）
 
 2.删除解压后包内的_CodeSignature文件夹，解除之前的签名
-
-命令行：  rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
-
+```
+rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
+```
 3.替换解压包内的配置文件 
-
-命令行：  cp ~/Downloads/AdHoc.mobileprovision Payload/YouApp.app/embedded.mobileprovision
-
+```
+cp ~/Downloads/AdHoc.mobileprovision Payload/YouApp.app/embedded.mobileprovision
+```
 Downloads/AdHoc.mobileprovision   新配置文件路径（这里在Downloads放，根据个人位置改动）
 
 MyApp.app  MyApp指的是解压payload内的包名，ipa名称可以改动，这里并不一定就是ipa的名字
