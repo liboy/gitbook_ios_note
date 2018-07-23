@@ -19,7 +19,7 @@ https://www.jianshu.com/p/6fe9eb030922
 
 1.解压ipa包（这里用zz.ipa作为旧的ipa）
 ```
-unzip youApp.ipa  （youApp.ipa就是你的ipa路径，拖进去即可）
+unzip youApp.ipa
 ```
 2.删除解压后包内的_CodeSignature文件夹，解除之前的签名
 ```bash
