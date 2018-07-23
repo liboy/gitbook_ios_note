@@ -47,5 +47,4 @@
     * [配置](chapter/gitbook/settings.md)
     * [插件](chapter/gitbook/plugins.md)
     * [bookjson](chapter/gitbook/bookjson.md)
-
-* [编程技术书单]()
+* [编程技术书单](chapter/booklist.md)
