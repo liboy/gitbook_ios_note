@@ -82,6 +82,27 @@ xctool是可以使用[homebrew](http://brew.sh/)安装的，或者下[源码](ht
 ```
 brew install xctool
 ```
+
+### altool
+- altool提交到App Store使用
+- altool使用官方文档第38页
+- altool 这个工具实际上是ApplicationLoader，打开Xcode-左上角Xcode-Open Developer Tool-Application Loader
+
+altool的路径是：
+```
+/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool
+```
+使用时如报如下错误
+```
+altool[] *** Error: 
+Exception while launching iTunesTransporter: Transporter not found at path: /usr/local/itms/bin/iTMSTransporter. 
+You should reinstall the application.
+```
+建立软链
+```
+ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/itms /usr/local/itms
+```
+
 ### PlistBuddy
 它是Mac下一个用来读写plist文件的工具，在/usr/libexec/下。
 #### 使用
