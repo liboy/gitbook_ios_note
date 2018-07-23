@@ -66,6 +66,10 @@ $ source .bash_profile
 ```
 $ echo $PATH
 ```
+或
+```
+sudo ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin
+```
 ### 输出 PDF 文件
 ```
 $ gitbook pdf
