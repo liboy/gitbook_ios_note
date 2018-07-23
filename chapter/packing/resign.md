@@ -60,8 +60,8 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 
 设计思路如下图：
 
-![](/assets/resign2.png)
-![](/assets/resign1.png)
+![](/assets/packing/resign2.png)
+![](/assets/packing/resign1.png)
 
 
 ### 实例的[`Resign-ipa`](https://github.com/Vienta/BlogArticle/tree/master/package)
