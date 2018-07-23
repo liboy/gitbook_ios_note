@@ -112,6 +112,32 @@ ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Cont
 /usr/libexec/PlistBuddy -c 'Print :Objects:0C14C6811E4964FA00F40247:List:2:name' $plistFile
 ```
 
+## 概念的区别
+Workspace、Project、Scheme、Target的区别。
+
+下面是官方文档：
+
+https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Targets.html#//apple_ref/doc/uid/TP40009328-CH4-SW1
+
+下面从上往下大概说下，具体看文档比较好：
+
+Workspace
+Workspace是最大的集合，可以包含多个Project，可以管理不同的Project之间的关系。Workspace是以xcworkspace的文件形式存在的。（这点和Project一致）。Workspace的存在是为了解决原来仅有Project的时候不同的Project之间的引用和调用困难的问题。同时，一个Workspace的Project共用一个编译路径。比如使用CocoaPod、或者使用其他开发库/框架。
+
+Project
+Project是一个仓库，包含编译一个或多个product所需的文件、资源和信息，保持和聚合这些元素间的关系。（每个Target能指定自己的Build Settings来覆盖Project的）
+
+Source code, including header files and implementation files
+Libraries and frameworks, internal and external
+Resource files
+Image files
+Interface Builder (nib) files
+Scheme
+Scheme包含了一些要构建的Scheme，一些构建时用到的设置，一些要运行的测试。同时只能有一个Scheme是有效的。
+
+Target
+Target是对应了具体一个想要构建的Product,包含了一些构建这个Product所需的配置和文件（build settings和build phases）。一个Project可以包含多个Target。
+
 ## 编译
 xcode的project的架构图
 ![](/assets/packing/auto_build2.png)
