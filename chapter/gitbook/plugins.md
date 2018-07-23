@@ -434,9 +434,6 @@ What about an error message?
     "plugins": ["copy-code-button"]
 }
 ```
-效果如下图所示：
-
-![](assets/images/copy-code-button.png)
 
 ## Alerts
 添加不同 alerts 样式的 blockquotes，目前包含 info, warning, danger 和 success 四种样式。
