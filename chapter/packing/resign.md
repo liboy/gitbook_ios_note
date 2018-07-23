@@ -18,9 +18,9 @@ https://www.jianshu.com/p/6fe9eb030922
 2.终端命令行，相对简单，需要记忆，一下操作都是在终端进行。
 
 1.解压ipa包（这里用zz.ipa作为旧的ipa）
-
-命令行：   unzip youApp.ipa  （youApp.ipa就是你的ipa路径，拖进去即可）
-
+```
+unzip youApp.ipa  （youApp.ipa就是你的ipa路径，拖进去即可）
+```
 2.删除解压后包内的_CodeSignature文件夹，解除之前的签名
 ```bash
 rm -rf Payload/YourApp.app/_CodeSignature （如果报错，Payload前加上解压的路径即可。MyApp指的是解压payload内的包名
