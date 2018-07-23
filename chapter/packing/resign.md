@@ -56,6 +56,7 @@ PS：前三步可以手动操作，点击ipa，右键打开方式，归档实用
 3.可用sign脚本（网上爬的，这里没做尝试，看着可行）
 
 安装好brew，先用brew安装ruby，然后用gem安装sigh。（brew去网上搜一下）
+
 1、brew install ruby
 2、sudo gem install sigh
 
@@ -66,12 +67,13 @@ PS：前三步可以手动操作，点击ipa，右键打开方式，归档实用
 4、把embedded.mobileprovision文件拖到窗口上，回车
 5、好了，resign脚本会自动更改bundel id，签名并重新打包。
 
-
+```bash
 security cms -D -i "embedded.mobileprovision" > t_entitlements_full.plist
 /usr/libexec/PlistBuddy -x -c 'Print:Entitlements' t_entitlements_full.plist > entitlements.plist
 Entitlements=entitlements.plist
 
 codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
+```
 
 ### [实战](https://github.com/Vienta/BlogArticle/tree/master/package)
 设计思路如下图：
