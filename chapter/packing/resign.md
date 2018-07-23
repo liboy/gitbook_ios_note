@@ -43,10 +43,10 @@ zip -r new.ipa Payload
 ### sign脚本
 
 安装好brew，先用brew安装ruby，然后用gem安装sigh。（brew去网上搜一下）
-
-1、brew install ruby
-2、sudo gem install sigh
-
+```bash
+brew install ruby
+sudo gem install sigh
+```
 使用就非常简单了：
 1、输入sigh resign，回车
 2、把要签名的ipa文件拖到窗口上，回车
