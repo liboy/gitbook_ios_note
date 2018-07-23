@@ -51,7 +51,7 @@ gitbook serve
 
 ## 输出 PDF 文件
 ### 下载 Calibre
-生成 PDF 文件依赖于 `ebook-convert`，需要安装 Calibre;
+生成 PDF 文件依赖于 `ebook-convert`，需要安装 [Calibre]();
 
 配置 Calibre 环境变量
 如何配置环境变量参考[这里](http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/)，在 `.bash_profile` 文件加入：
