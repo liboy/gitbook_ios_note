@@ -18,30 +18,6 @@
 
 [Prism 插件地址](https://plugins.gitbook.com/plugin/prism) &nbsp;&nbsp; [prism-themes 插件地址](https://plugins.gitbook.com/plugin/prism-themes)
 
-```json
-{
-    "plugins": [
-        "prism",
-        "-highlight"
-    ],
-    "pluginsConfig": {
-        "prism": {
-            "css": [
-                "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
-            ]
-        }
-    }
-}
-```
-如果需要修改背景色、字体大小等，可以在 `website.css` 定义 `pre[class*="language-"]` 类来修改，下面是一个示例：
-```css
-pre[class*="language-"] {
-    border: none;
-    background-color: #f7f7f7;
-    font-size: 1em;
-    line-height: 1.2em;
-}
-```
 ## Advanced Emoji
 支持emoji表情
 
@@ -61,16 +37,7 @@ pre[class*="language-"] {
 添加github图标
 
 [插件地址](https://plugins.gitbook.com/plugin/github)
-```json
-"plugins": [
-    "github"
-],
-"pluginsConfig": {
-    "github": {
-        "url": "https://github.com/zhangjikai"
-    }
-}
-```
+
 
 ## Emphasize
 为文字加上底色
@@ -81,17 +48,6 @@ pre[class*="language-"] {
     "emphasize"
 ]
 ```
-使用示例:
-
-This text is {% em %}highlighted !{% endem %}
-
-This text is {% em %}highlighted with **markdown**!{% endem %}
-
-This text is {% em type="green" %}highlighted in green!{% endem %}
-
-This text is {% em type="red" %}highlighted in red!{% endem %}
-
-This text is {% em color="#ff0000" %}highlighted with a custom color!{% endem %}
 
 ## KaTex
 为了支持数学公式, 我们可以使用`KaTex`和`MathJax`插件, 官网上说`Katex`速度要快于`MathJax`
@@ -103,17 +59,6 @@ This text is {% em color="#ff0000" %}highlighted with a custom color!{% endem %}
     "katex"
 ]
 ```
-使用示例:
-
-When {% math %}a \ne 0{% endmath %}, there are two solutions to {% math %}(ax^2 + bx + c = 0){% endmath %} and they are {% math %}x = {-b \pm \sqrt{b^2-4ac} \over 2a}.{% endmath %}
-
-$$
-\int_{-\infty}^\infty g(x) dx
-$$
-
-$$
-1 \over 3
-$$
 
 ## Include Codeblock
 使用代码块的格式显示所包含文件的内容. 该文件必须存在。插件提供了一些配置，可以区插件官网查看。如果同时使用 ace 和本插件，本插件要在 ace 插件前面加载。
@@ -133,14 +78,9 @@ $$
     }
 }
 ```
-使用示例:
-
-[import](styles/website.css)
 
 ## Splitter
 使侧边栏的宽度可以自由调节
-
-![](https://raw.githubusercontent.com/yoshidax/gitbook-plugin-splitter/master/gitbook-splitter-demo.gif)  
 
 [插件地址](https://plugins.gitbook.com/plugin/splitter)
 ```json
@@ -155,14 +95,6 @@ $$
 "plugins": [
     "mermaid-gb3"
 ]
-```
-使用示例:
-```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
 ```
 
 
