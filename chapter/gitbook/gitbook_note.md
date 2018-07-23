@@ -50,7 +50,7 @@ gitbook serve
 * 在浏览器中打开 `http://localhost:4000/` 进行访问
 
 ## 输出 PDF 文件
-### 下载 Calibre
+### Calibre
 生成 PDF 文件依赖于 `ebook-convert`，需要安装 [Calibre](https://calibre-ebook.com/);
 
 配置 Calibre 环境变量
@@ -66,7 +66,7 @@ $ source .bash_profile
 ```
 $ echo $PATH
 ```
-输出 PDF 文件
+### 输出 PDF 文件
 ```
 $ gitbook pdf
 ```
