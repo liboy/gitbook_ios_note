@@ -113,7 +113,9 @@ ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Cont
 ```
 
 ## 概念的区别
-[官方文档](https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Targets.html#//apple_ref/doc/uid/TP40009328-CH4-SW1)
+xcode的project的架构图
+![](/assets/packing/auto_build2.png)
+
 ### Workspace
 Workspace是最大的集合，可以包含多个Project，可以管理不同的Project之间的关系。Workspace是以xcworkspace的文件形式存在的。（这点和Project一致）。Workspace的存在是为了解决原来仅有Project的时候不同的Project之间的引用和调用困难的问题。同时，一个Workspace的Project共用一个编译路径。比如使用CocoaPod、或者使用其他开发库/框架。
 
@@ -131,9 +133,10 @@ Scheme包含了一些要构建的Scheme，一些构建时用到的设置，一�
 ## Target
 Target是对应了具体一个想要构建的Product,包含了一些构建这个Product所需的配置和文件（build settings和build phases）。一个Project可以包含多个Target。
 
+>详情参见[官方文档](https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Targets.html#//apple_ref/doc/uid/TP40009328-CH4-SW1)
+
+
 ## 编译
-xcode的project的架构图
-![](/assets/packing/auto_build2.png)
 
 因为 `PackageApplication` 已经弃用，改用 `xcodebuild -exportArchive` ，所以 编译 也改用 archive，xcodebuild archive
 
