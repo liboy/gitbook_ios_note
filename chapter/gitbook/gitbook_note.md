@@ -72,7 +72,7 @@ sudo ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin
 ```
 ### 输出 PDF 文件
 ```
-$ gitbook pdf
+$ gitbook pdf . mypdf.pdf
 ```
 将在根目录下生成了 book.pdf 文件
 
