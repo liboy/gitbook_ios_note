@@ -58,7 +58,10 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 
 ## 实战
 
-https://github.com/yang152412/AutoArchive
+### 实例1[AutoArchive](https://github.com/yang152412/AutoArchive)
+xcode 8后，原来用企业证书 wildcard 打包，会因为没有 APNS 报错，所以只能指定 bundleIdentifier，但是指定之后，就不能和正常上线的 bundleIdentifier 一致了，每次打包就要重新设置一下 bundle identifier。解决方案 1、用两个 target，分开设置。2、makefile 打包的时候分别 设置 企业证书 和 上线证书。本文采用 第二种方案
+
+
 
 设计思路如下图：
 
@@ -66,7 +69,7 @@ https://github.com/yang152412/AutoArchive
 ![](/assets/packing/resign1.png)
 
 
-### 实例的[`Resign-ipa`](https://github.com/Vienta/BlogArticle/tree/master/package)
+### 实例2[`Resign-ipa`](https://github.com/Vienta/BlogArticle/tree/master/package)
 文件夹目录结构如下图：
 [![image](http://upload-images.jianshu.io/upload_images/1253942-565b2e08ff4e0d92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](http://www.vienta.me/img/autopacket/autopacket_10.png) 
 
