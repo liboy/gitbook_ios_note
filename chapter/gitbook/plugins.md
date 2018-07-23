@@ -111,26 +111,6 @@
 }
 ```
 
-下面是一个示例，需要注意的是 `{% graph %}` 块中的内容必须是合法的 JSON 格式。
-```
-{% graph %}
-{
-    "title": "1/x * cos(1/x)",
-    "grid": true,
-    "xAxis": {
-        "domain": [0.01, 1]
-    },
-    "yAxis": {
-        "domain": [-100, 100]
-    },
-    "data": [{
-        "fn": "1/x * cos(1/x)",
-        "closed": true
-    }]
-}
-{% endgraph %}
-```
-
 ## Chart
 使用 C3.js 或者 Highcharts 绘制图形。
 
@@ -149,29 +129,6 @@
 }
 ```
 type 可以是 `c3` 或者 `highcharts`, 默认是 `c3`.
-
-下面是一个示例：
-```
-{% chart %}
-{
-    "data": {
-        "type": "bar",
-        "columns": [
-            ["data1", 30, 200, 100, 400, 150, 250],
-            ["data2", 50, 20, 10, 40, 15, 25]
-        ],
-        "axes": {
-            "data2": "y2"
-        }
-    },
-    "axis": {
-        "y2": {
-            "show": true
-        }
-    }
-}
-{% endchart %}
-```
 
 ## Sharing-plus
 分享当前页面，比默认的 sharing 插件多了一些分享方式。
@@ -251,13 +208,6 @@ plugins: ["expandable-chapters-small"]
       }
 }
 ```
-使用示例
-
-<!--sec data-title="Sectionx Demo" data-id="section0" data-show=true ces-->
-
-Insert markdown content here (you should start with h3 if you use heading).  
-
-<!--endsec-->
 
 ## GA
 Google 统计  
@@ -294,8 +244,8 @@ Google 统计
 ],
 "pluginsConfig": {
     "donate": {
-        "wechat": "https://zhangjikai.com/resource/weixin.png",
-        "alipay": "https://zhangjikai.com/resource/alipay.png",
+        "wechat": "https://liboy.com/resource/weixin.png",
+        "alipay": "https://liboy.com/resource/alipay.png",
         "title": "",
         "button": "赏",
         "alipayText": "支付宝打赏",
