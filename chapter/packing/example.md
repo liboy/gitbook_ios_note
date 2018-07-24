@@ -32,7 +32,6 @@ Entitlements=entitlements.plist
 codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
 
 ```
-
 得到里面的 `Entitlements` 字段
 
 ```
