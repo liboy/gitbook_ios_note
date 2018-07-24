@@ -49,9 +49,9 @@ rm -rf Payload/appName.app/_CodeSignature
 ```
 这一步也可以忽略，在codesign的时候指定"-f"参数，强制替换就的签名
 3. 更换证书
-
+```
 cp newEmbedded.mobileprovision Payload/appName.app/embedded.mobileprovision
-
+```
 4. 生成entitlements.plist文件
 从mobileprovision文件中生成一个完整的plist文件
 ```bash
