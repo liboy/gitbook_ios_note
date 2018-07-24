@@ -19,8 +19,8 @@
 
 
 >注意:
-app是自己Xcode生成的，那这个mobileprovision文件可以直接使用现成的;
-其他人开发的，根据该app包里的info.plist文件的`Bundle identifier`以及`capacity`来生成对应的mobileprovision文件才行
+- app是自己Xcode生成的，那这个mobileprovision文件可以直接使用现成的;
+- 其他人开发的，根据该app包里的info.plist文件的`Bundle identifier`以及`capacity`来生成对应的mobileprovision文件才行
 
 3. 生成entitlements.plist文件
 
