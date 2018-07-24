@@ -27,9 +27,6 @@
 先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
 ```bash
 security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
-Entitlements=entitlements.plist
-
-codesign -f -s "$tcertificationname" --entitlements $Entitlements ${apppackagepath}
 
 ```
 得到里面的 `Entitlements` 字段
