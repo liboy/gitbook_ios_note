@@ -11,7 +11,7 @@
 
 重签名脚本命令
 
-Xcode Build后的app重签名
+### Xcode Build后的app重签名
 1. 有效的证书（可以在钥匙串中查找）
 
 
