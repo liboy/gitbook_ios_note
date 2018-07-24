@@ -40,11 +40,6 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 ```
 /usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
 ```
-比如:
-
-
-
-
 
 要想成功前面，下面四个条件缺一不可
 (1) 证书要正确 
