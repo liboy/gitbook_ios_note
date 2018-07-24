@@ -32,15 +32,10 @@ Entitlements=entitlements.plist
 codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
 ```
 
-我们只是为了得到里面的 “Entitlements”字段，使用如下的命令
-
+得到里面的 `Entitlements` 字段
+```
 /usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  entitlements_full.plist > entitlements.plist
-
-比如:
-
-
-
-得到的结果如下:
+```
 
 
 
