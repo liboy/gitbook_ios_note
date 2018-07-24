@@ -11,25 +11,11 @@
 
 重签名脚本命令
 
-### Xcode Build后的app重签名
+### 的app重签名
 1. 有效的证书（可以在钥匙串中查找）
 
-
-
-
-
 2. mobileprovision 配置描述文件
-
-可以在xcode中找一个有效的，右键 show in finder，将文件复制出来，重命名为embedded.mobileprovision
-
-
-
-
-
-把它拷贝到app的目录里
-
-
-
+可以在xcode中找一个有效的，重命名为`embedded.mobileprovision`拷贝到app的目录里
 
 
 注意:
