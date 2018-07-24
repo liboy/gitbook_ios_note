@@ -36,11 +36,6 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 
 4. 签名
-
-为了重新设置签名，你必须带上-f 参数，有了这个参数，codesign 会用你选择的签名替换掉已经存在的那一个：
-
-
-
 同时签名的时候，需要带上entitlements.plist文件
 ```
 /usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
