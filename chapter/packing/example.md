@@ -53,6 +53,7 @@ rm -rf Payload/appName.app/_CodeSignature
 cp newEmbedded.mobileprovision Payload/appName.app/embedded.mobileprovision
 ```
 4. 生成entitlements.plist文件
+
 从mobileprovision文件中生成一个完整的plist文件
 ```bash
 security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
