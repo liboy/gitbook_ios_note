@@ -44,8 +44,9 @@ unzip -qo "$SOURCE_IPA" -d "$TEMP_DIR"
 -d:指明将文件解压缩的目录；
 ```
 2. 删除旧的代码签名
+```
 rm -rf Payload/appName.app/_CodeSignature
-
+```
 这一步也可以忽略，在codesign的时候指定"-f"参数，强制替换就的签名
 3. 更换证书
 
