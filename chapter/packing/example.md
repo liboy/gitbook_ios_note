@@ -33,7 +33,6 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 
 ```
 得到里面的 `Entitlements` 字段
-
 ```
 /usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  entitlements_full.plist > entitlements.plist
 ```
