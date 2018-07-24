@@ -18,24 +18,15 @@
 可以在xcode中找一个有效的，重命名为`embedded.mobileprovision`拷贝到app的目录里
 
 
-注意:
-
+>注意:
 这里的app如果是自己Xcode生成的，那这个mobileprovision文件可以直接使用现成的;如果是其他人开发的，那就要根据该app的Bundle identifier以及capacity来生成对应的mobileprovision文件才行
 
-Bundle identifier可以通过app包里的info.plist文件查看
+3. 生成entitlements.plist文件
 
-
-
-3.  生成entitlements.plist文件
-
-先通过“security”命令，从mobileprovision文件中生成一个完整的plist文件
+先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
 
 security cms -D -i "mobileprovision文件" > "entitlements文件"
 比如:
-
-
-
-
 
 生成的plist文件如下:
 
