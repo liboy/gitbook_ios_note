@@ -65,11 +65,7 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 ```
 /usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
 ```
-
-
-同上(App的重签名)
-
 6. 重新打包，生成新的ipa
-
-
+```
 zip -r New_ appName.ipa Payload
+```
