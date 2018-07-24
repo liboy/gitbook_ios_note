@@ -49,8 +49,8 @@ sudo gem install sigh
 5、好了，resign脚本会自动更改bundel id，签名并重新打包。
 
 ```bash
-security cms -D -i "embedded.mobileprovision" > t_entitlements_full.plist
-/usr/libexec/PlistBuddy -x -c 'Print:Entitlements' t_entitlements_full.plist > entitlements.plist
+security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
+/usr/libexec/PlistBuddy -x -c 'Print:Entitlements' entitlements_full.plist > entitlements.plist
 Entitlements=entitlements.plist
 
 codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
