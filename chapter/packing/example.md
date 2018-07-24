@@ -67,5 +67,5 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 ```
 6. 重新打包，生成新的ipa
 ```
-zip -r New_ appName.ipa Payload
+zip -r New_appName.ipa Payload
 ```
