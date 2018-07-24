@@ -25,12 +25,13 @@
 3. 生成entitlements.plist文件
 
 先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
-```
-security cms -D -i "mobileprovision文件" > "entitlements文件"
-```
-比如:
+```bash
+security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
+/usr/libexec/PlistBuddy -x -c 'Print:Entitlements' entitlements_full.plist > entitlements.plist
+Entitlements=entitlements.plist
 
-生成的plist文件如下:
+codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
+```
 
 
 

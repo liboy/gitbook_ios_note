@@ -48,13 +48,7 @@ sudo gem install sigh
 4、把embedded.mobileprovision文件拖到窗口上，回车
 5、好了，resign脚本会自动更改bundel id，签名并重新打包。
 
-```bash
-security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
-/usr/libexec/PlistBuddy -x -c 'Print:Entitlements' entitlements_full.plist > entitlements.plist
-Entitlements=entitlements.plist
 
-codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
-```
 
 ## 实战
 
