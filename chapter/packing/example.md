@@ -54,8 +54,9 @@ cp newEmbedded.mobileprovision Payload/appName.app/embedded.mobileprovision
 ```
 4. 生成entitlements.plist文件
 
-从mobileprovision文件中生成一个完整的plist文件
+
 ```bash
+#从mobileprovision文件中生成一个完整的plist文件
 security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 ```
