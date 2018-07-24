@@ -29,7 +29,7 @@
 security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 Entitlements=entitlements.plist
 
-codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagepath}
+codesign -f -s "$tcertificationname" --entitlements $Entitlements ${apppackagepath}
 
 ```
 得到里面的 `Entitlements` 字段
@@ -46,7 +46,7 @@ codesign -f -s "$tcertificationname" --entitlements $Entitlements ${tapppackagep
 
 同时签名的时候，需要带上entitlements.plist文件
 
-/usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件"
+/usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
 
 比如:
 
