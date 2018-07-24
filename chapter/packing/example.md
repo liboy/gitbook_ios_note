@@ -42,9 +42,9 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 
 同时签名的时候，需要带上entitlements.plist文件
-
+```
 /usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
-
+```
 比如:
 
 
@@ -52,7 +52,6 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 
 要想成功前面，下面四个条件缺一不可
-
 (1) 证书要正确 
 
 如果前面过程中，出现证书错误问题，请参考:签名证书错误
@@ -64,14 +63,6 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 (3) 里面的framework都要签名，比如appx, dylib, framework 
 
 (4)授权机制(entitlements.plist)文件
-
-如果签名时，没有带上这个文件或者没有全部的组件签名，则会一直处于"正在安装"状态,手机上始终没有该APP。
-
-
-
-
-
-签名的相关细节:代码签名探析
 
 
 
