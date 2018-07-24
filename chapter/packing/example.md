@@ -23,17 +23,15 @@
 - 其他人开发的，根据该app包里的info.plist文件的`Bundle identifier`以及`capacity`来生成对应的mobileprovision文件才行
 
 3. 生成entitlements.plist文件
-
 先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
 ```bash
 security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 ```
-得到里面的 `Entitlements` 字段
+得到 `Entitlements` 字段
 ```
 /usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  entitlements_full.plist > entitlements.plist
 ```
-
 
 4. 签名
 同时签名的时候，需要带上entitlements.plist文件
@@ -54,22 +52,13 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
 (4)授权机制(entitlements.plist)文件
 
-
-
-Xcode生成Archive包的重签名
-Archive包跟上面APP是类似的，我们只要进入Archive包，对里面的APP重签名即可
-
-
-
-
-
-Xcode导出的IPA的重签名
-1. 解压IPA
-
+## IPA的重签名
+### 解压IPA
+```
 unzip -qo "$SOURCE_IPA" -d "$TEMP_DIR"
 -o:不提示的情况下覆盖文件；
 -d:指明将文件解压缩的目录；
-
+```
 2. 删除旧的代码签名
 rm -rf Payload/appName.app/_CodeSignature
 
