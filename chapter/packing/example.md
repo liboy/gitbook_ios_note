@@ -53,7 +53,7 @@ security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 (4)授权机制(entitlements.plist)文件
 
 ## IPA的重签名
-### 解压IPA
+- 解压IPA
 ```
 unzip -qo "$SOURCE_IPA" -d "$TEMP_DIR"
 -o:不提示的情况下覆盖文件；
