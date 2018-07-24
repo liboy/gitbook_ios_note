@@ -24,8 +24,9 @@
 3. 生成entitlements.plist文件
 
 先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
-
+```
 security cms -D -i "mobileprovision文件" > "entitlements文件"
+```
 比如:
 
 生成的plist文件如下:
