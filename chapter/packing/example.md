@@ -22,22 +22,6 @@
 - app是自己Xcode生成的，那这个`mobileprovision`文件可以直接使用现成的;
 - 其他人开发的，根据该app包里的info.plist文件的`Bundle identifier`以及`capacity`来生成对应的mobileprovision文件才行
 
-3. 生成entitlements.plist文件
-先通过`security`命令，从mobileprovision文件中生成一个完整的plist文件
-```bash
-security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
-
-```
-得到 `Entitlements` 字段
-```
-/usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  entitlements_full.plist > entitlements.plist
-```
-
-4. 签名
-同时签名的时候，需要带上entitlements.plist文件
-```
-/usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
-```
 
 要想成功前面，下面四个条件缺一不可
 (1) 证书要正确 
@@ -68,9 +52,20 @@ rm -rf Payload/appName.app/_CodeSignature
 cp newEmbedded.mobileprovision Payload/appName.app/embedded.mobileprovision
 
 4. 生成entitlements.plist文件
-同上(App的重签名)
+从mobileprovision文件中生成一个完整的plist文件
+```bash
+security cms -D -i "embedded.mobileprovision" > entitlements_full.plist
 
+```
+得到 `Entitlements` 字段
+```
+/usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  entitlements_full.plist > entitlements.plist
+```
 5. 签名
+```
+/usr/bin/codesign --continue -f -s "证书" --entitlements "entitlements文件"  "需要签名的app文件path"
+```
+
 
 同上(App的重签名)
 
