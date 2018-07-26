@@ -43,3 +43,62 @@ history |grep "defaults delete"
 history |grep "defaults write com.apple.finder"
 复制代码
 大多数程序都可以通过这样的方式找到，苹果的程序一般都是使用‘com.apple.appname’ 这样的语句。
+
+---
+隐藏与显示系统文件
+
+>>defaults write com.apple.finder AppleShowAllFiles -bool (true or false)
+
+>>killall Finder
+
+ 
+
+改变系统默认截图文件属性
+
+>>defaults write com.apple.screencapture type (jpg, jpeg, png)
+
+ 
+
+双击打不开文件夹
+
+>>去系统设置中将鼠标连击速度改为中等即可
+
+ 
+
+使用sips批量缩放图片大小
+
+>>sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
+
+把someImage.PNG转换为最长边为250的myImage.JPEG。//什么叫最长边，比如我有张图它的比例是750*460，那么如果我用大Z的话，转出来的结果应该是250 * 153 （460 * （250/750))，这就是最大边。 但如果我想硬改为250 * 250 呢？命令如下:
+
+>>sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
+
+不信，你就试试！
+
+ 
+
+zip 命令
+
+>>
+
+最通俗的用法
+
+zip -q -r -e -m -o [yourName].zip someThing
+
+-q 表示不显示压缩进度状态
+
+-r 表示子目录子文件全部压缩为zip  //这部比较重要，不然的话只有something这个文件夹被压缩，里面的没有被压缩进去
+
+-e 表示你的压缩文件需要加密，终端会提示你输入密码的
+
+// 还有种加密方法，这种是直接在命令行里做的，比如zip -r -P Password01! modudu.zip SomeDir, 就直接用Password01!来加密modudu.zip了。
+
+-m 表示压缩完删除原文件
+
+-o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
+
+ 
+
+当跨目录的时候是这么操作的
+
+zip -q -r -e -m -o '\user\someone\someDir\someFile.zip' '\users\someDir'
