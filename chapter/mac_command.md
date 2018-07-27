@@ -52,9 +52,10 @@ history |grep "defaults write com.apple.finder"
 ```
 大多数程序都可以通过这样的方式找到，苹果的程序一般都是使用‘com.apple.appname’ 这样的语句。
 
----
 
 ## `sips`命令
+---
+
 使用`sips`批量缩放图片大小
 ```
 sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
