@@ -71,12 +71,11 @@ sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
 
 ## zip 命令
 
->>
 
 最通俗的用法
-
+```
 zip -q -r -e -m -o [yourName].zip someThing
-
+```
 -q 表示不显示压缩进度状态
 
 -r 表示子目录子文件全部压缩为zip  //这部比较重要，不然的话只有something这个文件夹被压缩，里面的没有被压缩进去
