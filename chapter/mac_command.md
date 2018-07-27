@@ -28,27 +28,26 @@ killall Safari
 default write com.apple.dt.Xcode ShowBuildOperationDuration YES
 ```
 
-5 查看所有执行过的Defaults命令包括 defaults write, defaults read, defaults delete
+查看所有执行过的Defaults命令包括 defaults write, defaults read, defaults delete
+```
 history |grep "defaults"
-复制代码
+```
 分类查看也可以，只查看执行过的defaults write命令：
+```
 history |grep "defaults write"
-复制代码
+```
 只查看执行过的defaults delete命令：
+```
 history |grep "defaults delete"
-复制代码
+```
 查看关于某一个程序的defaults命令：
 如果我们想查找有关某一个程序或者进程（Finder、Dock、Safari等）的命令，那么我们可以通过更改下面命令的字符来实现，例如下面要查找影响过Finder的defaults命令：
+```
 history |grep "defaults write com.apple.finder"
-复制代码
+```
 大多数程序都可以通过这样的方式找到，苹果的程序一般都是使用‘com.apple.appname’ 这样的语句。
 
 ---
-隐藏与显示系统文件
-
->>defaults write com.apple.finder AppleShowAllFiles -bool (true or false)
-
->>killall Finder
 
  
 
