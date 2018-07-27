@@ -54,18 +54,10 @@ history |grep "defaults write com.apple.finder"
 
 ---
 
- 
-
-双击打不开文件夹
-
->>去系统设置中将鼠标连击速度改为中等即可
-
- 
-
-使用sips批量缩放图片大小
-
->>sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
-
+使用`sips`批量缩放图片大小
+```
+sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
+```
 把someImage.PNG转换为最长边为250的myImage.JPEG。//什么叫最长边，比如我有张图它的比例是750*460，那么如果我用大Z的话，转出来的结果应该是250 * 153 （460 * （250/750))，这就是最大边。 但如果我想硬改为250 * 250 呢？命令如下:
 
 >>sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
