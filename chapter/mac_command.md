@@ -23,7 +23,7 @@ defaults write com.apple.safari IncludeDebugMenu -bool YES
 killall Safari
 ```
 
-### 显示Xcode build的所用时间
+### 显示`Xcode` `build`的所用时间
 ```
 default write com.apple.dt.Xcode ShowBuildOperationDuration YES
 ```
