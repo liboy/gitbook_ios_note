@@ -85,12 +85,13 @@ zip -q -r -e -m -o [yourName].zip someThing
 
 - -o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
 
-加密方法，比如
+### 加密
 ```
-zip -r -P Password01! modudu.zip SomeDir, 就直接用Password01!来加密modudu.zip了。
+#用`Password01!`来加密`modudu.zip`
+zip -r -P Password01! modudu.zip SomeDir
 ```
 
-当跨目录的时候是这么操作的
+### 跨目录操作
 ```
 zip -q -r -e -m -o '\user\someone\someDir\someFile.zip' '\users\someDir'
 ```
