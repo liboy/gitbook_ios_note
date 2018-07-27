@@ -69,9 +69,7 @@ sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
 sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
 ```
 
- 
-
-zip 命令
+## zip 命令
 
 >>
 
