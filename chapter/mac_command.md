@@ -45,12 +45,12 @@ history |grep "defaults write"
 ```
 history |grep "defaults delete"
 ```
-查看关于某一个程序的defaults命令：
-如果我们想查找有关某一个程序或者进程（Finder、Dock、Safari等）的命令，那么我们可以通过更改下面命令的字符来实现，例如下面要查找影响过Finder的defaults命令：
+
+查找影响过Finder的defaults命令：
 ```
+#com.apple.appname
 history |grep "defaults write com.apple.finder"
 ```
-大多数程序都可以通过这样的方式找到，苹果的程序一般都是使用‘com.apple.appname’ 这样的语句。
 
 
 ## `sips`命令
