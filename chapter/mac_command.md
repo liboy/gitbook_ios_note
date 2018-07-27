@@ -55,7 +55,7 @@ history |grep "defaults write com.apple.finder"
 
 ## `sips`命令
 
-使用`sips`批量缩放图片大小
+批量缩放图片大小
 ```
 sips -s format jpeg -Z 250 someImage.PNG --out myImage.JPEG
 ```
