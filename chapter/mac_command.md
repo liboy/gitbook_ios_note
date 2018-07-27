@@ -71,7 +71,6 @@ sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
 ## `zip`命令
 
 
-最通俗的用法
 ```
 zip -q -r -e -m -o [yourName].zip someThing
 ```
