@@ -75,18 +75,20 @@ sips -s format jpeg -z 250 250 someImage.PNG --out myImage.JPEG
 ```
 zip -q -r -e -m -o [yourName].zip someThing
 ```
--q 表示不显示压缩进度状态
+- -q 表示不显示压缩进度状态
 
--r 表示子目录子文件全部压缩为zip  //这部比较重要，不然的话只有something这个文件夹被压缩，里面的没有被压缩进去
+- -r 表示子目录子文件全部压缩为zip  //这部比较重要，不然的话只有something这个文件夹被压缩，里面的没有被压缩进去
 
--e 表示你的压缩文件需要加密，终端会提示你输入密码的
+- -e 表示你的压缩文件需要加密，终端会提示你输入密码的
 
-// 还有种加密方法，这种是直接在命令行里做的，比如zip -r -P Password01! modudu.zip SomeDir, 就直接用Password01!来加密modudu.zip了。
+- -m 表示压缩完删除原文件
 
--m 表示压缩完删除原文件
+- -o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
 
--o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
-
+加密方法，比如
+```
+zip -r -P Password01! modudu.zip SomeDir, 就直接用Password01!来加密modudu.zip了。
+```
 
 当跨目录的时候是这么操作的
 ```
