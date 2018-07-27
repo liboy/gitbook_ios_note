@@ -88,8 +88,8 @@ zip -q -r -e -m -o [yourName].zip someThing
 
 -o 表示设置所有被压缩文件的最后修改时间为当前压缩时间
 
- 
 
 当跨目录的时候是这么操作的
-
+```
 zip -q -r -e -m -o '\user\someone\someDir\someFile.zip' '\users\someDir'
+```
