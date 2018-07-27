@@ -23,6 +23,11 @@ defaults write com.apple.safari IncludeDebugMenu -bool YES
 killall Safari
 ```
 
+### 改变系统默认截图文件属性
+```
+defaults write com.apple.screencapture type (jpg, jpeg, png)
+```
+
 ### 显示`Xcode`的`build`的所用时间
 ```
 default write com.apple.dt.Xcode ShowBuildOperationDuration YES
@@ -48,12 +53,6 @@ history |grep "defaults write com.apple.finder"
 大多数程序都可以通过这样的方式找到，苹果的程序一般都是使用‘com.apple.appname’ 这样的语句。
 
 ---
-
- 
-
-改变系统默认截图文件属性
-
->>defaults write com.apple.screencapture type (jpg, jpeg, png)
 
  
 
