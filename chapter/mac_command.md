@@ -1,6 +1,9 @@
-# defaults 命令详解
+# Mac常用命令
 
-defaults:该命令 访问和修改Mac 上一些系统的默认设置（access the Mac OS X user defaults system）
+## defaults 命令详解
+
+defaults:该命令 
+访问和修改Mac 上一些系统的默认设置（access the Mac OS X user defaults system）
 1 隐藏DashBoard
 ```
 defaults write com.apple.dashboard mcx-disabled -boolean YES
