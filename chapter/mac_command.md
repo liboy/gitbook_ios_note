@@ -33,20 +33,19 @@ defaults write com.apple.screencapture type (jpg, jpeg, png)
 default write com.apple.dt.Xcode ShowBuildOperationDuration YES
 ```
 
-查看所有执行过的Defaults命令包括 defaults write, defaults read, defaults delete
+### 查看所有执行过的Defaults命令
 ```
 history |grep "defaults"
 ```
-分类查看也可以，只查看执行过的defaults write命令：
+- 查看执行过的defaults write命令：
 ```
 history |grep "defaults write"
 ```
-只查看执行过的defaults delete命令：
+- 查看执行过的defaults delete命令：
 ```
 history |grep "defaults delete"
 ```
-
-查找影响过Finder的defaults命令：
+- 查找影响过Finder的defaults命令：
 ```
 #com.apple.appname
 history |grep "defaults write com.apple.finder"
