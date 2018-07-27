@@ -17,17 +17,16 @@ defaults write com.apple.finder AppleShowAllFiles true
 killall Finder
 ```
 
-
-3显示Safari调试菜单
-1
-2
+### 显示Safari调试菜单
+```
 defaults write com.apple.safari IncludeDebugMenu -bool YES
 killall Safari
-4 显示Xcode 每一次build的所用时间
-1
-2
-default write com.apple.dt.Xcode ShowBuildOperationDuration YES
+```
 
+### 显示Xcode 每一次build的所用时间
+```
+default write com.apple.dt.Xcode ShowBuildOperationDuration YES
+```
 显示 
 
 5 查看所有执行过的Defaults命令包括 defaults write, defaults read, defaults delete
