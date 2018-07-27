@@ -3,7 +3,7 @@
 ## `defaults`命令
 访问和修改Mac 上一些系统的默认设置（access the Mac OS X user defaults system）
 
-### 隐藏DashBoard
+### 隐藏`DashBoard`仪表盘
 ```
 defaults write com.apple.dashboard mcx-disabled -boolean YES
 killall Dock
