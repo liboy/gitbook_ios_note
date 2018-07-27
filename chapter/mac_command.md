@@ -5,8 +5,7 @@
 
 ### 显示隐藏`DashBoard`仪表盘
 ```
-#若需恢复，将YES替换为NO即可
-defaults write com.apple.dashboard mcx-disabled -boolean YES
+defaults write com.apple.dashboard mcx-disabled -boolean (YES or NO)
 killall Dock
 ```
 
