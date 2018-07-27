@@ -3,15 +3,14 @@
 ## `defaults`命令
 访问和修改Mac 上一些系统的默认设置（access the Mac OS X user defaults system）
 
-### 隐藏`DashBoard`仪表盘
+### 显示隐藏`DashBoard`仪表盘
 ```
+#若需恢复，将YES替换为NO即可。
 defaults write com.apple.dashboard mcx-disabled -boolean YES
 killall Dock
 ```
-DashBoard里面有很多小工具，可惜并不是对每个人有用，通过上述命令即可隐藏，若需恢复，将YES替换为NO即可。
 
-
-2 显示隐藏文件
+### 显示隐藏文件
 1
 2
 defaults write com.apple.finder AppleShowAllFiles true
