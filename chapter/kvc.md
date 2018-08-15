@@ -14,7 +14,7 @@
 ```
 - valueForKey: 传入NSString属性的名字。
 - valueForKeyPath: 属性的路径`xx.xx`
-- `valueForUndefinedKey`: 默认实现是抛出异常，可重写这个函数
+- valueForUndefinedKey: 默认实现是抛出异常，可重写这个函数
     做错误处理
 ```
 
