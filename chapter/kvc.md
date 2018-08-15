@@ -11,7 +11,7 @@
 
 * 获取值
 
-```
+```objectivec
 - valueForKey: 传入NSString属性的名字。
 - valueForKeyPath: 属性的路径xx.xx
 - valueForUndefinedKey: 默认实现是抛出异常，可重写这个函数
