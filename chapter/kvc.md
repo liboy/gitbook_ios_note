@@ -10,9 +10,13 @@
 ## KVC使用
 
 * 获取值
-    - valueForKey: 传入NSString属性的名字。
-    - valueForKeyPath: 属性的路径`xx.xx`
-    - valueForUndefinedKey: 默认实现是抛出异常，可重写这个函数做错误处理
+
+```
+- valueForKey: 传入NSString属性的名字。
+- valueForKeyPath: 属性的路径`xx.xx`
+- `valueForUndefinedKey`: 默认实现是抛出异常，可重写这个函数
+    做错误处理
+```
 
 * 修改值
     - setValue:forKey:
