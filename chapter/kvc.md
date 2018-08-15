@@ -30,7 +30,7 @@
 ## 实现分析
 KVC通过`isa-swizzing`实现其内部查找定位。`isa`指针（is kind of 的意思）指向维护方法表的对象的类，每个类都有一张方法表，是一个hash表，
 - 值是函数指针IMP
-- 键key->SEL的名称
+- 键`key->SEL`的名称
 
 ```objectivec
 [site setValue:@"sitename" forKey:@"name"];
