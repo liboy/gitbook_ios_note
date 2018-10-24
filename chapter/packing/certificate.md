@@ -234,7 +234,7 @@ source ~/.bash_profile
 ```
 或软连接
 ```
-ln -s /usr/local/Cellar/openssl/1.0.2j/bin/openssl /usr/local/bin
+ln -s /usr/local/Cellar/openssl/1.0.2p/bin/openssl /usr/local/bin
 ```
 注意：`/usr/local/Cellar/openssl/1.0.2o_1/bin/` 该路径请按照你实际情况来更改,通常是1.0.2o_1这个文件夹不同！
 
