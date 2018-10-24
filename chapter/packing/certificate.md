@@ -232,7 +232,7 @@ $ which openssl
 echo 'export PATH="/usr/local/Cellar/openssl/1.0.2p/bin/:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 ```
-或创建软连接
+或软连接
 ```
 ln -s /usr/local/Cellar/openssl/1.0.2j/bin/openssl /usr/local/bin
 ```
